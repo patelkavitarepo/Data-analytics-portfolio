@@ -1,0 +1,31 @@
+{
+  "source_url": "https://raw.githubusercontent.com/plotly/datasets/0c447c47b757ad74edecab31f0d72f849d2e67c2/all_stocks_5yr.csv",
+  "retrieved_at_utc": "2026-11-09T21:32:29.191506+00:00",
+  "source_sha256": "6aea253cd19de60b568143991aaf1fa482456565c389205658d236e595e716cf",
+  "subset_sha256": "750f49bdd906d8ce6e19fa7ff257ae20b922e723f0796e138000a49e4ae44b8d",
+  "transformation": "Filter Name to AAPL, AMZN, GOOG, MSFT; rename Name to symbol; serialize CSV. No price modifications.",
+  "rows": 4752,
+  "coverage": {
+    "AAPL": {
+      "min": "2013-02-08",
+      "max": "2018-02-07",
+      "count": 1259
+    },
+    "AMZN": {
+      "min": "2013-02-08",
+      "max": "2018-02-07",
+      "count": 1259
+    },
+    "GOOG": {
+      "min": "2014-03-27",
+      "max": "2018-02-07",
+      "count": 975
+    },
+    "MSFT": {
+      "min": "2013-02-08",
+      "max": "2018-02-07",
+      "count": 1259
+    }
+  },
+  "adjustment_status": "Unverified. Treat as historical OHLC price observations, not total returns."
+}
