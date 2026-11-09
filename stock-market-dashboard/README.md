@@ -20,14 +20,69 @@ python -m pip install -r requirements.txt
 streamlit run app.py
 ```
 
-Open http://localhost:8501. Run commands from this project folder so Streamlit
-loads `.streamlit/config.toml`. The first launch creates `data/market.sqlite`
+Open http://localhost:8501 on the computer running Streamlit. This local URL
+will not open the app from a separate iPad. Use Community Cloud below for an HTTPS link.
+Both repository-root and project-folder launches include Streamlit theme configuration. The first launch creates `data/market.sqlite`
 from the bundled real historical CSV. No API key or network connection is needed
 after dependency installation. The database is local and excluded from Git.
 
 For the exact dependency versions validated on Python 3.12/Linux, install
 `requirements-lock.txt` instead. The lock includes development tools. The ranges
 in `requirements.txt` support normal installations; the lock is the reproducibility reference.
+
+## Deploy to Streamlit Community Cloud (including iPad Safari)
+
+Use these exact settings when creating an app at https://share.streamlit.io/:
+
+| Setting | Value |
+| --- | --- |
+| Repository | `patelkavitarepo/Data-analytics-portfolio` |
+| Branch | `feat/stock-market-dashboard` |
+| Main file path | `stock-market-dashboard/app.py` |
+| Python version (Advanced settings) | `3.12` |
+| Secrets | None required |
+
+1. Sign in to Streamlit Community Cloud with GitHub and authorize access to this repository.
+2. Choose **Create app** (or **New app**), then deploy from an existing GitHub repository.
+3. Enter the repository, feature branch, and main file path above. Select Python 3.12 in Advanced settings and deploy.
+4. Wait for the build to finish. Open the HTTPS `https://<your-app-name>.streamlit.app` URL shown by Streamlit in Safari on your iPad. This placeholder is not an already deployed address.
+5. For an app intended for anyone with the link, check its sharing/access settings. A restricted app requires viewers to sign in. On a narrow screen, expand the sidebar with the top-left arrow to access stock and date filters. Rotate the iPad to landscape for wider charts.
+
+The branch can be deployed before the pull request is merged. Community Cloud
+tracks the selected branch; later pushes to it update that deployment. No merge
+is needed for this setup. After an approved merge, you can configure a deployment
+against `main` instead.
+
+### Hosted environment behavior
+
+- Root `requirements.txt` references the runtime requirements beside `app.py`;
+  both supported dependency discovery locations use the same package list.
+  No system packages, API keys, browser automation packages, or external data
+  download are required for the running app.
+- Imports resolve from the app's script directory. CSV and SQLite paths use
+  `Path(__file__).resolve().parent`, independent of the working directory.
+- `data/history.csv` and `data/provenance.json` are tracked in Git. On a fresh
+  instance, the app validates the bundled CSV and creates `data/market.sqlite`.
+  The generated database is intentionally not committed.
+- The hosted filesystem is ephemeral. Reboots/redeployments can remove local
+  SQLite changes; the bundled data is automatically restored. This application
+  is a shared, read-only dashboard after initialization, not durable multi-user
+  data storage. Commit any intended dataset updates through review.
+- Root `.streamlit/config.toml` supplies the hosted theme and disables telemetry.
+  The matching project config supports local launches. Keep these files in sync.
+- Do not publish a fixed local port or localhost URL. Community Cloud manages
+  routing, HTTPS, and WebSocket connections for the browser.
+
+To simulate the hosted command from the repository root:
+
+```bash
+python -m pip install -r requirements.txt
+python -m streamlit run stock-market-dashboard/app.py --server.headless true
+```
+
+The project is prepared for deployment; signing in and pressing Deploy creates
+the actual public/restricted URL. Local Chromium checks are not a physical-device
+Safari test. Verify the deployed URL on your iPad after the first deployment.
 
 ## Explore the dashboard
 

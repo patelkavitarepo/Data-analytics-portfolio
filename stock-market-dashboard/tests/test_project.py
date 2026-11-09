@@ -95,3 +95,21 @@ def test_invalid_import_is_atomic(tmp_path, sample):
     sample.loc[0, 'close'] = -1
     with pytest.raises(ValueError): ingest(db, sample)
     assert len(query(db, ['TEST'], '2020-01-01', '2020-01-04')) == 4
+
+
+def test_cloud_configuration():
+    import tomllib
+    repo = ROOT.parent
+    root_config = tomllib.loads((repo / '.streamlit/config.toml').read_text())
+    project_config = tomllib.loads((ROOT / '.streamlit/config.toml').read_text())
+    assert root_config == project_config
+    assert root_config['browser']['gatherUsageStats'] is False
+    assert '-r stock-market-dashboard/requirements.txt' in (repo / 'requirements.txt').read_text()
+
+
+def test_dashboard_from_unrelated_working_directory(monkeypatch, tmp_path):
+    from streamlit.testing.v1 import AppTest
+    monkeypatch.chdir(tmp_path)
+    app = AppTest.from_file(str(ROOT / 'app.py')).run(timeout=30)
+    assert not app.exception
+    assert len(app.metric) == 4

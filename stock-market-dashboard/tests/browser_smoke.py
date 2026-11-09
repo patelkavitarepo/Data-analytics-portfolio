@@ -10,7 +10,7 @@ def main():
         page = browser.new_page(viewport={'width': 1440, 'height': 1080})
         errors = []
         page.on('pageerror', lambda error: errors.append(str(error)))
-        page.goto('http://127.0.0.1:8501', wait_until='networkidle')
+        page.goto(os.environ.get('APP_URL', 'http://127.0.0.1:8501'), wait_until='networkidle')
         page.get_by_text('Growth of $100', exact=False).wait_for(timeout=30000)
         assert page.get_by_test_id('stMetric').count() == 4
         for tab, title in [('Risk & relationships', 'Daily return correlation'),
