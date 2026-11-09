@@ -1,0 +1,18 @@
+# Competition inputs and derived observations stay private.
+data/
+artifacts/
+*.parquet
+*.csv
+*.zip
+*.7z
+*.sqlite*
+*.pkl
+*.joblib
+*.npy
+*.npz
+.env*
+kaggle.json
+.kaggle/
+.venv/
+__pycache__/
+.pytest_cache/
