@@ -153,3 +153,27 @@ The draft in `CVR-D005/README.md` is AI analytical assistance. Its stress quanti
 history lengths, evidence criteria, uncertainty methods and validation procedures
 are proposals, **not human-approved parameters or findings**. No approval of those
 proposals, interpretation of new results, or final relationship is recorded here.
+
+## D006 — 2026-11-10 UTC — D005 methodology and feasibility approval
+
+The lead approved the D005 evidence-profile methodology and discovery-only
+feasibility phase. The ultimate human objective is a context-aware volatility
+forecasting model that evaluates multiple reference stocks, compares reliability,
+recognizes overlapping information and can decline to use unreliable relationships.
+The original D001 hypothesis is preserved; this is not a requirement to find peers.
+
+Authorized now: assess independent stress support, historical-window/stress-definition
+comparisons without selecting strong-looking associations, precision, uncertainty,
+episode dependence, market-severity explanations, retrospective cleaning and uneven
+coverage. Explain what evidence is attainable and what additional data would be
+needed if support is insufficient. Distinguish simultaneous co-stress from future
+predictive information. Do not weaken standards to obtain results.
+
+Explicit boundaries: preserve 2016–2018 relationship outcomes; do not inspect them,
+train models, rank reference stocks, invent numerical reliability gates or weighted
+scores, or merge. Ask for lead approval before final relationship criteria.
+
+The fixed feasibility grid and diagnostics in `feasibility-D006/design.json` are
+AI implementation choices implementing this approval, not parameters independently
+chosen by the lead. Results and recommendations are recorded separately below
+and in IMPLEMENTATION.md, never as human conclusions or approvals.
