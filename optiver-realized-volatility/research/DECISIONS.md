@@ -234,3 +234,23 @@ The frozen completed foundation is commit
 `db4d868a46e7436afcfb41668fcf229a7860d978`, to be tagged
 `research-d001-d006-freeze`. Subsequent logs are append-only research chronology;
 no earlier finding is rewritten to support a forecasting result.
+
+## D009 — 2026-11-10 UTC — Approve D008 implementation and metric-disagreement analysis
+
+The lead approved the D008 three-model experiment and chronological validation
+plan and authorized full implementation, testing, training, failure analysis,
+documentation and an interactive Streamlit dashboard. Do not stop at another plan.
+
+Additional human requirement: investigate disagreements between RMSPE and
+absolute-error metrics, especially when actual volatility is very small. Do not
+silently exclude difficult observations or change metrics to improve results.
+Present actual results, comparisons and failure cases in plain English before
+making conclusions; preserve human interpretation and research ownership.
+
+Keep exactly the approved historical-volatility, stock-specific and stock-plus-
+market models. No additional architectures, scoring systems or dataset searches.
+Preserve the frozen D001–D006 foundation, advanced hypothesis and reserved
+2016–2018 evaluation period. Project 001 stays unchanged; PR #2 stays unmerged.
+Implementation settings are recorded before training in
+`forecast-D008/design.json`; no future model score or conclusion is attributed
+to the lead in this decision entry.
