@@ -32,6 +32,7 @@ python scripts/investigate_consecutive_invoices.py
 python scripts/investigate_invoice_batches.py
 python scripts/investigate_population_batches.py
 python scripts/investigate_sheet_overlap.py
+python scripts/build_reversible_layer.py
 python -m pytest -q
 ```
 
@@ -41,7 +42,7 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The download command obtains the official UCI workbook. The seven analyses save JSON results in `outputs/`, including `population_batch_prevalence.json` and `annual_sheet_overlap.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 36 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
+The download command obtains the official UCI workbook. The eight analyses save JSON results in `outputs/`, including `population_batch_prevalence.json`, `annual_sheet_overlap.json`, and `reversible_layer_audit.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 42 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
 
 **Hypothesis H001 follow-up:** [operational adjustment evidence](docs/H001_FOLLOW_UP.md) — description keyword checks, large-quantity case examples, and conservative interpretation limits. No cause or inventory-loss total is asserted. No source lines have been dropped or reclassified.
 
@@ -54,6 +55,8 @@ The download command obtains the official UCI workbook. The seven analyses save 
 **Investigation 006 — full population:** [invoice-sequence prevalence and comparison](docs/POPULATION_BATCH_FINDINGS.md). About 66.8% of candidate sheet-specific invoice instances belong to short consecutive runs, compared with 67.6% of positive-priced invoices; clustering itself is therefore not diagnostic. All 3,457 candidate lines are in one-line, candidate-only invoice instances. A possible **cross-sheet overlap** needs verification before aggregating invoices across years.
 
 **Investigation 007 — annual worksheet overlap:** [confirmed repeated December 2010 records](docs/ANNUAL_SHEET_OVERLAP.md). The two annual worksheets contain **22,523 exact matching line copies** across **1,088 fully matching shared invoices**. All matches occur in December 2010. A naive positive-quantity, positive-price line-total calculation would count an extra **£438,852.65** from cross-sheet copies. This is a scenario, not certified company revenue. No source records have been modified. [Evidence](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42871691979).
+
+**Investigation 008 — reversible candidate analysis layer:** [design, audit and all-row provenance](docs/REVERSIBLE_ANALYSIS_LAYER.md). A source-verified candidate view contains **1,044,848 lines** and retains **1,067,371 original row references** in a separate provenance ledger. Exactly **22,523** cross-sheet duplicate copies have canonical links to matching first-sheet rows. An alternative gross positive-priced line amount is £20,533,741.92 rather than £20,972,594.57 (difference £438,852.65). This view is *proposed*, not an approved cleaning or revenue rule. **Derived row-level files are in ignored `data/derived/` and are not uploaded to GitHub.** [Successful workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42879978426).
 
 ## Research directions (questions, not findings)
 

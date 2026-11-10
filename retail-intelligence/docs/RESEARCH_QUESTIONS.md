@@ -18,7 +18,8 @@
 - Both yearly worksheets contain **22,523 identical source-line copies** across **1,088 wholly matching shared invoice IDs**, all from December 2010. [Source and method](ANNUAL_SHEET_OVERLAP.md).
 - The 64 extra candidate-line instances from counting across source sheets are cross-sheet exact copies; their repeated presence is not evidence of separate operational transactions.
 - A hypothetical positive-quantity, positive-price line total would include **£438,852.65** twice without cross-sheet reconciliation. This is *not* certified revenue.
-- **Next:** propose a reversible analysis-layer treatment that keeps provenance and multiplicity, and compare the raw versus reconciled business KPI definitions. Do not delete source rows.
+- **Follow-up completed (Case 008):** [reversible analysis-layer proposal](REVERSIBLE_ANALYSIS_LAYER.md) was implemented and tested on the original workbook, with one retained candidate row per exact cross-sheet shared copy and full original-row provenance. Both **22,523** canonical links and **1,044,848** candidate lines reconciled independently with Case 007. The policy remains **proposed, not approved**; no source rows were modified.
+- **Next:** separately decide whether to adopt the candidate view for exploratory KPIs, and define positive-price, cancellations, postage, fees, and other transaction types before any final revenue or order-count metric.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
