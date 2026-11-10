@@ -1,4 +1,4 @@
-# Project 002 — Retail Intelligence
+# Project 003 — Retail Intelligence
 
 **Status:** Phase 01 / source and audit setup; findings and business definitions are **not yet verified**.
 
