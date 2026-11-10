@@ -1,0 +1,159 @@
+[
+  {
+    "name": "boris_aapl",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/aapl.us.txt",
+    "status": 200,
+    "bytes": 428286,
+    "complete": true,
+    "sha256": "28ea6bff6cc5de7b7c9bde7ccf75544ce9e2ae66be32d9057d7cc32525f798e3"
+  },
+  {
+    "name": "boris_ibm",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/ibm.us.txt",
+    "status": 200,
+    "bytes": 694884,
+    "complete": true,
+    "sha256": "c3c2c8f31dfb176cd541914a4ae5b41bd07b05faea062fb195f08998cf464337"
+  },
+  {
+    "name": "boris_msft",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/msft.us.txt",
+    "status": 200,
+    "bytes": 409074,
+    "complete": true,
+    "sha256": "46e6ea467ee59cddb86bf213c396866030cbd386d99b76dd66d1b56d7ae718d8"
+  },
+  {
+    "name": "boris_ge",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/ge.us.txt",
+    "status": 200,
+    "bytes": 705515,
+    "complete": true,
+    "sha256": "339a40507a744dd2391c85fe0c9eb4ce62f0478d59fdc69919086156ac6305c9"
+  },
+  {
+    "name": "boris_bac",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/bac.us.txt",
+    "status": 200,
+    "bytes": 396869,
+    "complete": true,
+    "sha256": "081c6f2ee63eb776986713b940d3f8fd42c8a5f19844dc6fb6da19a051ec20aa"
+  },
+  {
+    "name": "boris_aig",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/aig.us.txt",
+    "status": 200,
+    "bytes": 416662,
+    "complete": true,
+    "sha256": "285afb68a97320b8de2d9b57d0a282d8ea1d5cfcf36812497eaaa1bc1287c855"
+  },
+  {
+    "name": "boris_gm",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/55e3b5b8b47ddd9e93fd3808ac3fff6c85e3b7ce/datasets/stock_data/Stocks/gm.us.txt",
+    "status": 200,
+    "bytes": 88447,
+    "complete": true,
+    "sha256": "8bc5e5d6c44448e0c19ccd41b7f40107b4d9be94648014b5a4407ee56ae79cf0"
+  },
+  {
+    "name": "djia_ibm",
+    "url": "https://raw.githubusercontent.com/mayur-tikar/DJIA-30-Stock-Time-Series-Dataset/master/IBM_2006-01-01_to_2018-01-01.csv",
+    "status": 200,
+    "bytes": 153466,
+    "complete": true,
+    "sha256": "21ac5471fa68f438dbfc8bf2a9588816bbbdc6cc92e9f119b453459b54103219"
+  },
+  {
+    "name": "djia_msft",
+    "url": "https://raw.githubusercontent.com/mayur-tikar/DJIA-30-Stock-Time-Series-Dataset/master/MSFT_2006-01-01_to_2018-01-01.csv",
+    "status": 200,
+    "bytes": 149472,
+    "complete": true,
+    "sha256": "156edce2f47ac9d0e7a8fafd13377327204240de0c015f88f6f11c6bff770e75"
+  },
+  {
+    "name": "fnspid_readme",
+    "url": "https://raw.githubusercontent.com/Zdong104/FNSPID_Financial_News_Dataset/main/README.md",
+    "status": 200,
+    "bytes": 4692,
+    "complete": true,
+    "sha256": "8946c9f27793ee1dfa0e2ccd3d9148cc29f37109c02a51f43724f1403b9d9f8f"
+  },
+  {
+    "name": "fnspid_license",
+    "url": "https://raw.githubusercontent.com/Zdong104/FNSPID_Financial_News_Dataset/main/LICENSE",
+    "status": 200,
+    "bytes": 19490,
+    "complete": true,
+    "sha256": "0d1b0093ff52b3a207c7d33691bc7ecf5bed9eb624d107e04b38236559e094b1"
+  },
+  {
+    "name": "fnspid_official_archive",
+    "url": "https://huggingface.co/datasets/Zihan1004/FNSPID/resolve/main/Stock_price/full_history.zip",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "wiki_aapl",
+    "url": "https://data.nasdaq.com/api/v3/datasets/WIKI/AAPL.csv?start_date=1990-01-01&end_date=2015-12-31",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "french_industries",
+    "url": "https://mba.tuck.dartmouth.edu/pages/faculty/ken.french/ftp/49_Industry_Portfolios_Daily_CSV.zip",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "johnbrick_assets",
+    "url": "https://github.com/Johnbrick123/sp500-data/releases/expanded_assets/data",
+    "status": 200,
+    "bytes": 1090512,
+    "complete": true,
+    "sha256": "58c699eb97568b0a513b1f23fb78756dc22582c15e4d3ab86a341483021ee090"
+  },
+  {
+    "name": "quantconnect_aapl",
+    "url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/daily/aapl.zip",
+    "status": 200,
+    "bytes": 104115,
+    "complete": true,
+    "sha256": "a6f609711a1f550252f95a4edfaa5ac2c6dd75ca9a1fbbb417e853d1516831fe"
+  },
+  {
+    "name": "quantconnect_ibm",
+    "url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/daily/ibm.zip",
+    "status": 200,
+    "bytes": 97946,
+    "complete": true,
+    "sha256": "dbc2eb8db4793506612cdc2426047e35fb170f97271d05760b7faf418c63127e"
+  },
+  {
+    "name": "quantconnect_msft",
+    "url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/daily/msft.zip",
+    "status": 404,
+    "error": "404: Not Found"
+  },
+  {
+    "name": "quantconnect_factor_aapl",
+    "url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/factor_files/aapl.csv",
+    "status": 200,
+    "bytes": 1304,
+    "complete": true,
+    "sha256": "86f7f2508a11259dfbb53b2f81fc8e711c8a4b97a9ee599b661079a9566801c9"
+  },
+  {
+    "name": "quantconnect_map_aapl",
+    "url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/map_files/aapl.csv",
+    "status": 200,
+    "bytes": 32,
+    "complete": true,
+    "sha256": "e9def8800d5d5553675cbe4c1955f264ae0bb9bd9e5f9d2faada780529b547c5"
+  },
+  {
+    "name": "french_mirror",
+    "url": "https://raw.githubusercontent.com/HowardLiYH/RISP/main/data/french/49_Industry_Portfolios_Daily.csv",
+    "status": 200,
+    "bytes": 3000001,
+    "complete": false,
+    "sha256": "073325e6fdac74af543c696d83cffdfad87fcf4904e02b89cf13a09b20239ab3"
+  }
+]

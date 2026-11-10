@@ -178,3 +178,59 @@ AI implementation choices implementing this approval, not parameters independent
 chosen by the lead. Results and recommendations are recorded in
 `feasibility-D006/README.md` and IMPLEMENTATION.md, never as human conclusions
 or approvals.
+
+## D007 — 2026-11-10 UTC — Seek longer auditable discovery history
+
+**Status:** temporarily stopped/superseded as the current priority by D008 below.
+No new dataset was selected. Source probes and incomplete implementation are
+retained as paused work, not substituted for the approved Plotly foundation.
+
+The lead approved seeking a longer, auditable **pre-2016** discovery dataset.
+Human reasoning: existing data has too few independent stressful episodes to
+reliably distinguish stock relationships from coincidence, shared market behavior
+or data-quality problems; a larger dataset is not automatically better evidence.
+
+Authorized: research public historical sources extending substantially before
+2013, preferably multiple market cycles; prioritize direct cloud downloads without
+competition access/private credentials; verify small downloads; compare coverage,
+stocks, accuracy, actions/adjustments, historical membership, delistings, licensing
+and reproducibility; investigate distinct stress support, consistent replacement
+versus integration, and a defensible smaller scope if no suitable source exists.
+
+Preserve Plotly, D001–D006, their ledgers and the human decisions. Do not inspect
+2016–2018 relationship results, train models, calculate new stock relationships,
+select final reliability thresholds, change Project 001 or merge. The lead will
+make the final dataset-selection decision. Access probes and AI recommendations
+are not dataset adoption or additional human approval.
+
+## D008 — 2026-11-10 UTC — Complete a limited Plotly forecasting project
+
+**Human decision:** freeze D001–D006 as the exploratory foundation and temporarily
+stop seeking an expanded dataset. Prioritize **Daily Stock Volatility Prediction
+and Model Failure Analysis** using the existing Plotly source. The advanced
+context-aware multi-stock vulnerability model is a future extension, not a
+requirement for this first completed project. D001 is preserved, not rejected.
+
+**Human-requested comparisons:** a reproducible five-trading-session experiment,
+historical-volatility baseline, stock-specific model, and a model incorporating
+own-stock plus broad-market information. Use appropriate forecasting metrics and
+chronological validation, investigate largest errors, compare both approved
+masking policies, and report failures or worse-than-baseline performance honestly.
+
+**Authorized immediately:** preserve the foundation, stop the source search,
+prepare a concise experiment/leakage-prevention plan for approval. After the plan
+is approved, handle implementation, testing, debugging and documentation
+independently with progress explanations. This entry does **not** record approval
+of the AI-proposed dates, features, Ridge models or numerical implementation
+settings in `forecast-D008/PLAN.md`.
+
+**Explicit boundaries:** development and internal validation only in 2013–2015;
+2016–2018 remains for later separately approved evaluation. No complex reference
+selection, CVR weighting or additional architecture now. Do not delete previous
+work, change Project 001 or merge. **Present the plan and ask for approval before
+implementing models.**
+
+The frozen completed foundation is commit
+`db4d868a46e7436afcfb41668fcf229a7860d978`, to be tagged
+`research-d001-d006-freeze`. Subsequent logs are append-only research chronology;
+no earlier finding is rewritten to support a forecasting result.

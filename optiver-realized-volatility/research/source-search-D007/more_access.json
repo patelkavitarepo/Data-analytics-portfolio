@@ -1,0 +1,82 @@
+[
+  {
+    "label": "johnbrick_release_head",
+    "url": "https://github.com/Johnbrick123/sp500-data/releases/download/data/prices.parquet",
+    "status": 206,
+    "bytes_received": 65536,
+    "final_url": "https://release-assets.githubusercontent.com/github-production-release-asset/1377539014/9d26293b-b9e5-4304-8d21-f77cadee8e21 [temporary query signature omitted]",
+    "content_type": "application/octet-stream",
+    "content_range": "bytes 0-65535/235981556",
+    "content_length": "65536",
+    "complete": true,
+    "sha256": "f35eef76d9acecbdc59bbfbdd8f7cb650077d43a6ebb76a125f83a1cff9e316f",
+    "prefix": "b'PAR1\\x15\\x04\\x15\\xa0\\xbb\\x0e\\x15\\xaa\\x9b\\x0bL\\x15\\xb4\\xe7\\x01\\x15\\x00\\x12\\x00\\x00(\\xb5/\\xfd\\xa0\\xd0\\xce\\x01\\x00M6\\x0b\\x0e\\xed\\xdc\\xb0Y\\x19\\x10\\x10<\\xa45O>\\xdf\\xb3\\xaa\\x0f\\xean\\xbb\\xcf\\xf7\\xbc~.\\x14\\x91RJ\\x99\\x02\\xf7Y\\xf7[\\xc2V\\xd3\\xb6\\x91o{\\xefn5\\x08\\xdf\\xf6\\xb6m\\xaa\\xf1\\xdb\\x1e\\xb2?[\\xc6\\xb7=Zb\\x06\\x81'"
+  },
+  {
+    "label": "johnbrick_membership",
+    "url": "https://raw.githubusercontent.com/Johnbrick123/sp500-data/main/data/membership_intervals.parquet",
+    "status": 404,
+    "error": "404: Not Found"
+  },
+  {
+    "label": "johnbrick_license",
+    "url": "https://raw.githubusercontent.com/Johnbrick123/sp500-data/main/LICENSE",
+    "status": 404,
+    "error": "404: Not Found"
+  },
+  {
+    "label": "szrlee_aapl",
+    "url": "https://raw.githubusercontent.com/szrlee/Stock-Time-Series-Analysis/master/data/individual_stocks_2006-01-01_to_2018-01-01/AAPL_2006-01-01_to_2018-01-01.csv",
+    "status": 404,
+    "error": "404: Not Found"
+  },
+  {
+    "label": "djia_aapl",
+    "url": "https://raw.githubusercontent.com/mayur-tikar/DJIA-30-Stock-Time-Series-Dataset/master/AAPL_2006-01-01_to_2018-01-01.csv",
+    "status": 200,
+    "bytes_received": 153621,
+    "final_url": "https://raw.githubusercontent.com/mayur-tikar/DJIA-30-Stock-Time-Series-Dataset/master/AAPL_2006-01-01_to_2018-01-01.csv",
+    "content_type": "text/plain; charset=utf-8",
+    "content_range": null,
+    "content_length": "153621",
+    "complete": true,
+    "sha256": "1ba0ec70298be6900585dde1409f9112b63b61eb2455ea63ae427cd0075a8c5c",
+    "prefix": "b'Date,Open,High,Low,Close,Volume,Name\\r\\n2006-01-03,10.34,10.68,10.32,10.68,201853036,AAPL\\r\\n2006-01-04,'"
+  },
+  {
+    "label": "boris_aapl_mirror",
+    "url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/master/datasets/stock_data/Stocks/aapl.us.txt",
+    "status": 200,
+    "bytes_received": 428286,
+    "final_url": "https://raw.githubusercontent.com/shikha-aggarwal/machine_learning/master/datasets/stock_data/Stocks/aapl.us.txt",
+    "content_type": "text/plain; charset=utf-8",
+    "content_range": null,
+    "content_length": "428286",
+    "complete": true,
+    "sha256": "28ea6bff6cc5de7b7c9bde7ccf75544ce9e2ae66be32d9057d7cc32525f798e3",
+    "prefix": "b'Date,Open,High,Low,Close,Volume,OpenInt\\r\\n1984-09-07,0.42388,0.42902,0.41874,0.42388,23220030,0\\r\\n1984'"
+  },
+  {
+    "label": "plotly_sp500_index",
+    "url": "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv",
+    "status": 200,
+    "bytes_received": 60220,
+    "final_url": "https://raw.githubusercontent.com/plotly/datasets/master/finance-charts-apple.csv",
+    "content_type": "text/plain; charset=utf-8",
+    "content_range": null,
+    "content_length": "60220",
+    "complete": true,
+    "sha256": "24c7604edfd5afe862ddb9f9535e2fd7351f43711bfc442bca52055e15e37bcd",
+    "prefix": "b'Date,AAPL.Open,AAPL.High,AAPL.Low,AAPL.Close,AAPL.Volume,AAPL.Adjusted,dn,mavg,up,direction\\r\\n2015-02'"
+  },
+  {
+    "label": "quantquote_download",
+    "url": "https://quantquote.com/files/quantquote_daily_sp500_83986.zip",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "label": "kaggle_boris_file",
+    "url": "https://www.kaggle.com/api/v1/datasets/download/borismarjanovic/price-volume-data-for-all-us-stocks-etfs?file_name=Stocks%2Faapl.us.txt",
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  }
+]

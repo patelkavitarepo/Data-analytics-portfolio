@@ -1,16 +1,34 @@
-# Project 002 · Conditional stock vulnerabilities: daily-data pilot
+# Project 002 · Daily Stock Volatility Prediction and Model Failure Analysis
 
 Human-led quantitative research; AI-assisted implementation. The human lead's
 hypothesis is unchanged: stock-specific vulnerabilities may make selectively
 chosen other-stock signals useful under particular conditions. This hypothesis
-has not been tested by a prediction model.
+has not been tested by a prediction model. D008 moves that advanced multi-reference
+idea to a future extension, while prioritizing a limited completed forecasting
+project with the approved Plotly source.
 
 The lead approved the Plotly dataset and provisionally approved a five-session
 horizon in D002. The original Optiver data access track is preserved in
 [the archived foundation guide](README_OPTIVER_FOUNDATION.md); this pilot is not
 claimed to use the official Optiver data.
 
-## Current checkpoint: D006 discovery feasibility awaits next-methodology review
+## Current checkpoint: D008 forecasting experiment plan awaits approval
+
+The lead temporarily stopped the expanded-source search and requested three
+comparisons: historical volatility, a stock-specific model, and own-stock plus
+market information, with failure analysis and both approved cleaning policies.
+Read the [concise proposed experiment and leakage controls](research/forecast-D008/PLAN.md).
+**Approve that plan before model implementation.** No model has been fitted.
+Development/internal validation stays within 2013–2015; the 2016–2018 period
+remains reserved for separately approved evaluation.
+
+D001–D006 is frozen at commit `db4d868` / tag `research-d001-d006-freeze`.
+All original findings, code, evidence, decisions and masks remain available.
+The [paused D007 access-probe record](research/source-search-D007/PAUSED.md) is
+preserved without adopting a new source. Project 001 and all historical evidence
+remain unchanged. No merge.
+
+## Frozen exploratory foundation
 
 The lead approved D005's evidence-profile methodology and a discovery-only
 feasibility phase. Read the [D006 evidence packet with charts, all definition

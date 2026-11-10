@@ -1,0 +1,62 @@
+[
+  {
+    "name": "stooq_aapl",
+    "url": "https://stooq.com/q/d/l/?s=aapl.us&d1=19900101&d2=20151231&i=d",
+    "maximum_bytes": 3000000,
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "yahoo_aapl",
+    "url": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?period1=631152000&period2=1451606400&interval=1d&events=div%2Csplits",
+    "maximum_bytes": 3000000,
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "fnspid_hf",
+    "url": "https://huggingface.co/datasets/beachside1234/FNSPID/resolve/6849fc019d7157e1034fd5000ea30519c48e0e62/Stock_price/full_history/lsxmk.parquet",
+    "maximum_bytes": 3000000,
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "plotly_stockdata",
+    "url": "https://raw.githubusercontent.com/plotly/datasets/master/stockdata.csv",
+    "maximum_bytes": 3000000,
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/plotly/datasets/master/stockdata.csv",
+    "content_type": "text/plain; charset=utf-8",
+    "bytes_received": 151626,
+    "complete": true,
+    "sha256": "60bf505fec160ce05ba959382adee32ea6e53ce14fe22886db27c58fe1b0d26b",
+    "prefix": "\"MSFT\",\"IBM\",\"SBUX\",\"AAPL\",\"GSPC\",\"Date\"\r\n23.950705,80.517962,16.149666,11.086612,1416.599976,\"2007-01-03\"\r\n23.910599,81.378851,16.167992,11.332687,1418.339966,"
+  },
+  {
+    "name": "cmu_ibm",
+    "url": "https://www.cs.cmu.edu/~pavlo/datasets/stocks/IBM.csv",
+    "maximum_bytes": 3000000,
+    "error": "<urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  {
+    "name": "johnbrick_readme",
+    "url": "https://raw.githubusercontent.com/Johnbrick123/sp500-data/main/README.md",
+    "maximum_bytes": 3000000,
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/Johnbrick123/sp500-data/main/README.md",
+    "content_type": "text/plain; charset=utf-8",
+    "bytes_received": 10892,
+    "complete": true,
+    "sha256": "2650e119b7e3fa4f9756d1a5995aada5e8b7628177d5d98b7a039aca5fa6e2e2",
+    "prefix": "# S&P 500 + ETF Historical Dataset\n\nFree, reproducible, point-in-time S&P 500 history: who was in the index on\nevery trading day since **1970**, with a price fo"
+  },
+  {
+    "name": "quantconnect_spy",
+    "url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/daily/spy.zip",
+    "maximum_bytes": 3000000,
+    "status": 200,
+    "final_url": "https://raw.githubusercontent.com/QuantConnect/Lean/master/Data/equity/usa/daily/spy.zip",
+    "content_type": "application/zip",
+    "bytes_received": 103363,
+    "complete": true,
+    "sha256": "aaa1febad0cb8f91011212c92ff7caac6d4d6415a3b7f73c4b98c438db4274ad",
+    "prefix": "binary archive/parquet"
+  }
+]

@@ -1,0 +1,25 @@
+{
+  "stable_url": "https://github.com/Johnbrick123/sp500-data/releases/download/data/prices.parquet",
+  "range_access_verified": true,
+  "price_rows_parsed": 0,
+  "remote_bytes": 235981556,
+  "footer_bytes": 165182,
+  "metadata_rows": 12300278,
+  "row_groups": 124,
+  "schema": [
+    "date",
+    "ticker",
+    "open",
+    "high",
+    "low",
+    "close",
+    "volume",
+    "adj_close",
+    "dividends",
+    "stock_splits",
+    "source"
+  ],
+  "pre2016_rowgroups_without_later_dates": 0,
+  "metadata_earliest_date": "1968-01-02 00:00:00",
+  "sample_scope": "Header/footer and schema only. Every group spans later dates; no price groups decoded. Suffix Range unsupported (501), explicit byte ranges succeeded."
+}

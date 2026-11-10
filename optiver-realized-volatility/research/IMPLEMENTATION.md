@@ -272,3 +272,32 @@ byte hashes verify unchanged inputs without inspecting later relationships.
 Source, masks and Project 001 remain unchanged. No training or merge. Final
 operational definitions, evidence criteria, new sources and later-period
 replication remain subject to human research decisions; no approval is inferred.
+
+## 2026-11-10 UTC — D007 paused and D008 scope/plan (AI assistance)
+
+The human D007 dataset-search authorization is retained, with its later paused
+status explicit. Before the scope change, AI assistance probed public sources,
+saved small downloads/metadata in ignored work/source-search-D007, and wrote
+date-guarded source sampling helpers plus five synthetic tests (all five passed).
+Some access succeeded, some requests were blocked or nonexistent. No source was
+selected, no new stock relationships calculated, and no prediction model fitted.
+The exploratory audit runner did not complete successfully. Its partial outputs
+were not reviewed or promoted after the lead stopped the search; no test or data
+finding is invented from that unfinished runner. Existing raw samples, code and
+logs remain preserved rather than deleted.
+
+D008 records the revised human priority: Daily Stock Volatility Prediction and
+Model Failure Analysis on Plotly, preserving advanced reference research for
+later. AI assistance prepared research/forecast-D008/PLAN.md with three explicit
+comparisons, a five-session target, past-only features, 2014 tuning/2015 internal
+walk-forward evaluation, label-maturity purging, both masks, metrics, failure
+analysis, testing and dashboard deliverables. Specific numerical settings and
+Ridge/feature choices are **proposed**, not approved human decisions.
+
+Freeze completed D001–D006 at db4d868a46e7436afcfb41668fcf229a7860d978 under
+research-d001-d006-freeze. No historical result, price or cleaning rule is changed.
+Preserve paused D007 access records with temporary release signatures removed
+and local artifact fingerprints; retain the preexisting sampling code/tests.
+No new model implementation or training begins before plan approval. No 2016–2018
+relationship outcomes/model scores are inspected. Project 001 remains unchanged;
+no merge. The next checkpoint is approval of the proposed limited experiment.
