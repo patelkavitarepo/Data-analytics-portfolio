@@ -13,12 +13,12 @@
 
 ## R001e — Do annual source worksheets overlap?
 
-**Status:** open, prioritized after Investigation 006.
+**Status:** confirmed in Investigation 007; downstream handling policy pending.
 
-- A population-wide audit found 3,457 sheet-specific candidate invoice instances but a prior audit found 3,393 globally distinct candidate invoice numbers; a 64-instance difference requires explicit source cross-sheet reconciliation.
-- Investigate invoice IDs, date ranges, and exact shared invoice lines across the yearly worksheets. A December 2010 invoice sequence appears in both sheets.
-- Do not interpret annual totals, invoice counts, or financial measures as globally unique before verifying overlap and documenting any deduplication sensitivity.
-- Evidence: [population invoice sequence findings](POPULATION_BATCH_FINDINGS.md).
+- Both yearly worksheets contain **22,523 identical source-line copies** across **1,088 wholly matching shared invoice IDs**, all from December 2010. [Source and method](ANNUAL_SHEET_OVERLAP.md).
+- The 64 extra candidate-line instances from counting across source sheets are cross-sheet exact copies; their repeated presence is not evidence of separate operational transactions.
+- A hypothetical positive-quantity, positive-price line total would include **£438,852.65** twice without cross-sheet reconciliation. This is *not* certified revenue.
+- **Next:** propose a reversible analysis-layer treatment that keeps provenance and multiplicity, and compare the raw versus reconciled business KPI definitions. Do not delete source rows.
 
 ## R002 — Are monthly or geographic differences meaningful?
 

@@ -43,7 +43,7 @@ Our first case studies showed short runs of zero-priced, no-customer, negative-q
 - All **3,457** candidate lines belong to candidate-only invoices on their respective source worksheets.
 - **Every such invoice-within-sheet has exactly one line** (3,457 one-line invoices; zero multi-line invoices).
 - **Zero** candidate lines are mixed into invoices that also contain ordinary-priced lines within their worksheet.
-- A previous cross-sheet-neutral audit reported **3,393 distinct invoice IDs globally** among these 3,457 lines. The 64 difference is a critical **possible cross-sheet overlap / duplication issue**: the present analysis *deliberately* treats each worksheet separately. **Do not interpret 3,457 as 3,457 unique business events.**
+- A previous cross-sheet-neutral audit reported **3,393 distinct invoice IDs globally** among these 3,457 lines. **Investigation 007 confirmed** that the 64-instance difference is exactly explained by matching lines published in both yearly worksheets. The present run-analysis deliberately treats worksheets separately; these 64 are not independent globally unique invoice events. See [verified overlap audit](ANNUAL_SHEET_OVERLAP.md).
 
 ### Coverage across the two original worksheets
 
@@ -52,7 +52,7 @@ Our first case studies showed short runs of zero-priced, no-customer, negative-q
 | `Year 2009-2010` | 2,121 | 2,121 | 1,491 |
 | `Year 2010-2011` | 1,336 | 1,336 | 818 |
 
-Some of the **same invoice number ranges** occur in both worksheets, including run `537003`–`537021` on December 3, 2010. This independently motivates a **cross-sheet duplication audit** before aggregating years into any revenue or order metric. Their duplication status requires line-by-line verification before deciding whether to count once or twice.
+Some of the **same invoice number ranges** occur in both worksheets, including run `537003`–`537021` on December 3, 2010. A subsequent **cross-sheet duplication audit verified** that 22,523 line copies, across 1,088 fully matching invoice IDs, appear in both source worksheets. See [Investigation 007](ANNUAL_SHEET_OVERLAP.md). The raw worksheets remain untouched.
 
 ### Selected large runs (not a comprehensive list)
 
@@ -67,14 +67,14 @@ No descriptions or business purposes are inferred from the ID range itself.
 1. **Confirmed as a source recording pattern:** Unusual negative, zero-price, anonymous lines appear in single-line invoices, often grouped under consecutive IDs.
 2. **Not unique to operational-looking lines:** Ordinary-looking positive-price invoices form short consecutive sequences at a very similar rate (66.8% versus 67.6%).
 3. **Still plausible but unproven:** The candidate line combination and cases with descriptions `damaged`, `given away` and `printing smudges/thrown away` support internal stock/accounting entries as a working hypothesis. Sequence adjacency **alone** is not confirmatory evidence.
-4. **New source-integrity question:** Annual worksheets may contain overlapping invoice lines, so a combined-data analysis could inadvertently count some source events twice.
+4. **Source-integrity finding, subsequently verified:** Annual worksheets do include December 2010 lines repeated across sheets. See [Investigation 007](ANNUAL_SHEET_OVERLAP.md) for exact line and invoice reconciliation.
 
 ## Decisions and next investigations
 
 - **D015:** Keep 3,457 entries as **source invoice lines** and 3,457 as **sheet-specific invoice instances**; do not confuse with 3,393 globally distinct invoice numbers or independent business events.
 - **D016:** Do **not** use consecutive-invoice clustering as a rule to identify internal adjustments or delete repeated lines.
 - **D017:** Keep original workbook untouched. Do not calculate revenue, costs or shrinkage from these provisional classifications.
-- **R007 (next):** Explicitly reconcile overlapping source worksheets, especially Dec 2010, measuring exact shared invoice lines, invoice IDs, date coverage and potential double counting.
+- **R007 completed:** Cross-sheet exact copies and coverage measured. [Verified details](ANNUAL_SHEET_OVERLAP.md). A reversible downstream analysis-layer policy remains to be defined.
 - **After R007:** Sensitivity-check business KPIs under independently documented candidate transaction definitions.
 
 This analysis is observational; neither theft nor specific employee behavior can be inferred.
