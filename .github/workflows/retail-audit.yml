@@ -52,6 +52,8 @@ jobs:
         run: python scripts/investigate_revenue_scenarios.py
       - name: Audit ambiguous Manual stock-code transactions
         run: python scripts/investigate_manual_code.py
+      - name: Investigate high-value Manual lines and possible cancellation links
+        run: python scripts/investigate_m_linkages.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
