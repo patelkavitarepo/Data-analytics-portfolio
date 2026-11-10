@@ -1,4 +1,4 @@
-# Research log — Project 002
+# Research log — Project 003
 
 ## R001 — What is a valid sales transaction?
 
