@@ -49,7 +49,19 @@
 - **468** C-negative M lines had no qualifying earlier positive partner, which does **not** prove they lack a real-world corresponding event. Missing customer IDs and time-order assumptions constrain linkage.
 - **Close-time counterexample:** June 17, 2010 at 16:52, `C512770` (negative £25,111.09, customer ID present) precedes invoice `512771` at 16:53 (positive £25,111.09, customer ID missing). Their proximity is evidence of a *recording pattern*, not proof of a correction.
 - [Case 011 reproducible findings](MANUAL_LINKAGE_FINDINGS.md); [passing original-workbook workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42890694308).
-- **Next:** study bidirectional close-time M postings separately, without automatically matching anonymous entries; continue auditing zero-priced positive lines and negative unit prices.
+- **Case 012 completed:** [bidirectional short-time pattern findings](MANUAL_BIDIRECTIONAL_FINDINGS.md) found **168** no-known-customer-conflict candidate comparisons within five minutes (104 negative-first, 63 positive-first, 1 same-minute). **78** of these have known matching customer IDs; the remaining **90** include missing IDs and are weak lookalikes, not confirmed event links.
+- **Next:** audit 2,631 positive zero-price candidate lines and 5 positive-quantity negative-price lines, before deciding final KPI semantics.
+
+## R012 — Do negative-first Manual sign flips recur in short time windows?
+
+**Status:** descriptive original-workbook check complete; event identity unresolved.
+
+- Matching line fields (without assuming equal missing customer IDs): same code M, absolute quantity, unit price, and country. The C-negative/positive direction is assessed in both directions within 1/5/15/60 minutes.
+- **5-minute window:** 171 lookalike comparisons, 3 known-customer conflicts excluded, 168 no-known-conflict candidate comparisons, including 104 negative-first, 63 positive-first, 1 same-minute. Of 168: 78 known-same, 78 one missing, 12 both missing.
+- A separate positive-positive M comparison finds 15 matching pairs within five minutes; this is **descriptive only** and is not a causal baseline.
+- The £25,111.09 June 17, 2010 negative-before-positive pair is an example of a weak timing candidate with missing customer data, **not** verified reversal or refund.
+- [Case 012 report](MANUAL_BIDIRECTIONAL_FINDINGS.md); [successful original-workbook CI](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42898160193).
+- **Next:** revisit zero/negative unit-price outliers and document possible KPI definitions with separate ambiguous categories.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
