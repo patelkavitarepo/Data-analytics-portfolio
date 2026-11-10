@@ -35,6 +35,7 @@ python scripts/investigate_sheet_overlap.py
 python scripts/build_reversible_layer.py
 python scripts/investigate_revenue_scenarios.py
 python scripts/investigate_manual_code.py
+python scripts/investigate_m_linkages.py
 python -m pytest -q
 ```
 
@@ -44,7 +45,7 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The download command obtains the official UCI workbook. The ten analyses save JSON results in `outputs/`, including `population_batch_prevalence.json`, `annual_sheet_overlap.json`, `reversible_layer_audit.json`, and `revenue_sensitivity.json` and `manual_code_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 53 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
+The download command obtains the official UCI workbook. The eleven analyses save JSON results in `outputs/`, including `population_batch_prevalence.json`, `annual_sheet_overlap.json`, `reversible_layer_audit.json`, and `revenue_sensitivity.json` and `manual_code_investigation.json` and `manual_linkage_cases.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 59 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
 
 **Hypothesis H001 follow-up:** [operational adjustment evidence](docs/H001_FOLLOW_UP.md) — description keyword checks, large-quantity case examples, and conservative interpretation limits. No cause or inventory-loss total is asserted. No source lines have been dropped or reclassified.
 
@@ -63,6 +64,8 @@ The download command obtains the official UCI workbook. The ten analyses save JS
 **Investigation 009 — experimental gross-line scenarios:** [source-verified S0/S1/S2 sensitivity](docs/REVENUE_SCENARIOS.md). On the reversible candidate view, gross positive-priced amounts are **£20,533,741.92 (S0)**; **£20,063,792.35 (S1, minus named postage/billing codes)**; and **£19,723,764.52 (S2, also minus M and D)**. None is approved accounting revenue. C-prefixed cancellation amounts remain separate, not automatically recognized as refunds. **48 tests passed** on the [verified workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42883445158). No original or candidate rows were modified.
 
 **Investigation 010 — ambiguous Manual code M:** [M line distribution and full-invoice context](docs/MANUAL_CODE_FINDINGS.md). Of **861 positive-priced M lines** (£339,629.94 in the reversible candidate view), **534** appear on invoices that also have non-M positive-priced lines; 480 of 788 M-containing invoice IDs contain such other positive-priced items. The median M line amount is **£8.85**, while the top ten lines account for **31.91%** of its amount. We should **not automatically exclude or recognize M as sales**: the source label is ambiguous. The workflow [passed 53 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42886173182). No source rows changed.
+
+**Investigation 011 — high-value Manual and possible cancellation linkages:** [strict candidate matching and time-order counterexamples](docs/MANUAL_LINKAGE_FINDINGS.md). On the reversible candidate view, **80** strict positive/C-negative line pair comparisons met known customer, country, quantity, price and cancellation-after-positive criteria within 90 days; **51** were reciprocal one-to-one *candidate* pairs, **not verified refunds**. The £25,111.09 negative `C512770` at 16:52 and positive `512771` at 16:53 on June 17, 2010 illustrate why close-time reversal/reposting hypotheses need separate scrutiny: the negative precedes the positive and their customer-ID availability differs. **59 tests passed** on the [successful full-source CI run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42890694308). No business classifications or source rows changed.
 
 ## Research directions (questions, not findings)
 

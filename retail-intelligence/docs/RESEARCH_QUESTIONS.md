@@ -29,7 +29,7 @@
 - The 19,165 candidate C-prefixed lines are treated separately from gross line amounts; cancellation-coded signed amounts are not verified refunds.
 - Do not call any scenario recognized revenue, profit, cash inflow, or finalized sales. Retain row provenance and avoid deletion.
 - **Manual M reviewed (Case 010):** See [source-verified M findings](MANUAL_CODE_FINDINGS.md). **861** M positive-priced lines totaling £339,629.94 span standalone and mixed invoices; exclusions remain unapproved.
-- **Next:** inspect high-value manual charges, anomalous zero/negative prices, and returns/cancellations matching before selecting business KPIs.
+- **Next:** Case 011 reviewed high-value manual charges and provisional C-negative linkages; see [strict linkage findings](MANUAL_LINKAGE_FINDINGS.md). Zero/negative-price audits and final business definitions remain open.
 
 ## R010 — Is Manual code M a valid merchandise-revenue line?
 
@@ -40,6 +40,16 @@
 - **534 C-prefixed negative M lines** have signed line-amount magnitude of £422,939.08, **not a verified cash-refund amount**.
 - We do not know the accounting meaning of M, so neither S0 inclusion nor S2 exclusion is approved. Keep M as a separate ambiguous category for exploratory reporting.
 - [Case 010 findings](MANUAL_CODE_FINDINGS.md); [successful original-workbook run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42886173182).
+
+## R011 — Do high-value Manual charges have credible cancellation partners?
+
+**Status:** strict candidate search completed; verified event/refund relationships unresolved.
+
+- Of **861** positive M lines and **534** C-prefixed negative M lines in the candidate view, there were **80** plausible pair comparisons within 90 days under strict same-known-customer, country, abs quantity, unit-price, and later cancellation conditions. **51** were reciprocal one-to-one candidates; these are **not verified refunds**. No additional matches appeared by extending to 365 days.
+- **468** C-negative M lines had no qualifying earlier positive partner, which does **not** prove they lack a real-world corresponding event. Missing customer IDs and time-order assumptions constrain linkage.
+- **Close-time counterexample:** June 17, 2010 at 16:52, `C512770` (negative £25,111.09, customer ID present) precedes invoice `512771` at 16:53 (positive £25,111.09, customer ID missing). Their proximity is evidence of a *recording pattern*, not proof of a correction.
+- [Case 011 reproducible findings](MANUAL_LINKAGE_FINDINGS.md); [passing original-workbook workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42890694308).
+- **Next:** study bidirectional close-time M postings separately, without automatically matching anonymous entries; continue auditing zero-priced positive lines and negative unit prices.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
