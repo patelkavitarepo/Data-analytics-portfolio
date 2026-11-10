@@ -1,6 +1,12 @@
 name: Retail Intelligence — source audit
 
 on:
+  push:
+    branches:
+      - feat/retail-intelligence-audit
+    paths:
+      - "retail-intelligence/**"
+      - ".github/workflows/retail-audit.yml"
   pull_request:
     paths:
       - "retail-intelligence/**"
