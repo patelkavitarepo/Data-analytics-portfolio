@@ -254,3 +254,55 @@ Preserve the frozen D001–D006 foundation, advanced hypothesis and reserved
 Implementation settings are recorded before training in
 `forecast-D008/design.json`; no future model score or conclusion is attributed
 to the lead in this decision entry.
+
+## D010 — 2026-11-10 — Human interpretation of D008 and future questions
+
+**Status:** interpretation supplied by the lead after reviewing D008; possible
+explanations are hypotheses, **not confirmed causes or new experiment approvals**.
+
+**The lead's interpretation, in their words:**
+
+> I believe two possible factors may explain why the learned models perform worse
+> during extreme volatility.
+>
+> First, the training data may not contain enough diverse examples of extreme
+> market conditions for the models to learn reliable patterns.
+>
+> Second, the models may not be interpreting historical volatility information
+> effectively under unfamiliar conditions. The simpler baseline may be more
+> robust in those situations, even though the advanced models already have access
+> to similar historical information.
+>
+> I would eventually like to investigate both possibilities, including whether a
+> model could recognize unfamiliar market conditions and adjust how much it relies
+> on the historical-volatility baseline.
+>
+> However, I recognize these explanations are hypotheses, not proven causes.
+
+**The lead's requested performance description:**
+
+> I also believe a model must be described honestly according to its demonstrated
+> performance. We should acknowledge that the current models improve overall
+> internal forecasting accuracy but perform worse during the highest-volatility
+> outcomes.
+
+**Human-supplied future research questions:**
+
+1. Would a greater diversity of extreme market conditions provide useful training
+   evidence, rather than merely a larger number of observations?
+2. Are the learned models using the historical-volatility information they already
+   possess effectively when conditions differ from their training experience?
+3. Could a model recognize unfamiliar conditions and adjust its reliance on the
+   historical-volatility baseline?
+
+These preserve the lead's questions, not an AI finding that any proposed cause
+has been established or an improvement would work. The confirmed empirical
+comparisons remain the bounded 2015 internal-evaluation results in
+`forecast-D008/RESULTS.md`, including metric disagreements, highest-outcome-band
+failures, uncertainty and retrospective-data limitations. They do not establish
+which explanation caused those failures or guarantee future performance.
+
+**Authorization now:** record this interpretation and retain the questions for
+future review. **No new model, retraining or access to the reserved 2016–2018
+evaluation period without further lead approval.** D001–D006, their frozen
+evidence and the original advanced hypothesis remain preserved. No merge.

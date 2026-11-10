@@ -391,3 +391,17 @@ Final full suite: **64 passed** in 16.77 seconds, same 11 existing warnings.
 The main implementation's 63-test remote workflow completed successfully; the
 follow-up commit's current remote checks are checked separately. PR remains
 draft/unmerged and the reserved evaluation period remains unopened.
+
+## 2026-11-10 — Record D010 human interpretation (AI documentation assistance)
+
+Recorded the lead's supplied interpretation verbatim in DECISIONS.md, preserving
+the two proposed explanations as unproven hypotheses and the unfamiliar-condition/
+baseline-reliance idea as a future question. Linked the interpretation from the
+results report and README, separately from confirmed numerical comparisons.
+No interpretation, cause, model improvement or new authorization is invented.
+
+Documentation only: no source data or reserved-period observations read, no
+model implementation/training, no forecast/metric/mask/artifact changes and no
+merge. No model tests or analyses are rerun for this text-only change; formatting
+and the documentation diff are checked. Frozen D001–D006 and Project 001 remain
+unchanged. Future experiments require the lead's approval.

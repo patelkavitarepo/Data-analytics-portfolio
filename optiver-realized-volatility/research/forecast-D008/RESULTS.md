@@ -228,3 +228,23 @@ How do you interpret the quiet-period gains, high-volatility failures and differ
 metric rankings? Evidence is presented before adopting an economic conclusion or
 opening the reserved evaluation period. No automatic architecture, metric change
 or reference selection follows.
+
+## Human interpretation received — D010
+
+The lead's response is recorded in
+[D010, in the human decision log](../DECISIONS.md#d010--2026-11-10--human-interpretation-of-d008-and-future-questions).
+The lead proposes two possible explanations: insufficient diversity of extreme
+training conditions, and ineffective use of available historical-volatility
+information when conditions are unfamiliar. The lead explicitly treats these
+as **unproven hypotheses**, not confirmed causes.
+
+The lead requests an honest description of the demonstrated tradeoff: the learned
+models improve overall internal accuracy relative to the baseline, while doing
+worse in the highest-realized-volatility outcome band. The metric-specific tables
+and uncertainty above remain authoritative; this interpretation does not expand
+the claim to every stock, quarter, metric or future market period.
+
+Recognizing unfamiliar conditions and adjusting reliance on the baseline is a
+**future research question**. No adaptive model, extra architecture, retraining,
+data expansion or reserved-period evaluation is authorized by this interpretation.
+No numerical findings, forecasts, masks or model settings are changed.

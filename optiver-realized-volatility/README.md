@@ -184,3 +184,11 @@ The advanced vulnerability/conditional-reference hypothesis is future work. No
 reliability score or forced references are added. The lead interprets findings;
 AI code is not represented as manually written by the lead. No merge or later-
 period evaluation occurs without approval.
+
+The [lead's D010 interpretation](research/DECISIONS.md#d010--2026-11-10--human-interpretation-of-d008-and-future-questions)
+preserves two unproven explanations for extreme-outcome failures: insufficient
+diverse stress examples and ineffective use of historical-volatility information
+under unfamiliar conditions. Recognizing unfamiliar states and varying reliance
+on the baseline is a future question, not an implemented or approved new model.
+The distinction between overall internal gains and highest-outcome-band failures
+must remain explicit. No retraining or reserved-period access is authorized.
