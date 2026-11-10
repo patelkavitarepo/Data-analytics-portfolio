@@ -301,3 +301,80 @@ and local artifact fingerprints; retain the preexisting sampling code/tests.
 No new model implementation or training begins before plan approval. No 2016–2018
 relationship outcomes/model scores are inspected. Project 001 remains unchanged;
 no merge. The next checkpoint is approval of the proposed limited experiment.
+
+## 2026-11-10 — Approved D008/D009 forecasting project (AI implementation)
+
+D009 records the human approval and added requirement to explain metric
+disagreements without hiding difficult cases. AI assistance committed design.json
+at 19dfa81 before fitting: exactly M0 historical volatility, M1 per-stock Ridge,
+M2 the same family with broad-market inputs; fixed features, alpha grid, support,
+purging, tuning maturity, 2015 refits, both masks and diagnostics. No reference
+selection, new architecture, dataset search or reserved-period evaluation.
+
+Implemented forecast.py, forecast_analysis.py, lossless bundle/snapshot helpers,
+independent verification and forecast_app.py. Original app.py/Optiver tools stay
+available. Added explicit runtime dependencies and optional browser requirements
+inside Project 002; Project 001's environment/files are not changed.
+
+Actually completed before the usage interruption: training and analysis on the
+approved discovery-only fields; 13,984 tuning fits and 7,712 quarterly evaluation
+fits across the two Ridge families, policies and eligible stocks. These are
+instances of the same approved families, not added architectures. Alpha=100 for
+both families, selected on common 2014 tuning outcomes before 2015 scoring. Keep
+the tested grid boundary and log-response/extrapolation limitations disclosed.
+
+The initial full run passed 12 new integrity tests; a subsequent full suite passed
+59. Audit additions then recorded fit-exclusion counts and target reason bits;
+the final run preserves every original prediction column and five numerical
+score/settings/failure registries exactly. No score-driven retuning. Resume work
+reviewed existing outputs instead of repeating training.
+
+Actual results: 482 pre-2015-qualified stocks, 111,428 identical headline
+stock-dates under both policies. Conservative M0/M1/M2 RMSPE is
+0.877403/0.568784/0.576540; MAE is 0.013722/0.011973/0.011865 volatility units.
+M2's MAE/RMSE point improvement over M1 conflicts with its RMSPE deterioration.
+The smallest 1% of actual targets contribute 23.68% of M2's squared percentage
+loss but 1.26% of absolute loss. No positive targets are trimmed; headline zero
+target count is zero. Highest-realized-volatility and quarter failures are retained,
+not replaced with more favorable metrics or samples. Results are presented before
+the lead's interpretation; no economic conclusion is attributed to the lead.
+
+Verification actually executed after completing the dashboard:
+
+- **63 tests passed**, Python 3.12.14, latest full run 24.03 seconds; 11 existing
+  third-party timedelta deprecation warnings. New checks cover target/purge
+  timing, tuning labels before 2015, train-only scaling, protected columns/dates,
+  zero/tiny-target metrics, aggregate ranking reversal, joint-date resampling,
+  end-to-end synthetic fitting, snapshot tamper/protected dates and read-only UI.
+- Independently replayed all **460,486 stored evaluation Ridge forecasts** from
+  coefficients/scalers with maximum absolute difference 0.0 and no refit.
+  Reconstructed **242,410 targets** and **241,741 baseline forecasts**, and all
+  six headline metric records to serialized precision. All fit-label end dates
+  precede validation; all tuning labels finish before the first 2015 forecast.
+- Exported a lossless, self-contained 2015 dashboard bundle with hashes. Only its
+  derived Parquet files are allow-listed; raw/other artifact/held-out inputs stay
+  ignored. The dashboard reads fixed results and never trains. It supports paths
+  relative to its file, including launch from the repository root.
+- Real Chromium exercised tabs, policy/metric/stock controls, failure model and
+  criterion, prediction CSV and full eligibility CSV, plus a 390-pixel touch
+  layout with no page overflow, application exception or JavaScript error.
+  Verified the full ledger contains all 505 names / 127,260 origins per policy,
+  including excluded cohort names and last-five unscored dates. Fixed native
+  dark/light contrast and test selectors sensitive to Streamlit rerenders.
+  This is not a physical iPad/Safari test.
+- Installed only runtime requirements into a fresh virtual environment and
+  loaded the dashboard with its real bundle and three metric cards, no exceptions.
+  Added calendar/matplotlib explicitly because inherited development dependencies
+  otherwise could have hidden a hosted-install failure.
+- For failures, retained actual PWR/KMI/MDLZ/KLAC return paths and quote excerpts.
+  Verified primary company announcements as retrospective context, never forecast
+  inputs or proof of precise causation. KMI saved-fit replay shows out-of-training-
+  range inputs; that post-hoc explanation did not change the model or cleaning.
+- Source/D003 input hashes and frozen analytical/evidence directories remain
+  unchanged. No 2016–2018 model observations, targets or scores enter this stage.
+
+README/RESULTS include actual scores, both masks, coverage, uncertainty, failures,
+metric weighting and limitations, reproduction, the hosted entry path and clear
+human/AI authorship. D001–D006 remains frozen; advanced reference research remains
+future work. PR #2 is to remain draft/unmerged. No later-period authorization or
+economic interpretation is inferred from completed implementation.

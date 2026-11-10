@@ -1,0 +1,62 @@
+{
+  "stock": "KMI",
+  "origin": "2015-12-04",
+  "policy": "conservative",
+  "model": "M1",
+  "training_rows": 534,
+  "forecast": 0.4064877862112596,
+  "actual": 0.08685532281743889,
+  "intercept": -3.7811795213516066,
+  "features": [
+    {
+      "feature": "rv5",
+      "origin_value": 0.1806083804565582,
+      "training_min": 0.005001686386495032,
+      "training_max": 0.07463960174879108,
+      "standardized_log_forecast_contribution": 0.854588082843855
+    },
+    {
+      "feature": "rv20",
+      "origin_value": 0.10217150393847929,
+      "training_min": 0.01288678262330809,
+      "training_max": 0.05617353545629864,
+      "standardized_log_forecast_contribution": 0.39994547177123824
+    },
+    {
+      "feature": "rv60",
+      "origin_value": 0.07818440615846702,
+      "training_min": 0.01756973459887166,
+      "training_max": 0.04324104902582429,
+      "standardized_log_forecast_contribution": 0.4407090356669408
+    },
+    {
+      "feature": "return1",
+      "origin_value": -0.1354617518251775,
+      "training_min": -0.06232289564662663,
+      "training_max": 0.04669909552290896,
+      "standardized_log_forecast_contribution": 0.2872791125489364
+    },
+    {
+      "feature": "return5",
+      "origin_value": -0.3500537858059367,
+      "training_min": -0.1264056685468069,
+      "training_max": 0.09609789154257387,
+      "standardized_log_forecast_contribution": 0.36166282042018877
+    },
+    {
+      "feature": "return20",
+      "origin_value": -0.43206034002921667,
+      "training_min": -0.17264126409575642,
+      "training_max": 0.11073733894890614,
+      "standardized_log_forecast_contribution": 0.5157852597409516
+    },
+    {
+      "feature": "downside_share20",
+      "origin_value": 0.9161068760687732,
+      "training_min": 0.04780724282963543,
+      "training_max": 0.9112758028384719,
+      "standardized_log_forecast_contribution": 0.021008341693063783
+    }
+  ],
+  "scope": "Post-hoc model explanation only; no refit, input exclusion or economic causation claim"
+}

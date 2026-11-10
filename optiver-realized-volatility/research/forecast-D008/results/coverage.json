@@ -1,0 +1,40 @@
+[
+  {
+    "policy": "narrow",
+    "origin_stock_grid": 127260,
+    "cohort_stocks": 482,
+    "target_available": 121214,
+    "zero_targets": 0,
+    "outside_discovery_horizon": 2525,
+    "own_features_unavailable": 4342,
+    "market_features_unavailable": 0,
+    "outside_frozen_cohort": 5796,
+    "all_model_policy_common": 118765,
+    "headline_common_both_policies": 111428,
+    "forecasts": {
+      "M0": 120984,
+      "M1": 118785,
+      "M2": 118785
+    },
+    "note": "Reason counts overlap; row-level eligibility is retained in predictions.parquet. Zero targets stay in absolute metrics."
+  },
+  {
+    "policy": "conservative",
+    "origin_stock_grid": 127260,
+    "cohort_stocks": 482,
+    "target_available": 121196,
+    "zero_targets": 0,
+    "outside_discovery_horizon": 2525,
+    "own_features_unavailable": 11738,
+    "market_features_unavailable": 0,
+    "outside_frozen_cohort": 5796,
+    "all_model_policy_common": 111428,
+    "headline_common_both_policies": 111428,
+    "forecasts": {
+      "M0": 120757,
+      "M1": 111458,
+      "M2": 111458
+    },
+    "note": "Reason counts overlap; row-level eligibility is retained in predictions.parquet. Zero targets stay in absolute metrics."
+  }
+]

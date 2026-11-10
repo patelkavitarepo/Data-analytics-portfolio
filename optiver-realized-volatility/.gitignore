@@ -16,3 +16,6 @@ kaggle.json
 .venv/
 __pycache__/
 .pytest_cache/
+
+# Approved derived dashboard snapshot: 2015 forecasts only, no raw/held-out inputs.
+!research/forecast-D008/results/*.parquet

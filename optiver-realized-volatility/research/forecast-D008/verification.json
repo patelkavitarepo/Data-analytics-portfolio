@@ -1,0 +1,12 @@
+{
+  "replayed_model_forecasts": 460486,
+  "reconstructed_targets": 242410,
+  "reconstructed_baselines": 241741,
+  "maximum_prediction_replay_absolute_difference": 0.0,
+  "independent_headline_metric_records_verified": 6,
+  "all_fit_labels_mature": true,
+  "tuning_labels_precede_2015": true,
+  "protected_period_loaded": false,
+  "models_refitted": false,
+  "source": "Actual discovery-only run, no synthetic portfolio evidence"
+}

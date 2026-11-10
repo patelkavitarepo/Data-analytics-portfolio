@@ -1,4 +1,4 @@
-name: Optiver research foundation tests
+name: Project 002 volatility research tests
 on: [push, pull_request]
 jobs:
   test:

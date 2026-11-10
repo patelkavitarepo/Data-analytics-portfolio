@@ -1,5 +1,9 @@
 # D008 proposed experiment: Daily Stock Volatility Prediction and Model Failure Analysis
 
+**Historical status note:** D009 subsequently approved this plan and authorized
+implementation. The proposal below is preserved as written before forecasting
+scores; completed results are in [RESULTS.md](RESULTS.md).
+
 **Status: awaiting lead approval before model implementation.** The lead chose
 the scope and retained Plotly. The explicit methods below are AI recommendations,
 not additional human decisions or empirical forecasting findings. No model has
