@@ -1,6 +1,6 @@
 # Project 003 — Retail Intelligence
 
-**Status:** Phase 01 / source and audit setup; findings and business definitions are **not yet verified**.
+**Status:** Phase 01 raw-data audit complete; Phase 02 anomaly investigation underway. Observed findings are verified against the original workbook, but financial definitions and causal explanations remain open.
 
 ## Objective
 
@@ -16,7 +16,7 @@ Use historical invoice-line data to investigate what happened in an online retai
 - **Publisher's description:** 1,067,371 invoice-line records, December 2009 to December 2011, UK-based non-store retailer; includes wholesalers.
 - **File:** `online_retail_II.xlsx`, two yearly Excel sheets, approximately 43.5 MB.
 
-This repository does **not** redistribute the original dataset. Publisher-reported facts are not results from our own audit.
+This repository does **not** redistribute the original dataset. Original UCI workbook audited successfully: **1,067,371 invoice lines**, workbook SHA-256 `bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980`. [GitHub audit evidence](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42851689386).
 
 ## First milestone: audit without cleaning
 
@@ -26,6 +26,7 @@ The audit reports raw row counts by sheet, date range, duplicate lines, missing 
 cd retail-intelligence
 python -m pip install -r requirements.txt
 python scripts/audit.py --download
+python scripts/investigate_negative_quantities.py
 python -m pytest -q
 ```
 
@@ -35,7 +36,7 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The first command downloads the official UCI archive, extracts the workbook and writes `outputs/initial_audit.json` (both ignored by git). Requires network access. The script has been tested against synthetic input; **the full source workbook has not yet been audited here**.
+The download command obtains the official UCI workbook. The two analyses save `outputs/initial_audit.json` and `outputs/negative_quantity_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed six synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes. No source lines have been dropped or reclassified.
 
 ## Research directions (questions, not findings)
 
