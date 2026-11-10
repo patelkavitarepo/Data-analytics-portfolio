@@ -1,0 +1,122 @@
+[
+  {
+    "scenario": "iid_p10",
+    "label": "SYNTHETIC, NOT MARKET RELATIONSHIPS",
+    "experiments": 10000,
+    "dates": 50,
+    "independent_units": 50,
+    "population_pooled_lift": 1.0,
+    "cvr": {
+      "total": 10000,
+      "undefined": 102,
+      "quantiles": {
+        "min": 0.0,
+        "p10": 0.0,
+        "p25": 0.0,
+        "median": 0.0,
+        "p75": 1.6666666666666667,
+        "p90": 3.125,
+        "max": 16.666666666666668
+      }
+    },
+    "undefined_fraction": 0.0102,
+    "zero_joint_fraction": 0.5999,
+    "estimated_cvr_above_two_fraction": 0.2049
+  },
+  {
+    "scenario": "iid_p30",
+    "label": "SYNTHETIC, NOT MARKET RELATIONSHIPS",
+    "experiments": 10000,
+    "dates": 50,
+    "independent_units": 50,
+    "population_pooled_lift": 1.0,
+    "cvr": {
+      "total": 10000,
+      "undefined": 0,
+      "quantiles": {
+        "min": 0.0,
+        "p10": 0.5555555555555556,
+        "p25": 0.7692307692307693,
+        "median": 0.9920634920634921,
+        "p75": 1.2280701754385965,
+        "p90": 1.4705882352941178,
+        "max": 2.7472527472527473
+      }
+    },
+    "undefined_fraction": 0.0,
+    "zero_joint_fraction": 0.0079,
+    "estimated_cvr_above_two_fraction": 0.0076
+  },
+  {
+    "scenario": "iid_p50",
+    "label": "SYNTHETIC, NOT MARKET RELATIONSHIPS",
+    "experiments": 10000,
+    "dates": 50,
+    "independent_units": 50,
+    "population_pooled_lift": 1.0,
+    "cvr": {
+      "total": 10000,
+      "undefined": 0,
+      "quantiles": {
+        "min": 0.32894736842105265,
+        "p10": 0.8136094674556213,
+        "p25": 0.9,
+        "median": 1.0,
+        "p75": 1.09289639698231,
+        "p90": 1.183431952662722,
+        "max": 1.6414141414141414
+      }
+    },
+    "undefined_fraction": 0.0,
+    "zero_joint_fraction": 0.0,
+    "estimated_cvr_above_two_fraction": 0.0
+  },
+  {
+    "scenario": "episode_constant_p30",
+    "label": "SYNTHETIC, NOT MARKET RELATIONSHIPS",
+    "experiments": 10000,
+    "dates": 50,
+    "independent_units": 28,
+    "population_pooled_lift": 0.9999999999999993,
+    "cvr": {
+      "total": 10000,
+      "undefined": 0,
+      "quantiles": {
+        "min": 0.0,
+        "p10": 0.2777777777777778,
+        "p25": 0.5859375,
+        "median": 0.9615384615384616,
+        "p75": 1.3736263736263736,
+        "p90": 1.7857142857142858,
+        "max": 7.142857142857143
+      }
+    },
+    "undefined_fraction": 0.0,
+    "zero_joint_fraction": 0.0678,
+    "estimated_cvr_above_two_fraction": 0.0568
+  },
+  {
+    "scenario": "severity_mixture_p10_p80",
+    "label": "SYNTHETIC, NOT MARKET RELATIONSHIPS",
+    "experiments": 10000,
+    "dates": 50,
+    "independent_units": 50,
+    "population_pooled_lift": 1.604938271604938,
+    "cvr": {
+      "total": 10000,
+      "undefined": 0,
+      "quantiles": {
+        "min": 0.9523809523809523,
+        "p10": 1.4166666666666667,
+        "p25": 1.5122873345935728,
+        "median": 1.6098484848484849,
+        "p75": 1.7210144927536233,
+        "p90": 1.8207282913165266,
+        "max": 2.272727272727273
+      }
+    },
+    "undefined_fraction": 0.0,
+    "zero_joint_fraction": 0.0,
+    "estimated_cvr_above_two_fraction": 0.0121
+  }
+]

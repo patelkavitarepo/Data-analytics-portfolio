@@ -175,5 +175,6 @@ scores, or merge. Ask for lead approval before final relationship criteria.
 
 The fixed feasibility grid and diagnostics in `feasibility-D006/design.json` are
 AI implementation choices implementing this approval, not parameters independently
-chosen by the lead. Results and recommendations are recorded separately below
-and in IMPLEMENTATION.md, never as human conclusions or approvals.
+chosen by the lead. Results and recommendations are recorded in
+`feasibility-D006/README.md` and IMPLEMENTATION.md, never as human conclusions
+or approvals.

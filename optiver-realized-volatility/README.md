@@ -10,7 +10,15 @@ horizon in D002. The original Optiver data access track is preserved in
 [the archived foundation guide](README_OPTIVER_FOUNDATION.md); this pilot is not
 claimed to use the official Optiver data.
 
-## Current checkpoint: D005 CVR methodology awaits lead approval
+## Current checkpoint: D006 discovery feasibility awaits next-methodology review
+
+The lead approved D005's evidence-profile methodology and a discovery-only
+feasibility phase. Read the [D006 evidence packet with charts, all definition
+comparisons, precision limits and data requirements](research/feasibility-D006/README.md).
+The audit reports support rather than pair CVRs or rankings: few stress episodes,
+coverage-sensitive historical baselines and wide attainable uncertainty limit
+what can be established. No final reliability gates, weighted score or predictive
+model is adopted. The next direction remains a human research decision.
 
 The lead interpreted D004 cautiously: high correlation and sensitivity to
 measurements, episodes and cleaning do not establish a reliable reference stock.
@@ -19,7 +27,7 @@ The lead proposed Conditional Vulnerability Ratio (CVR). Read the
 It explains symmetry, directional companions, event support, episode uncertainty,
 market-severity confounding, masking sensitivity and later replication. It is not
 a final scoring system; no stock CVRs or later-period relationships were computed.
-Methodology approval precedes discovery-only feasibility work. No predictive
+D006 authorized feasibility only, not final relationship criteria. No predictive
 training is authorized.
 
 Read the [D004 broad-decline evidence packet with charts and examples](research/declines-D004/README.md).
@@ -67,6 +75,9 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
 
 ## Code layout
 
+- `daily_study/feasibility.py`: discovery-only stress definitions, support/coverage
+  distributions, episode/precision diagnostics and labeled synthetic experiments;
+  no observed pair CVRs, reference rankings or predictive models.
 - `daily_study/declines.py`: predeclared discovery-period contexts, stock profiles,
   leave-out market controls, pair descriptors and episode checks; no forecasts.
 - `daily_study/decline_diagnostics.py`: separately labeled post-hoc measurement
@@ -84,8 +95,9 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
 
 D003 records the lead’s masking approval. The implementation and comparison are
 complete. D004 records broad market declines as the first context; D005 records
-the lead's interpretation and CVR research objective. AI methodological proposals
-await approval. Later-period relationship results remain unexamined.
+the lead's interpretation and CVR research objective. D006 approves the evidence
+framework and feasibility study; final criteria still await approval.
+Later-period relationship results remain unexamined.
 Stock/peer selection, stress regimes, training
 and confirmation dates, interpretation and conclusions remain human-led choices.
 Project 001's separate checkout and branch remain unchanged; no PR has been merged.

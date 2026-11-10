@@ -215,3 +215,60 @@ No market input files, future-target columns or later-period relationship data
 were read for these calculations. The original source, cleaning artifacts and
 all Project 001 files were not edited. No predictive training or merge. No human
 approval of the proposed methodology is inferred from asking for investigation.
+
+## 2026-11-10 UTC — D006 discovery support feasibility (AI implementation)
+
+D006 separately records the lead's approval, objective of multiple references
+with redundancy awareness/abstention, and explicit boundaries. AI assistance
+committed the complete feasibility grid at 779af1e before results: four risk
+measurements, 60/252-session own histories, 90th/95th quantiles, complete/80%
+historical coverage, both masks, episode gap 1/5/10 and disclosed synthetic
+precision cases. These are comparison settings, not lead-chosen final criteria.
+
+Implemented daily_study/feasibility.py and tests/test_feasibility.py. Input
+projection/date predicates restrict parsed observations to 2013–2015 and exclude
+target columns. Market support calculations use exact two-focal-stock exclusion.
+Anonymous distributions span all 122,265 pairs of discovery-observed names;
+no D004 screen, observed pair CVR, candidate ranking, weighted score or predictive
+model is computed. The severity-mixture ratio is a counterfactual from paired
+stratum marginals, explicitly not observed pair dependence or causal adjustment.
+The discovery-median severity split is retrospective diagnostic stratification,
+not an as-of regime boundary. Own-stock stress baselines always end at t-1.
+
+Actually executed:
+
+- Full 64-case policy/definition audit on 730 discovery sessions, 495 observed
+  names; stock support, matched masking/history checks, shared-calendar coverage,
+  anonymous co-stress/episode counts, uncertainty feasibility and 50,000 labeled
+  synthetic experiments. No relationship coefficient used to select a definition.
+- Added mandatory D003 hash checks before/after the final run and software/code
+  provenance, plus final PNG/SVG charts. Initial/final numerical definitions,
+  coverage, masking, history, synthetic and stock-support registries match exactly.
+  The final code hash matches the finalized run; three final charts visually checked.
+- Final full suite: **42 passed**, Python 3.12.14, 4.59 seconds; 11 previously
+  recorded third-party timedelta deprecation warnings. New tests verify timing,
+  missingness, exact pair context/median, episode definitions, rare-event bootstrap
+  failure, synthetic reproducibility, protected date/column loading, input tamper
+  detection and an end-to-end no-model audit.
+- Independent actual-data NumPy quantiles/manual histories agreed for 23,360
+  stock-date/definition state cases; direct donor deletion agreed for six paired
+  support-count cases. A first verification invocation failed on the working
+  directory before reading input; corrected project-directory execution passed.
+- Original CSV SHA256 is unchanged; four cleaning input hashes match D003 before
+  and after. Public numerical exports exactly match the final run. Stock-support
+  CSV contains all 31,680 profiles in policy/definition/alphabetical order and is
+  losslessly compressed; no reference-stock ranking is published.
+
+The feasibility report explains that coverage and sample concentration constrain
+precision, broad severity remains a plausible common explanation, and independent
+episodes cannot be certified from grouping rules. It proposes longer auditable
+pre-2016 discovery history, not relaxing standards. Numerical planning examples
+are explicitly hypothetical precision goals, not new thresholds. The report
+separates simultaneous co-stress from future prediction and pairwise association
+from incremental information after other references/own-stock/market controls.
+
+No 2016–2018 relationship observations or target columns were parsed. Whole-file
+byte hashes verify unchanged inputs without inspecting later relationships.
+Source, masks and Project 001 remain unchanged. No training or merge. Final
+operational definitions, evidence criteria, new sources and later-period
+replication remain subject to human research decisions; no approval is inferred.
