@@ -58,6 +58,8 @@ Contrary to our initial suspicion, these entries are **not eight-field exact dup
 - **D007:** Preserve the 64 extra exact-match rows in the negative non-C cohort until the business meaning of repeated line items is justified.
 - **D008:** Do not treat the 34,335 extra exact copies as confirmed data errors, or as cash/inventory losses.
 
+**Update — Investigation 004:** [Consecutive invoice findings](CONSECUTIVE_INVOICE_FINDINGS.md) show 4 matching consecutive-ID pairs within the negative non-C cohort, including the `556690`/`556691` pair. Their pattern is rare within that cohort but not unique; do not infer whether the two entries represent one or two operational events.
+
 ## Follow-up
 
 **R001d:** Test *near*-duplicate patterns (same stock code, date/time, quantity, price, description, customer, and country but **different invoice IDs**) and check how common consecutive invoice numbers are. A repeated pattern could reflect system batching or accidental double entry; the dataset alone may not adjudicate the cause.
