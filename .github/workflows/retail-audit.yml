@@ -42,6 +42,8 @@ jobs:
         run: python scripts/investigate_consecutive_invoices.py
       - name: Examine complete invoice contents and local batches
         run: python scripts/investigate_invoice_batches.py
+      - name: Measure candidate invoice-run prevalence across both years
+        run: python scripts/investigate_population_batches.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
