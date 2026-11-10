@@ -48,6 +48,18 @@ Descriptions among those that are nonblank include `check` (123 rows), `damages`
 
 The simultaneous combination of negative quantity, zero price, no identified customer, and descriptions such as damage/check/missing is consistent with *possible stock corrections or other internal administrative entries*, but cannot establish the business cause. The source documentation does not conclusively define non-`C` negatives.
 
+## H001 — Human hypothesis (November 10, 2026)
+
+**Proposed by the project owner; not a verified business classification.**
+
+The 3,457 negative-quantity lines lacking a C-prefixed invoice are **likely internal inventory adjustments** made when products were missing, damaged, or potentially stolen.
+
+**Reasons supporting the hypothesis:** Every line has zero unit price and missing customer ID; all were recorded in the UK; some descriptions include `damages`, `damaged`, `missing`, and `check`.
+
+**What remains unproven:** The source has not identified employees, documented write-off processes, or linked these lines to stock counts, incident reports, or loss-prevention records. Theft is a possible mechanism for inventory shrinkage, **not an observed finding**. These patterns could also arise from other operational or administrative adjustments.
+
+**Suggested tests:** Examine repeated stock codes, invoice-level patterns, dated clusters, the distinction between descriptions of damage and checks, and whether quantity magnitudes and zero prices fit a non-sales accounting pattern. Continue retaining source data without asserting motive or causation.
+
 ## Decision log
 
 - **D001:** Retain all original rows for investigation. **No cleaning rules approved.**
