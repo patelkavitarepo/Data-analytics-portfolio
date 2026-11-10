@@ -146,7 +146,7 @@ image/Parquet metadata bytes. The hosted dashboard never trains at runtime.
 python -m pytest -q
 ```
 
-Actual local suite: **63 passed**, Python 3.12.14, with 11 existing calendar
+Actual local suite: **64 passed**, Python 3.12.14, with 11 existing calendar
 timedelta deprecation warnings. Independent checks replayed 460,486 forecasts
 exactly and reconstructed labels/baselines and headline scores. Synthetic test
 fixtures are not portfolio findings.

@@ -196,11 +196,15 @@ reliability conclusion or 2016–2018 evaluation is claimed.
 
 ## Verification actually performed
 
-- **63 local tests passed**, Python 3.12.14; 11 existing calendar timedelta
+- **64 local tests passed**, Python 3.12.14; 11 existing calendar timedelta
   deprecation warnings. Coverage includes purging, projected discovery-only
   loading, tuning maturity, train-only scaling, zero/tiny targets, metric
   disagreement, paired date resampling, synthetic end-to-end fitting, artifact
   tampering/protected dates and a UI prohibited from calling Ridge.fit.
+- A final short-lived reader process aborted after completing its reads at
+  interpreter shutdown. New snapshot reads use synchronous Parquet I/O; standalone
+  checks and a subprocess regression (including dotted ticker names) exit cleanly.
+  No forecast or score changed. The final full suite passed in 16.77 seconds.
 - Independently replayed **460,486 actual Ridge forecasts**, maximum absolute
   difference **0.0**, with saved coefficients/scalers and no refitting; reconstructed
   **242,410 targets** and **241,741 baseline forecasts**, and checked six headline

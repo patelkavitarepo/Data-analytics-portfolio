@@ -378,3 +378,16 @@ metric weighting and limitations, reproduction, the hosted entry path and clear
 human/AI authorship. D001–D006 remains frozen; advanced reference research remains
 future work. PR #2 is to remain draft/unmerged. No later-period authorization or
 economic interpretation is inferred from completed implementation.
+
+### Final reader/CLI regression
+
+After the main implementation commit, an extra short-lived snapshot CLI aborted
+at interpreter teardown after successfully reading dotted ticker names. Changed
+only the read-only snapshot helper to synchronous Parquet reads (threads and
+prebuffer disabled), avoiding background-reader shutdown behavior. Standalone
+processes and a new subprocess regression exit cleanly, including BF.B/BRK.B.
+No forecasting code, model, artifact value, metric, mask or date split changed.
+Final full suite: **64 passed** in 16.77 seconds, same 11 existing warnings.
+The main implementation's 63-test remote workflow completed successfully; the
+follow-up commit's current remote checks are checked separately. PR remains
+draft/unmerged and the reserved evaluation period remains unopened.

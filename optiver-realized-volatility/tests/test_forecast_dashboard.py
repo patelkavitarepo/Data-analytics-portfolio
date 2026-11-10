@@ -1,6 +1,8 @@
 """Read-only UI and snapshot checks use the bundled, actual 2015 run."""
 import json
 import shutil
+import subprocess
+import sys
 from pathlib import Path
 
 import numpy as np
@@ -52,3 +54,18 @@ def test_dashboard_filters_empty_selection_and_never_trains(monkeypatch):
     next(r for r in app.radio if r.label=='Stock scope').set_value('Selected stocks').run()
     next(m for m in app.multiselect if m.label=='Selected stocks').set_value([]).run()
     assert not app.exception and any('at least one stock' in item.value for item in app.info)
+
+
+def test_short_lived_snapshot_process_and_dotted_tickers_exit_cleanly():
+    script='''
+from daily_study.forecast_snapshot import load_snapshot, return_path
+s=load_snapshot('research/forecast-D008/results')
+p=s['predictions']
+for stock in ['BF.B','BRK.B']:
+ row=p[(p.stock==stock)&p.headline].iloc[0]
+ assert len(return_path('research/forecast-D008/results',row.policy,stock,row.date,row.target_end))==5
+print('Read-only CLI and dotted tickers passed')
+'''
+    result=subprocess.run([sys.executable,'-c',script],cwd=ROOT,capture_output=True,text=True,timeout=60)
+    assert result.returncode==0,result.stderr
+    assert 'dotted tickers passed' in result.stdout
