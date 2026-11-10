@@ -29,6 +29,7 @@ python scripts/audit.py --download
 python scripts/investigate_negative_quantities.py
 python scripts/investigate_duplicates.py
 python scripts/investigate_consecutive_invoices.py
+python scripts/investigate_invoice_batches.py
 python -m pytest -q
 ```
 
@@ -38,13 +39,15 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The download command obtains the official UCI workbook. The four analyses save `outputs/initial_audit.json`, `outputs/negative_quantity_investigation.json`, `outputs/duplicate_investigation.json`, and `outputs/consecutive_invoice_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 19 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
+The download command obtains the official UCI workbook. The five analyses save `outputs/initial_audit.json`, `outputs/negative_quantity_investigation.json`, `outputs/duplicate_investigation.json`, `outputs/consecutive_invoice_investigation.json`, and `outputs/invoice_batch_neighborhoods.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 24 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
 
 **Hypothesis H001 follow-up:** [operational adjustment evidence](docs/H001_FOLLOW_UP.md) — description keyword checks, large-quantity case examples, and conservative interpretation limits. No cause or inventory-loss total is asserted. No source lines have been dropped or reclassified.
 
 **Investigation 003 — duplicates:** [source-level invoice match results](docs/DUPLICATE_INVESTIGATION.md). The two -9,600 smudged-printing lines have consecutive *different* invoice IDs (556690, 556691) and are not eight-field exact duplicates. Across all 1,067,371 lines, the audit observed 34,335 extra exact matches, including 64 extra exact matches among the 3,457 negative non-C lines. These are not automatically erroneous records.
 
 **Investigation 004 — consecutive invoices:** [seven-field near-matches across different invoice IDs](docs/CONSECUTIVE_INVOICE_FINDINGS.md). Of 36,182 numeric consecutive invoice-ID pairs, 166 distinct pairs share at least one exact seven-field invoice-line signature. In the negative non-C cohort, only four such matching pairs were found, including the -9,600 case and a three-invoice chain labeled `given away`. No cause or deduplication policy is asserted.
+
+**Investigation 005 — surrounding invoice context:** [full invoice contents and batch clues](docs/INVOICE_BATCH_INVESTIGATION.md). Two -9,600 lines are standalone invoices preceded by another negative zero-price disposal-labeled invoice at 10:36. Six consecutive one-line `given away` invoices are recorded within three minutes. These patterns suggest related operational posting, but do not establish a cause or event count. [Successful workflow evidence](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42864663688).
 
 ## Research directions (questions, not findings)
 

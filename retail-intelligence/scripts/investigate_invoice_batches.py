@@ -102,8 +102,8 @@ def examine_batches(
         sheet_df = df.loc[df["_sheet"].eq(sheet)]
         anchor = sheet_df.loc[sheet_df["_invoice"].isin(ids)]
         anchor_target = target.loc[target["_sheet"].eq(sheet)]
-        anchor_start = anchor_target["_dt"].min()
-        anchor_end = anchor_target["_dt"].max()
+        anchor_start = pd.Timestamp(anchor_target["_dt"].min())
+        anchor_end = pd.Timestamp(anchor_target["_dt"].max())
         id_numbers = [int(x) for x in ids]
         lo, hi = min(id_numbers), max(id_numbers)
         neighbors = sheet_df.loc[
