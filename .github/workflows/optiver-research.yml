@@ -16,5 +16,5 @@ jobs:
           python-version: ${{ matrix.python-version }}
           cache: pip
           cache-dependency-path: optiver-realized-volatility/requirements*.txt
-      - run: pip install -r requirements-dev.txt
+      - run: pip install -r requirements-quality.txt
       - run: python -m pytest -q

@@ -44,3 +44,27 @@ as code manually written by the lead.
 
 No empirical findings, stock relationships, or model gains have yet been observed.
 Do not fill these entries retrospectively as if the lead had chosen them earlier.
+
+## D002 — 2026-11-09 — Daily-data pilot approval (human supplied)
+
+**Status:** approved by the lead. The Plotly `all_stocks_5yr.csv` dataset is the
+foundation for a research pilot. The original D001 hypothesis remains unchanged:
+stock-specific vulnerabilities and condition-dependent information sharing are
+the research focus. This is a daily-frequency adaptation, not an Optiver dataset
+replication. The official-Optiver-access question above is superseded for this
+pilot; it is not retroactively recorded as resolved access to Kaggle.
+
+**Provisional approval:** forecast volatility over five trading sessions, subject
+to reviewing initial analysis. No final target transformation or split boundaries
+have been approved.
+
+**Authorized next step:** independently write/test data-integrity investigation
+code; investigate missingness, OHLC contradictions, unusual moves and corporate
+actions; distinguish verified corrections, unresolved anomalies and legitimate
+unusual behavior; quantify possible cleaning-rule effects; explain target timing
+and chronological validation; present evidence for review.
+
+**Approval still required:** cleaning methodology before training any prediction
+models. Do not automatically remove extreme observations, invent replacement
+prices, modify Project 001, or merge without approval. No cleaning policy or
+empirical interpretation in the report is attributed to the lead.

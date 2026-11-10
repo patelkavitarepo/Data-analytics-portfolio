@@ -43,3 +43,41 @@ validity, and forecast performance remain untested on real competition files.
 - No official-data audit, fitted relationship, model score, or interpretation has
   been run. Python 3.11/3.12 CI is configured; remote results are distinct from
   this local run and must be checked independently.
+
+
+## 2026-11-09 — Approved daily-data pilot: integrity investigation only
+
+The lead approved the Plotly source and provisionally approved five sessions; D002
+records those human decisions without changing D001. AI assistance wrote the
+daily_study audit/target utilities, tests, evidence ledger and quality report.
+The original Optiver tools are preserved and their initial README is archived;
+no claim is made that the daily pilot uses Optiver microstructure observations.
+
+Actually executed:
+
+- Read the unchanged 619,040-row source, verifying its SHA-256 before/after.
+- Cross-checked all dates against XNYS sessions (exchange-calendars 4.13.2).
+- Audited fields, missing stock sessions, OHLC contradictions, repeated records,
+  large returns and simple-ratio candidates; researched 24 evidence-led cases.
+- Generated real-data issue registers, policy-effect counts and three SVG figures.
+  No raw source CSV, credentials, or full target table was committed.
+- Previewed proposed exclusions without writing corrected/cleaned prices; all
+  future-target use was limited to integrity/count sensitivity, not model fitting,
+  relationship discovery, regime choice or selection on forecast results.
+- `python -m pytest -q`: **20 passed** in 2.45 seconds on Python 3.12.14. Five
+  warnings came from exchange-calendars/NumPy timedelta compatibility; tests did
+  not fail. Tests use labeled mathematical fixtures, not fabricated market evidence.
+- `pip check`: no broken requirements. A separate project-local research virtual
+  environment was installed; Project 001's dependencies were not changed.
+- The full actual-data target panel was independently cross-checked against NumPy
+  sliding six-close windows (separate from the shift-based implementation).
+- SVG visual inspection via browser capture encountered a file-URL policy block,
+  then a screenshot timeout over local HTTP. An equivalent PNG plot of the same
+  actual case-study observations was generated for visual inspection; no browser
+  screenshot success is claimed.
+- Project 001 checkout remained clean at commit 05eb505; it was not modified.
+
+The proposed mask policy, final adjustment basis, chronological fold boundaries,
+context definition and model choices remain unapproved. No predictive model was
+trained, no replacement price was invented, and no PR was merged. The complete
+corporate-action history and all 72 unresolved general extreme moves remain open.

@@ -1,0 +1,122 @@
+{
+  "status": "investigation_only_cleaning_not_approved",
+  "models_trained": false,
+  "prices_corrected": 0,
+  "source_sha256": "6aea253cd19de60b568143991aaf1fa482456565c389205658d236e595e716cf",
+  "evidence_sha256": "407ccd9b550a5adeaae7591427e3bdfb2d0aba536b473d8215490d337962b783",
+  "rows": 619040,
+  "stocks": 505,
+  "sessions": 1259,
+  "first_date": "2013-02-08",
+  "last_date": "2018-02-07",
+  "pandas": "2.3.3",
+  "numpy": "2.5.4",
+  "matplotlib": "3.11.2",
+  "audit_code_sha256": "c12f267c3e24a73d13c0186b0944c75990b619f0f5f0b6497b2fa84bee20a6fb",
+  "target_code_sha256": "865da92e855baaffdf255d3e106edf0938f44f759567ed6c09b8d2b5508ef14c",
+  "calendar_package": "4.13.2",
+  "calendar": "XNYS",
+  "python": "3.12.14",
+  "missing_whole_panel_sessions": [],
+  "missing_values": {
+    "date": 0,
+    "open": 11,
+    "high": 8,
+    "low": 8,
+    "close": 0,
+    "volume": 0,
+    "Name": 0
+  },
+  "flags": {
+    "missing_ohlc": 11,
+    "invalid_numeric": 0,
+    "ohlc_contradiction": 12,
+    "zero_volume": 4,
+    "repeated_ohlc": 2133,
+    "repeated_ohlcv": 1508
+  },
+  "interior_missing_stock_sessions": 51,
+  "repeated_OHLC_groups": 1066,
+  "repeated_OHLC_stocks": 380,
+  "repeated_OHLCV_stocks": 312,
+  "large_adjacent_session_moves": 102,
+  "large_move_status_counts": {
+    "unresolved_extreme_move": 72,
+    "documented_market_move": 2,
+    "verified_action_boundary": 17,
+    "action_date_incomplete": 1,
+    "unresolved_price_contradiction": 2,
+    "unresolved_repeated_price": 8
+  },
+  "split_ratio_screen_count": 30,
+  "rule_effects": [
+    {
+      "scenario": "raw_calendar_only",
+      "masked_existing_price_rows": 0,
+      "explicit_return_boundaries": 0,
+      "valid_five_session_targets": 616430,
+      "targets_unavailable_vs_raw": 0,
+      "percent_target_loss_vs_raw": 0.0,
+      "origins_with_20_return_history_and_target": 606000
+    },
+    {
+      "scenario": "S1_contradictory_prices",
+      "masked_existing_price_rows": 12,
+      "explicit_return_boundaries": 0,
+      "valid_five_session_targets": 616358,
+      "targets_unavailable_vs_raw": 72,
+      "percent_target_loss_vs_raw": 0.011680158331035154,
+      "origins_with_20_return_history_and_target": 605688
+    },
+    {
+      "scenario": "S2_plus_repeated_OHLC",
+      "masked_existing_price_rows": 2145,
+      "explicit_return_boundaries": 0,
+      "valid_five_session_targets": 606912,
+      "targets_unavailable_vs_raw": 9518,
+      "percent_target_loss_vs_raw": 1.5440520415943415,
+      "origins_with_20_return_history_and_target": 576237
+    },
+    {
+      "scenario": "S3_plus_verified_action_boundaries",
+      "masked_existing_price_rows": 2145,
+      "explicit_return_boundaries": 17,
+      "valid_five_session_targets": 606831,
+      "targets_unavailable_vs_raw": 9599,
+      "percent_target_loss_vs_raw": 1.5571922197167563,
+      "origins_with_20_return_history_and_target": 575860
+    },
+    {
+      "scenario": "S4_plus_documented_action_date_pending",
+      "masked_existing_price_rows": 2145,
+      "explicit_return_boundaries": 18,
+      "valid_five_session_targets": 606826,
+      "targets_unavailable_vs_raw": 9604,
+      "percent_target_loss_vs_raw": 1.558003341823078,
+      "origins_with_20_return_history_and_target": 575835
+    },
+    {
+      "scenario": "sensitivity_zero_volume",
+      "masked_existing_price_rows": 2149,
+      "explicit_return_boundaries": 18,
+      "valid_five_session_targets": 606812,
+      "targets_unavailable_vs_raw": 9618,
+      "percent_target_loss_vs_raw": 1.5602744837207794,
+      "origins_with_20_return_history_and_target": 575781
+    },
+    {
+      "scenario": "sensitivity_unresolved_extremes",
+      "masked_existing_price_rows": 2145,
+      "explicit_return_boundaries": 100,
+      "valid_five_session_targets": 606472,
+      "targets_unavailable_vs_raw": 9958,
+      "percent_target_loss_vs_raw": 1.6154307869506677,
+      "origins_with_20_return_history_and_target": 574231
+    }
+  ],
+  "coverage_min_rows": 44,
+  "coverage_full_session_stocks": 470,
+  "zero_targets_raw": 0,
+  "raw_target_count": 616430,
+  "unsafe_compressed_row_targets_in_excess": 85
+}
