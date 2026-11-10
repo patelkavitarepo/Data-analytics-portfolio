@@ -28,10 +28,12 @@ jobs:
         run: python -m pytest -q
       - name: Audit original UCI workbook
         run: python scripts/audit.py --download
+      - name: Investigate negative quantities in original workbook
+        run: python scripts/investigate_negative_quantities.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: retail-initial-audit
-          path: retail-intelligence/outputs/initial_audit.json
+          path: retail-intelligence/outputs/*.json
           if-no-files-found: warn
