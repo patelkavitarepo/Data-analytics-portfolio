@@ -57,7 +57,8 @@ def test_high_value_top_case_reports_context_but_not_identities():
     assert multi["invoice_positive_non_M_lines"] == 1
     assert multi["invoice_total_lines"] == 2
     assert multi["invoice_other_stock_codes"] == ["VASE"]
-    assert "customer_id" not in str(result["top_positive_M_line_cases"])
+    assert all("customer_id" not in x for x in result["top_positive_M_line_cases"])
+    assert all(isinstance(x["customer_id_present"], bool) for x in result["top_positive_M_line_cases"])
     assert result["positive_M_gross_line_amount_not_verified_revenue_gbp"] == 5141.0
 
 
