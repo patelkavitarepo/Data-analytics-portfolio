@@ -1,0 +1,37 @@
+name: Retail Intelligence — source audit
+
+on:
+  pull_request:
+    paths:
+      - "retail-intelligence/**"
+      - ".github/workflows/retail-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: retail-intelligence
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install audit dependencies
+        run: python -m pip install -r requirements.txt
+      - name: Run synthetic-data tests
+        run: python -m pytest -q
+      - name: Audit original UCI workbook
+        run: python scripts/audit.py --download
+      - name: Publish summary only (not source workbook)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: retail-initial-audit
+          path: retail-intelligence/outputs/initial_audit.json
+          if-no-files-found: warn
