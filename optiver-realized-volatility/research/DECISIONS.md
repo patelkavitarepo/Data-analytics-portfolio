@@ -92,3 +92,24 @@ primary forecasting policy versus sensitivity policy, learned model, date split
 boundaries, or interpretation of the selection-bias audit. Technical definitions
 of the comparison policies are AI implementation choices disclosed in the
 cleaning report, not falsely attributed as separately specified human decisions.
+
+## D004 — 2026-11-09 — Broad market declines first (human supplied)
+
+The lead chose **broad market declines** as the first descriptive experiment.
+Reasoning supplied by the lead: stocks with different normal behavior may share
+vulnerabilities during particular stressful market conditions, and the existence
+of those relationships should be investigated before prediction models.
+
+Authorized comparisons: ordinary versus declining-market behavior, transparent
+conditions without future observations, conditional changes in volatility,
+separation of common-market response from stock-specific relationships, narrow
+versus conservative masking/coverage, and plain-English evidence with charts.
+Do not treat similar reactions as prediction or causation. Present evidence and
+ask for the lead's interpretation **before AI conclusions**. No training or merge;
+Project 001 remains unchanged.
+
+The hypothesis in D001 remains unchanged. The operational thresholds, discovery
+cutoff, measurements and support guards in `declines-D004/design.json` are disclosed
+AI analytical choices fixed before inspecting this experiment's results, not
+additional parameters falsely attributed to the lead. They are reviewable and
+subject to the lead's interpretation and subsequent decisions.
