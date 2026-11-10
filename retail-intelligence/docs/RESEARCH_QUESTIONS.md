@@ -11,6 +11,15 @@
 - Further investigate refunds, non-merchandise codes, invoice-level groups, zero-priced lines, and duplicate records.
 - Do not define revenue solely as `Quantity * UnitPrice` without explaining exclusions, cancellations, and the monetary meaning of the resulting figure.
 
+## R001e — Do annual source worksheets overlap?
+
+**Status:** open, prioritized after Investigation 006.
+
+- A population-wide audit found 3,457 sheet-specific candidate invoice instances but a prior audit found 3,393 globally distinct candidate invoice numbers; a 64-instance difference requires explicit source cross-sheet reconciliation.
+- Investigate invoice IDs, date ranges, and exact shared invoice lines across the yearly worksheets. A December 2010 invoice sequence appears in both sheets.
+- Do not interpret annual totals, invoice counts, or financial measures as globally unique before verifying overlap and documenting any deduplication sensitivity.
+- Evidence: [population invoice sequence findings](POPULATION_BATCH_FINDINGS.md).
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
