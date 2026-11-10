@@ -129,3 +129,53 @@ need future-session comparisons. Point-in-time validity is not claimed.
 No training or merge was performed. Project 001's checkout and dependencies were
 unchanged. The next proposed no-model descriptive experiment is left for the lead
 to review and choose the economic context before implementation.
+
+## 2026-11-09 — D004 broad-decline descriptive evidence (AI implementation)
+
+The human lead chose broad declines and supplied the reasoning and requirement
+for interpretation before AI conclusions; D004 records that separately. AI
+operational definitions, support guards, discovery cutoff and screen were fixed
+in design.json and committed at a0977d8 before relationship results were inspected.
+No claim is made that the lead separately chose those numerical parameters.
+
+Implemented daily_study/declines.py and decline_diagnostics.py. The primary run
+loads only date/stock/log_return through 2015-12-31; no future-target columns or
+2016–2018 relationship results enter calculations. Integrity hash checks still
+verify the existing whole clean artifacts. Stock and pair contexts exclude the
+focal names and use common conservative donors; normalization excludes the current
+return. Market control is descriptive unit-loading de-medianing, not a fitted
+predictive model or a complete causal market-exposure adjustment.
+
+Actually executed:
+
+- Descriptive scan on 730 discovery sessions, 495 names with observed returns,
+  489 supported profiles per policy and 119,316 supported pairs per policy.
+- Retained all three mechanically selected primary examples plus three fixed
+  controls, their sample counts, episode resampling, rank coefficients, matched
+  dates and predeclared threshold sensitivities. No screening thresholds relaxed.
+- Added explicitly post-hoc floor/transform, influential-observation, baseline
+  variation, full-period signed-correlation and maximum-masking-difference checks.
+  All checked variants are shown; no preferred floor chosen, no quote/zero changed,
+  no new positive hypothesis candidate substituted. These checks are not falsely
+  labeled as preregistered. The measurement results do not constitute an AI
+  economic conclusion about the lead's hypothesis.
+- Two complete primary runs reproduced the entire pair table exactly. A plotting
+  shared-axis issue was corrected for the final evidence charts; no numerical
+  descriptor or selected example changed. The final examples PNG was visually
+  inspected, including the labeled covariance-contribution dates.
+- Independent actual-data pandas deletion/median/correlation calculations agreed
+  for 30 sampled policy/pair cases; final design and code hashes match the run.
+- `python -m pytest -q`: **32 passed** on Python 3.12.14. Tests include exact
+  leave-out medians, no future/current contamination of normalization, focal
+  exclusion, fixed support screens, deterministic block resampling, filtered
+  loading, zero-preserving diagnostic transforms and an end-to-end synthetic run.
+  Mathematical fixtures are not market evidence. Eleven third-party timedelta
+  deprecation warnings remain; they are not test failures.
+
+Public review exports include the methods, charts, profiles, examples, every
+screen-pass pair, measurement checks and manifests. The full pair scan remains an
+ignored reproducible Parquet artifact. Source/cleaning policies and Project 001
+were unchanged; no prediction model was trained and no PR merged. No AI assessment
+of whether D001 is supported or rejected is issued before the lead interprets the
+evidence. The next checkpoint is that interpretation, not automatic replication,
+model training or selection of a preferred metric after looking at results.

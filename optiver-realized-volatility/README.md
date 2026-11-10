@@ -10,9 +10,13 @@ horizon in D002. The original Optiver data access track is preserved in
 [the archived foundation guide](README_OPTIVER_FOUNDATION.md); this pilot is not
 claimed to use the official Optiver data.
 
-## Current checkpoint: cleaning complete; descriptive experiment awaits review
+## Current checkpoint: D004 descriptive evidence awaits lead interpretation
 
-Read the [D003 cleaned-panel comparison, selection-bias audit and complete ledger](research/cleaning-D003/README.md).
+Read the [D004 broad-decline evidence packet with charts and examples](research/declines-D004/README.md).
+It presents discovery observations and robustness checks; the lead interprets them
+before AI conclusions. No prediction models were trained or future target columns read.
+
+The [D003 cleaned-panel comparison, selection-bias audit and complete ledger](research/cleaning-D003/README.md) remains available.
 
 The earlier [integrity investigation with charts and evidence](research/daily-quality/README.md) is preserved as the pre-approval research record.
 It includes missingness, calendar gaps, OHLC contradictions, repeated historical
@@ -52,6 +56,10 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
 
 ## Code layout
 
+- `daily_study/declines.py`: predeclared discovery-period contexts, stock profiles,
+  leave-out market controls, pair descriptors and episode checks; no forecasts.
+- `daily_study/decline_diagnostics.py`: separately labeled post-hoc measurement
+  and masking diagnostics; no re-selection of hypothesis candidates.
 - `daily_study/clean.py`: approved masking layers, paired policy comparison, complete
   exclusion causes, artifact verification and selection-bias audit.
 - `daily_study/quality.py`: calendar-aligned audit, evidence-led issue ledger,
@@ -64,6 +72,8 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
   no-data review UI. They have not been repurposed to display daily forecasts.
 
 D003 records the lead’s masking approval. The implementation and comparison are
-complete; the next descriptive experiment requires the lead’s research direction. Stock/peer selection, stress regimes, training
+complete. D004 records broad market declines as the first context; the resulting
+evidence now awaits the lead’s interpretation. Later-period relationship results
+remain unexamined. Stock/peer selection, stress regimes, training
 and confirmation dates, interpretation and conclusions remain human-led choices.
 Project 001's separate checkout and branch remain unchanged; no PR has been merged.

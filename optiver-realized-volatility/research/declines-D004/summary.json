@@ -1,0 +1,110 @@
+{
+  "stage": "descriptive_discovery_evidence_for_lead_interpretation",
+  "prediction_models_trained": false,
+  "future_target_columns_read": false,
+  "discovery_start": "2013-02-08",
+  "discovery_end": "2015-12-31",
+  "discovery_dates": 730,
+  "stocks_in_aligned_grid": 505,
+  "stocks_with_observed_discovery_returns": 495,
+  "global_context_decline_dates": 50,
+  "global_context_ordinary_dates": 397,
+  "global_context_other_or_unavailable_dates": 283,
+  "global_decline_episodes": 28,
+  "pair_universe": 127260,
+  "both_policy_screen_passes": 1583,
+  "selected_examples": [
+    [
+      "AMAT",
+      "SYY"
+    ],
+    [
+      "HRS",
+      "SLG"
+    ],
+    [
+      "BAX",
+      "KMI"
+    ]
+  ],
+  "primary_context_sensitivities": [
+    {
+      "rule": "half_down_1pct",
+      "ordinary_dates": 397,
+      "decline_dates": 65,
+      "donor_eligible_dates": 729
+    },
+    {
+      "rule": "three_fifths_down_1_5pct",
+      "ordinary_dates": 397,
+      "decline_dates": 14,
+      "donor_eligible_dates": 729
+    }
+  ],
+  "design_sha256": "d70f86c6659db98666014a009e50cab0c3d25a620ac14ee1280c95eb30596b33",
+  "clean_manifest_sha256": "2fc35138f88880be93e2ef75df3493c3770715b5218b5c70ce2d83221670358a",
+  "code_sha256": "1e778eaf1eb4d1fac01a7d4bf4eaae59cb2db8678f36421caf96f98ef5458a07",
+  "later_relationship_results_examined": false,
+  "profile_support_counts": {
+    "narrow": 489,
+    "conservative": 489
+  },
+  "pair_support_counts": {
+    "narrow": 119316,
+    "conservative": 119316
+  },
+  "correlation_distributions": {
+    "narrow": {
+      "ordinary_adjusted_corr": {
+        "0.1": -0.06703304960117501,
+        "0.5": -0.0015045850126681735,
+        "0.9": 0.07339111217912433,
+        "0.99": 0.1631651857371594
+      },
+      "decline_raw_corr": {
+        "0.1": -0.060563379114641935,
+        "0.5": 0.14035050271113178,
+        "0.9": 0.3685709419143987,
+        "0.99": 0.5648352362700935
+      },
+      "decline_adjusted_corr": {
+        "0.1": -0.2024884285288739,
+        "0.5": -0.00959782331541257,
+        "0.9": 0.23080879126282883,
+        "0.99": 0.47443530085162683
+      },
+      "correlation_change": {
+        "0.1": -0.20988585936528514,
+        "0.5": -0.0075688326444753075,
+        "0.9": 0.23118370470793584,
+        "0.99": 0.4508292691750858
+      }
+    },
+    "conservative": {
+      "ordinary_adjusted_corr": {
+        "0.1": -0.06752605995072868,
+        "0.5": -0.0016525649209335573,
+        "0.9": 0.07333672997699239,
+        "0.99": 0.1637077439180924
+      },
+      "decline_raw_corr": {
+        "0.1": -0.061607316719788266,
+        "0.5": 0.13978204192722749,
+        "0.9": 0.3687242084221242,
+        "0.99": 0.5651266940737703
+      },
+      "decline_adjusted_corr": {
+        "0.1": -0.2036065340333783,
+        "0.5": -0.009586767678688586,
+        "0.9": 0.23112632870687444,
+        "0.99": 0.4741028093626852
+      },
+      "correlation_change": {
+        "0.1": -0.2104621178468562,
+        "0.5": -0.007538345076510639,
+        "0.9": 0.2316123077475038,
+        "0.99": 0.45248027721942286
+      }
+    }
+  }
+}

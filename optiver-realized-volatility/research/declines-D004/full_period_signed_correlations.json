@@ -1,0 +1,98 @@
+[
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "narrow",
+    "full_discovery_signed_log_return_correlation": 0.2719124353475274,
+    "n": 729,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "conservative",
+    "full_discovery_signed_log_return_correlation": 0.2769347396965633,
+    "n": 722,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "narrow",
+    "full_discovery_signed_log_return_correlation": 0.2862982999009151,
+    "n": 729,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "conservative",
+    "full_discovery_signed_log_return_correlation": 0.2946385105842385,
+    "n": 716,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "narrow",
+    "full_discovery_signed_log_return_correlation": 0.26073599608323217,
+    "n": 728,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "conservative",
+    "full_discovery_signed_log_return_correlation": 0.261232415676243,
+    "n": 721,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "narrow",
+    "full_discovery_signed_log_return_correlation": 0.949457523485074,
+    "n": 728,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "conservative",
+    "full_discovery_signed_log_return_correlation": 0.949457523485074,
+    "n": 728,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "narrow",
+    "full_discovery_signed_log_return_correlation": 0.30721868772829575,
+    "n": 729,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "conservative",
+    "full_discovery_signed_log_return_correlation": 0.30721868772829575,
+    "n": 729,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "narrow",
+    "full_discovery_signed_log_return_correlation": 0.27500420364625966,
+    "n": 729,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "conservative",
+    "full_discovery_signed_log_return_correlation": 0.27500420364625966,
+    "n": 729,
+    "note": "Includes decline days; not an ordinary-only estimate"
+  }
+]

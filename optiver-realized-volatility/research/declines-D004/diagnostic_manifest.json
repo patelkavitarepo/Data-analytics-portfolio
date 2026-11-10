@@ -1,0 +1,15 @@
+{
+  "kind": "post_hoc_measurement_diagnostic_not_predeclared_screen",
+  "primary_examples_sha256": "6b04bb653ef56d2666182f24bca9f6a0946f997c01f2b219863272db308e151e",
+  "code_sha256": "ea999630ba403735d856d737bdd900db007016863c4600d9610b5a29823d7c48",
+  "primary_results_changed": false,
+  "new_hypothesis_candidates_selected": false,
+  "post_hoc_masking_example_selected": true,
+  "later_periods_examined": false,
+  "notes": [
+    "Initiated after primary example checks showed Pearson/rank/episode differences.",
+    "All variants displayed; no best floor chosen and no primary result replaced.",
+    "Zero recorded returns are retained; a zero is not a demonstrated data error.",
+    "Full-period signed correlations and raw variation levels describe baseline differences; they do not change the screen."
+  ]
+}

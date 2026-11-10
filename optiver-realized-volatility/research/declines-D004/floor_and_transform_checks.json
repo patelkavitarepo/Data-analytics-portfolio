@@ -1,0 +1,770 @@
+[
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "narrow",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.09170354821218087,
+      "decline_adjusted_corr": 0.8860858470219621,
+      "decline_raw_corr": 0.8896756134537213,
+      "ordinary_signed_corr": -0.010683133022265999,
+      "correlation_change": 0.977789395234143,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "conservative",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.09075960372592937,
+      "decline_adjusted_corr": 0.8851713481610612,
+      "decline_raw_corr": 0.8887936444106862,
+      "ordinary_signed_corr": -0.010362646958446917,
+      "correlation_change": 0.9759309518869906,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "narrow",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.11181643922651001,
+      "decline_adjusted_corr": 0.77923845334783,
+      "decline_raw_corr": 0.7897123435601979,
+      "ordinary_signed_corr": -0.010683133022265999,
+      "correlation_change": 0.89105489257434,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "conservative",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.11022080384282508,
+      "decline_adjusted_corr": 0.7777539874670313,
+      "decline_raw_corr": 0.7882877713315699,
+      "ordinary_signed_corr": -0.010362646958446917,
+      "correlation_change": 0.8879747913098563,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "narrow",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.12040552488717055,
+      "decline_adjusted_corr": 0.5002705730314762,
+      "decline_raw_corr": 0.5389049266784078,
+      "ordinary_signed_corr": -0.010683133022265999,
+      "correlation_change": 0.6206760979186468,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "conservative",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.11769065960254575,
+      "decline_adjusted_corr": 0.4982596652675077,
+      "decline_raw_corr": 0.5368506567995281,
+      "ordinary_signed_corr": -0.010362646958446917,
+      "correlation_change": 0.6159503248700534,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "narrow",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.06637440922398788,
+      "decline_adjusted_corr": 0.13185520997110753,
+      "decline_raw_corr": 0.18069742055918703,
+      "ordinary_signed_corr": -0.010683133022265999,
+      "correlation_change": 0.1982296191950954,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "policy": "conservative",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.06418360210413684,
+      "decline_adjusted_corr": 0.12955274475142628,
+      "decline_raw_corr": 0.17612928346435164,
+      "ordinary_signed_corr": -0.010362646958446917,
+      "correlation_change": 0.19373634685556312,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "narrow",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.1109980355179048,
+      "decline_adjusted_corr": 0.8698995459600273,
+      "decline_raw_corr": 0.8733963090886308,
+      "ordinary_signed_corr": -0.09941925859256655,
+      "correlation_change": 0.980897581477932,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "conservative",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.09410594925274336,
+      "decline_adjusted_corr": 0.88035572035422,
+      "decline_raw_corr": 0.883577528417836,
+      "ordinary_signed_corr": -0.09686845946971706,
+      "correlation_change": 0.9744616696069635,
+      "ordinary_n": 370,
+      "decline_n": 47,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "narrow",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.1203188863365642,
+      "decline_adjusted_corr": 0.7418916748541956,
+      "decline_raw_corr": 0.7542843086801597,
+      "ordinary_signed_corr": -0.09941925859256655,
+      "correlation_change": 0.8622105611907598,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "conservative",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.10220521923356325,
+      "decline_adjusted_corr": 0.7609555945203498,
+      "decline_raw_corr": 0.7724071871681755,
+      "ordinary_signed_corr": -0.09686845946971706,
+      "correlation_change": 0.8631608137539131,
+      "ordinary_n": 370,
+      "decline_n": 47,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "narrow",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.11548604875494556,
+      "decline_adjusted_corr": 0.38402798462708093,
+      "decline_raw_corr": 0.4467213563005855,
+      "ordinary_signed_corr": -0.09941925859256655,
+      "correlation_change": 0.4995140333820265,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "conservative",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.1007843573094176,
+      "decline_adjusted_corr": 0.4165884855940482,
+      "decline_raw_corr": 0.4761598206529781,
+      "ordinary_signed_corr": -0.09686845946971706,
+      "correlation_change": 0.5173728429034659,
+      "ordinary_n": 370,
+      "decline_n": 47,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "narrow",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.007528940353151478,
+      "decline_adjusted_corr": -0.026839703816364784,
+      "decline_raw_corr": 0.2868956890177693,
+      "ordinary_signed_corr": -0.09941925859256655,
+      "correlation_change": -0.034368644169516266,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "policy": "conservative",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.020271602650861833,
+      "decline_adjusted_corr": -0.012919318752058474,
+      "decline_raw_corr": 0.2987033848232107,
+      "ordinary_signed_corr": -0.09686845946971706,
+      "correlation_change": -0.033190921402920306,
+      "ordinary_n": 370,
+      "decline_n": 47,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "narrow",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.013189584217382732,
+      "decline_adjusted_corr": 0.9317861728627183,
+      "decline_raw_corr": 0.9356333657494088,
+      "ordinary_signed_corr": 0.0030778989827748367,
+      "correlation_change": 0.9185965886453356,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "conservative",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.014707985291100461,
+      "decline_adjusted_corr": 0.9323497760006619,
+      "decline_raw_corr": 0.9361685838959212,
+      "ordinary_signed_corr": 0.0003316744853502024,
+      "correlation_change": 0.9176417907095614,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "narrow",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.012146945572348536,
+      "decline_adjusted_corr": 0.8635349390825633,
+      "decline_raw_corr": 0.8761434185229635,
+      "ordinary_signed_corr": 0.0030778989827748367,
+      "correlation_change": 0.8513879935102148,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "conservative",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.014730522365663525,
+      "decline_adjusted_corr": 0.8645972263536904,
+      "decline_raw_corr": 0.8771288955013464,
+      "ordinary_signed_corr": 0.0003316744853502024,
+      "correlation_change": 0.8498667039880269,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "narrow",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.004053968414311382,
+      "decline_adjusted_corr": 0.6608138218263406,
+      "decline_raw_corr": 0.7202723702330632,
+      "ordinary_signed_corr": 0.0030778989827748367,
+      "correlation_change": 0.664867790240652,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "conservative",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.00027341704369741063,
+      "decline_adjusted_corr": 0.6630739684574559,
+      "decline_raw_corr": 0.7223262910286213,
+      "ordinary_signed_corr": 0.0003316744853502024,
+      "correlation_change": 0.6628005514137585,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "narrow",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.01012544948846648,
+      "decline_adjusted_corr": 0.527165446649941,
+      "decline_raw_corr": 0.667868093299175,
+      "ordinary_signed_corr": 0.0030778989827748367,
+      "correlation_change": 0.5372908961384075,
+      "ordinary_n": 376,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "policy": "conservative",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.006657564840273463,
+      "decline_adjusted_corr": 0.5329116272259325,
+      "decline_raw_corr": 0.6726455405057232,
+      "ordinary_signed_corr": 0.0003316744853502024,
+      "correlation_change": 0.539569192066206,
+      "ordinary_n": 372,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "narrow",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.4015409778850047,
+      "decline_adjusted_corr": 0.9033013217392355,
+      "decline_raw_corr": 0.9071071741931875,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": 0.5017603438542309,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "conservative",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.4015409778850047,
+      "decline_adjusted_corr": 0.9033013217392355,
+      "decline_raw_corr": 0.9071071741931875,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": 0.5017603438542309,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "narrow",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.5292757729413974,
+      "decline_adjusted_corr": 0.9033062119630161,
+      "decline_raw_corr": 0.9071119518843036,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": 0.3740304390216187,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "conservative",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.5292757729413974,
+      "decline_adjusted_corr": 0.9033062119630161,
+      "decline_raw_corr": 0.9071119518843036,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": 0.3740304390216187,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "narrow",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.6590555446905234,
+      "decline_adjusted_corr": 0.9035553232626001,
+      "decline_raw_corr": 0.9073979593500994,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": 0.24449977857207672,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "conservative",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.6590555446905234,
+      "decline_adjusted_corr": 0.9035553232626001,
+      "decline_raw_corr": 0.9073979593500994,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": 0.24449977857207672,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "narrow",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.8656370605607666,
+      "decline_adjusted_corr": 0.8349982155635319,
+      "decline_raw_corr": 0.8441814869502453,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": -0.030638844997234682,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "policy": "conservative",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.8656370605607666,
+      "decline_adjusted_corr": 0.8349982155635319,
+      "decline_raw_corr": 0.8441814869502453,
+      "ordinary_signed_corr": 0.9211223014849595,
+      "correlation_change": -0.030638844997234682,
+      "ordinary_n": 373,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "narrow",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.2564294627588069,
+      "decline_adjusted_corr": -0.005808412326539476,
+      "decline_raw_corr": 0.07751117201390934,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": -0.2622378750853464,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "conservative",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.2564294627588069,
+      "decline_adjusted_corr": -0.005808412326539476,
+      "decline_raw_corr": 0.07751117201390934,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": -0.2622378750853464,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "narrow",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.19172482252034614,
+      "decline_adjusted_corr": -0.005769452853431102,
+      "decline_raw_corr": 0.07755692323269366,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": -0.19749427537377726,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "conservative",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.19172482252034614,
+      "decline_adjusted_corr": -0.005769452853431102,
+      "decline_raw_corr": 0.07755692323269366,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": -0.19749427537377726,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "narrow",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.1189601998832398,
+      "decline_adjusted_corr": -0.0022312763238837505,
+      "decline_raw_corr": 0.08202461503252662,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": -0.12119147620712356,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "conservative",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.1189601998832398,
+      "decline_adjusted_corr": -0.0022312763238837505,
+      "decline_raw_corr": 0.08202461503252662,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": -0.12119147620712356,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "narrow",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.03511568730752739,
+      "decline_adjusted_corr": 0.3641859661169521,
+      "decline_raw_corr": 0.45052186956115614,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": 0.3290702788094247,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "policy": "conservative",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.03511568730752739,
+      "decline_adjusted_corr": 0.3641859661169521,
+      "decline_raw_corr": 0.45052186956115614,
+      "ordinary_signed_corr": 0.06493255956893368,
+      "correlation_change": 0.3290702788094247,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "narrow",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.03927792482528092,
+      "decline_adjusted_corr": -0.1795402014264959,
+      "decline_raw_corr": -0.05742030139176454,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.14026227660121499,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "conservative",
+    "variant": "log_floor_1e-08",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.03927792482528092,
+      "decline_adjusted_corr": -0.1795402014264959,
+      "decline_raw_corr": -0.05742030139176454,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.14026227660121499,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "narrow",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.02575689560269622,
+      "decline_adjusted_corr": -0.17954828852516505,
+      "decline_raw_corr": -0.05740730607321627,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.15379139292246882,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "conservative",
+    "variant": "log_floor_1e-06",
+    "metrics": {
+      "ordinary_adjusted_corr": -0.02575689560269622,
+      "decline_adjusted_corr": -0.17954828852516505,
+      "decline_raw_corr": -0.05740730607321627,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.15379139292246882,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "narrow",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.002552976001656002,
+      "decline_adjusted_corr": -0.18018774086287304,
+      "decline_raw_corr": -0.05610012402131083,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.18274071686452903,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "conservative",
+    "variant": "log_floor_0.0001",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.002552976001656002,
+      "decline_adjusted_corr": -0.18018774086287304,
+      "decline_raw_corr": -0.05610012402131083,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.18274071686452903,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "narrow",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.048993415317492836,
+      "decline_adjusted_corr": -0.10726174548244582,
+      "decline_raw_corr": 0.08599260723058377,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.15625516079993867,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "policy": "conservative",
+    "variant": "linear_abs_return_ratio",
+    "metrics": {
+      "ordinary_adjusted_corr": 0.048993415317492836,
+      "decline_adjusted_corr": -0.10726174548244582,
+      "decline_raw_corr": 0.08599260723058377,
+      "ordinary_signed_corr": 0.002824580438657864,
+      "correlation_change": -0.15625516079993867,
+      "ordinary_n": 375,
+      "decline_n": 48,
+      "decline_episodes": 27
+    }
+  }
+]
