@@ -27,6 +27,7 @@ cd retail-intelligence
 python -m pip install -r requirements.txt
 python scripts/audit.py --download
 python scripts/investigate_negative_quantities.py
+python scripts/investigate_duplicates.py
 python -m pytest -q
 ```
 
@@ -36,9 +37,11 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The download command obtains the official UCI workbook. The two analyses save `outputs/initial_audit.json` and `outputs/negative_quantity_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed six synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
+The download command obtains the official UCI workbook. The three analyses save `outputs/initial_audit.json`, `outputs/negative_quantity_investigation.json`, and `outputs/duplicate_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 13 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
 
 **Hypothesis H001 follow-up:** [operational adjustment evidence](docs/H001_FOLLOW_UP.md) — description keyword checks, large-quantity case examples, and conservative interpretation limits. No cause or inventory-loss total is asserted. No source lines have been dropped or reclassified.
+
+**Investigation 003 — duplicates:** [source-level invoice match results](docs/DUPLICATE_INVESTIGATION.md). The two -9,600 smudged-printing lines have consecutive *different* invoice IDs (556690, 556691) and are not eight-field exact duplicates. Across all 1,067,371 lines, the audit observed 34,335 extra exact matches, including 64 extra exact matches among the 3,457 negative non-C lines. These are not automatically erroneous records.
 
 ## Research directions (questions, not findings)
 

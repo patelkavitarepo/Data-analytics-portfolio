@@ -48,7 +48,7 @@ These *observed strings* occur in some of the eight largest-magnitude non-C nega
 - `Given away` on a -8,800 line for stock code `20852`.
 - Other very large lines have blank or ambiguous descriptions.
 
-The apparent duplicate -9,600 lines **must not be assumed to represent independent loss events** without duplicate review.
+**Update from Investigation 003:** The two -9,600 lines are **not exact duplicates**: their invoice numbers are `556690` and `556691`. The rows are adjacent with the same timestamp, stock, quantity, and description. Whether they describe one actual event or two remains unknown. See [exact-duplicate investigation](DUPLICATE_INVESTIGATION.md).
 
 ## Interpretation
 
@@ -62,7 +62,7 @@ The apparent duplicate -9,600 lines **must not be assumed to represent independe
 
 - **D004:** Keep a neutral `negative_non_c_zero_price_no_customer` observed-data cohort rather than labelling it 'theft' or definitive 'shrinkage'.
 - **D005:** Preserve all original rows and their invoice/stock-code links; no modifications to revenue logic.
-- **R001a:** Audit duplicate-looking high-magnitude entries, distinguishing repeated legitimate lines from data duplication.
+- **R001a:** Initial exact-duplicate audit completed. The high-magnitude pair differs by invoice ID; further near-duplicate analysis may still be valuable. See [Investigation 003](DUPLICATE_INVESTIGATION.md).
 - **R001b:** Refine descriptions into provisional *lexical* groups (damage/disposal, giveaway, invoicing error, stock check, other), and quantify the percentage of blanks/unclear descriptions.
 - **R001c:** Compare the sensitivity of future sales and margin definitions to the treatment of zero-priced operational lines, but only after agreeing on sales definitions.
 
