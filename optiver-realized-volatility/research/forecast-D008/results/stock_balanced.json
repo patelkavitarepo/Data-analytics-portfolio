@@ -1,0 +1,50 @@
+[
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "stocks": 482,
+    "mean_stock_rmspe": 0.8393171835222223,
+    "median_stock_rmspe": 0.786267435213374,
+    "mean_stock_mae": 0.013684065199830337
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "stocks": 482,
+    "mean_stock_rmspe": 0.5510163760155541,
+    "median_stock_rmspe": 0.5256595424718504,
+    "mean_stock_mae": 0.011967445579950038
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "stocks": 482,
+    "mean_stock_rmspe": 0.5601981994812117,
+    "median_stock_rmspe": 0.5299849738829883,
+    "mean_stock_mae": 0.011861904615724662
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "stocks": 482,
+    "mean_stock_rmspe": 0.8393171835222223,
+    "median_stock_rmspe": 0.786267435213374,
+    "mean_stock_mae": 0.013684065199830337
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "stocks": 482,
+    "mean_stock_rmspe": 0.5506029542919905,
+    "median_stock_rmspe": 0.5291224470559298,
+    "mean_stock_mae": 0.011744938047987031
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "stocks": 482,
+    "mean_stock_rmspe": 0.5615838773953438,
+    "median_stock_rmspe": 0.5386870624581559,
+    "mean_stock_mae": 0.01162996233090214
+  }
+]

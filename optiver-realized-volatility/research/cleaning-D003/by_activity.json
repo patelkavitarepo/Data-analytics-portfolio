@@ -1,0 +1,194 @@
+[
+  {
+    "policy": "raw_reference",
+    "proxy": "raw",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 35038,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "raw_reference",
+    "proxy": "raw",
+    "band": "at_most_2x",
+    "raw_targets": 570962,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "raw_reference",
+    "proxy": "raw",
+    "band": "unavailable",
+    "raw_targets": 10430,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "raw_reference",
+    "proxy": "quality_eligible",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 33869,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "raw_reference",
+    "proxy": "quality_eligible",
+    "band": "at_most_2x",
+    "raw_targets": 547207,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "raw_reference",
+    "proxy": "quality_eligible",
+    "band": "unavailable",
+    "raw_targets": 35354,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "error_only_reference",
+    "proxy": "raw",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 35038,
+    "lost_targets": 4,
+    "loss_pct": 0.011416176722415664
+  },
+  {
+    "policy": "error_only_reference",
+    "proxy": "raw",
+    "band": "at_most_2x",
+    "raw_targets": 570962,
+    "lost_targets": 68,
+    "loss_pct": 0.011909724289882689
+  },
+  {
+    "policy": "error_only_reference",
+    "proxy": "raw",
+    "band": "unavailable",
+    "raw_targets": 10430,
+    "lost_targets": 0,
+    "loss_pct": 0.0
+  },
+  {
+    "policy": "error_only_reference",
+    "proxy": "quality_eligible",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 33869,
+    "lost_targets": 3,
+    "loss_pct": 0.008857657444861082
+  },
+  {
+    "policy": "error_only_reference",
+    "proxy": "quality_eligible",
+    "band": "at_most_2x",
+    "raw_targets": 547207,
+    "lost_targets": 57,
+    "loss_pct": 0.010416533414228985
+  },
+  {
+    "policy": "error_only_reference",
+    "proxy": "quality_eligible",
+    "band": "unavailable",
+    "raw_targets": 35354,
+    "lost_targets": 12,
+    "loss_pct": 0.03394241104259772
+  },
+  {
+    "policy": "narrow",
+    "proxy": "raw",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 35038,
+    "lost_targets": 15,
+    "loss_pct": 0.042810662709058735
+  },
+  {
+    "policy": "narrow",
+    "proxy": "raw",
+    "band": "at_most_2x",
+    "raw_targets": 570962,
+    "lost_targets": 137,
+    "loss_pct": 0.02399459158402836
+  },
+  {
+    "policy": "narrow",
+    "proxy": "raw",
+    "band": "unavailable",
+    "raw_targets": 10430,
+    "lost_targets": 1,
+    "loss_pct": 0.009587727708533078
+  },
+  {
+    "policy": "narrow",
+    "proxy": "quality_eligible",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 33869,
+    "lost_targets": 14,
+    "loss_pct": 0.04133573474268505
+  },
+  {
+    "policy": "narrow",
+    "proxy": "quality_eligible",
+    "band": "at_most_2x",
+    "raw_targets": 547207,
+    "lost_targets": 121,
+    "loss_pct": 0.02211229023020539
+  },
+  {
+    "policy": "narrow",
+    "proxy": "quality_eligible",
+    "band": "unavailable",
+    "raw_targets": 35354,
+    "lost_targets": 18,
+    "loss_pct": 0.05091361656389659
+  },
+  {
+    "policy": "conservative",
+    "proxy": "raw",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 35038,
+    "lost_targets": 623,
+    "loss_pct": 1.7780695245162395
+  },
+  {
+    "policy": "conservative",
+    "proxy": "raw",
+    "band": "at_most_2x",
+    "raw_targets": 570962,
+    "lost_targets": 8960,
+    "loss_pct": 1.5692813181963072
+  },
+  {
+    "policy": "conservative",
+    "proxy": "raw",
+    "band": "unavailable",
+    "raw_targets": 10430,
+    "lost_targets": 16,
+    "loss_pct": 0.15340364333652926
+  },
+  {
+    "policy": "conservative",
+    "proxy": "quality_eligible",
+    "band": "over_2x_prior_20_session_median",
+    "raw_targets": 33869,
+    "lost_targets": 377,
+    "loss_pct": 1.113112285570876
+  },
+  {
+    "policy": "conservative",
+    "proxy": "quality_eligible",
+    "band": "at_most_2x",
+    "raw_targets": 547207,
+    "lost_targets": 4341,
+    "loss_pct": 0.7933012552836495
+  },
+  {
+    "policy": "conservative",
+    "proxy": "quality_eligible",
+    "band": "unavailable",
+    "raw_targets": 35354,
+    "lost_targets": 4881,
+    "loss_pct": 13.806075691576625
+  }
+]

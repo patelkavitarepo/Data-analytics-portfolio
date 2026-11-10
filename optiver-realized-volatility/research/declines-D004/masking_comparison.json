@@ -1,0 +1,48 @@
+{
+  "pairs_supported_both": 119316,
+  "absolute_decline_correlation_difference_quantiles": {
+    "0.5": 0.00232757977155525,
+    "0.95": 0.01815970330866023,
+    "1.0": 0.9419217811188587
+  },
+  "masking_example": {
+    "stock_a": "IBM",
+    "stock_b": "SLG",
+    "selection": "post_hoc_maximum_masking_difference_not_hypothesis_candidate",
+    "metrics": {
+      "narrow": {
+        "ordinary_adjusted_corr": 0.14799879068472938,
+        "decline_adjusted_corr": 0.7688265788907765,
+        "decline_raw_corr": 0.7769490257847504,
+        "ordinary_signed_corr": 0.0855498994679721,
+        "correlation_change": 0.6208277882060471,
+        "ordinary_n": 376,
+        "decline_n": 48,
+        "decline_episodes": 27
+      },
+      "conservative": {
+        "ordinary_adjusted_corr": 0.14441021378625718,
+        "decline_adjusted_corr": -0.1730952022280822,
+        "decline_raw_corr": -0.018230024392627175,
+        "ordinary_signed_corr": 0.07640639650689199,
+        "correlation_change": -0.31750541601433935,
+        "ordinary_n": 371,
+        "decline_n": 47,
+        "decline_episodes": 28
+      }
+    },
+    "matched_date_results": {
+      "narrow": {
+        "correlation": -0.1722763388746177,
+        "n": 47
+      },
+      "conservative": {
+        "correlation": -0.1730952022280822,
+        "n": 47
+      }
+    },
+    "dates_only_in_narrow": [
+      "2014-10-01"
+    ]
+  }
+}

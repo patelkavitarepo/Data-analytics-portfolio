@@ -1,0 +1,1173 @@
+[
+  {
+    "stock": "CTL",
+    "date": "2013-02-14",
+    "previous_close": 41.69,
+    "close": 32.27,
+    "simple_return": -0.22595346605900685,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "STZ",
+    "date": "2013-02-14",
+    "previous_close": 31.88,
+    "close": 43.75,
+    "simple_return": 0.3723337515683812,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "VRTX",
+    "date": "2013-04-19",
+    "previous_close": 52.87,
+    "close": 85.6,
+    "simple_return": 0.6190656326839413,
+    "status": "documented_market_move",
+    "evidence_id": "VRTX-20130419",
+    "source_urls": [
+      "https://investors.vrtx.com/news-releases/news-release-details/treatment-vx-661-and-ivacaftor-phase-2-study-resulted",
+      "https://247wallst.com/investing/2013/04/19/market-close-big-winners-losers-for-april-19-2013/"
+    ],
+    "note": "Preserve: issuer trial results April 18. Contemporary market-close report records +61.9% at 85.60, matching CSV to rounding. Supports the move, not a causal proof."
+  },
+  {
+    "stock": "NFLX",
+    "date": "2013-04-23",
+    "previous_close": 24.91,
+    "close": 30.9985,
+    "simple_return": 0.2444199116820554,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "EW",
+    "date": "2013-04-24",
+    "previous_close": 41.405,
+    "close": 32.3,
+    "simple_return": -0.21990097814273646,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "FB",
+    "date": "2013-07-25",
+    "previous_close": 26.51,
+    "close": 34.359,
+    "simple_return": 0.2960769520935498,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "OKE",
+    "date": "2013-07-25",
+    "previous_close": 42.83,
+    "close": 53.77,
+    "simple_return": 0.25542843801074033,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "EXPE",
+    "date": "2013-07-26",
+    "previous_close": 65.0,
+    "close": 47.2,
+    "simple_return": -0.27384615384615374,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "INCY",
+    "date": "2013-08-21",
+    "previous_close": 27.0,
+    "close": 36.04,
+    "simple_return": 0.3348148148148147,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "ALGN",
+    "date": "2013-10-18",
+    "previous_close": 45.93,
+    "close": 57.98,
+    "simple_return": 0.26235575876333556,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "IR",
+    "date": "2013-12-02",
+    "previous_close": 71.42,
+    "close": 55.56,
+    "simple_return": -0.22206664799776002,
+    "status": "verified_action_boundary",
+    "evidence_id": "IR-20131202",
+    "source_urls": [
+      "https://www.allegion.com/corp/en/news/year/2013/ingersoll-rand-completes-spinoff-of-allegion.html"
+    ],
+    "note": "Allegion spin-off December 1, regular trading December 2."
+  },
+  {
+    "stock": "ULTA",
+    "date": "2013-12-06",
+    "previous_close": 118.0,
+    "close": 93.76,
+    "simple_return": -0.2054237288135593,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "BBY",
+    "date": "2014-01-16",
+    "previous_close": 37.57,
+    "close": 26.83,
+    "simple_return": -0.28586638275219617,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "ALXN",
+    "date": "2014-01-30",
+    "previous_close": 133.73,
+    "close": 162.0,
+    "simple_return": 0.21139609661257733,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "UAA",
+    "date": "2014-01-30",
+    "previous_close": 21.305,
+    "close": 26.19,
+    "simple_return": 0.22928889931940893,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "AKAM",
+    "date": "2014-02-06",
+    "previous_close": 47.42,
+    "close": 57.18,
+    "simple_return": 0.2058203289751155,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "EA",
+    "date": "2014-05-07",
+    "previous_close": 28.05,
+    "close": 33.95,
+    "simple_return": 0.2103386809269163,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "VRTX",
+    "date": "2014-06-24",
+    "previous_close": 66.61,
+    "close": 93.53,
+    "simple_return": 0.40414352199369497,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "IRM",
+    "date": "2014-06-26",
+    "previous_close": 29.77,
+    "close": 35.74,
+    "simple_return": 0.20053745381256333,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "DISCA",
+    "date": "2014-08-07",
+    "previous_close": 83.02,
+    "close": 40.975,
+    "simple_return": -0.5064442303059503,
+    "status": "verified_action_boundary",
+    "evidence_id": "DISCA-20140807",
+    "source_urls": [
+      "https://ir.corporate.discovery.com/stock-information/cost-basis-and-debt-information/series-c-dividend/default.aspx"
+    ],
+    "note": "One Series C share distributed per Series A share; issuer identifies August 7 first trading. Do not apply DISCK 2:1 factor to Series A."
+  },
+  {
+    "stock": "DISCK",
+    "date": "2014-08-07",
+    "previous_close": 81.22,
+    "close": 39.78,
+    "simple_return": -0.510219157842896,
+    "status": "verified_action_boundary",
+    "evidence_id": "DISCK-20140807",
+    "source_urls": [
+      "https://infomemo.theocc.com/infomemos?date=201408&lastModifiedDate=08%2F06%2F2014+13%3A02%3A15&number=35071",
+      "https://ir.corporate.discovery.com/stock-information/cost-basis-and-debt-information/series-c-dividend/default.aspx"
+    ],
+    "note": "100% Series C dividend; OCC confirms August 7 ex-distribution date."
+  },
+  {
+    "stock": "MNST",
+    "date": "2014-08-15",
+    "previous_close": 23.8833,
+    "close": 31.1633,
+    "simple_return": 0.3048154986957411,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "A",
+    "date": "2014-11-03",
+    "previous_close": 55.28,
+    "close": 40.84,
+    "simple_return": -0.26121562952243144,
+    "status": "verified_action_boundary",
+    "evidence_id": "A-20141103",
+    "source_urls": [
+      "https://www.agilent.com/about/newsroom/pr-archive/2014/03nov-gp14029.html"
+    ],
+    "note": "Keysight spin-off completed November 1; November 3 first regular trading. No verified price correction."
+  },
+  {
+    "stock": "KLAC",
+    "date": "2014-11-26",
+    "previous_close": 84.18,
+    "close": 67.335,
+    "simple_return": -0.20010691375623668,
+    "status": "action_date_incomplete",
+    "evidence_id": "KLAC-20141126",
+    "source_urls": [
+      "https://ir.kla.com/news-events/press-releases/detail/148/kla-tencor-declares-special-cash-dividend-announces"
+    ],
+    "note": "Issuer verifies $16.50 special dividend, payable December 9. Exact November 26 ex-date not verified from a primary source in this session; provisional date only."
+  },
+  {
+    "stock": "TRIP",
+    "date": "2015-02-12",
+    "previous_close": 67.27,
+    "close": 82.4,
+    "simple_return": 0.22491452356176647,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "KORS",
+    "date": "2015-05-27",
+    "previous_close": 60.59,
+    "close": 45.93,
+    "simple_return": -0.2419541178412276,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "HUM",
+    "date": "2015-05-29",
+    "previous_close": 178.41,
+    "close": 214.65,
+    "simple_return": 0.20312762737514647,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "WMB",
+    "date": "2015-06-22",
+    "previous_close": 48.34,
+    "close": 60.86,
+    "simple_return": 0.2589987587918904,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "BAX",
+    "date": "2015-07-01",
+    "previous_close": 69.93,
+    "close": 38.86,
+    "simple_return": -0.4443014443014444,
+    "status": "verified_action_boundary",
+    "evidence_id": "BAX-20150701",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/10456/000119312516479471/d213870d10k.htm"
+    ],
+    "note": "Baxalta distribution confirmed in Baxter annual report; raw return omits distributed shares."
+  },
+  {
+    "stock": "NI",
+    "date": "2015-07-02",
+    "previous_close": 45.45,
+    "close": 16.99,
+    "simple_return": -0.6261826182618262,
+    "status": "verified_action_boundary",
+    "evidence_id": "NI-20150702",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/1629995/000119312515243669/d42242dex991.htm"
+    ],
+    "note": "Columbia Pipeline separation confirmed July 2; raw return omits distributed shares."
+  },
+  {
+    "stock": "EBAY",
+    "date": "2015-07-20",
+    "previous_close": 66.29,
+    "close": 28.57,
+    "simple_return": -0.5690149343792427,
+    "status": "verified_action_boundary",
+    "evidence_id": "EBAY-20150720",
+    "source_urls": [
+      "https://www.nasdaqtrader.com/TraderNews.aspx?id=ETA2015-105"
+    ],
+    "note": "Nasdaq confirms July 20 regular-way PayPal spin-off trading; raw EBAY change omits PYPL."
+  },
+  {
+    "stock": "BIIB",
+    "date": "2015-07-24",
+    "previous_close": 385.05,
+    "close": 300.03,
+    "simple_return": -0.2208024931827037,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "FCX",
+    "date": "2015-08-27",
+    "previous_close": 7.92,
+    "close": 10.19,
+    "simple_return": 0.2866161616161611,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "WYNN",
+    "date": "2015-10-02",
+    "previous_close": 51.71,
+    "close": 63.52,
+    "simple_return": 0.22838909301875882,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "TRIP",
+    "date": "2015-10-14",
+    "previous_close": 66.69,
+    "close": 83.72,
+    "simple_return": 0.255360623781677,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "PWR",
+    "date": "2015-10-16",
+    "previous_close": 26.21,
+    "close": 18.74,
+    "simple_return": -0.28500572300648624,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "QRVO",
+    "date": "2015-11-06",
+    "previous_close": 45.08,
+    "close": 55.55,
+    "simple_return": 0.2322537710736469,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "FCX",
+    "date": "2016-01-11",
+    "previous_close": 5.41,
+    "close": 4.31,
+    "simple_return": -0.20332717190388186,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "WMB",
+    "date": "2016-01-14",
+    "previous_close": 13.61,
+    "close": 18.29,
+    "simple_return": 0.3438648052902277,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "WMB",
+    "date": "2016-01-22",
+    "previous_close": 16.04,
+    "close": 19.74,
+    "simple_return": 0.23067331670822952,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "UAA",
+    "date": "2016-01-28",
+    "previous_close": 34.29,
+    "close": 42.035,
+    "simple_return": 0.22586759988334804,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "KORS",
+    "date": "2016-02-02",
+    "previous_close": 40.44,
+    "close": 50.11,
+    "simple_return": 0.23911968348170112,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "RL",
+    "date": "2016-02-04",
+    "previous_close": 115.56,
+    "close": 89.95,
+    "simple_return": -0.22161647628937362,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-02-08",
+    "previous_close": 3.06,
+    "close": 2.04,
+    "simple_return": -0.33333333333333326,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "WMB",
+    "date": "2016-02-08",
+    "previous_close": 17.12,
+    "close": 11.16,
+    "simple_return": -0.34813084112149534,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "VIAB",
+    "date": "2016-02-09",
+    "previous_close": 41.85,
+    "close": 32.86,
+    "simple_return": -0.21481481481481512,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "AKAM",
+    "date": "2016-02-10",
+    "previous_close": 39.57,
+    "close": 47.96,
+    "simple_return": 0.2120293151377304,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-02-24",
+    "previous_close": 2.19,
+    "close": 2.69,
+    "simple_return": 0.22831050228310507,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-03-02",
+    "previous_close": 2.76,
+    "close": 3.4,
+    "simple_return": 0.23188405797101466,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-03-03",
+    "previous_close": 3.4,
+    "close": 4.27,
+    "simple_return": 0.2558823529411763,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-04-12",
+    "previous_close": 4.5,
+    "close": 6.05,
+    "simple_return": 0.3444444444444442,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "STX",
+    "date": "2016-04-14",
+    "previous_close": 33.93,
+    "close": 27.11,
+    "simple_return": -0.20100206307102866,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "ILMN",
+    "date": "2016-04-19",
+    "previous_close": 178.13,
+    "close": 136.88,
+    "simple_return": -0.23157244708920488,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "AMD",
+    "date": "2016-04-22",
+    "previous_close": 2.62,
+    "close": 3.99,
+    "simple_return": 0.5229007633587786,
+    "status": "documented_market_move",
+    "evidence_id": "AMD-20160422",
+    "source_urls": [
+      "https://ir.amd.com/financial-information/sec-filings/content/0000002488-16-000118/q116991.htm",
+      "https://www.itiger.com/news/2573608431"
+    ],
+    "note": "Preserve: company results/licensing news after April 21 close. Dow Jones Market Data records April 22 gain 52.29%, matching CSV to rounding. Full OHLCV not independently verified."
+  },
+  {
+    "stock": "SRCL",
+    "date": "2016-04-29",
+    "previous_close": 121.74,
+    "close": 95.56,
+    "simple_return": -0.21504846393954313,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "LNT",
+    "date": "2016-05-19",
+    "previous_close": 35.35,
+    "close": 17.87,
+    "simple_return": -0.49448373408769447,
+    "status": "unresolved_price_contradiction",
+    "evidence_id": "LNT-20160519",
+    "source_urls": [
+      "https://investors.alliantenergy.com/News--Presentations/news/news-details/2016/Alliant-Energy-Announces-Second-Quarter-2016-Results/default.aspx"
+    ],
+    "note": "17.87 close is below recorded 35.085 low. Distribution May 19/first post-split trading May 20 verified. Replacement price/basis not verified: do not simply double close."
+  },
+  {
+    "stock": "LNT",
+    "date": "2016-05-20",
+    "previous_close": 17.87,
+    "close": 35.91,
+    "simple_return": 1.009513150531617,
+    "status": "unresolved_price_contradiction",
+    "evidence_id": "LNT-20160520",
+    "source_urls": [
+      "https://investors.alliantenergy.com/News--Presentations/news/news-details/2016/Alliant-Energy-Announces-Second-Quarter-2016-Results/default.aspx"
+    ],
+    "note": "Return starts from contradicted May 19 close. Actual split does not validate apparent next-day doubling."
+  },
+  {
+    "stock": "DHR",
+    "date": "2016-07-05",
+    "previous_close": 102.33,
+    "close": 80.4,
+    "simple_return": -0.21430665493990003,
+    "status": "verified_action_boundary",
+    "evidence_id": "DHR-20160705",
+    "source_urls": [
+      "https://investors.danaher.com/2016-07-02-Danaher-Corporation-Completes-Separation-of-Fortive-Corporation"
+    ],
+    "note": "Fortive spin-off July 2, first regular trading July 5."
+  },
+  {
+    "stock": "STX",
+    "date": "2016-07-12",
+    "previous_close": 24.09,
+    "close": 29.35,
+    "simple_return": 0.21834786218347885,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "ILMN",
+    "date": "2016-10-11",
+    "previous_close": 184.85,
+    "close": 138.99,
+    "simple_return": -0.248093048417636,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "MCK",
+    "date": "2016-10-28",
+    "previous_close": 160.5,
+    "close": 124.11,
+    "simple_return": -0.22672897196261643,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "ARNC",
+    "date": "2016-11-01",
+    "previous_close": 28.72,
+    "close": 18.92,
+    "simple_return": -0.3412256267409469,
+    "status": "verified_action_boundary",
+    "evidence_id": "ARNC-20161101",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/4281/000119312516760946/d487729d8k.htm"
+    ],
+    "note": "Alcoa/Arconic separation November 1 changes economic scope. No adjustment factor verified."
+  },
+  {
+    "stock": "YUM",
+    "date": "2016-11-01",
+    "previous_close": 86.28,
+    "close": 60.69,
+    "simple_return": -0.2965924895688457,
+    "status": "verified_action_boundary",
+    "evidence_id": "YUM-20161101",
+    "source_urls": [
+      "https://ir.yumchina.com/news-releases/news-release-details/yum-china-completes-separation-yum-brands-lists-new-york-stock/"
+    ],
+    "note": "Yum China separation/regular-way trading November 1."
+  },
+  {
+    "stock": "CAG",
+    "date": "2016-11-10",
+    "previous_close": 47.84,
+    "close": 34.3,
+    "simple_return": -0.28302675585284287,
+    "status": "verified_action_boundary",
+    "evidence_id": "CAG-20161110",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/23217/000119312516766107/d270210d8k.htm",
+      "https://press.spglobal.com/2016-11-03-Lamb-Weston-Set-to-Join-the-S-P-Midcap-400-Ascena-Retail-Group-to-Join-S-P-SmallCap-600"
+    ],
+    "note": "Lamb Weston spin-off November 9; S&P specifies November 10 index treatment."
+  },
+  {
+    "stock": "NVDA",
+    "date": "2016-11-11",
+    "previous_close": 67.77,
+    "close": 87.97,
+    "simple_return": 0.29806699129408315,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "MRO",
+    "date": "2016-11-30",
+    "previous_close": 14.95,
+    "close": 18.06,
+    "simple_return": 0.20802675585284275,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "XRX",
+    "date": "2017-01-03",
+    "previous_close": 34.92,
+    "close": 27.56,
+    "simple_return": -0.2107674684994273,
+    "status": "verified_action_boundary",
+    "evidence_id": "XRX-20170103",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/108772/000010877217000012/ex991xrx331178-ker.htm",
+      "https://www.news.conduent.com/news/conduent-completes-separation-from-xerox"
+    ],
+    "note": "Conduent separation December 31, independent trading January 3."
+  },
+  {
+    "stock": "CSX",
+    "date": "2017-01-19",
+    "previous_close": 36.88,
+    "close": 45.51,
+    "simple_return": 0.234002169197397,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "UA",
+    "date": "2017-01-31",
+    "previous_close": 25.09,
+    "close": 19.22,
+    "simple_return": -0.23395775209246705,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "UAA",
+    "date": "2017-01-31",
+    "previous_close": 28.94,
+    "close": 21.49,
+    "simple_return": -0.25742916378714603,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "CTXS",
+    "date": "2017-02-01",
+    "previous_close": 91.19,
+    "close": 71.24,
+    "simple_return": -0.21877398837591802,
+    "status": "verified_action_boundary",
+    "evidence_id": "CTXS-20170201",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/877890/000119312517031807/d261814d8k.htm"
+    ],
+    "note": "Citrix SEC filing explicitly identifies February 1 ex-date for GoTo spin-off/LogMeIn merger."
+  },
+  {
+    "stock": "VRTX",
+    "date": "2017-03-29",
+    "previous_close": 89.67,
+    "close": 108.01,
+    "simple_return": 0.20452771272443426,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "HPE",
+    "date": "2017-04-03",
+    "previous_close": 23.7,
+    "close": 17.57,
+    "simple_return": -0.2586497890295358,
+    "status": "verified_action_boundary",
+    "evidence_id": "HPE-20170403",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/1645590/000162828017003277/hpe-991x04032017x8xk.htm"
+    ],
+    "note": "Enterprise Services separation/CSC merger creates DXC, first trading April 3."
+  },
+  {
+    "stock": "AMD",
+    "date": "2017-05-02",
+    "previous_close": 13.62,
+    "close": 10.32,
+    "simple_return": -0.24229074889867816,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "BBY",
+    "date": "2017-05-25",
+    "previous_close": 50.42,
+    "close": 61.25,
+    "simple_return": 0.21479571598572036,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "BHGE",
+    "date": "2017-07-05",
+    "previous_close": 57.68,
+    "close": 37.25,
+    "simple_return": -0.3541955617198337,
+    "status": "verified_action_boundary",
+    "evidence_id": "BHGE-20170705",
+    "source_urls": [
+      "https://investors.bakerhughes.com/news/press-releases/news-details/2017/Baker-Hughes-and-GE-Oil-Gas-Complete-Combination-Creating-the-Worlds-First-and-Only-Fullstream-Oil-and-Gas-Company-07-03-2017/default.aspx"
+    ],
+    "note": "Issuer verifies July 3 quote included special $17.50 dividend entitlement; new BHGE shares trade July 5 without it. Merger/cash distribution."
+  },
+  {
+    "stock": "NRG",
+    "date": "2017-07-12",
+    "previous_close": 16.3,
+    "close": 21.09,
+    "simple_return": 0.2938650306748464,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "VNO",
+    "date": "2017-07-18",
+    "previous_close": 97.03,
+    "close": 77.59,
+    "simple_return": -0.20035040709059068,
+    "status": "verified_action_boundary",
+    "evidence_id": "VNO-20170718",
+    "source_urls": [
+      "https://investors.vno.com/news-releases/news-release-details/vornado-announces-completion-spin-jbg-smith-properties-and"
+    ],
+    "note": "JBG SMITH spin-off completed July 18, confirmed by Vornado."
+  },
+  {
+    "stock": "VRTX",
+    "date": "2017-07-19",
+    "previous_close": 132.16,
+    "close": 159.69,
+    "simple_return": 0.20830811138014446,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "KORS",
+    "date": "2017-08-08",
+    "previous_close": 37.23,
+    "close": 45.25,
+    "simple_return": 0.21541767391888306,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "AAP",
+    "date": "2017-08-15",
+    "previous_close": 109.32,
+    "close": 87.08,
+    "simple_return": -0.20343944383461418,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "FL",
+    "date": "2017-08-18",
+    "previous_close": 47.7,
+    "close": 34.38,
+    "simple_return": -0.2792452830188678,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "HPE",
+    "date": "2017-09-01",
+    "previous_close": 18.06,
+    "close": 14.31,
+    "simple_return": -0.20764119601328895,
+    "status": "verified_action_boundary",
+    "evidence_id": "HPE-20170901",
+    "source_urls": [
+      "https://www.sec.gov/Archives/edgar/data/1645590/000156761917001826/s001851x1_ex99-1.htm"
+    ],
+    "note": "HPE software spin-off/Micro Focus merger completed September 1."
+  },
+  {
+    "stock": "FLR",
+    "date": "2017-09-14",
+    "previous_close": 40.14,
+    "close": 50.62,
+    "simple_return": 0.261086198305929,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "MPC",
+    "date": "2017-09-14",
+    "previous_close": 53.21,
+    "close": 64.75,
+    "simple_return": 0.21687652696861554,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "MRO",
+    "date": "2017-09-14",
+    "previous_close": 11.91,
+    "close": 16.02,
+    "simple_return": 0.3450881612090678,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "NWL",
+    "date": "2017-09-14",
+    "previous_close": 44.22,
+    "close": 30.81,
+    "simple_return": -0.3032564450474897,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "EFX",
+    "date": "2017-09-15",
+    "previous_close": 118.33,
+    "close": 92.98,
+    "simple_return": -0.2142313867996277,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "FLR",
+    "date": "2017-09-15",
+    "previous_close": 50.62,
+    "close": 40.43,
+    "simple_return": -0.20130383247728165,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "MRO",
+    "date": "2017-09-15",
+    "previous_close": 16.02,
+    "close": 12.0,
+    "simple_return": -0.250936329588015,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "NWL",
+    "date": "2017-09-15",
+    "previous_close": 30.81,
+    "close": 43.2,
+    "simple_return": 0.40214216163583294,
+    "status": "unresolved_repeated_price",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "UA",
+    "date": "2017-10-31",
+    "previous_close": 14.74,
+    "close": 11.53,
+    "simple_return": -0.21777476255088193,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "UAA",
+    "date": "2017-10-31",
+    "previous_close": 16.41,
+    "close": 12.52,
+    "simple_return": -0.23705057891529546,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "EVHC",
+    "date": "2017-11-01",
+    "previous_close": 42.6,
+    "close": 28.03,
+    "simple_return": -0.3420187793427232,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "NWL",
+    "date": "2017-11-02",
+    "previous_close": 41.0,
+    "close": 30.01,
+    "simple_return": -0.26804878048780506,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "TRIP",
+    "date": "2017-11-07",
+    "previous_close": 39.53,
+    "close": 30.35,
+    "simple_return": -0.2322286870731088,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "MAT",
+    "date": "2017-11-13",
+    "previous_close": 14.62,
+    "close": 17.64,
+    "simple_return": 0.20656634746922034,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "FL",
+    "date": "2017-11-17",
+    "previous_close": 31.85,
+    "close": 40.82,
+    "simple_return": 0.28163265306122476,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "SIG",
+    "date": "2017-11-21",
+    "previous_close": 75.84,
+    "close": 52.79,
+    "simple_return": -0.3039293248945151,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "SCG",
+    "date": "2018-01-03",
+    "previous_close": 38.87,
+    "close": 47.65,
+    "simple_return": 0.22588114226910191,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "NWL",
+    "date": "2018-01-25",
+    "previous_close": 31.23,
+    "close": 24.81,
+    "simple_return": -0.2055715658021131,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  },
+  {
+    "stock": "DPS",
+    "date": "2018-01-29",
+    "previous_close": 95.65,
+    "close": 117.07,
+    "simple_return": 0.22394145321484546,
+    "status": "unresolved_extreme_move",
+    "evidence_id": null,
+    "source_urls": [],
+    "note": "Unresolved: magnitude alone is not an error diagnosis"
+  }
+]

@@ -1,0 +1,322 @@
+[
+  {
+    "definition": "absolute_return/H252/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 52,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18363,
+    "common_date_state_flips": 69,
+    "narrow_stress_on_common": 7073,
+    "conservative_stress_on_common": 7120
+  },
+  {
+    "definition": "absolute_return/H252/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8025,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8157,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 2963,
+    "conservative_stress_on_common": 2963
+  },
+  {
+    "definition": "absolute_return/H252/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 52,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18363,
+    "common_date_state_flips": 105,
+    "narrow_stress_on_common": 4293,
+    "conservative_stress_on_common": 4376
+  },
+  {
+    "definition": "absolute_return/H252/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8025,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8157,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 1760,
+    "conservative_stress_on_common": 1760
+  },
+  {
+    "definition": "absolute_return/H60/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 62,
+    "conservative_only_eligible": 0,
+    "common_eligible": 22303,
+    "common_date_state_flips": 83,
+    "narrow_stress_on_common": 8250,
+    "conservative_stress_on_common": 8283
+  },
+  {
+    "definition": "absolute_return/H60/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2881,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19360,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 7104,
+    "conservative_stress_on_common": 7104
+  },
+  {
+    "definition": "absolute_return/H60/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 62,
+    "conservative_only_eligible": 0,
+    "common_eligible": 22303,
+    "common_date_state_flips": 85,
+    "narrow_stress_on_common": 5471,
+    "conservative_stress_on_common": 5508
+  },
+  {
+    "definition": "absolute_return/H60/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2881,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19360,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 4744,
+    "conservative_stress_on_common": 4744
+  },
+  {
+    "definition": "backward_five_rv/H252/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 130,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18270,
+    "common_date_state_flips": 155,
+    "narrow_stress_on_common": 4614,
+    "conservative_stress_on_common": 4699
+  },
+  {
+    "definition": "backward_five_rv/H252/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8135,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8044,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 1973,
+    "conservative_stress_on_common": 1973
+  },
+  {
+    "definition": "backward_five_rv/H252/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 130,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18270,
+    "common_date_state_flips": 136,
+    "narrow_stress_on_common": 2531,
+    "conservative_stress_on_common": 2625
+  },
+  {
+    "definition": "backward_five_rv/H252/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8135,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8044,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 1027,
+    "conservative_stress_on_common": 1027
+  },
+  {
+    "definition": "backward_five_rv/H60/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 856,
+    "conservative_only_eligible": 0,
+    "common_eligible": 21496,
+    "common_date_state_flips": 118,
+    "narrow_stress_on_common": 5354,
+    "conservative_stress_on_common": 5416
+  },
+  {
+    "definition": "backward_five_rv/H60/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2917,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19317,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 4754,
+    "conservative_stress_on_common": 4754
+  },
+  {
+    "definition": "backward_five_rv/H60/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 856,
+    "conservative_only_eligible": 0,
+    "common_eligible": 21496,
+    "common_date_state_flips": 119,
+    "narrow_stress_on_common": 3176,
+    "conservative_stress_on_common": 3289
+  },
+  {
+    "definition": "backward_five_rv/H60/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2917,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19317,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 2811,
+    "conservative_stress_on_common": 2811
+  },
+  {
+    "definition": "downside_magnitude/H252/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 52,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18363,
+    "common_date_state_flips": 64,
+    "narrow_stress_on_common": 10789,
+    "conservative_stress_on_common": 10815
+  },
+  {
+    "definition": "downside_magnitude/H252/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8025,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8157,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 4652,
+    "conservative_stress_on_common": 4652
+  },
+  {
+    "definition": "downside_magnitude/H252/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 52,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18363,
+    "common_date_state_flips": 86,
+    "narrow_stress_on_common": 7182,
+    "conservative_stress_on_common": 7212
+  },
+  {
+    "definition": "downside_magnitude/H252/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8025,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8157,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 2986,
+    "conservative_stress_on_common": 2986
+  },
+  {
+    "definition": "downside_magnitude/H60/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 62,
+    "conservative_only_eligible": 0,
+    "common_eligible": 22303,
+    "common_date_state_flips": 52,
+    "narrow_stress_on_common": 12479,
+    "conservative_stress_on_common": 12491
+  },
+  {
+    "definition": "downside_magnitude/H60/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2881,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19360,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 10767,
+    "conservative_stress_on_common": 10767
+  },
+  {
+    "definition": "downside_magnitude/H60/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 62,
+    "conservative_only_eligible": 0,
+    "common_eligible": 22303,
+    "common_date_state_flips": 105,
+    "narrow_stress_on_common": 8679,
+    "conservative_stress_on_common": 8714
+  },
+  {
+    "definition": "downside_magnitude/H60/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2881,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19360,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 7471,
+    "conservative_stress_on_common": 7471
+  },
+  {
+    "definition": "intraday_range/H252/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18407,
+    "common_date_state_flips": 42,
+    "narrow_stress_on_common": 5799,
+    "conservative_stress_on_common": 5783
+  },
+  {
+    "definition": "intraday_range/H252/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8055,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8201,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 2460,
+    "conservative_stress_on_common": 2460
+  },
+  {
+    "definition": "intraday_range/H252/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8,
+    "conservative_only_eligible": 0,
+    "common_eligible": 18407,
+    "common_date_state_flips": 33,
+    "narrow_stress_on_common": 3536,
+    "conservative_stress_on_common": 3525
+  },
+  {
+    "definition": "intraday_range/H252/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8055,
+    "conservative_only_eligible": 0,
+    "common_eligible": 8201,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 1476,
+    "conservative_stress_on_common": 1476
+  },
+  {
+    "definition": "intraday_range/H60/q0.9/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8,
+    "conservative_only_eligible": 0,
+    "common_eligible": 22361,
+    "common_date_state_flips": 53,
+    "narrow_stress_on_common": 6943,
+    "conservative_stress_on_common": 6934
+  },
+  {
+    "definition": "intraday_range/H60/q0.9/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2859,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19393,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 5928,
+    "conservative_stress_on_common": 5928
+  },
+  {
+    "definition": "intraday_range/H60/q0.95/coverage0.8",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 8,
+    "conservative_only_eligible": 0,
+    "common_eligible": 22361,
+    "common_date_state_flips": 43,
+    "narrow_stress_on_common": 4358,
+    "conservative_stress_on_common": 4355
+  },
+  {
+    "definition": "intraday_range/H60/q0.95/coverage1.0",
+    "scope": "global decline calendar; 495 discovery-observed names",
+    "narrow_only_eligible": 2859,
+    "conservative_only_eligible": 0,
+    "common_eligible": 19393,
+    "common_date_state_flips": 0,
+    "narrow_stress_on_common": 3726,
+    "conservative_stress_on_common": 3726
+  }
+]

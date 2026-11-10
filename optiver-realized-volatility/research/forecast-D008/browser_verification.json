@@ -1,0 +1,31 @@
+{
+  "browser": "Chromium via Playwright, installed /usr/bin/chromium",
+  "desktop_viewport": [
+    1440,
+    1100
+  ],
+  "touch_viewport": [
+    390,
+    844
+  ],
+  "checks": [
+    "all tabs",
+    "three metric cards",
+    "policy change",
+    "metric change",
+    "stock scope",
+    "failure model/criterion",
+    "CSV download",
+    "no page horizontal overflow",
+    "no JavaScript errors",
+    "no Streamlit exceptions",
+    "full eligibility CSV includes 505 names and 127260 rows with final origins"
+  ],
+  "actual_safari_or_physical_ipad_tested": false,
+  "results_are_actual_2015_forecasts": true,
+  "screenshots": {
+    "desktop.png": "348d0001df3645f13f01bc5e497a7d382c110405fe8d3af24145997407585eb2",
+    "failure-lab.png": "86fc78448442103f074f952861664bdec9920d8fb53a349ee7471f2b1e66351c",
+    "mobile.png": "0c29f363fc39c110b2af18535b3192fdee95ce1b904dcc45916947e1089da6fa"
+  }
+}

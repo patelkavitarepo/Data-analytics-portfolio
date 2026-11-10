@@ -1,0 +1,290 @@
+[
+  {
+    "policy": "narrow",
+    "measurement": "absolute_return",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 16182,
+    "stress_in_either": 6860,
+    "disagreeing_states": 1521
+  },
+  {
+    "policy": "narrow",
+    "measurement": "absolute_return",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18415,
+    "stress_in_either": 7901,
+    "disagreeing_states": 1715
+  },
+  {
+    "policy": "narrow",
+    "measurement": "absolute_return",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 16182,
+    "stress_in_either": 4584,
+    "disagreeing_states": 1473
+  },
+  {
+    "policy": "narrow",
+    "measurement": "absolute_return",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18415,
+    "stress_in_either": 5346,
+    "disagreeing_states": 1679
+  },
+  {
+    "policy": "narrow",
+    "measurement": "downside_magnitude",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 16182,
+    "stress_in_either": 9988,
+    "disagreeing_states": 1589
+  },
+  {
+    "policy": "narrow",
+    "measurement": "downside_magnitude",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18415,
+    "stress_in_either": 11469,
+    "disagreeing_states": 1779
+  },
+  {
+    "policy": "narrow",
+    "measurement": "downside_magnitude",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 16182,
+    "stress_in_either": 7093,
+    "disagreeing_states": 1798
+  },
+  {
+    "policy": "narrow",
+    "measurement": "downside_magnitude",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18415,
+    "stress_in_either": 8251,
+    "disagreeing_states": 2053
+  },
+  {
+    "policy": "narrow",
+    "measurement": "intraday_range",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 16256,
+    "stress_in_either": 5910,
+    "disagreeing_states": 1714
+  },
+  {
+    "policy": "narrow",
+    "measurement": "intraday_range",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18415,
+    "stress_in_either": 6887,
+    "disagreeing_states": 1956
+  },
+  {
+    "policy": "narrow",
+    "measurement": "intraday_range",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 16256,
+    "stress_in_either": 3796,
+    "disagreeing_states": 1385
+  },
+  {
+    "policy": "narrow",
+    "measurement": "intraday_range",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18415,
+    "stress_in_either": 4474,
+    "disagreeing_states": 1595
+  },
+  {
+    "policy": "narrow",
+    "measurement": "backward_five_rv",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 16179,
+    "stress_in_either": 5320,
+    "disagreeing_states": 2163
+  },
+  {
+    "policy": "narrow",
+    "measurement": "backward_five_rv",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18397,
+    "stress_in_either": 6038,
+    "disagreeing_states": 2446
+  },
+  {
+    "policy": "narrow",
+    "measurement": "backward_five_rv",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 16179,
+    "stress_in_either": 3284,
+    "disagreeing_states": 1699
+  },
+  {
+    "policy": "narrow",
+    "measurement": "backward_five_rv",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18397,
+    "stress_in_either": 3729,
+    "disagreeing_states": 1923
+  },
+  {
+    "policy": "conservative",
+    "measurement": "absolute_return",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 8157,
+    "stress_in_either": 3282,
+    "disagreeing_states": 710
+  },
+  {
+    "policy": "conservative",
+    "measurement": "absolute_return",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18354,
+    "stress_in_either": 7899,
+    "disagreeing_states": 1698
+  },
+  {
+    "policy": "conservative",
+    "measurement": "absolute_return",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 8157,
+    "stress_in_either": 2178,
+    "disagreeing_states": 700
+  },
+  {
+    "policy": "conservative",
+    "measurement": "absolute_return",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18354,
+    "stress_in_either": 5397,
+    "disagreeing_states": 1704
+  },
+  {
+    "policy": "conservative",
+    "measurement": "downside_magnitude",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 8157,
+    "stress_in_either": 4936,
+    "disagreeing_states": 811
+  },
+  {
+    "policy": "conservative",
+    "measurement": "downside_magnitude",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18354,
+    "stress_in_either": 11452,
+    "disagreeing_states": 1786
+  },
+  {
+    "policy": "conservative",
+    "measurement": "downside_magnitude",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 8157,
+    "stress_in_either": 3436,
+    "disagreeing_states": 912
+  },
+  {
+    "policy": "conservative",
+    "measurement": "downside_magnitude",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18354,
+    "stress_in_either": 8261,
+    "disagreeing_states": 2063
+  },
+  {
+    "policy": "conservative",
+    "measurement": "intraday_range",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 8201,
+    "stress_in_either": 2867,
+    "disagreeing_states": 812
+  },
+  {
+    "policy": "conservative",
+    "measurement": "intraday_range",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 18407,
+    "stress_in_either": 6865,
+    "disagreeing_states": 1949
+  },
+  {
+    "policy": "conservative",
+    "measurement": "intraday_range",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 8201,
+    "stress_in_either": 1826,
+    "disagreeing_states": 657
+  },
+  {
+    "policy": "conservative",
+    "measurement": "intraday_range",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 18407,
+    "stress_in_either": 4455,
+    "disagreeing_states": 1580
+  },
+  {
+    "policy": "conservative",
+    "measurement": "backward_five_rv",
+    "quantile": 0.9,
+    "coverage": 1.0,
+    "common_eligible": 8044,
+    "stress_in_either": 2521,
+    "disagreeing_states": 998
+  },
+  {
+    "policy": "conservative",
+    "measurement": "backward_five_rv",
+    "quantile": 0.9,
+    "coverage": 0.8,
+    "common_eligible": 17541,
+    "stress_in_either": 5821,
+    "disagreeing_states": 2392
+  },
+  {
+    "policy": "conservative",
+    "measurement": "backward_five_rv",
+    "quantile": 0.95,
+    "coverage": 1.0,
+    "common_eligible": 8044,
+    "stress_in_either": 1493,
+    "disagreeing_states": 738
+  },
+  {
+    "policy": "conservative",
+    "measurement": "backward_five_rv",
+    "quantile": 0.95,
+    "coverage": 0.8,
+    "common_eligible": 17541,
+    "stress_in_either": 3639,
+    "disagreeing_states": 1863
+  }
+]

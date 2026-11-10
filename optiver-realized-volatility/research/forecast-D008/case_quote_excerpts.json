@@ -1,0 +1,246 @@
+[
+  {
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "source": "aligned unchanged D003 fields; discovery-only",
+    "rows": [
+      {
+        "date": "2015-10-09T00:00:00.000",
+        "stock": "PWR",
+        "open": 26.87,
+        "high": 27.05,
+        "low": 26.4,
+        "close": 26.51,
+        "volume": 2225380.0
+      },
+      {
+        "date": "2015-10-12T00:00:00.000",
+        "stock": "PWR",
+        "open": 26.53,
+        "high": 26.63,
+        "low": 26.115,
+        "close": 26.28,
+        "volume": 1586675.0
+      },
+      {
+        "date": "2015-10-13T00:00:00.000",
+        "stock": "PWR",
+        "open": 26.07,
+        "high": 26.37,
+        "low": 25.75,
+        "close": 25.88,
+        "volume": 3185469.0
+      },
+      {
+        "date": "2015-10-14T00:00:00.000",
+        "stock": "PWR",
+        "open": 25.8,
+        "high": 25.99,
+        "low": 25.49,
+        "close": 25.6,
+        "volume": 2674395.0
+      },
+      {
+        "date": "2015-10-15T00:00:00.000",
+        "stock": "PWR",
+        "open": 25.64,
+        "high": 26.21,
+        "low": 25.56,
+        "close": 26.21,
+        "volume": 2113854.0
+      },
+      {
+        "date": "2015-10-16T00:00:00.000",
+        "stock": "PWR",
+        "open": 23.06,
+        "high": 23.06,
+        "low": 18.5101,
+        "close": 18.74,
+        "volume": 24411177.0
+      }
+    ]
+  },
+  {
+    "stock": "KMI",
+    "origin": "2015-12-04",
+    "source": "aligned unchanged D003 fields; discovery-only",
+    "rows": [
+      {
+        "date": "2015-12-04T00:00:00.000",
+        "stock": "KMI",
+        "open": 18.91,
+        "high": 19.0,
+        "low": 16.56,
+        "close": 16.82,
+        "volume": 153024495.0
+      },
+      {
+        "date": "2015-12-07T00:00:00.000",
+        "stock": "KMI",
+        "open": 15.66,
+        "high": 16.59,
+        "low": 15.13,
+        "close": 16.42,
+        "volume": 137200173.0
+      },
+      {
+        "date": "2015-12-08T00:00:00.000",
+        "stock": "KMI",
+        "open": 15.29,
+        "high": 16.16,
+        "low": 15.06,
+        "close": 15.72,
+        "volume": 159174852.0
+      },
+      {
+        "date": "2015-12-09T00:00:00.000",
+        "stock": "KMI",
+        "open": 16.03,
+        "high": 17.35,
+        "low": 15.9,
+        "close": 16.81,
+        "volume": 196318067.0
+      },
+      {
+        "date": "2015-12-10T00:00:00.000",
+        "stock": "KMI",
+        "open": 16.55,
+        "high": 17.45,
+        "low": 16.5,
+        "close": 17.01,
+        "volume": 77769270.0
+      },
+      {
+        "date": "2015-12-11T00:00:00.000",
+        "stock": "KMI",
+        "open": 16.48,
+        "high": 17.08,
+        "low": 16.03,
+        "close": 16.66,
+        "volume": 85326140.0
+      }
+    ]
+  },
+  {
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "source": "aligned unchanged D003 fields; discovery-only",
+    "rows": [
+      {
+        "date": "2015-06-19T00:00:00.000",
+        "stock": "MDLZ",
+        "open": 40.87,
+        "high": 41.44,
+        "low": 40.87,
+        "close": 41.04,
+        "volume": 12396657.0
+      },
+      {
+        "date": "2015-06-22T00:00:00.000",
+        "stock": "MDLZ",
+        "open": 41.17,
+        "high": 41.45,
+        "low": 41.0,
+        "close": 41.05,
+        "volume": 5133736.0
+      },
+      {
+        "date": "2015-06-23T00:00:00.000",
+        "stock": "MDLZ",
+        "open": 41.0,
+        "high": 41.24,
+        "low": 40.88,
+        "close": 41.095,
+        "volume": 3397442.0
+      },
+      {
+        "date": "2015-06-24T00:00:00.000",
+        "stock": "MDLZ",
+        "open": 41.18,
+        "high": 41.29,
+        "low": 40.98,
+        "close": 41.08,
+        "volume": 6045649.0
+      },
+      {
+        "date": "2015-06-25T00:00:00.000",
+        "stock": "MDLZ",
+        "open": 41.19,
+        "high": 41.47,
+        "low": 41.03,
+        "close": 41.08,
+        "volume": 6529641.0
+      },
+      {
+        "date": "2015-06-26T00:00:00.000",
+        "stock": "MDLZ",
+        "open": 41.01,
+        "high": 41.35,
+        "low": 40.99,
+        "close": 41.11,
+        "volume": 9259802.0
+      }
+    ]
+  },
+  {
+    "stock": "KLAC",
+    "origin": "2015-11-04",
+    "source": "aligned unchanged D003 fields; discovery-only",
+    "rows": [
+      {
+        "date": "2015-11-04T00:00:00.000",
+        "stock": "KLAC",
+        "open": 66.29,
+        "high": 66.96,
+        "low": 66.29,
+        "close": 66.83,
+        "volume": 1903074.0
+      },
+      {
+        "date": "2015-11-05T00:00:00.000",
+        "stock": "KLAC",
+        "open": 67.03,
+        "high": 67.35,
+        "low": 66.43,
+        "close": 67.0,
+        "volume": 1766536.0
+      },
+      {
+        "date": "2015-11-06T00:00:00.000",
+        "stock": "KLAC",
+        "open": 66.74,
+        "high": 67.14,
+        "low": 66.44,
+        "close": 66.85,
+        "volume": 1215000.0
+      },
+      {
+        "date": "2015-11-09T00:00:00.000",
+        "stock": "KLAC",
+        "open": 66.71,
+        "high": 67.02,
+        "low": 66.45,
+        "close": 66.92,
+        "volume": 2127454.0
+      },
+      {
+        "date": "2015-11-10T00:00:00.000",
+        "stock": "KLAC",
+        "open": 66.98,
+        "high": 67.18,
+        "low": 66.48,
+        "close": 66.76,
+        "volume": 787415.0
+      },
+      {
+        "date": "2015-11-11T00:00:00.000",
+        "stock": "KLAC",
+        "open": 66.76,
+        "high": 67.415,
+        "low": 66.565,
+        "close": 66.9,
+        "volume": 1144541.0
+      }
+    ]
+  }
+]

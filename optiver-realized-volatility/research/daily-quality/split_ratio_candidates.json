@@ -1,0 +1,212 @@
+[
+  {
+    "stock": "NFLX",
+    "date": "2013-04-23",
+    "price_ratio": 1.2444199116820553,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "OKE",
+    "date": "2013-07-25",
+    "price_ratio": 1.2554284380107403,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "INCY",
+    "date": "2013-08-21",
+    "price_ratio": 1.3348148148148147,
+    "nearest_simple_factor": 1.3333333333333333,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "ALGN",
+    "date": "2013-10-18",
+    "price_ratio": 1.2623557587633354,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "ULTA",
+    "date": "2013-12-06",
+    "price_ratio": 0.7945762711864407,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "NFLX",
+    "date": "2014-10-16",
+    "price_ratio": 0.8063048302077579,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "KLAC",
+    "date": "2014-11-26",
+    "price_ratio": 0.7998930862437632,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "WMB",
+    "date": "2015-06-22",
+    "price_ratio": 1.2589987587918907,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "TRIP",
+    "date": "2015-10-14",
+    "price_ratio": 1.2553606237816763,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "SRCL",
+    "date": "2015-10-23",
+    "price_ratio": 0.8072329575952765,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "FCX",
+    "date": "2016-01-11",
+    "price_ratio": 0.7966728280961182,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "WMB",
+    "date": "2016-01-14",
+    "price_ratio": 1.3438648052902278,
+    "nearest_simple_factor": 1.3333333333333333,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "ADS",
+    "date": "2016-01-28",
+    "price_ratio": 0.806320907617504,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "KORS",
+    "date": "2016-02-02",
+    "price_ratio": 1.2391196834817013,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-02-08",
+    "price_ratio": 0.6666666666666666,
+    "nearest_simple_factor": 0.6666666666666666,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-03-03",
+    "price_ratio": 1.2558823529411764,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-04-12",
+    "price_ratio": 1.3444444444444443,
+    "nearest_simple_factor": 1.3333333333333333,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "STX",
+    "date": "2016-04-14",
+    "price_ratio": 0.7989979369289714,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "CHK",
+    "date": "2016-05-06",
+    "price_ratio": 0.8038528896672504,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "LNT",
+    "date": "2016-05-20",
+    "price_ratio": 2.009513150531617,
+    "nearest_simple_factor": 2.0,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "ILMN",
+    "date": "2016-10-11",
+    "price_ratio": 0.7519069515823642,
+    "nearest_simple_factor": 0.75,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "UAA",
+    "date": "2017-01-31",
+    "price_ratio": 0.7425708362128541,
+    "nearest_simple_factor": 0.75,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "VNO",
+    "date": "2017-07-18",
+    "price_ratio": 0.7996495929094095,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "AAP",
+    "date": "2017-08-15",
+    "price_ratio": 0.796560556165386,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "HPE",
+    "date": "2017-09-01",
+    "price_ratio": 0.7923588039867111,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "FLR",
+    "date": "2017-09-14",
+    "price_ratio": 1.2610861983059292,
+    "nearest_simple_factor": 1.25,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "MRO",
+    "date": "2017-09-14",
+    "price_ratio": 1.345088161209068,
+    "nearest_simple_factor": 1.3333333333333333,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "FLR",
+    "date": "2017-09-15",
+    "price_ratio": 0.7986961675227183,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "MRO",
+    "date": "2017-09-15",
+    "price_ratio": 0.7490636704119851,
+    "nearest_simple_factor": 0.75,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  },
+  {
+    "stock": "NWL",
+    "date": "2018-01-25",
+    "price_ratio": 0.7944284341978866,
+    "nearest_simple_factor": 0.8,
+    "diagnosis": "unresolved_screen_not_verified_split"
+  }
+]

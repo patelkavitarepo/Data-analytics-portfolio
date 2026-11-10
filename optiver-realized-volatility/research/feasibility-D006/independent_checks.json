@@ -1,0 +1,19 @@
+{
+  "label": "actual discovery-only independent verification; no pair ranking or CVRs",
+  "stock_indices": [
+    0,
+    169,
+    337,
+    504
+  ],
+  "numpy_versus_pandas_state_checks": 23360,
+  "independent_leave_two_out_pair_count_checks": 6,
+  "cleaning_artifact_hashes_verified": {
+    "manifest.json": "2fc35138f88880be93e2ef75df3493c3770715b5218b5c70ce2d83221670358a",
+    "narrow.parquet": "4e08ad4915f8807e40a7fb778293065e976ae161a4421e6d47e5e7e23fde980a",
+    "conservative.parquet": "9b27d4cf7d05ea95b5f209f5397207946267d07cba2ea596fddbce7208d503c9",
+    "aligned_raw.parquet": "b66c58eebca3fdf1cae1c0ac6cbbe131376cc988ffc82a0f1d1461e7a1e3adde"
+  },
+  "later_observations_read": false,
+  "target_columns_read": false
+}

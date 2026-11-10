@@ -1,0 +1,752 @@
+[
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "selection": "discovery_screen",
+    "policies": {
+      "narrow": {
+        "metrics": {
+          "ordinary_adjusted_corr": -0.11181643922651001,
+          "decline_adjusted_corr": 0.77923845334783,
+          "decline_raw_corr": 0.7897123435601979,
+          "ordinary_signed_corr": -0.010683133022265999,
+          "correlation_change": 0.89105489257434,
+          "ordinary_n": 375,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.77923845334783,
+          "spearman": 0.09444203213200174,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.20907363169721357,
+            0.9385090106474799
+          ],
+          "leave_one_episode_out_range": [
+            0.0545119625118178,
+            0.8361945858064823
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      },
+      "conservative": {
+        "metrics": {
+          "ordinary_adjusted_corr": -0.11022080384282508,
+          "decline_adjusted_corr": 0.7777539874670313,
+          "decline_raw_corr": 0.7882877713315699,
+          "ordinary_signed_corr": -0.010362646958446917,
+          "correlation_change": 0.8879747913098563,
+          "ordinary_n": 372,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.7777539874670313,
+          "spearman": 0.08011289622231871,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.21387625128819737,
+            0.9382371793436934
+          ],
+          "leave_one_episode_out_range": [
+            0.053374494696212756,
+            0.8347710530599325
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      }
+    },
+    "sensitivities": {
+      "narrow/half_down_1pct": {
+        "ordinary_adjusted_corr": -0.11181643922651001,
+        "decline_adjusted_corr": 0.6307875314970918,
+        "decline_raw_corr": 0.659836895840537,
+        "ordinary_signed_corr": -0.010683133022265999,
+        "correlation_change": 0.7426039707236017,
+        "ordinary_n": 375,
+        "decline_n": 63,
+        "decline_episodes": 33
+      },
+      "narrow/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": -0.11181643922651001,
+        "decline_adjusted_corr": 0.06675442897313637,
+        "decline_raw_corr": -0.13923870682009998,
+        "ordinary_signed_corr": -0.010683133022265999,
+        "correlation_change": 0.17857086819964638,
+        "ordinary_n": 375,
+        "decline_n": 13,
+        "decline_episodes": 11
+      },
+      "conservative/half_down_1pct": {
+        "ordinary_adjusted_corr": -0.11022080384282508,
+        "decline_adjusted_corr": 0.6306077996074355,
+        "decline_raw_corr": 0.6595276370980171,
+        "ordinary_signed_corr": -0.010362646958446917,
+        "correlation_change": 0.7408286034502606,
+        "ordinary_n": 372,
+        "decline_n": 63,
+        "decline_episodes": 33
+      },
+      "conservative/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": -0.11022080384282508,
+        "decline_adjusted_corr": 0.06402580233677209,
+        "decline_raw_corr": -0.14295753018313628,
+        "ordinary_signed_corr": -0.010362646958446917,
+        "correlation_change": 0.17424660617959717,
+        "ordinary_n": 372,
+        "decline_n": 13,
+        "decline_episodes": 11
+      }
+    },
+    "same_date_comparison": {
+      "ordinary": {
+        "narrow": {
+          "correlation": -0.11078585571326138,
+          "n": 372
+        },
+        "conservative": {
+          "correlation": -0.11022080384282508,
+          "n": 372
+        }
+      },
+      "stress": {
+        "narrow": {
+          "correlation": 0.77923845334783,
+          "n": 48
+        },
+        "conservative": {
+          "correlation": 0.7777539874670313,
+          "n": 48
+        }
+      }
+    }
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "selection": "discovery_screen",
+    "policies": {
+      "narrow": {
+        "metrics": {
+          "ordinary_adjusted_corr": -0.1203188863365642,
+          "decline_adjusted_corr": 0.7418916748541956,
+          "decline_raw_corr": 0.7542843086801597,
+          "ordinary_signed_corr": -0.09941925859256655,
+          "correlation_change": 0.8622105611907598,
+          "ordinary_n": 376,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.7418916748541956,
+          "spearman": -0.06643508467216674,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.36181184922862036,
+            0.9002774935982457
+          ],
+          "leave_one_episode_out_range": [
+            -0.2256784926751196,
+            0.7799404633498859
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      },
+      "conservative": {
+        "metrics": {
+          "ordinary_adjusted_corr": -0.10220521923356325,
+          "decline_adjusted_corr": 0.7609555945203498,
+          "decline_raw_corr": 0.7724071871681755,
+          "ordinary_signed_corr": -0.09686845946971706,
+          "correlation_change": 0.8631608137539131,
+          "ordinary_n": 370,
+          "decline_n": 47,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.7609555945203498,
+          "spearman": -0.04671600370027752,
+          "observations": 47,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.3518005454423897,
+            0.9115962625157314
+          ],
+          "leave_one_episode_out_range": [
+            -0.20994458292421134,
+            0.7984330874177985
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      }
+    },
+    "sensitivities": {
+      "narrow/half_down_1pct": {
+        "ordinary_adjusted_corr": -0.1203188863365642,
+        "decline_adjusted_corr": 0.6408660445237611,
+        "decline_raw_corr": 0.6571093528078888,
+        "ordinary_signed_corr": -0.09941925859256655,
+        "correlation_change": 0.7611849308603252,
+        "ordinary_n": 376,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "narrow/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": -0.1203188863365642,
+        "decline_adjusted_corr": -0.060992768595462765,
+        "decline_raw_corr": 0.1558280262970209,
+        "ordinary_signed_corr": -0.09941925859256655,
+        "correlation_change": 0.05932611774110143,
+        "ordinary_n": 376,
+        "decline_n": 13,
+        "decline_episodes": 11
+      },
+      "conservative/half_down_1pct": {
+        "ordinary_adjusted_corr": -0.10220521923356325,
+        "decline_adjusted_corr": 0.655051313218767,
+        "decline_raw_corr": 0.6708280525370012,
+        "ordinary_signed_corr": -0.09686845946971706,
+        "correlation_change": 0.7572565324523303,
+        "ordinary_n": 370,
+        "decline_n": 61,
+        "decline_episodes": 32
+      },
+      "conservative/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": -0.10220521923356325,
+        "decline_adjusted_corr": -0.05542162561332896,
+        "decline_raw_corr": 0.16129442893164989,
+        "ordinary_signed_corr": -0.09686845946971706,
+        "correlation_change": 0.04678359362023429,
+        "ordinary_n": 370,
+        "decline_n": 13,
+        "decline_episodes": 11
+      }
+    },
+    "same_date_comparison": {
+      "ordinary": {
+        "narrow": {
+          "correlation": -0.10133848964724453,
+          "n": 370
+        },
+        "conservative": {
+          "correlation": -0.10220521923356325,
+          "n": 370
+        }
+      },
+      "stress": {
+        "narrow": {
+          "correlation": 0.759419324121631,
+          "n": 47
+        },
+        "conservative": {
+          "correlation": 0.7609555945203498,
+          "n": 47
+        }
+      }
+    }
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "selection": "discovery_screen",
+    "policies": {
+      "narrow": {
+        "metrics": {
+          "ordinary_adjusted_corr": 0.012146945572348536,
+          "decline_adjusted_corr": 0.8635349390825633,
+          "decline_raw_corr": 0.8761434185229635,
+          "ordinary_signed_corr": 0.0030778989827748367,
+          "correlation_change": 0.8513879935102148,
+          "ordinary_n": 376,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.8635349390825633,
+          "spearman": 0.27952670429874077,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            0.08170544311402543,
+            0.9559885065857942
+          ],
+          "leave_one_episode_out_range": [
+            0.2746289704871967,
+            0.8796592489348511
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      },
+      "conservative": {
+        "metrics": {
+          "ordinary_adjusted_corr": 0.014730522365663525,
+          "decline_adjusted_corr": 0.8645972263536904,
+          "decline_raw_corr": 0.8771288955013464,
+          "ordinary_signed_corr": 0.0003316744853502024,
+          "correlation_change": 0.8498667039880269,
+          "ordinary_n": 372,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.8645972263536904,
+          "spearman": 0.2784411636995224,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            0.0822322731145413,
+            0.956677304724438
+          ],
+          "leave_one_episode_out_range": [
+            0.2769793232700628,
+            0.8806901004569261
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      }
+    },
+    "sensitivities": {
+      "narrow/half_down_1pct": {
+        "ordinary_adjusted_corr": 0.012146945572348536,
+        "decline_adjusted_corr": 0.7944088105432983,
+        "decline_raw_corr": 0.8129991387610476,
+        "ordinary_signed_corr": 0.0030778989827748367,
+        "correlation_change": 0.7822618649709497,
+        "ordinary_n": 376,
+        "decline_n": 63,
+        "decline_episodes": 33
+      },
+      "narrow/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": 0.012146945572348536,
+        "decline_adjusted_corr": 0.555664775920916,
+        "decline_raw_corr": 0.5255094583224224,
+        "ordinary_signed_corr": 0.0030778989827748367,
+        "correlation_change": 0.5435178303485675,
+        "ordinary_n": 376,
+        "decline_n": 13,
+        "decline_episodes": 11
+      },
+      "conservative/half_down_1pct": {
+        "ordinary_adjusted_corr": 0.014730522365663525,
+        "decline_adjusted_corr": 0.7954150408291718,
+        "decline_raw_corr": 0.8139471720182223,
+        "ordinary_signed_corr": 0.0003316744853502024,
+        "correlation_change": 0.7806845184635083,
+        "ordinary_n": 372,
+        "decline_n": 63,
+        "decline_episodes": 33
+      },
+      "conservative/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": 0.014730522365663525,
+        "decline_adjusted_corr": 0.5555748314434606,
+        "decline_raw_corr": 0.5254099184317278,
+        "ordinary_signed_corr": 0.0003316744853502024,
+        "correlation_change": 0.5408443090777971,
+        "ordinary_n": 372,
+        "decline_n": 13,
+        "decline_episodes": 11
+      }
+    },
+    "same_date_comparison": {
+      "ordinary": {
+        "narrow": {
+          "correlation": 0.01428106088196996,
+          "n": 372
+        },
+        "conservative": {
+          "correlation": 0.014730522365663525,
+          "n": 372
+        }
+      },
+      "stress": {
+        "narrow": {
+          "correlation": 0.8635349390825633,
+          "n": 48
+        },
+        "conservative": {
+          "correlation": 0.8645972263536904,
+          "n": 48
+        }
+      }
+    }
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "selection": "predeclared_control",
+    "policies": {
+      "narrow": {
+        "metrics": {
+          "ordinary_adjusted_corr": 0.5292757729413974,
+          "decline_adjusted_corr": 0.9033062119630161,
+          "decline_raw_corr": 0.9071119518843036,
+          "ordinary_signed_corr": 0.9211223014849595,
+          "correlation_change": 0.3740304390216187,
+          "ordinary_n": 373,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.9033062119630161,
+          "spearman": 0.8444420321320018,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            0.7594163433193065,
+            0.9713679157792562
+          ],
+          "leave_one_episode_out_range": [
+            0.843783997490397,
+            0.9253968365465431
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      },
+      "conservative": {
+        "metrics": {
+          "ordinary_adjusted_corr": 0.5292757729413974,
+          "decline_adjusted_corr": 0.9033062119630161,
+          "decline_raw_corr": 0.9071119518843036,
+          "ordinary_signed_corr": 0.9211223014849595,
+          "correlation_change": 0.3740304390216187,
+          "ordinary_n": 373,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": 0.9033062119630161,
+          "spearman": 0.8444420321320018,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            0.7594163433193065,
+            0.9713679157792562
+          ],
+          "leave_one_episode_out_range": [
+            0.843783997490397,
+            0.9253968365465431
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      }
+    },
+    "sensitivities": {
+      "narrow/half_down_1pct": {
+        "ordinary_adjusted_corr": 0.5292757729413974,
+        "decline_adjusted_corr": 0.8943097466458837,
+        "decline_raw_corr": 0.8994323159748261,
+        "ordinary_signed_corr": 0.9211223014849595,
+        "correlation_change": 0.3650339737044863,
+        "ordinary_n": 373,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "narrow/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": 0.5292757729413974,
+        "decline_adjusted_corr": 0.8778380575508228,
+        "decline_raw_corr": 0.8854795472169649,
+        "ordinary_signed_corr": 0.9211223014849595,
+        "correlation_change": 0.3485622846094254,
+        "ordinary_n": 373,
+        "decline_n": 13,
+        "decline_episodes": 11
+      },
+      "conservative/half_down_1pct": {
+        "ordinary_adjusted_corr": 0.5292757729413974,
+        "decline_adjusted_corr": 0.8943097466458837,
+        "decline_raw_corr": 0.8994323159748261,
+        "ordinary_signed_corr": 0.9211223014849595,
+        "correlation_change": 0.3650339737044863,
+        "ordinary_n": 373,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "conservative/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": 0.5292757729413974,
+        "decline_adjusted_corr": 0.8778380575508228,
+        "decline_raw_corr": 0.8854795472169649,
+        "ordinary_signed_corr": 0.9211223014849595,
+        "correlation_change": 0.3485622846094254,
+        "ordinary_n": 373,
+        "decline_n": 13,
+        "decline_episodes": 11
+      }
+    },
+    "same_date_comparison": {
+      "ordinary": {
+        "narrow": {
+          "correlation": 0.5292757729413974,
+          "n": 373
+        },
+        "conservative": {
+          "correlation": 0.5292757729413974,
+          "n": 373
+        }
+      },
+      "stress": {
+        "narrow": {
+          "correlation": 0.9033062119630161,
+          "n": 48
+        },
+        "conservative": {
+          "correlation": 0.9033062119630161,
+          "n": 48
+        }
+      }
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "selection": "predeclared_control",
+    "policies": {
+      "narrow": {
+        "metrics": {
+          "ordinary_adjusted_corr": 0.19172482252034614,
+          "decline_adjusted_corr": -0.005769452853431102,
+          "decline_raw_corr": 0.07755692323269366,
+          "ordinary_signed_corr": 0.06493255956893368,
+          "correlation_change": -0.19749427537377726,
+          "ordinary_n": 375,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": -0.005769452853431102,
+          "spearman": 0.14676508901432914,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.28585558010434453,
+            0.24849521571704247
+          ],
+          "leave_one_episode_out_range": [
+            -0.06861931395387864,
+            0.06873838247201261
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      },
+      "conservative": {
+        "metrics": {
+          "ordinary_adjusted_corr": 0.19172482252034614,
+          "decline_adjusted_corr": -0.005769452853431102,
+          "decline_raw_corr": 0.07755692323269366,
+          "ordinary_signed_corr": 0.06493255956893368,
+          "correlation_change": -0.19749427537377726,
+          "ordinary_n": 375,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": -0.005769452853431102,
+          "spearman": 0.14676508901432914,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.28585558010434453,
+            0.24849521571704247
+          ],
+          "leave_one_episode_out_range": [
+            -0.06861931395387864,
+            0.06873838247201261
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      }
+    },
+    "sensitivities": {
+      "narrow/half_down_1pct": {
+        "ordinary_adjusted_corr": 0.19172482252034614,
+        "decline_adjusted_corr": -0.04673500869241701,
+        "decline_raw_corr": 0.07426498079804024,
+        "ordinary_signed_corr": 0.06493255956893368,
+        "correlation_change": -0.23845983121276315,
+        "ordinary_n": 375,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "narrow/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": 0.19172482252034614,
+        "decline_adjusted_corr": 0.13029084155449652,
+        "decline_raw_corr": 0.16703906445345496,
+        "ordinary_signed_corr": 0.06493255956893368,
+        "correlation_change": -0.06143398096584962,
+        "ordinary_n": 375,
+        "decline_n": 13,
+        "decline_episodes": 11
+      },
+      "conservative/half_down_1pct": {
+        "ordinary_adjusted_corr": 0.19172482252034614,
+        "decline_adjusted_corr": -0.04673500869241701,
+        "decline_raw_corr": 0.07426498079804024,
+        "ordinary_signed_corr": 0.06493255956893368,
+        "correlation_change": -0.23845983121276315,
+        "ordinary_n": 375,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "conservative/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": 0.19172482252034614,
+        "decline_adjusted_corr": 0.13029084155449652,
+        "decline_raw_corr": 0.16703906445345496,
+        "ordinary_signed_corr": 0.06493255956893368,
+        "correlation_change": -0.06143398096584962,
+        "ordinary_n": 375,
+        "decline_n": 13,
+        "decline_episodes": 11
+      }
+    },
+    "same_date_comparison": {
+      "ordinary": {
+        "narrow": {
+          "correlation": 0.19172482252034614,
+          "n": 375
+        },
+        "conservative": {
+          "correlation": 0.19172482252034614,
+          "n": 375
+        }
+      },
+      "stress": {
+        "narrow": {
+          "correlation": -0.005769452853431102,
+          "n": 48
+        },
+        "conservative": {
+          "correlation": -0.005769452853431102,
+          "n": 48
+        }
+      }
+    }
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "selection": "predeclared_control",
+    "policies": {
+      "narrow": {
+        "metrics": {
+          "ordinary_adjusted_corr": -0.02575689560269622,
+          "decline_adjusted_corr": -0.17954828852516505,
+          "decline_raw_corr": -0.05740730607321627,
+          "ordinary_signed_corr": 0.002824580438657864,
+          "correlation_change": -0.15379139292246882,
+          "ordinary_n": 375,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": -0.17954828852516505,
+          "spearman": -0.21927920104211898,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.3843600589970959,
+            -0.008862880701768754
+          ],
+          "leave_one_episode_out_range": [
+            -0.23172742616683462,
+            -0.1481652277751741
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      },
+      "conservative": {
+        "metrics": {
+          "ordinary_adjusted_corr": -0.02575689560269622,
+          "decline_adjusted_corr": -0.17954828852516505,
+          "decline_raw_corr": -0.05740730607321627,
+          "ordinary_signed_corr": 0.002824580438657864,
+          "correlation_change": -0.15379139292246882,
+          "ordinary_n": 375,
+          "decline_n": 48,
+          "decline_episodes": 27
+        },
+        "uncertainty": {
+          "pearson": -0.17954828852516505,
+          "spearman": -0.21927920104211898,
+          "observations": 48,
+          "episodes": 27,
+          "episode_bootstrap_95pct": [
+            -0.3843600589970959,
+            -0.008862880701768754
+          ],
+          "leave_one_episode_out_range": [
+            -0.23172742616683462,
+            -0.1481652277751741
+          ],
+          "caution": "Descriptive post-selection intervals; not multiple-testing-adjusted or predictive confirmation"
+        }
+      }
+    },
+    "sensitivities": {
+      "narrow/half_down_1pct": {
+        "ordinary_adjusted_corr": -0.02575689560269622,
+        "decline_adjusted_corr": -0.0024597988405156567,
+        "decline_raw_corr": 0.14843859153756792,
+        "ordinary_signed_corr": 0.002824580438657864,
+        "correlation_change": 0.023297096762180565,
+        "ordinary_n": 375,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "narrow/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": -0.02575689560269622,
+        "decline_adjusted_corr": -0.1919328122987252,
+        "decline_raw_corr": -0.11203288114014665,
+        "ordinary_signed_corr": 0.002824580438657864,
+        "correlation_change": -0.16617591669602896,
+        "ordinary_n": 375,
+        "decline_n": 13,
+        "decline_episodes": 11
+      },
+      "conservative/half_down_1pct": {
+        "ordinary_adjusted_corr": -0.02575689560269622,
+        "decline_adjusted_corr": -0.0024597988405156567,
+        "decline_raw_corr": 0.14843859153756792,
+        "ordinary_signed_corr": 0.002824580438657864,
+        "correlation_change": 0.023297096762180565,
+        "ordinary_n": 375,
+        "decline_n": 62,
+        "decline_episodes": 32
+      },
+      "conservative/three_fifths_down_1_5pct": {
+        "ordinary_adjusted_corr": -0.02575689560269622,
+        "decline_adjusted_corr": -0.1919328122987252,
+        "decline_raw_corr": -0.11203288114014665,
+        "ordinary_signed_corr": 0.002824580438657864,
+        "correlation_change": -0.16617591669602896,
+        "ordinary_n": 375,
+        "decline_n": 13,
+        "decline_episodes": 11
+      }
+    },
+    "same_date_comparison": {
+      "ordinary": {
+        "narrow": {
+          "correlation": -0.02575689560269622,
+          "n": 375
+        },
+        "conservative": {
+          "correlation": -0.02575689560269622,
+          "n": 375
+        }
+      },
+      "stress": {
+        "narrow": {
+          "correlation": -0.17954828852516505,
+          "n": 48
+        },
+        "conservative": {
+          "correlation": -0.17954828852516505,
+          "n": 48
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "stock_a": "AMAT",
+    "stock_b": "SYY",
+    "date": "2013-12-11",
+    "a_log_return": 0.0,
+    "b_log_return": 0.0,
+    "a_adjusted_log_response": -9.60901374815157,
+    "b_adjusted_log_response": -9.303051077196947,
+    "note": "Largest absolute Pearson covariance contribution, not an error diagnosis; observation retained"
+  },
+  {
+    "stock_a": "HRS",
+    "stock_b": "SLG",
+    "date": "2014-10-01",
+    "a_log_return": 0.0,
+    "b_log_return": 0.0,
+    "a_adjusted_log_response": -9.490985283470447,
+    "b_adjusted_log_response": -9.098444108046253,
+    "note": "Largest absolute Pearson covariance contribution, not an error diagnosis; observation retained"
+  },
+  {
+    "stock_a": "BAX",
+    "stock_b": "KMI",
+    "date": "2015-03-10",
+    "a_log_return": 0.0,
+    "b_log_return": 0.0,
+    "a_adjusted_log_response": -9.394643454781882,
+    "b_adjusted_log_response": -9.598880315415364,
+    "note": "Largest absolute Pearson covariance contribution, not an error diagnosis; observation retained"
+  },
+  {
+    "stock_a": "DISCA",
+    "stock_b": "DISCK",
+    "date": "2015-09-18",
+    "a_log_return": -0.00035354428510370184,
+    "b_log_return": -0.0007619047987619254,
+    "a_adjusted_log_response": -4.2839408905398635,
+    "b_adjusted_log_response": -3.4378003938255293,
+    "note": "Largest absolute Pearson covariance contribution, not an error diagnosis; observation retained"
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "MSFT",
+    "date": "2015-07-08",
+    "a_log_return": -0.025136262583672853,
+    "b_log_return": -0.001355319837010427,
+    "a_adjusted_log_response": 0.5624410811159337,
+    "b_adjusted_log_response": -2.642531906234132,
+    "note": "Largest absolute Pearson covariance contribution, not an error diagnosis; observation retained"
+  },
+  {
+    "stock_a": "AAPL",
+    "stock_b": "JNJ",
+    "date": "2014-10-09",
+    "a_log_return": 0.0021801614026379923,
+    "b_log_return": -0.027346020146914896,
+    "a_adjusted_log_response": -2.242113326917811,
+    "b_adjusted_log_response": 0.7531959422555878,
+    "note": "Largest absolute Pearson covariance contribution, not an error diagnosis; observation retained"
+  }
+]

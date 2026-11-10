@@ -1,0 +1,1802 @@
+[
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-14",
+    "target_reconstructed": 0.33904221256113226,
+    "next_five_returns": [
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-13",
+    "target_reconstructed": 0.3388969388523027,
+    "next_five_returns": [
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-12",
+    "target_reconstructed": 0.3381615245975617,
+    "next_five_returns": [
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-15",
+    "target_reconstructed": 0.33843040144591213,
+    "next_five_returns": [
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      },
+      {
+        "date": "2015-10-22",
+        "log_return": -0.01183445764700286
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "target_reconstructed": 0.33694417480266153,
+    "next_five_returns": [
+      {
+        "date": "2015-10-12",
+        "log_return": -0.00871382668452414
+      },
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "KLAC",
+    "origin": "2015-11-04",
+    "target_reconstructed": 0.0047635896924867645,
+    "next_five_returns": [
+      {
+        "date": "2015-11-05",
+        "log_return": 0.002540537867987247
+      },
+      {
+        "date": "2015-11-06",
+        "log_return": -0.0022413158430136804
+      },
+      {
+        "date": "2015-11-09",
+        "log_return": 0.0010465725706714224
+      },
+      {
+        "date": "2015-11-10",
+        "log_return": -0.0023937773249889105
+      },
+      {
+        "date": "2015-11-11",
+        "log_return": 0.0020948683405483948
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "TRV",
+    "origin": "2015-02-12",
+    "target_reconstructed": 0.0016315863465952891,
+    "next_five_returns": [
+      {
+        "date": "2015-02-13",
+        "log_return": -0.0003703018001948166
+      },
+      {
+        "date": "2015-02-17",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-02-18",
+        "log_return": -0.0001852023340793707
+      },
+      {
+        "date": "2015-02-19",
+        "log_return": 9.260545452782765e-05
+      },
+      {
+        "date": "2015-02-20",
+        "log_return": -0.0015754602211455193
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "NTAP",
+    "origin": "2015-02-23",
+    "target_reconstructed": 0.00282685518449761,
+    "next_five_returns": [
+      {
+        "date": "2015-02-24",
+        "log_return": 0.0015568243933188342
+      },
+      {
+        "date": "2015-02-25",
+        "log_return": 0.00129550478023166
+      },
+      {
+        "date": "2015-02-26",
+        "log_return": 0.0007764980330629001
+      },
+      {
+        "date": "2015-02-27",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-03-02",
+        "log_return": -0.0018127675558479162
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "target_reconstructed": 0.0013877866865707675,
+    "next_five_returns": [
+      {
+        "date": "2015-06-22",
+        "log_return": 0.00024363503592272906
+      },
+      {
+        "date": "2015-06-23",
+        "log_return": 0.001095623702026316
+      },
+      {
+        "date": "2015-06-24",
+        "log_return": -0.00036507454010603624
+      },
+      {
+        "date": "2015-06-25",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-06-26",
+        "log_return": 0.000730015849429666
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "KLAC",
+    "origin": "2015-11-02",
+    "target_reconstructed": 0.006135296820526031,
+    "next_five_returns": [
+      {
+        "date": "2015-11-03",
+        "log_return": -0.000751597179312391
+      },
+      {
+        "date": "2015-11-04",
+        "log_return": 0.004950133861170158
+      },
+      {
+        "date": "2015-11-05",
+        "log_return": 0.002540537867987247
+      },
+      {
+        "date": "2015-11-06",
+        "log_return": -0.0022413158430136804
+      },
+      {
+        "date": "2015-11-09",
+        "log_return": 0.0010465725706714224
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "KMI",
+    "origin": "2015-12-04",
+    "target_reconstructed": 0.08685532281743889,
+    "next_five_returns": [
+      {
+        "date": "2015-12-07",
+        "log_return": -0.024068550520519594
+      },
+      {
+        "date": "2015-12-08",
+        "log_return": -0.04356631702322167
+      },
+      {
+        "date": "2015-12-09",
+        "log_return": 0.06704016041946348
+      },
+      {
+        "date": "2015-12-10",
+        "log_return": 0.011827458987246242
+      },
+      {
+        "date": "2015-12-11",
+        "log_return": -0.020790769669073672
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "KMI",
+    "origin": "2015-12-08",
+    "target_reconstructed": 0.08247101564259214,
+    "next_five_returns": [
+      {
+        "date": "2015-12-09",
+        "log_return": 0.06704016041946348
+      },
+      {
+        "date": "2015-12-10",
+        "log_return": 0.011827458987246242
+      },
+      {
+        "date": "2015-12-11",
+        "log_return": -0.020790769669073672
+      },
+      {
+        "date": "2015-12-14",
+        "log_return": -0.04042191449891552
+      },
+      {
+        "date": "2015-12-15",
+        "log_return": -0.010050335853501569
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "KMI",
+    "origin": "2015-12-07",
+    "target_reconstructed": 0.09272800628354065,
+    "next_five_returns": [
+      {
+        "date": "2015-12-08",
+        "log_return": -0.04356631702322167
+      },
+      {
+        "date": "2015-12-09",
+        "log_return": 0.06704016041946348
+      },
+      {
+        "date": "2015-12-10",
+        "log_return": 0.011827458987246242
+      },
+      {
+        "date": "2015-12-11",
+        "log_return": -0.020790769669073672
+      },
+      {
+        "date": "2015-12-14",
+        "log_return": -0.04042191449891552
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "target_reconstructed": 0.33694417480266153,
+    "next_five_returns": [
+      {
+        "date": "2015-10-12",
+        "log_return": -0.00871382668452414
+      },
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-12",
+    "target_reconstructed": 0.3381615245975617,
+    "next_five_returns": [
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "target_reconstructed": 0.0013877866865707675,
+    "next_five_returns": [
+      {
+        "date": "2015-06-22",
+        "log_return": 0.00024363503592272906
+      },
+      {
+        "date": "2015-06-23",
+        "log_return": 0.001095623702026316
+      },
+      {
+        "date": "2015-06-24",
+        "log_return": -0.00036507454010603624
+      },
+      {
+        "date": "2015-06-25",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-06-26",
+        "log_return": 0.000730015849429666
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-13",
+    "target_reconstructed": 0.002518227262549142,
+    "next_five_returns": [
+      {
+        "date": "2015-05-14",
+        "log_return": 0.0010835411180392107
+      },
+      {
+        "date": "2015-05-15",
+        "log_return": 0.0006495615687955869
+      },
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "NTAP",
+    "origin": "2015-02-23",
+    "target_reconstructed": 0.00282685518449761,
+    "next_five_returns": [
+      {
+        "date": "2015-02-24",
+        "log_return": 0.0015568243933188342
+      },
+      {
+        "date": "2015-02-25",
+        "log_return": 0.00129550478023166
+      },
+      {
+        "date": "2015-02-26",
+        "log_return": 0.0007764980330629001
+      },
+      {
+        "date": "2015-02-27",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-03-02",
+        "log_return": -0.0018127675558479162
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-15",
+    "target_reconstructed": 0.003242288452380187,
+    "next_five_returns": [
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      },
+      {
+        "date": "2015-05-21",
+        "log_return": -0.0023915654403636744
+      },
+      {
+        "date": "2015-05-22",
+        "log_return": 0.00021765154074371296
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "SRCL",
+    "origin": "2015-10-29",
+    "target_reconstructed": 0.027606974114353464,
+    "next_five_returns": [
+      {
+        "date": "2015-10-30",
+        "log_return": -0.00885905227990591
+      },
+      {
+        "date": "2015-11-02",
+        "log_return": 0.024015155501066587
+      },
+      {
+        "date": "2015-11-03",
+        "log_return": 0.005454850682964363
+      },
+      {
+        "date": "2015-11-04",
+        "log_return": -0.008677541193688576
+      },
+      {
+        "date": "2015-11-05",
+        "log_return": 0.0013709126779151148
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "KMI",
+    "origin": "2015-12-08",
+    "target_reconstructed": 0.08247101564259214,
+    "next_five_returns": [
+      {
+        "date": "2015-12-09",
+        "log_return": 0.06704016041946348
+      },
+      {
+        "date": "2015-12-10",
+        "log_return": 0.011827458987246242
+      },
+      {
+        "date": "2015-12-11",
+        "log_return": -0.020790769669073672
+      },
+      {
+        "date": "2015-12-14",
+        "log_return": -0.04042191449891552
+      },
+      {
+        "date": "2015-12-15",
+        "log_return": -0.010050335853501569
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "target_reconstructed": 0.33694417480266153,
+    "next_five_returns": [
+      {
+        "date": "2015-10-12",
+        "log_return": -0.00871382668452414
+      },
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-12",
+    "target_reconstructed": 0.3381615245975617,
+    "next_five_returns": [
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-13",
+    "target_reconstructed": 0.3388969388523027,
+    "next_five_returns": [
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-15",
+    "target_reconstructed": 0.33843040144591213,
+    "next_five_returns": [
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      },
+      {
+        "date": "2015-10-22",
+        "log_return": -0.01183445764700286
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "target_reconstructed": 0.0013877866865707675,
+    "next_five_returns": [
+      {
+        "date": "2015-06-22",
+        "log_return": 0.00024363503592272906
+      },
+      {
+        "date": "2015-06-23",
+        "log_return": 0.001095623702026316
+      },
+      {
+        "date": "2015-06-24",
+        "log_return": -0.00036507454010603624
+      },
+      {
+        "date": "2015-06-25",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-06-26",
+        "log_return": 0.000730015849429666
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-13",
+    "target_reconstructed": 0.002518227262549142,
+    "next_five_returns": [
+      {
+        "date": "2015-05-14",
+        "log_return": 0.0010835411180392107
+      },
+      {
+        "date": "2015-05-15",
+        "log_return": 0.0006495615687955869
+      },
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "NTAP",
+    "origin": "2015-02-23",
+    "target_reconstructed": 0.00282685518449761,
+    "next_five_returns": [
+      {
+        "date": "2015-02-24",
+        "log_return": 0.0015568243933188342
+      },
+      {
+        "date": "2015-02-25",
+        "log_return": 0.00129550478023166
+      },
+      {
+        "date": "2015-02-26",
+        "log_return": 0.0007764980330629001
+      },
+      {
+        "date": "2015-02-27",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-03-02",
+        "log_return": -0.0018127675558479162
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "TRV",
+    "origin": "2015-02-12",
+    "target_reconstructed": 0.0016315863465952891,
+    "next_five_returns": [
+      {
+        "date": "2015-02-13",
+        "log_return": -0.0003703018001948166
+      },
+      {
+        "date": "2015-02-17",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-02-18",
+        "log_return": -0.0001852023340793707
+      },
+      {
+        "date": "2015-02-19",
+        "log_return": 9.260545452782765e-05
+      },
+      {
+        "date": "2015-02-20",
+        "log_return": -0.0015754602211455193
+      }
+    ]
+  },
+  {
+    "policy": "narrow",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-15",
+    "target_reconstructed": 0.003242288452380187,
+    "next_five_returns": [
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      },
+      {
+        "date": "2015-05-21",
+        "log_return": -0.0023915654403636744
+      },
+      {
+        "date": "2015-05-22",
+        "log_return": 0.00021765154074371296
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-14",
+    "target_reconstructed": 0.33904221256113226,
+    "next_five_returns": [
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-13",
+    "target_reconstructed": 0.3388969388523027,
+    "next_five_returns": [
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-12",
+    "target_reconstructed": 0.3381615245975617,
+    "next_five_returns": [
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-15",
+    "target_reconstructed": 0.33843040144591213,
+    "next_five_returns": [
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      },
+      {
+        "date": "2015-10-22",
+        "log_return": -0.01183445764700286
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "target_reconstructed": 0.33694417480266153,
+    "next_five_returns": [
+      {
+        "date": "2015-10-12",
+        "log_return": -0.00871382668452414
+      },
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "KLAC",
+    "origin": "2015-11-04",
+    "target_reconstructed": 0.0047635896924867645,
+    "next_five_returns": [
+      {
+        "date": "2015-11-05",
+        "log_return": 0.002540537867987247
+      },
+      {
+        "date": "2015-11-06",
+        "log_return": -0.0022413158430136804
+      },
+      {
+        "date": "2015-11-09",
+        "log_return": 0.0010465725706714224
+      },
+      {
+        "date": "2015-11-10",
+        "log_return": -0.0023937773249889105
+      },
+      {
+        "date": "2015-11-11",
+        "log_return": 0.0020948683405483948
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "TRV",
+    "origin": "2015-02-12",
+    "target_reconstructed": 0.0016315863465952891,
+    "next_five_returns": [
+      {
+        "date": "2015-02-13",
+        "log_return": -0.0003703018001948166
+      },
+      {
+        "date": "2015-02-17",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-02-18",
+        "log_return": -0.0001852023340793707
+      },
+      {
+        "date": "2015-02-19",
+        "log_return": 9.260545452782765e-05
+      },
+      {
+        "date": "2015-02-20",
+        "log_return": -0.0015754602211455193
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "NTAP",
+    "origin": "2015-02-23",
+    "target_reconstructed": 0.00282685518449761,
+    "next_five_returns": [
+      {
+        "date": "2015-02-24",
+        "log_return": 0.0015568243933188342
+      },
+      {
+        "date": "2015-02-25",
+        "log_return": 0.00129550478023166
+      },
+      {
+        "date": "2015-02-26",
+        "log_return": 0.0007764980330629001
+      },
+      {
+        "date": "2015-02-27",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-03-02",
+        "log_return": -0.0018127675558479162
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "target_reconstructed": 0.0013877866865707675,
+    "next_five_returns": [
+      {
+        "date": "2015-06-22",
+        "log_return": 0.00024363503592272906
+      },
+      {
+        "date": "2015-06-23",
+        "log_return": 0.001095623702026316
+      },
+      {
+        "date": "2015-06-24",
+        "log_return": -0.00036507454010603624
+      },
+      {
+        "date": "2015-06-25",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-06-26",
+        "log_return": 0.000730015849429666
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M0",
+    "criterion": "relative",
+    "stock": "KLAC",
+    "origin": "2015-11-02",
+    "target_reconstructed": 0.006135296820526031,
+    "next_five_returns": [
+      {
+        "date": "2015-11-03",
+        "log_return": -0.000751597179312391
+      },
+      {
+        "date": "2015-11-04",
+        "log_return": 0.004950133861170158
+      },
+      {
+        "date": "2015-11-05",
+        "log_return": 0.002540537867987247
+      },
+      {
+        "date": "2015-11-06",
+        "log_return": -0.0022413158430136804
+      },
+      {
+        "date": "2015-11-09",
+        "log_return": 0.0010465725706714224
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "KMI",
+    "origin": "2015-12-04",
+    "target_reconstructed": 0.08685532281743889,
+    "next_five_returns": [
+      {
+        "date": "2015-12-07",
+        "log_return": -0.024068550520519594
+      },
+      {
+        "date": "2015-12-08",
+        "log_return": -0.04356631702322167
+      },
+      {
+        "date": "2015-12-09",
+        "log_return": 0.06704016041946348
+      },
+      {
+        "date": "2015-12-10",
+        "log_return": 0.011827458987246242
+      },
+      {
+        "date": "2015-12-11",
+        "log_return": -0.020790769669073672
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "target_reconstructed": 0.33694417480266153,
+    "next_five_returns": [
+      {
+        "date": "2015-10-12",
+        "log_return": -0.00871382668452414
+      },
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-12",
+    "target_reconstructed": 0.3381615245975617,
+    "next_five_returns": [
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-13",
+    "target_reconstructed": 0.3388969388523027,
+    "next_five_returns": [
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-14",
+    "target_reconstructed": 0.33904221256113226,
+    "next_five_returns": [
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "target_reconstructed": 0.0013877866865707675,
+    "next_five_returns": [
+      {
+        "date": "2015-06-22",
+        "log_return": 0.00024363503592272906
+      },
+      {
+        "date": "2015-06-23",
+        "log_return": 0.001095623702026316
+      },
+      {
+        "date": "2015-06-24",
+        "log_return": -0.00036507454010603624
+      },
+      {
+        "date": "2015-06-25",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-06-26",
+        "log_return": 0.000730015849429666
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-13",
+    "target_reconstructed": 0.002518227262549142,
+    "next_five_returns": [
+      {
+        "date": "2015-05-14",
+        "log_return": 0.0010835411180392107
+      },
+      {
+        "date": "2015-05-15",
+        "log_return": 0.0006495615687955869
+      },
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "NTAP",
+    "origin": "2015-02-23",
+    "target_reconstructed": 0.00282685518449761,
+    "next_five_returns": [
+      {
+        "date": "2015-02-24",
+        "log_return": 0.0015568243933188342
+      },
+      {
+        "date": "2015-02-25",
+        "log_return": 0.00129550478023166
+      },
+      {
+        "date": "2015-02-26",
+        "log_return": 0.0007764980330629001
+      },
+      {
+        "date": "2015-02-27",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-03-02",
+        "log_return": -0.0018127675558479162
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "TRV",
+    "origin": "2015-02-12",
+    "target_reconstructed": 0.0016315863465952891,
+    "next_five_returns": [
+      {
+        "date": "2015-02-13",
+        "log_return": -0.0003703018001948166
+      },
+      {
+        "date": "2015-02-17",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-02-18",
+        "log_return": -0.0001852023340793707
+      },
+      {
+        "date": "2015-02-19",
+        "log_return": 9.260545452782765e-05
+      },
+      {
+        "date": "2015-02-20",
+        "log_return": -0.0015754602211455193
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M1",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-15",
+    "target_reconstructed": 0.003242288452380187,
+    "next_five_returns": [
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      },
+      {
+        "date": "2015-05-21",
+        "log_return": -0.0023915654403636744
+      },
+      {
+        "date": "2015-05-22",
+        "log_return": 0.00021765154074371296
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-09",
+    "target_reconstructed": 0.33694417480266153,
+    "next_five_returns": [
+      {
+        "date": "2015-10-12",
+        "log_return": -0.00871382668452414
+      },
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-12",
+    "target_reconstructed": 0.3381615245975617,
+    "next_five_returns": [
+      {
+        "date": "2015-10-13",
+        "log_return": -0.015337723983710028
+      },
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-13",
+    "target_reconstructed": 0.3388969388523027,
+    "next_five_returns": [
+      {
+        "date": "2015-10-14",
+        "log_return": -0.010878118147183091
+      },
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-15",
+    "target_reconstructed": 0.33843040144591213,
+    "next_five_returns": [
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      },
+      {
+        "date": "2015-10-22",
+        "log_return": -0.01183445764700286
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "absolute",
+    "stock": "PWR",
+    "origin": "2015-10-14",
+    "target_reconstructed": 0.33904221256113226,
+    "next_five_returns": [
+      {
+        "date": "2015-10-15",
+        "log_return": 0.02354866584979831
+      },
+      {
+        "date": "2015-10-16",
+        "log_return": -0.33548074052503907
+      },
+      {
+        "date": "2015-10-19",
+        "log_return": 0.02996281963014713
+      },
+      {
+        "date": "2015-10-20",
+        "log_return": 0.027077005416303646
+      },
+      {
+        "date": "2015-10-21",
+        "log_return": -0.014724815425351867
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "MDLZ",
+    "origin": "2015-06-19",
+    "target_reconstructed": 0.0013877866865707675,
+    "next_five_returns": [
+      {
+        "date": "2015-06-22",
+        "log_return": 0.00024363503592272906
+      },
+      {
+        "date": "2015-06-23",
+        "log_return": 0.001095623702026316
+      },
+      {
+        "date": "2015-06-24",
+        "log_return": -0.00036507454010603624
+      },
+      {
+        "date": "2015-06-25",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-06-26",
+        "log_return": 0.000730015849429666
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-13",
+    "target_reconstructed": 0.002518227262549142,
+    "next_five_returns": [
+      {
+        "date": "2015-05-14",
+        "log_return": 0.0010835411180392107
+      },
+      {
+        "date": "2015-05-15",
+        "log_return": 0.0006495615687955869
+      },
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "TRV",
+    "origin": "2015-02-12",
+    "target_reconstructed": 0.0016315863465952891,
+    "next_five_returns": [
+      {
+        "date": "2015-02-13",
+        "log_return": -0.0003703018001948166
+      },
+      {
+        "date": "2015-02-17",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-02-18",
+        "log_return": -0.0001852023340793707
+      },
+      {
+        "date": "2015-02-19",
+        "log_return": 9.260545452782765e-05
+      },
+      {
+        "date": "2015-02-20",
+        "log_return": -0.0015754602211455193
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "NTAP",
+    "origin": "2015-02-23",
+    "target_reconstructed": 0.00282685518449761,
+    "next_five_returns": [
+      {
+        "date": "2015-02-24",
+        "log_return": 0.0015568243933188342
+      },
+      {
+        "date": "2015-02-25",
+        "log_return": 0.00129550478023166
+      },
+      {
+        "date": "2015-02-26",
+        "log_return": 0.0007764980330629001
+      },
+      {
+        "date": "2015-02-27",
+        "log_return": 0.0
+      },
+      {
+        "date": "2015-03-02",
+        "log_return": -0.0018127675558479162
+      }
+    ]
+  },
+  {
+    "policy": "conservative",
+    "model": "M2",
+    "criterion": "relative",
+    "stock": "GRMN",
+    "origin": "2015-05-15",
+    "target_reconstructed": 0.003242288452380187,
+    "next_five_returns": [
+      {
+        "date": "2015-05-18",
+        "log_return": -0.0017331026868347976
+      },
+      {
+        "date": "2015-05-19",
+        "log_return": -0.0013018010083190035
+      },
+      {
+        "date": "2015-05-20",
+        "log_return": -0.00021713169122339337
+      },
+      {
+        "date": "2015-05-21",
+        "log_return": -0.0023915654403636744
+      },
+      {
+        "date": "2015-05-22",
+        "log_return": 0.00021765154074371296
+      }
+    ]
+  }
+]

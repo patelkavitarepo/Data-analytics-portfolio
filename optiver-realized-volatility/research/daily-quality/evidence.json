@@ -1,0 +1,252 @@
+{
+  "scope": "Manual case investigation, not an exhaustive corporate-action database. No replacement prices.",
+  "review_date_client": "2026-11-09",
+  "events": [
+    {
+      "id": "A-20141103",
+      "stock": "A",
+      "date": "2014-11-03",
+      "category": "verified_action_boundary",
+      "note": "Keysight spin-off completed November 1; November 3 first regular trading. No verified price correction.",
+      "sources": [
+        "https://www.agilent.com/about/newsroom/pr-archive/2014/03nov-gp14029.html"
+      ]
+    },
+    {
+      "id": "ARNC-20161101",
+      "stock": "ARNC",
+      "date": "2016-11-01",
+      "category": "verified_action_boundary",
+      "note": "Alcoa/Arconic separation November 1 changes economic scope. No adjustment factor verified.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/4281/000119312516760946/d487729d8k.htm"
+      ]
+    },
+    {
+      "id": "BAX-20150701",
+      "stock": "BAX",
+      "date": "2015-07-01",
+      "category": "verified_action_boundary",
+      "note": "Baxalta distribution confirmed in Baxter annual report; raw return omits distributed shares.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/10456/000119312516479471/d213870d10k.htm"
+      ]
+    },
+    {
+      "id": "BHGE-20170705",
+      "stock": "BHGE",
+      "date": "2017-07-05",
+      "category": "verified_action_boundary",
+      "note": "Issuer verifies July 3 quote included special $17.50 dividend entitlement; new BHGE shares trade July 5 without it. Merger/cash distribution.",
+      "sources": [
+        "https://investors.bakerhughes.com/news/press-releases/news-details/2017/Baker-Hughes-and-GE-Oil-Gas-Complete-Combination-Creating-the-Worlds-First-and-Only-Fullstream-Oil-and-Gas-Company-07-03-2017/default.aspx"
+      ]
+    },
+    {
+      "id": "CAG-20161110",
+      "stock": "CAG",
+      "date": "2016-11-10",
+      "category": "verified_action_boundary",
+      "note": "Lamb Weston spin-off November 9; S&P specifies November 10 index treatment.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/23217/000119312516766107/d270210d8k.htm",
+        "https://press.spglobal.com/2016-11-03-Lamb-Weston-Set-to-Join-the-S-P-Midcap-400-Ascena-Retail-Group-to-Join-S-P-SmallCap-600"
+      ]
+    },
+    {
+      "id": "CTXS-20170201",
+      "stock": "CTXS",
+      "date": "2017-02-01",
+      "category": "verified_action_boundary",
+      "note": "Citrix SEC filing explicitly identifies February 1 ex-date for GoTo spin-off/LogMeIn merger.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/877890/000119312517031807/d261814d8k.htm"
+      ]
+    },
+    {
+      "id": "DHR-20160705",
+      "stock": "DHR",
+      "date": "2016-07-05",
+      "category": "verified_action_boundary",
+      "note": "Fortive spin-off July 2, first regular trading July 5.",
+      "sources": [
+        "https://investors.danaher.com/2016-07-02-Danaher-Corporation-Completes-Separation-of-Fortive-Corporation"
+      ]
+    },
+    {
+      "id": "DISCA-20140807",
+      "stock": "DISCA",
+      "date": "2014-08-07",
+      "category": "verified_action_boundary",
+      "note": "One Series C share distributed per Series A share; issuer identifies August 7 first trading. Do not apply DISCK 2:1 factor to Series A.",
+      "sources": [
+        "https://ir.corporate.discovery.com/stock-information/cost-basis-and-debt-information/series-c-dividend/default.aspx"
+      ]
+    },
+    {
+      "id": "DISCK-20140807",
+      "stock": "DISCK",
+      "date": "2014-08-07",
+      "category": "verified_action_boundary",
+      "note": "100% Series C dividend; OCC confirms August 7 ex-distribution date.",
+      "sources": [
+        "https://infomemo.theocc.com/infomemos?date=201408&lastModifiedDate=08%2F06%2F2014+13%3A02%3A15&number=35071",
+        "https://ir.corporate.discovery.com/stock-information/cost-basis-and-debt-information/series-c-dividend/default.aspx"
+      ]
+    },
+    {
+      "id": "EBAY-20150720",
+      "stock": "EBAY",
+      "date": "2015-07-20",
+      "category": "verified_action_boundary",
+      "note": "Nasdaq confirms July 20 regular-way PayPal spin-off trading; raw EBAY change omits PYPL.",
+      "sources": [
+        "https://www.nasdaqtrader.com/TraderNews.aspx?id=ETA2015-105"
+      ]
+    },
+    {
+      "id": "HPE-20170403",
+      "stock": "HPE",
+      "date": "2017-04-03",
+      "category": "verified_action_boundary",
+      "note": "Enterprise Services separation/CSC merger creates DXC, first trading April 3.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1645590/000162828017003277/hpe-991x04032017x8xk.htm"
+      ]
+    },
+    {
+      "id": "HPE-20170901",
+      "stock": "HPE",
+      "date": "2017-09-01",
+      "category": "verified_action_boundary",
+      "note": "HPE software spin-off/Micro Focus merger completed September 1.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1645590/000156761917001826/s001851x1_ex99-1.htm"
+      ]
+    },
+    {
+      "id": "IR-20131202",
+      "stock": "IR",
+      "date": "2013-12-02",
+      "category": "verified_action_boundary",
+      "note": "Allegion spin-off December 1, regular trading December 2.",
+      "sources": [
+        "https://www.allegion.com/corp/en/news/year/2013/ingersoll-rand-completes-spinoff-of-allegion.html"
+      ]
+    },
+    {
+      "id": "NI-20150702",
+      "stock": "NI",
+      "date": "2015-07-02",
+      "category": "verified_action_boundary",
+      "note": "Columbia Pipeline separation confirmed July 2; raw return omits distributed shares.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1629995/000119312515243669/d42242dex991.htm"
+      ]
+    },
+    {
+      "id": "VNO-20170718",
+      "stock": "VNO",
+      "date": "2017-07-18",
+      "category": "verified_action_boundary",
+      "note": "JBG SMITH spin-off completed July 18, confirmed by Vornado.",
+      "sources": [
+        "https://investors.vno.com/news-releases/news-release-details/vornado-announces-completion-spin-jbg-smith-properties-and"
+      ]
+    },
+    {
+      "id": "XRX-20170103",
+      "stock": "XRX",
+      "date": "2017-01-03",
+      "category": "verified_action_boundary",
+      "note": "Conduent separation December 31, independent trading January 3.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/108772/000010877217000012/ex991xrx331178-ker.htm",
+        "https://www.news.conduent.com/news/conduent-completes-separation-from-xerox"
+      ]
+    },
+    {
+      "id": "YUM-20161101",
+      "stock": "YUM",
+      "date": "2016-11-01",
+      "category": "verified_action_boundary",
+      "note": "Yum China separation/regular-way trading November 1.",
+      "sources": [
+        "https://ir.yumchina.com/news-releases/news-release-details/yum-china-completes-separation-yum-brands-lists-new-york-stock/"
+      ]
+    },
+    {
+      "id": "LNT-20160519",
+      "stock": "LNT",
+      "date": "2016-05-19",
+      "category": "unresolved_price_contradiction",
+      "note": "17.87 close is below recorded 35.085 low. Distribution May 19/first post-split trading May 20 verified. Replacement price/basis not verified: do not simply double close.",
+      "sources": [
+        "https://investors.alliantenergy.com/News--Presentations/news/news-details/2016/Alliant-Energy-Announces-Second-Quarter-2016-Results/default.aspx"
+      ]
+    },
+    {
+      "id": "LNT-20160520",
+      "stock": "LNT",
+      "date": "2016-05-20",
+      "category": "unresolved_price_contradiction",
+      "note": "Return starts from contradicted May 19 close. Actual split does not validate apparent next-day doubling.",
+      "sources": [
+        "https://investors.alliantenergy.com/News--Presentations/news/news-details/2016/Alliant-Energy-Announces-Second-Quarter-2016-Results/default.aspx"
+      ]
+    },
+    {
+      "id": "KLAC-20141126",
+      "stock": "KLAC",
+      "date": "2014-11-26",
+      "category": "action_date_incomplete",
+      "note": "Issuer verifies $16.50 special dividend, payable December 9. Exact November 26 ex-date not verified from a primary source in this session; provisional date only.",
+      "sources": [
+        "https://ir.kla.com/news-events/press-releases/detail/148/kla-tencor-declares-special-cash-dividend-announces"
+      ]
+    },
+    {
+      "id": "AMD-20160422",
+      "stock": "AMD",
+      "date": "2016-04-22",
+      "category": "documented_market_move",
+      "note": "Preserve: company results/licensing news after April 21 close. Dow Jones Market Data records April 22 gain 52.29%, matching CSV to rounding. Full OHLCV not independently verified.",
+      "sources": [
+        "https://ir.amd.com/financial-information/sec-filings/content/0000002488-16-000118/q116991.htm",
+        "https://www.itiger.com/news/2573608431"
+      ]
+    },
+    {
+      "id": "VRTX-20130419",
+      "stock": "VRTX",
+      "date": "2013-04-19",
+      "category": "documented_market_move",
+      "note": "Preserve: issuer trial results April 18. Contemporary market-close report records +61.9% at 85.60, matching CSV to rounding. Supports the move, not a causal proof.",
+      "sources": [
+        "https://investors.vrtx.com/news-releases/news-release-details/treatment-vx-661-and-ivacaftor-phase-2-study-resulted",
+        "https://247wallst.com/investing/2013/04/19/market-close-big-winners-losers-for-april-19-2013/"
+      ]
+    },
+    {
+      "id": "AAPL-20140609",
+      "stock": "AAPL",
+      "date": "2014-06-09",
+      "category": "verified_split_already_reflected_candidate",
+      "note": "Verified 7:1 split; CSV has no sevenfold boundary drop. Do not apply another factor without basis verification.",
+      "sources": [
+        "https://investor.apple.com/faq/",
+        "https://www.nasdaqtrader.com/TraderNews.aspx?id=dtn2014-16"
+      ]
+    },
+    {
+      "id": "NFLX-20150715",
+      "stock": "NFLX",
+      "date": "2015-07-15",
+      "category": "verified_split_already_reflected_candidate",
+      "note": "Issuer SEC release verifies July 15 post-7:1-split trading; CSV has no sevenfold drop. Dividend adjustment remains unverified.",
+      "sources": [
+        "https://www.sec.gov/Archives/edgar/data/1065280/000106528015000027/a991pressreleaseforstocksp.htm"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "exhaustive_synthetic_tables_checked": 45415,
+  "symmetry_and_probability_bounds": "passed",
+  "direction_example": {
+    "label": "synthetic illustration, NOT stock results",
+    "N": 50,
+    "A_stress": 10,
+    "C_stress": 5,
+    "both": 2,
+    "CVR": 2.0,
+    "P_A_given_C": 0.4,
+    "P_C_given_A": 0.2
+  },
+  "mixture_example": {
+    "label": "synthetic severity confounding, NOT stock results",
+    "N": 2000,
+    "A_stress": 900,
+    "C_stress": 900,
+    "both": 650,
+    "within_stratum_CVR": [
+      1.0,
+      1.0
+    ],
+    "pooled_CVR": 1.6049382716049383,
+    "severity_standardized_joint_lift": 1.0
+  }
+}

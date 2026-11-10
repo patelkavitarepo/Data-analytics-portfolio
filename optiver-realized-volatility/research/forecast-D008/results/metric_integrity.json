@@ -1,0 +1,8 @@
+{
+  "headline_positive_targets_trimmed": 0,
+  "epsilon_added_to_denominator": false,
+  "training_response": "log positive target; no post-hoc calibration",
+  "outcome_bands": "2014 tuning quantiles; retrospective 2015 outcome diagnostics, never model inputs",
+  "per_observation_order": "For the same positive actual, absolute and percentage errors order models identically; aggregate disagreement is weighting and/or squaring.",
+  "baseline_metric_coverage": "Wider baseline sample shown separately; headline identical for all three models and both masks"
+}

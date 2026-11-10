@@ -1,0 +1,20 @@
+name: Project 002 volatility research tests
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    defaults:
+      run:
+        working-directory: optiver-realized-volatility
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+          cache-dependency-path: optiver-realized-volatility/requirements*.txt
+      - run: pip install -r requirements-quality.txt
+      - run: python -m pytest -q

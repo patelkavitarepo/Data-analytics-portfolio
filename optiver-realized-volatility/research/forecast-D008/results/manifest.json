@@ -1,0 +1,34 @@
+{
+  "stage": "D008 approved three-model experiment under D009",
+  "source_sha256": "6aea253cd19de60b568143991aaf1fa482456565c389205658d236e595e716cf",
+  "input_hashes": {
+    "manifest.json": "2fc35138f88880be93e2ef75df3493c3770715b5218b5c70ce2d83221670358a",
+    "narrow.parquet": "4e08ad4915f8807e40a7fb778293065e976ae161a4421e6d47e5e7e23fde980a",
+    "conservative.parquet": "9b27d4cf7d05ea95b5f209f5397207946267d07cba2ea596fddbce7208d503c9",
+    "aligned_raw.parquet": "b66c58eebca3fdf1cae1c0ac6cbbe131376cc988ffc82a0f1d1461e7a1e3adde"
+  },
+  "design_sha256": "1b2419751b9f74b745ae286fbd21878696ba5d200dc43ea92151d9af8248b3b5",
+  "code_sha256": "d3dbf5876f5616a57f28acbe16a67799316c426fdd3ae7270947fa0b3a88df0a",
+  "analysis_code_sha256": "eee6a4ba710851447e4de0594830423d032e5114a7d1d702d4605b7fb1e52050",
+  "python": "3.12.14",
+  "numpy": "2.5.4",
+  "pandas": "2.3.3",
+  "sklearn": "1.7.2",
+  "discovery_start": "2013-02-08",
+  "discovery_end": "2015-12-31",
+  "selected_alphas": {
+    "M1": 100.0,
+    "M2": 100.0
+  },
+  "evaluation_cohort_stocks": 482,
+  "fitted_models_by_stage": {
+    "evaluation": 7712,
+    "tuning": 13984
+  },
+  "evaluation": "2015 quarterly expanding refits; internal discovery evaluation, not pristine holdout",
+  "protected_period_observations_loaded": false,
+  "precomputed_target_columns_read": false,
+  "final_reference_criteria_or_extra_architectures": false,
+  "retrospective_cleaning_limitation": true,
+  "raw_prices_changed": false
+}
