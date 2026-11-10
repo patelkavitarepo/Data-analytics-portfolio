@@ -61,7 +61,18 @@
 - A separate positive-positive M comparison finds 15 matching pairs within five minutes; this is **descriptive only** and is not a causal baseline.
 - The £25,111.09 June 17, 2010 negative-before-positive pair is an example of a weak timing candidate with missing customer data, **not** verified reversal or refund.
 - [Case 012 report](MANUAL_BIDIRECTIONAL_FINDINGS.md); [successful original-workbook CI](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42898160193).
-- **Next:** revisit zero/negative unit-price outliers and document possible KPI definitions with separate ambiguous categories.
+- **Case 013 completed:** [zero/negative price findings](PRICE_PARADOX_FINDINGS.md) identify 2,631 positive zero-price lines and five `A`-prefixed/`B`-coded `Adjust bad debt` negative-price lines totalling −£158,676.14 in signed amount. Business meaning remains unconfirmed, and no KPI definition was changed.
+- **Next:** examine zero-priced items on mixed paid-looking invoices and whether bad-debt-labelled entries appear in other invoice patterns; propose an explicit KPI semantic dictionary.
+
+## R013 — Do zero and negative unit prices indicate free items or accounting entries?
+
+**Status:** full-source diagnostic completed; final business classifications pending.
+
+- The 2,631 non-C positive-quantity zero-priced lines appear on 1,986 invoice numbers, of which 1,861 contain only such lines and 125 also contain positive-price lines. Most lack customer IDs (2,561) and descriptions (1,642); descriptions such as `found`, `check` and `adjustment` are suggestive but not determinative.
+- All five positive-quantity negative-unit-price rows have `A`-prefixed invoice IDs, code `B` and description `Adjust bad debt`, each in a single-line invoice without a customer ID. Signed amount total is −£158,676.14, not a verified accounting write-off or refund.
+- Two such `A`-prefixed entries are a minute apart and share a −£11,062.06 amount, but different invoice IDs prevent treating them as exact duplicates.
+- [Case 013 source-verified findings](PRICE_PARADOX_FINDINGS.md); [successful original-workbook workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42912802097).
+- **Next:** review mixed-price invoices, then draft a provisional semantic dictionary without altering the raw workbook or Case 008 reversible view.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
