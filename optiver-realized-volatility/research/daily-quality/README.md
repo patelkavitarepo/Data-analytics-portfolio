@@ -1,5 +1,9 @@
 # Data-integrity investigation: daily Plotly pilot
 
+Historical pre-approval investigation. D003 subsequently approved provisional
+masking; see the [completed cleaning comparison](../cleaning-D003/README.md) for
+current results. The original investigation status and outputs below are preserved.
+
 **Status: investigation complete for the checks described here; cleaning methodology
 awaits lead approval. No prediction models trained; zero corrected prices.** This
 is not a certification that every price or corporate action is resolved.

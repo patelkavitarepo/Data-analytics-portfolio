@@ -68,3 +68,27 @@ and chronological validation; present evidence for review.
 models. Do not automatically remove extreme observations, invent replacement
 prices, modify Project 001, or merge without approval. No cleaning policy or
 empirical interpretation in the report is attributed to the lead.
+
+
+## D003 — 2026-11-09 — Provisional masking implementation (human supplied)
+
+**Status:** the lead approved the proposed masking-and-evidence-ledger cleaning
+methodology, subject to the conditions in this entry. D001's research hypothesis
+and D002's provisional five-session horizon remain unchanged.
+
+**Authorized work:** preserve the original data; implement masks rather than
+deletions/replacements; distinguish confirmed record errors, suspicious records,
+genuine moves and unresolved cases; maintain a complete reason/evidence ledger;
+compare conservative masking with a narrower strongly-supported-error policy;
+measure effects by stock, date and observed market conditions; distinguish
+retrospective QC knowledge from prediction-time availability; implement/test and
+document independently. Preserve genuine unusual market behavior.
+
+**Explicit boundary:** no predictive model training and no merge. Present cleaning
+results, limitations and the next proposed experiment for the lead's review.
+
+**Not yet chosen by the lead:** the next economic context, definition of reaction,
+primary forecasting policy versus sensitivity policy, learned model, date split
+boundaries, or interpretation of the selection-bias audit. Technical definitions
+of the comparison policies are AI implementation choices disclosed in the
+cleaning report, not falsely attributed as separately specified human decisions.

@@ -81,3 +81,51 @@ The proposed mask policy, final adjustment basis, chronological fold boundaries,
 context definition and model choices remain unapproved. No predictive model was
 trained, no replacement price was invented, and no PR was merged. The complete
 corporate-action history and all 72 unresolved general extreme moves remain open.
+
+## 2026-11-09 — D003 provisional cleaning implementation (AI work)
+
+D003 separately records the human approval and its conditions. AI assistance
+implemented the approved masks in `daily_study/clean.py`, retaining the unchanged
+source and a full aligned-original artifact. No observations were deleted or
+replaced. A narrow comparison quarantines internally inconsistent records; the
+conservative view adds repeated-record suspicion. Both share the verified economic
+boundary guards; an error-only reference prevents those events being mislabeled
+as data errors. These comparison definitions and fixed selection-audit bands are
+implementation recommendations, not additional choices attributed to the lead.
+
+Actually executed on the approved 619,040-row source:
+
+- Persisted versioned raw/reference/narrow/conservative views in the ignored
+  `artifacts/clean-D003-v1-final` run, with price/return/target reason codes, target
+  end dates and OHLC-feature eligibility. No prediction model or training split.
+- Produced 2,315 direct cause/review entries and exhaustive links from each of the
+  153 narrow / 9,599 conservative newly unavailable targets to actual price or
+  boundary causes. The first development run correctly stopped on a missing cause
+  mapping in the error-only reference; that mapping was fixed and regression-tested.
+  Incomplete development output is not the final verified run.
+- Compared stock, origin-date, year, fixed observed market-direction/variation and
+  activity-proxy bands. Raw and quality-eligible proxy definitions are both shown;
+  neither uses future target values as a context indicator or fits a predictive regime.
+- Verified unchanged source hashes, exact original-field equality for all recorded
+  rows in the aligned artifact, no invented analysis prices, nested mask coverage,
+  and all per-run artifact hashes on the actual data.
+- Verified AMD/VRTX event returns and all five preceding shock-containing labels
+  for each survive in both policies. This is not a claim that every genuine event
+  has been adjudicated.
+- `python -m pytest -q`: **24 passed** in 3.35 seconds, Python 3.12.14, after final
+  implementation changes. Tests include immutable source, policy nesting, missing
+  opening-price behavior, no magnitude clipping, action/origin timing, complete
+  cause attribution, paired-date hindsight, and tamper detection. Eleven warnings
+  are third-party NumPy/exchange-calendar timedelta deprecations, not failures.
+
+The raw source, detailed analysis views and hash registry remain private working
+artifacts; public review exports contain the full reason ledger, downstream cause
+links, aggregate availability/rates, manifest and concentration chart. No API
+credentials or restricted Kaggle files were used or committed. Full-day market
+condition labels are descriptive audit choices, not adopted forecasting contexts.
+Original feed delivery timestamps remain unknown; 1,066 first repeated records
+need future-session comparisons. Point-in-time validity is not claimed.
+
+No training or merge was performed. Project 001's checkout and dependencies were
+unchanged. The next proposed no-model descriptive experiment is left for the lead
+to review and choose the economic context before implementation.

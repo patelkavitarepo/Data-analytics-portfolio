@@ -1,0 +1,247 @@
+{
+  "version": "D003-v1",
+  "decision": "D003",
+  "models_trained": false,
+  "prices_replaced": 0,
+  "source_sha256": "6aea253cd19de60b568143991aaf1fa482456565c389205658d236e595e716cf",
+  "source_sha256_after": "6aea253cd19de60b568143991aaf1fa482456565c389205658d236e595e716cf",
+  "evidence_sha256": "407ccd9b550a5adeaae7591427e3bdfb2d0aba536b473d8215490d337962b783",
+  "code_sha256": "8cc79b9e18afa9f46a1a820a26dac0a95961be5cf328e5acf370ba469ba83036",
+  "target_code_sha256": "865da92e855baaffdf255d3e106edf0938f44f759567ed6c09b8d2b5508ef14c",
+  "python": "3.12.14",
+  "pandas": "2.3.3",
+  "numpy": "2.5.4",
+  "calendar_version": "4.13.2",
+  "rows_in_raw": 619040,
+  "aligned_positions": 635795,
+  "recorded_source_rows": 619040,
+  "reason_codes": {
+    "1": "no recorded observation",
+    "2": "contradictory OHLC record",
+    "4": "repeated OHLC suspicion",
+    "8": "invalid numeric field",
+    "16": "verified economic-action boundary",
+    "32": "outside active span"
+  },
+  "policy_summaries": [
+    {
+      "policy": "raw_reference",
+      "price_rows_masked": 0,
+      "source_rows_retained": 619040,
+      "explicit_action_boundaries": 0,
+      "newly_unavailable_returns": 0,
+      "available_targets": 616430,
+      "targets_lost_vs_raw": 0,
+      "loss_pct_vs_raw": 0.0,
+      "targets_lost_vs_narrow": 0,
+      "optional_20_return_history_and_target": 606000,
+      "targets_retained_touching_unresolved_gt20pct_moves": 393,
+      "protected_returns_retained": 2
+    },
+    {
+      "policy": "error_only_reference",
+      "price_rows_masked": 12,
+      "source_rows_retained": 619028,
+      "explicit_action_boundaries": 0,
+      "newly_unavailable_returns": 24,
+      "available_targets": 616358,
+      "targets_lost_vs_raw": 72,
+      "loss_pct_vs_raw": 0.011680158331035154,
+      "targets_lost_vs_narrow": 0,
+      "optional_20_return_history_and_target": 605688,
+      "targets_retained_touching_unresolved_gt20pct_moves": 387,
+      "protected_returns_retained": 2
+    },
+    {
+      "policy": "narrow",
+      "price_rows_masked": 12,
+      "source_rows_retained": 619028,
+      "explicit_action_boundaries": 17,
+      "newly_unavailable_returns": 41,
+      "available_targets": 616277,
+      "targets_lost_vs_raw": 153,
+      "loss_pct_vs_raw": 0.024820336453449703,
+      "targets_lost_vs_narrow": 0,
+      "optional_20_return_history_and_target": 605287,
+      "targets_retained_touching_unresolved_gt20pct_moves": 387,
+      "protected_returns_retained": 2
+    },
+    {
+      "policy": "conservative",
+      "price_rows_masked": 2145,
+      "source_rows_retained": 616895,
+      "explicit_action_boundaries": 17,
+      "newly_unavailable_returns": 3835,
+      "available_targets": 606831,
+      "targets_lost_vs_raw": 9599,
+      "loss_pct_vs_raw": 1.5571922197167563,
+      "targets_lost_vs_narrow": 9446,
+      "optional_20_return_history_and_target": 575860,
+      "targets_retained_touching_unresolved_gt20pct_moves": 359,
+      "protected_returns_retained": 2
+    }
+  ],
+  "ledger_entries": 2315,
+  "repeated_rows": 2133,
+  "repeated_rows_requiring_future_session_at_observation": 1066,
+  "top20_origin_dates_share_of_conservative_target_loss": 0.4981768934263986,
+  "top_stock_loss_rates": [
+    {
+      "stock": "DWDP",
+      "raw_targets": 104,
+      "available_targets": 92,
+      "lost_targets": 12,
+      "price_rows_masked": 2,
+      "source_rows": 109,
+      "loss_pct": 11.5384615385,
+      "policy": "conservative"
+    },
+    {
+      "stock": "FTV",
+      "raw_targets": 399,
+      "available_targets": 366,
+      "lost_targets": 33,
+      "price_rows_masked": 6,
+      "source_rows": 404,
+      "loss_pct": 8.2706766917,
+      "policy": "conservative"
+    },
+    {
+      "stock": "BHGE",
+      "raw_targets": 147,
+      "available_targets": 137,
+      "lost_targets": 10,
+      "price_rows_masked": 2,
+      "source_rows": 152,
+      "loss_pct": 6.8027210884,
+      "policy": "conservative"
+    },
+    {
+      "stock": "HPE",
+      "raw_targets": 576,
+      "available_targets": 545,
+      "lost_targets": 31,
+      "price_rows_masked": 4,
+      "source_rows": 581,
+      "loss_pct": 5.3819444444,
+      "policy": "conservative"
+    },
+    {
+      "stock": "D",
+      "raw_targets": 1254,
+      "available_targets": 1192,
+      "lost_targets": 62,
+      "price_rows_masked": 12,
+      "source_rows": 1259,
+      "loss_pct": 4.9441786284,
+      "policy": "conservative"
+    },
+    {
+      "stock": "ETN",
+      "raw_targets": 1254,
+      "available_targets": 1194,
+      "lost_targets": 60,
+      "price_rows_masked": 14,
+      "source_rows": 1259,
+      "loss_pct": 4.7846889952,
+      "policy": "conservative"
+    },
+    {
+      "stock": "PNR",
+      "raw_targets": 1254,
+      "available_targets": 1198,
+      "lost_targets": 56,
+      "price_rows_masked": 12,
+      "source_rows": 1259,
+      "loss_pct": 4.4657097289,
+      "policy": "conservative"
+    },
+    {
+      "stock": "DXC",
+      "raw_targets": 210,
+      "available_targets": 201,
+      "lost_targets": 9,
+      "price_rows_masked": 2,
+      "source_rows": 215,
+      "loss_pct": 4.2857142857,
+      "policy": "conservative"
+    },
+    {
+      "stock": "SYK",
+      "raw_targets": 1254,
+      "available_targets": 1201,
+      "lost_targets": 53,
+      "price_rows_masked": 12,
+      "source_rows": 1259,
+      "loss_pct": 4.2264752791,
+      "policy": "conservative"
+    },
+    {
+      "stock": "RTN",
+      "raw_targets": 1254,
+      "available_targets": 1203,
+      "lost_targets": 51,
+      "price_rows_masked": 12,
+      "source_rows": 1259,
+      "loss_pct": 4.0669856459,
+      "policy": "conservative"
+    },
+    {
+      "stock": "O",
+      "raw_targets": 1213,
+      "available_targets": 1164,
+      "lost_targets": 49,
+      "price_rows_masked": 12,
+      "source_rows": 1243,
+      "loss_pct": 4.0395713108,
+      "policy": "conservative"
+    },
+    {
+      "stock": "OMC",
+      "raw_targets": 1254,
+      "available_targets": 1204,
+      "lost_targets": 50,
+      "price_rows_masked": 10,
+      "source_rows": 1259,
+      "loss_pct": 3.9872408293,
+      "policy": "conservative"
+    },
+    {
+      "stock": "FLR",
+      "raw_targets": 1254,
+      "available_targets": 1204,
+      "lost_targets": 50,
+      "price_rows_masked": 10,
+      "source_rows": 1259,
+      "loss_pct": 3.9872408293,
+      "policy": "conservative"
+    },
+    {
+      "stock": "BBT",
+      "raw_targets": 1254,
+      "available_targets": 1206,
+      "lost_targets": 48,
+      "price_rows_masked": 10,
+      "source_rows": 1259,
+      "loss_pct": 3.8277511962,
+      "policy": "conservative"
+    },
+    {
+      "stock": "GPS",
+      "raw_targets": 1254,
+      "available_targets": 1206,
+      "lost_targets": 48,
+      "price_rows_masked": 12,
+      "source_rows": 1259,
+      "loss_pct": 3.8277511962,
+      "policy": "conservative"
+    }
+  ],
+  "notes": [
+    "Narrow/conservative share economic-action guards; actions are not errors.",
+    "No magnitude exclusions or zero-volume price exclusions. All originals preserved.",
+    "Fixed condition bands are descriptive audit bins, not forecasting regime choices.",
+    "Masks are retrospective; actual source delivery timestamps unavailable.",
+    "Outside recorded active span is not exclusion of an existing source row."
+  ]
+}

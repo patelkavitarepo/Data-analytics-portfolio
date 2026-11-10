@@ -10,14 +10,17 @@ horizon in D002. The original Optiver data access track is preserved in
 [the archived foundation guide](README_OPTIVER_FOUNDATION.md); this pilot is not
 claimed to use the official Optiver data.
 
-## Current checkpoint: cleaning methodology awaits review
+## Current checkpoint: cleaning complete; descriptive experiment awaits review
 
-Read the [full integrity investigation with charts and evidence](research/daily-quality/README.md).
+Read the [D003 cleaned-panel comparison, selection-bias audit and complete ledger](research/cleaning-D003/README.md).
+
+The earlier [integrity investigation with charts and evidence](research/daily-quality/README.md) is preserved as the pre-approval research record.
 It includes missingness, calendar gaps, OHLC contradictions, repeated historical
 records, documented actions/news events, unresolved cases, proposed masking rules,
 measured data loss, the precise provisional target, and chronological-validation
-safeguards. No prices were corrected, no cleaning policy was applied, and no
-models were trained.
+safeguards. D003 authorized provisional masks, which are now implemented in separate
+versioned views; the original source is unchanged. No prices were corrected and
+no models were trained.
 
 The original human hypothesis and subsequent approvals are in
 [research/DECISIONS.md](research/DECISIONS.md). Code, AI recommendations and actual
@@ -49,6 +52,8 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
 
 ## Code layout
 
+- `daily_study/clean.py`: approved masking layers, paired policy comparison, complete
+  exclusion causes, artifact verification and selection-bias audit.
 - `daily_study/quality.py`: calendar-aligned audit, evidence-led issue ledger,
   repeated-record detection, and masking-policy sensitivity.
 - `daily_study/targets.py`: exchange-session returns, complete five-session RV,
@@ -58,7 +63,7 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
 - `optiver/` and `app.py`: preserved initial Optiver exploration tools/private
   no-data review UI. They have not been repurposed to display daily forecasts.
 
-After the lead approves or revises cleaning methodology, update the decision log
-before implementing that policy. Stock/peer selection, stress regimes, training
+D003 records the lead’s masking approval. The implementation and comparison are
+complete; the next descriptive experiment requires the lead’s research direction. Stock/peer selection, stress regimes, training
 and confirmation dates, interpretation and conclusions remain human-led choices.
 Project 001's separate checkout and branch remain unchanged; no PR has been merged.
