@@ -179,3 +179,39 @@ were unchanged; no prediction model was trained and no PR merged. No AI assessme
 of whether D001 is supported or rejected is issued before the lead interprets the
 evidence. The next checkpoint is that interpretation, not automatic replication,
 model training or selection of a preferred metric after looking at results.
+
+## 2026-11-09 — D005 CVR mathematical investigation (AI assistance)
+
+The lead supplied a cautious interpretation of D004 and the CVR objective; D005
+records those human contributions separately. AI assistance drafted
+`research/CVR-D005/README.md`: conditional-lift algebra, symmetry and probability
+bounds, directional probability companions, historical stress definitions,
+severity-mixture confounding, episode dependence, sparse-event identification,
+multiple comparisons, masking/coverage and a staged later-replication proposal.
+Primary methodological sources are linked. No claim of a new mathematical ratio,
+confirmed reference stock or forecasting improvement is made.
+
+Proposed history lengths, quantiles, evidence categories and uncertainty methods
+are explicitly unapproved. The next recommended stage after methodology approval
+is discovery-only support/precision feasibility, followed by another lead decision
+before final operational gates and relationship assessment. No numerical composite
+score, pair ranking or CVR production pipeline was implemented.
+
+Actually executed (2026-11-10 UTC / 2026-11-09 America/New_York):
+
+- Dataset-free `research/CVR-D005/verify_algebra.py` checked 45,415 synthetic
+  positive-margin contingency tables for count/probability equivalence, symmetry
+  and lower/upper probability bounds. All assertions passed. Both labeled
+  synthetic examples passed: equal CVR but unequal directional conditional
+  probabilities, and pooled CVR above one despite independence within severity
+  strata. These calculations are not market evidence.
+- Repeated the script and compared its JSON to the published result with `diff`;
+  exact match. No full predictive/analysis test suite is newly claimed for this
+  documentation-and-algebra change; the 32-test D004 run is recorded above.
+- `git diff --check` passed. Project 001's separate checkout is clean and remains
+  at `05eb5058a8ecde3a1aeb95e004e44c42ebe708e6`.
+
+No market input files, future-target columns or later-period relationship data
+were read for these calculations. The original source, cleaning artifacts and
+all Project 001 files were not edited. No predictive training or merge. No human
+approval of the proposed methodology is inferred from asking for investigation.

@@ -33,7 +33,7 @@ constraints above are human contributions. Code, tests, and draft methods in thi
 branch are AI-generated assistance, reviewed through Git. They are not represented
 as code manually written by the lead.
 
-## Pending — no decision has been recorded
+## Initial pending questions — historical D001 checkpoint
 
 - Authorized access route for official competition files.
 - Discovery/confirmation window allocation and split approval.
@@ -42,7 +42,9 @@ as code manually written by the lead.
 - Which model comparisons, uncertainty standard, and minimum effect matter.
 - Interpretation of empirical charts, model results, or final conclusions.
 
-No empirical findings, stock relationships, or model gains have yet been observed.
+At that initial checkpoint, no empirical findings, stock relationships, or model
+gains had been observed. Subsequent entries supersede those pending items only
+where the lead actually supplied a decision.
 Do not fill these entries retrospectively as if the lead had chosen them earlier.
 
 ## D002 — 2026-11-09 — Daily-data pilot approval (human supplied)
@@ -113,3 +115,41 @@ cutoff, measurements and support guards in `declines-D004/design.json` are discl
 AI analytical choices fixed before inspecting this experiment's results, not
 additional parameters falsely attributed to the lead. They are reviewable and
 subject to the lead's interpretation and subsequent decisions.
+
+## D005 — 2026-11-09 — Lead interpretation and CVR research objective
+
+**Human interpretation of D004:**
+
+> I believe the apparent relationships between stocks should be considered
+> cautiously and investigated further before they influence forecasting decisions.
+>
+> A high correlation alone does not convince me that two stocks are meaningfully
+> related. The sensitivity to different measurements, market episodes, and
+> data-cleaning policies suggests that we need a way to evaluate the reliability
+> of relationships.
+
+**Human-supplied next objective:** develop a measurable, evidence-based method for
+determining when another stock could be a potential reference stock. Investigate
+the proposed Conditional Vulnerability Ratio:
+
+`CVR(A,C) = P(A stressed | C stressed, market condition) / P(A stressed | market condition)`.
+
+The lead requires own-history stress definitions using information available at
+the observation time; conditional strength; consistency across episodes;
+measurement and masking sensitivity; evidence quantity/quality; and persistence
+in later unseen periods. Distinguish strong, weak and insufficient evidence.
+Do not tune arbitrary thresholds or weights to make earlier examples reliable.
+Preserve later-period data for independent validation. D001 remains unchanged.
+
+**Authorized now:** mathematical feasibility research, possible reliability
+measures, advantages/weaknesses, and a proposed methodology for review.
+
+**Approval boundary:** ask the lead to approve methodology before implementing a
+final relationship-scoring system. No predictive model training, Project 001
+changes or merge. Future incremental forecasting comparisons are an eventual
+objective, not present training authorization.
+
+The draft in `CVR-D005/README.md` is AI analytical assistance. Its stress quantiles,
+history lengths, evidence criteria, uncertainty methods and validation procedures
+are proposals, **not human-approved parameters or findings**. No approval of those
+proposals, interpretation of new results, or final relationship is recorded here.

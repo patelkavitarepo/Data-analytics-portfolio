@@ -10,11 +10,22 @@ horizon in D002. The original Optiver data access track is preserved in
 [the archived foundation guide](README_OPTIVER_FOUNDATION.md); this pilot is not
 claimed to use the official Optiver data.
 
-## Current checkpoint: D004 descriptive evidence awaits lead interpretation
+## Current checkpoint: D005 CVR methodology awaits lead approval
+
+The lead interpreted D004 cautiously: high correlation and sensitivity to
+measurements, episodes and cleaning do not establish a reliable reference stock.
+The lead proposed Conditional Vulnerability Ratio (CVR). Read the
+[mathematical feasibility and reliability-methods proposal](research/CVR-D005/README.md).
+It explains symmetry, directional companions, event support, episode uncertainty,
+market-severity confounding, masking sensitivity and later replication. It is not
+a final scoring system; no stock CVRs or later-period relationships were computed.
+Methodology approval precedes discovery-only feasibility work. No predictive
+training is authorized.
 
 Read the [D004 broad-decline evidence packet with charts and examples](research/declines-D004/README.md).
-It presents discovery observations and robustness checks; the lead interprets them
-before AI conclusions. No prediction models were trained or future target columns read.
+It preserves the discovery observations and robustness checks that informed the
+lead's interpretation in D005. No prediction models were trained or future target
+columns read.
 
 The [D003 cleaned-panel comparison, selection-bias audit and complete ledger](research/cleaning-D003/README.md) remains available.
 
@@ -72,8 +83,9 @@ The report flags, rather than resolves, the lack of comprehensive adjustment met
   no-data review UI. They have not been repurposed to display daily forecasts.
 
 D003 records the lead’s masking approval. The implementation and comparison are
-complete. D004 records broad market declines as the first context; the resulting
-evidence now awaits the lead’s interpretation. Later-period relationship results
-remain unexamined. Stock/peer selection, stress regimes, training
+complete. D004 records broad market declines as the first context; D005 records
+the lead's interpretation and CVR research objective. AI methodological proposals
+await approval. Later-period relationship results remain unexamined.
+Stock/peer selection, stress regimes, training
 and confirmation dates, interpretation and conclusions remain human-led choices.
 Project 001's separate checkout and branch remain unchanged; no PR has been merged.
