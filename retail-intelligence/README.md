@@ -34,6 +34,7 @@ python scripts/investigate_population_batches.py
 python scripts/investigate_sheet_overlap.py
 python scripts/build_reversible_layer.py
 python scripts/investigate_revenue_scenarios.py
+python scripts/investigate_manual_code.py
 python -m pytest -q
 ```
 
@@ -43,7 +44,7 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The download command obtains the official UCI workbook. The nine analyses save JSON results in `outputs/`, including `population_batch_prevalence.json`, `annual_sheet_overlap.json`, `reversible_layer_audit.json`, and `revenue_sensitivity.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 48 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
+The download command obtains the official UCI workbook. The ten analyses save JSON results in `outputs/`, including `population_batch_prevalence.json`, `annual_sheet_overlap.json`, `reversible_layer_audit.json`, and `revenue_sensitivity.json` and `manual_code_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed 53 synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
 
 **Hypothesis H001 follow-up:** [operational adjustment evidence](docs/H001_FOLLOW_UP.md) — description keyword checks, large-quantity case examples, and conservative interpretation limits. No cause or inventory-loss total is asserted. No source lines have been dropped or reclassified.
 
@@ -60,6 +61,8 @@ The download command obtains the official UCI workbook. The nine analyses save J
 **Investigation 008 — reversible candidate analysis layer:** [design, audit and all-row provenance](docs/REVERSIBLE_ANALYSIS_LAYER.md). A source-verified candidate view contains **1,044,848 lines** and retains **1,067,371 original row references** in a separate provenance ledger. Exactly **22,523** cross-sheet duplicate copies have canonical links to matching first-sheet rows. An alternative gross positive-priced line amount is £20,533,741.92 rather than £20,972,594.57 (difference £438,852.65). This view is *proposed*, not an approved cleaning or revenue rule. **Derived row-level files are in ignored `data/derived/` and are not uploaded to GitHub.** [Successful workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42879978426).
 
 **Investigation 009 — experimental gross-line scenarios:** [source-verified S0/S1/S2 sensitivity](docs/REVENUE_SCENARIOS.md). On the reversible candidate view, gross positive-priced amounts are **£20,533,741.92 (S0)**; **£20,063,792.35 (S1, minus named postage/billing codes)**; and **£19,723,764.52 (S2, also minus M and D)**. None is approved accounting revenue. C-prefixed cancellation amounts remain separate, not automatically recognized as refunds. **48 tests passed** on the [verified workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42883445158). No original or candidate rows were modified.
+
+**Investigation 010 — ambiguous Manual code M:** [M line distribution and full-invoice context](docs/MANUAL_CODE_FINDINGS.md). Of **861 positive-priced M lines** (£339,629.94 in the reversible candidate view), **534** appear on invoices that also have non-M positive-priced lines; 480 of 788 M-containing invoice IDs contain such other positive-priced items. The median M line amount is **£8.85**, while the top ten lines account for **31.91%** of its amount. We should **not automatically exclude or recognize M as sales**: the source label is ambiguous. The workflow [passed 53 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42886173182). No source rows changed.
 
 ## Research directions (questions, not findings)
 

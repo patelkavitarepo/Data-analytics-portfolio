@@ -28,7 +28,18 @@
 - [Revenue scenario sensitivity](REVENUE_SCENARIOS.md) measures reversible-candidate gross line amounts of £20,533,741.92 (S0 broad), £20,063,792.35 (S1 excluding exact postage/billing code candidates), and £19,723,764.52 (S2 also excluding uncertain manual/discount codes).
 - The 19,165 candidate C-prefixed lines are treated separately from gross line amounts; cancellation-coded signed amounts are not verified refunds.
 - Do not call any scenario recognized revenue, profit, cash inflow, or finalized sales. Retain row provenance and avoid deletion.
-- **Next:** examine manual `M` postings, anomalous zero/negative prices, and returns/cancellations matching before selecting business KPIs.
+- **Manual M reviewed (Case 010):** See [source-verified M findings](MANUAL_CODE_FINDINGS.md). **861** M positive-priced lines totaling £339,629.94 span standalone and mixed invoices; exclusions remain unapproved.
+- **Next:** inspect high-value manual charges, anomalous zero/negative prices, and returns/cancellations matching before selecting business KPIs.
+
+## R010 — Is Manual code M a valid merchandise-revenue line?
+
+**Status:** full-workbook invoice composition and price-distribution profile completed; business classification still open.
+
+- Of 788 M-containing invoice IDs with positive-priced M entries, **290** have only M-coded lines, **498** also contain other stock codes, and **480** contain positive-priced non-M lines. The 861 M positive lines total £339,629.94 after cross-sheet reconciliation.
+- The **median** M line amount is **£8.85**, but the **largest** is **£25,111.09**; the **top ten** make up **31.91%** of M's positive-priced total. Strongly skewed observations merit further scrutiny, not automatic exclusion.
+- **534 C-prefixed negative M lines** have signed line-amount magnitude of £422,939.08, **not a verified cash-refund amount**.
+- We do not know the accounting meaning of M, so neither S0 inclusion nor S2 exclusion is approved. Keep M as a separate ambiguous category for exploratory reporting.
+- [Case 010 findings](MANUAL_CODE_FINDINGS.md); [successful original-workbook run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42886173182).
 
 ## R002 — Are monthly or geographic differences meaningful?
 
