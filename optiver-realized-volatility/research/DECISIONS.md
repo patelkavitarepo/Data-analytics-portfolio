@@ -306,3 +306,10 @@ which explanation caused those failures or guarantee future performance.
 future review. **No new model, retraining or access to the reserved 2016–2018
 evaluation period without further lead approval.** D001–D006, their frozen
 evidence and the original advanced hypothesis remain preserved. No merge.
+
+
+## D011 — 2026-11-10 — Lead authorizes publication as version 1.0
+
+**Human direction:** “Yeah let’s publish what we came up with and then we can continue to work on this slowly over time. We can publish this as version 1.0.”
+
+The lead approved publishing the completed, bounded Project 002 study as **version 1.0** and continuing research incrementally in future versions. The published scope remains the approved three-model daily-volatility experiment and its honest failure analysis. The advanced conditional-vulnerability/reference-stock framework remains future work, not a v1.0 result. Do not represent untested 2016–2018 results as evaluated or the internal 2015 scores as live performance. Release scope and limitations are recorded in `RELEASE_NOTES_v1.0.md`. Public Streamlit deployment is a separate step from publishing the repository and must be confirmed before claiming a live website.
