@@ -28,7 +28,7 @@ def fixture():
         line("104","C",1,0,None,"Gift?"),
         line("C105","A",-1,0,11,"C-coded excluded"),
         line("106","X",-1,0,None,"Negative quantity excluded"),
-        line("107","C",2,4,33,"Ordinary goods paid"),
+        line("107","R",2,4,33,"Ordinary goods paid"),
         line("107","Q",3,-3,None,"Negative price"),
     ]
 
