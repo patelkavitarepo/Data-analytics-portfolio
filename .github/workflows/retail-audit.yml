@@ -56,6 +56,8 @@ jobs:
         run: python scripts/investigate_m_linkages.py
       - name: Profile close-time bidirectional Manual sign flips
         run: python scripts/investigate_m_bidirectional.py
+      - name: Investigate zero and negative unit-price paradoxes
+        run: python scripts/investigate_price_paradox.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
