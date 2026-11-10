@@ -36,7 +36,9 @@ For an already downloaded workbook:
 python scripts/audit.py --workbook data/raw/online_retail_II.xlsx
 ```
 
-The download command obtains the official UCI workbook. The two analyses save `outputs/initial_audit.json` and `outputs/negative_quantity_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed six synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes. No source lines have been dropped or reclassified.
+The download command obtains the official UCI workbook. The two analyses save `outputs/initial_audit.json` and `outputs/negative_quantity_investigation.json` (outputs and workbook are ignored by Git). A successful GitHub Actions run audited the full source workbook and passed six synthetic-data tests. See [Investigation 001 findings](docs/NEGATIVE_QUANTITY_FINDINGS.md), including the cross-tab of negative quantities and cancellation prefixes.
+
+**Hypothesis H001 follow-up:** [operational adjustment evidence](docs/H001_FOLLOW_UP.md) — description keyword checks, large-quantity case examples, and conservative interpretation limits. No cause or inventory-loss total is asserted. No source lines have been dropped or reclassified.
 
 ## Research directions (questions, not findings)
 
