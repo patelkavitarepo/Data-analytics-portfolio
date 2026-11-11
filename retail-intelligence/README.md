@@ -95,6 +95,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 020 — Invoice concentration (verified):** [original-source upper-1% sensitivity and monthly context](docs/INVOICE_CONCENTRATION_ANALYSIS.md). Among Jan–Nov S2 qualifying invoice-ID-month groups, the largest one percent accounts for **16.06%** of gross positive-priced line amount in 2010 versus **17.80%** in 2011. Omitting those groups separately for sensitivity changes the apparent S2 increase **+2.90% → +0.77%**, substantially weakening a simple growth narrative. The [original-source audit passed 110 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42945421106). No source data, KPI policy or actual invoices are altered.
 
+**Investigation 021 — Quantity and SKU composition bridge (source verification pending):** [read-only identity decomposition](docs/SKU_COMPOSITION_BRIDGE.md). The analysis explains the illustrative Jan–Nov 2010–2011 S2 gross-value difference as four *arithmetic* terms: recorded-quantity and effective gross-per-unit changes for shared SKUs plus values from SKUs only in one period. Five synthetic tests added, and independent Case 018 SQL year sums must reconcile; no price-inflation, demand, accounting or causal interpretation is claimed.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
