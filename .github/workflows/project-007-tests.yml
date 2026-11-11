@@ -28,3 +28,17 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
+
+  selective-quant-arena-pilot-one-shot:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install fixed Parquet reader version for local research pilot
+        run: python -m pip install --disable-pip-version-check pyarrow==19.0.1
+      - name: Scan remote TAR headers with byte ranges; verify one stock against manifest; analyze first two available sessions
+        run: python project-007-market-microstructure/research/run_quant_arena_stockday_once.py
