@@ -4,8 +4,8 @@ Reviewed November 11, 2026. This is a source-selection record, not a legal opini
 
 - Official samples: https://php.lobsterdata.com/info/DataSamples.php — provides AMZN level 1 (0.7 MB) and level 5 (2 MB) sample downloads and a paired message/snapshot README.
 - Official format: https://php.lobsterdata.com/info/DataStructure.php — message file is 6 columns; book file is 4 × depth levels; event types include cross trade (6) and halt (7). The corresponding book row is the POST-event state. Dummy zero-volume levels appear when depth is missing.
-- LOBSTER website use notice: https://data.lobsterdata.com/imprint.php — restricts systematic website downloading and other uses; access/download visibility is not evidence of redistribution, caching or publication rights.
-- Current-provider terms page: https://php.lobsterdata.com/termsAndConditions.php — additional contractual provisions may apply. The license applicable to individual sample analysis and public aggregate screenshots/metrics has NOT been established.
+- LOBSTER website use notice: https://php.lobsterdata.com/imprint.php — restricts systematic website downloading and other uses; access/download visibility is not evidence of redistribution, caching or publication rights.
+- Current-provider terms page: https://php.lobsterdata.com/termsAndConditions.php — states that academic subscriber terms are issued with contracts, not as a standalone public terms PDF. The terms applicable specifically to sample analysis and to public aggregate screenshots/metrics have NOT been established.
 - Separate alternative for future full raw event reconstruction: Nasdaq ITCH sample info at https://www.nasdaqtrader.com/Content/TechnicalSupport/FAQs/ITCH_FAQ.pdf; different format/rights require independent review.
 
 | Action | Current status |
