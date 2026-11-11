@@ -86,11 +86,12 @@
 
 ## R015 — Do zero-priced lines sharing a SKU with paid lines on the same invoice form a meaningful pattern?
 
-**Status:** Diagnostic code and synthetic guardrails added; source-workbook test pending.
+**Status:** Case 015 verified against original workbook; individual business-event meanings remain unresolved.
 
-- Case 014 confirmed 43 £0 lines across 33 invoices with exact same-SKU paid-looking invoice neighbors; this is descriptive, not a verified matching business event.
-- [Case 015 method](SAME_SKU_MIXED_PRICE_FINDINGS.md) quantifies unique rows versus potentially many-to-many comparisons, quantity agreement, timestamps, customer-ID missingness, country discrepancies and multiple paid prices.
-- Do not infer bundles, gifts, corrections, duplicate events, losses or refunds. Verify the full-data audit before interpreting any finer counts.
+- [Case 015 verified findings](SAME_SKU_MIXED_PRICE_FINDINGS.md): **43** positive-£0 same-SKU comparisons across **33** invoice IDs; **10** share equal recorded quantities and **33** have customer IDs missing on both sides; all share a recorded invoice minute.
+- Some same-SKU pairs show very unequal counts, including 10,200 £0 units with one positively priced unit on invoice `507637`; this does not resemble a simple 1+1 pattern but the source cannot establish why.
+- Full source [audit passed 83 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42935952251). No new promotion, correction, duplicate, or revenue decisions.
+- Case 016 now tests SKU-specific recurrence across *different invoices*, rather than interpreting any one invoice as a campaign.
 
 ## R016 — Could repeated same-SKU £0/paid pairs across nearby invoices indicate a BOGO campaign?
 
