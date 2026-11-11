@@ -1,0 +1,14 @@
+{
+  "status": "evidence_pending",
+  "synthetic": false,
+  "reason": "DataSF and BigQuery metadata requests were blocked by the managed environment network policy (HTTP CONNECT 403). No records were downloaded. Candidate source identity, schema, coverage and 2025 completeness remain unverified.",
+  "attempted_at": "2026-11-11T16:16:00Z",
+  "candidate_sources": [
+    "https://data.sfgov.org/api/views/vw6y-z8j6.json",
+    "https://bigquery.googleapis.com/bigquery/v2/projects/bigquery-public-data/datasets/san_francisco_311/tables/311_service_requests"
+  ],
+  "requested_cohort": "Requests created during calendar year 2025 in America/Los_Angeles",
+  "verified_rows": 0,
+  "findings": [],
+  "limitations": ["Candidate API field mapping is provisional and gated by live metadata verification.", "Baltimore D001–D007 methodology supplies no verified San Francisco findings."]
+}
