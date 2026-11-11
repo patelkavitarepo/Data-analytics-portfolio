@@ -30,7 +30,7 @@ jobs:
         run: python -m unittest discover -s tests -v
 
   selective-quant-arena-pilot-one-shot:
-    if: github.event_name == 'pull_request'
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.sha == 'f34b778647b9326b7f9c2ac17f36f1983d4b75b0'
     runs-on: ubuntu-latest
     timeout-minutes: 18
     steps:
