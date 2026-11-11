@@ -38,6 +38,7 @@ python scripts/investigate_manual_code.py
 python scripts/investigate_m_linkages.py
 python scripts/investigate_m_bidirectional.py
 python scripts/investigate_price_paradox.py
+python scripts/investigate_mixed_price_invoices.py
 python -m pytest -q
 ```
 
