@@ -1,6 +1,6 @@
 # Project 007 — D006 preregistration: quote continuity and quality-flag sensitivity
 
-**Frozen before the new source-data run on November 11, 2026.** Human directive: **"Next challenge it is holmes"** in response to our proposed sensitivity investigation. This is an AI-assisted method proposal, not a human-provided causal explanation. Noncommercial use only under Quant-Arena Public L1's **CC BY-NC 4.0** terms. This study does not contain a predictive model, deployment, or trading result.
+**Frozen before the new source-data run on November 11, 2026; subsequently EXECUTED without changing the registered scenarios.** Full attributed findings: [GAP_FLAG_SENSITIVITY_RESULTS.md](GAP_FLAG_SENSITIVITY_RESULTS.md). Human directive: **"Next challenge it is holmes"** in response to our proposed sensitivity investigation. This is an AI-assisted method proposal, not a human-provided causal explanation. Noncommercial use only under Quant-Arena Public L1's **CC BY-NC 4.0** terms. This study does not contain a predictive model, deployment, or trading result.
 
 ## Objective / source
 
