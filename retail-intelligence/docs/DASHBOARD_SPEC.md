@@ -1,7 +1,7 @@
 # Retail Intelligence — Decision-Focused Dashboard Specification
 
 **Project:** 003 Retail Intelligence  
-**Status:** Proposed dashboard / report design. **No Power BI dashboard has been built yet.** Data definitions remain provisional, and Case 021 SKU decomposition is **pending source verification**.
+**Status:** A static, aggregate-only [executive HTML dashboard preview](../dashboard/index.html) is versioned in the repository with a [source-reconciliation checker](../scripts/verify_dashboard_preview.py). A native Power BI `.pbix` dashboard has **not** been built. Data definitions remain provisional. Case 021 SKU decomposition has now **passed 115 full-source synthetic tests**.
 
 ## Audience and question
 
