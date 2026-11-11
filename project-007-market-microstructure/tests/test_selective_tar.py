@@ -6,6 +6,7 @@ from unittest.mock import patch
 
 from microstructure.selective_tar import (
     HTTPRange, RangeSourceError, scan_tar, download_member,
+    pinned_source_url, checksum_from_sha256sums,
 )
 
 
@@ -59,6 +60,31 @@ class TarRangeTests(unittest.TestCase):
         with self.assertRaisesRegex(RangeSourceError, "oversized"):
             download_member(lambda a,b: data[a:b+1], member, max_bytes=1)
 
+    def test_pinned_revision_must_be_full_sha(self):
+        for bad in ("main", "fa85d7b", "0"*39, "", None):
+            with self.subTest(revision=bad), self.assertRaises(RangeSourceError):
+                pinned_source_url(bad)
+        uri = pinned_source_url("a" * 40)
+        self.assertTrue(uri.endswith("/" + "a" * 40 + "/quant-arena-public-l1-v1.tar"))
+        with self.assertRaises(RangeSourceError):
+            HTTPRange("https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1/resolve/main/quant-arena-public-l1-v1.tar")
+
+    def test_publisher_sha256sums_text_and_binary_conventions(self):
+        good = "a" * 64
+        data = (
+            (good + "  ./000012.SZ.parquet\\n").replace("\\n", "\n") +
+            ("b" * 64 + " *other.parquet\\n").replace("\\n", "\n")
+        ).encode()
+        selected = checksum_from_sha256sums(
+            data, "quant-arena-public-l1-v1/000012.SZ.parquet"
+        )
+        self.assertEqual(selected, good)
+        with self.assertRaisesRegex(RangeSourceError, "unique"):
+            checksum_from_sha256sums(
+                (good + "  000012.SZ.parquet\\n" + good + "  ./000012.SZ.parquet\\n").replace("\\n","\n").encode(),
+                "quant-arena-public-l1-v1/000012.SZ.parquet",
+            )
+
     def test_full_content_http_200_is_rejected_before_reading(self):
         class FakeResponse:
             status = 200
@@ -66,7 +92,7 @@ class TarRangeTests(unittest.TestCase):
             def __exit__(self, *exc): return False
             def read(self, _=None): raise AssertionError("body must not be read")
         with patch("urllib.request.urlopen", return_value=FakeResponse()):
-            source = HTTPRange()
+            source = HTTPRange(pinned_source_url("a" * 40))
             with self.assertRaisesRegex(RangeSourceError, "Range ignored"):
                 source(0, 511)
             self.assertEqual(source.bytes_transferred, 0)
