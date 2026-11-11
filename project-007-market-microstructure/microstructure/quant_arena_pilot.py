@@ -66,6 +66,7 @@ def convert_quote_rows(raw_rows, symbol, days):
     source_records = 0
     invalid_source_time = 0
     selected_counts = Counter()
+    previous_availability = None
     for index, item in enumerate(raw_rows):
         source_records += 1
         if source_records > 1_500_000:
@@ -75,6 +76,9 @@ def convert_quote_rows(raw_rows, symbol, days):
         if item["symbol"] != symbol:
             raise PilotError(f"row {index}: source symbol differs from chosen stock")
         available_at = _local_datetime(item["available_at"], "available_at")
+        if previous_availability is not None and available_at <= previous_availability:
+            raise PilotError(f"row {index}: source timestamps repeated or reversed")
+        previous_availability = available_at
         day = available_at.date().isoformat()
         event_at = item["source_event_time"]
         if event_at is not None:
@@ -83,7 +87,7 @@ def convert_quote_rows(raw_rows, symbol, days):
                 raise PilotError(f"row {index}: source event occurs after its availability")
         else:
             invalid_source_time += 1
-        if item["stale"] not in (True, False, None) or item["missing_depth"] not in (True, False, None):
+        if type(item["stale"]) not in (bool, type(None)) or type(item["missing_depth"]) not in (bool, type(None)):
             raise PilotError(f"row {index}: invalid quote quality flags")
         if day not in requested:
             continue
