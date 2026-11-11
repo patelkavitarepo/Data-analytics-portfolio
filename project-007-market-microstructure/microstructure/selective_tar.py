@@ -16,7 +16,6 @@ class RangeSourceError(ValueError):
 
 CONTENT_RANGE = re.compile(r"^bytes (\d+)-(\d+)/(\d+)$")
 REPO_ROOT = "https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1"
-PUBLIC_SOURCE = REPO_ROOT + "/resolve/main/quant-arena-public-l1-v1.tar"
 REPO_API = "https://huggingface.co/api/datasets/Ashitemaru/Quant-Arena-Public-L1"
 REVISION_PATTERN = re.compile(r"^[0-9a-f]{40}$")
 
@@ -64,11 +63,12 @@ MAX_HEADERS = 500
 class HTTPRange:
     """Range-only network adapter; check 206, range bounds and exact byte count."""
 
-    def __init__(self, url=PUBLIC_SOURCE):
-        if not url.startswith(REPO_ROOT + "/resolve/") or not url.endswith(
-            "/quant-arena-public-l1-v1.tar"
-        ):
-            raise RangeSourceError("source must be the publisher's declared TAR path")
+    def __init__(self, url):
+        if (not isinstance(url, str) or not re.fullmatch(
+            re.escape(REPO_ROOT) + r"/resolve/[0-9a-f]{40}/quant-arena-public-l1-v1\.tar",
+            url
+        )):
+            raise RangeSourceError("source URL requires a verified full publisher revision")
         self.url = url
         self.total_size = None
         self.bytes_transferred = 0
@@ -192,3 +192,27 @@ def download_member(fetch, member, max_bytes=MAX_MEMBER):
             fetch(member.data_offset + start, member.data_offset + end - 1)
         )
     return b"".join(chunks)
+
+
+def checksum_from_sha256sums(data, member_path):
+    """Resolve a single exact stock-file checksum from publisher SHA256SUMS.
+
+    This standard sha256sum text format is independently documented in the
+    publisher's archive card; do not guess manifest.json's JSON shape.
+    """
+    if not isinstance(data, bytes) or len(data) > 1_000_000:
+        raise RangeSourceError("checksum source missing or oversized")
+    if not isinstance(member_path, str) or "/" not in member_path:
+        raise RangeSourceError("invalid checksum target")
+    basename = member_path.rsplit("/", 1)[-1]
+    candidates = []
+    for line in data.decode("utf-8").splitlines():
+        row = re.fullmatch(r"([0-9a-fA-F]{64})  \*?(.+)", line.strip())
+        if row is None:
+            raise RangeSourceError("malformed publisher SHA256SUMS line")
+        file_path = row.group(2)
+        if file_path in (basename, "./" + basename, member_path):
+            candidates.append(row.group(1).lower())
+    if len(candidates) != 1:
+        raise RangeSourceError("expected unique stock SHA256 in publisher checksum list")
+    return candidates[0]
