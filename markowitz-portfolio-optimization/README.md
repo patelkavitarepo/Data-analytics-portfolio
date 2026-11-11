@@ -2,9 +2,10 @@
 
 Can capped Markowitz portfolios improve out-of-sample risk-adjusted performance
 versus equal weights? This MVP implements the experiment; **no empirical answer
-has been established in this environment**. Real Yahoo/FRED access was blocked by
-the network proxy (403). No vendor prices or synthetic performance results are
-bundled. Educational research only, not investment advice.
+has been established**. Codex market-data access remains proxy-blocked, but
+the GitHub-hosted probe reached both Yahoo chart hosts (HTTP 200). Endpoint
+access does not establish source quality or rights. No vendor prices or
+synthetic performance results are bundled. Educational research only, not investment advice.
 
 ## Reproduce (Python 3.12)
 
@@ -41,32 +42,70 @@ is silently dropped and no synthetic fallback is offered.
 
 ### Offline CSV fallback
 
-Select Upload in the sidebar; provide the source, adjustment method and
-retrieval date, and attest real prices/use rights. Supply a CSV with an ISO
-`Date` column followed by ticker columns, with one date per row. Prices must be
-split- and dividend-adjusted daily closes, not unadjusted closes. SPY is always
-required as a benchmark, plus every selected asset. The uploader's assertions
-are visible and cannot be independently certified by this application.
+Select Upload in the sidebar; provide source, adjustment method, retrieval date
+and an **explicit historical `as_of` session date**. Attest permission to analyze
+these real prices here. Permission to analyze is separate from permission to
+redistribute, publish or bundle vendor data; the uploader no longer requires a
+redistribution license merely to perform private analysis.
 
-Data must cover every expected XNYS session from January 2016 through the
-current conservative cutoff. A stale CSV is audited but cannot produce
-performance tables. Missing prices, dates, long gaps, calendars, coverage and
-lost intervals are reported; duplicate dates/columns, infinities, zero/negative
-prices and non-session dates are rejected. No fill is applied. Common valid
-prices are aligned first; a return needs two consecutive complete exchange
-sessions. Backtests are blocked on **any missing price session**, rather than
-skipping investment periods. Dates outside the research interval are counted
-and ignored. Adjusted-price accuracy still depends on the vendor/uploader.
+Supply an ISO `Date` column followed by **all eight prespecified ETF columns**,
+one date per row. Prices must be split- and dividend-adjusted daily closes.
+The source is checked for all eight even when the optimizer explores a subset.
+
+Every expected XNYS session from January 2016 through `as_of` is audited.
+`as_of` must be a trading session no later than both the last eligible complete
+session and the snapshot's latest observed session. It is never inferred from
+missing data. Archived snapshots are visibly labeled historical/stale, with
+`as_of`, last observed date, latest eligible session and excluded rows recorded.
+A longer supplied snapshot cannot use an earlier cutoff to conceal missing
+sessions in its excluded tail. Missing sessions inside the research interval
+still block performance. Fixed 2016–2022 / 2023–2024 / 2025+ boundaries never move.
+
+Duplicate dates/columns, infinities, zero/negative prices and non-session dates
+are rejected. No fill is applied. Common valid prices are aligned first; each
+return needs two consecutive complete exchange sessions. The default live audit
+still requires coverage through the conservative current cutoff, with no silent
+shortening to the vendor's last date.
+
+### Independent source review before performance
+
+Acquisition and audit alone do not authorize performance analysis. Both CLI and
+UI require a review JSON tied to the audited `as_of` and canonical snapshot
+SHA-256. Download the **unverified** template after auditing (CLI also writes
+`source_review_template.json`). Complete it only after actually checking:
+
+- Reviewer, original source URL, timezone-aware retrieval timestamp.
+- `adjustment_convention: "split_and_dividend_adjusted_close"` and evidence of
+  the source's dividend/split treatment (`adjustment_evidence`).
+- `analysis_use_authorized: true` and specific source terms/license evidence in
+  `analysis_permission_evidence`. This establishes no redistribution permission.
+- `spot_checks` entries for SPY, QQQ, IWM, EFA, EEM, TLT, GLD and VNQ: an actual
+  training/validation session `date`, `reference_url`, independently observed
+  `reference_price`, and `adjustment_basis: "split_and_dividend_adjusted_close"`.
+
+References must use a documented publisher (Nasdaq, the ETF issuers or
+Alpha Vantage); Yahoo cannot independently verify itself. The same adjustment
+basis and snapshot convention matter: do not compare unadjusted closes with
+adjusted prices. A fixed **0.5%** relative spot-check tolerance flags discrepancies
+for investigation; it is a data check, not a tunable model parameter. Reference
+dates must be within 2016–2024 and the snapshot, so verification cannot inspect
+holdout prices. No observations are invented in the template.
+
+The application checks review consistency and numeric agreement, **not the
+truth of human source/entitlement assertions**. Retain reference/rights evidence
+privately; do not commit the input CSV or completed review with vendor values.
+Manifests retain references, outcomes and relative differences rather than raw
+reference prices. Verify rights before sharing derived artifacts too.
 
 ### Command line and artifacts
 
 ```bash
 cd markowitz-portfolio-optimization
 .venv/bin/python -m markowitz.run --output work/run
-# Optional: consumes final holdout, do not tune after inspecting it
-.venv/bin/python -m markowitz.run --output work/final --reveal-holdout
-# Fallback, only with legitimately acquired real adjusted historical prices
-.venv/bin/python -m markowitz.run --csv /path/to/prices.csv --source 'vendor; adjusted method; retrieval UTC' --output work/offline
+# An unverified run saves audit/template then stops, without performance.
+# An archived, licensed and independently checked input can evaluate validation:
+.venv/bin/python -m markowitz.run --csv /path/to/prices.csv --as-of 2024-12-31 --source 'vendor; adjusted method; retrieval UTC' --source-review /private/review.json --output work/offline
+# Keep holdout hidden for this review. No --reveal-holdout was used.
 ```
 
 CLI defaults are fixed before evidence: eight assets, cap .35, assumed annual
@@ -86,7 +125,8 @@ vendor snapshot. Repeated acquisition may change with vendor revisions.
   prespecified; there is no automatic strategy selection or validation tuning.
 - Final holdout: 2025 through the eligible latest session. Refit the same two
   objectives on 2016–2024 only. Holdout is hidden and not fitted/evaluated by
-  default. Reveal explicitly; once viewed it is no longer untouched. A future
+  default. Reveal requires at least 60 audited holdout sessions, both in the
+  analytical engine and UI. Reveal explicitly; once viewed it is no longer untouched. A future
   dataset is needed for clean confirmation after exploratory tuning.
 - Long-only, fully invested, default .35 cap; check `n × cap >= 1`. Equal weights
   use the identical subset. SPY is an external, uncapped benchmark. Caps bind
@@ -114,11 +154,35 @@ vendor snapshot. Repeated acquisition may change with vendor revisions.
   concentration. All strategies share exactly the same evaluation dates.
 
 **Risk-free limitation:** FRED DGS3MO retrieval was attempted as a connectivity
-probe and blocked (403). Historical yield ingestion, publication lags and
+probe: blocked by Codex’s proxy and timed out on the initial GitHub runner. No
+historical yield observations have been retrieved or verified. Historical yield ingestion, publication lags and
 vintage handling are deferred. The prominently labeled user-entered constant
 (default 2% effective annual) is an assumption, not a reconstructed historical
 series. Convert it to daily as `(1 + annual)^(1/252) - 1`; use the same scaling
 for optimization and realized Sharpe. Sensitivity to this assumption matters.
+
+## GitHub-based access verification
+
+`.github/workflows/markowitz-research.yml` runs on this PR, independently of the
+Codex proxy, alongside the existing Project 002 workflow (which is unchanged).
+It uses GitHub-hosted Ubuntu, Python 3.12 and read-only repository permissions;
+checkout credentials are removed before public probes. Jobs:
+
+1. `scripts/network_probe.py`: fixed public endpoints, 15-second timeout each,
+   no redirects, no body/header logging, endpoint/status or safe exception type
+   only. 404/403/timeout results are reported without claiming successful data.
+2. All Project 006 synthetic pytest tests with pinned installed versions.
+3. `scripts/source_audit.py`: ephemeral all-eight Yahoo acquisition, provenance,
+   adjustment setting, session coverage and checksum **only**. No raw prices,
+   reference observations or performance are logged, uploaded or committed.
+   It never imports the research evaluation module. Acquisition/quality failures
+   are reported with stage and safe error type and fail the job.
+
+A green connectivity job means its diagnostic completed, not that every host
+returned 200. A successful source audit is still not independent reference
+verification or confirmation of analysis/redistribution permissions. No GitHub
+job computes validation or holdout performance. See the research record for
+actual run IDs and results. An HTTP 200 terms page is not a license approval.
 
 ## Evidence and limits
 
