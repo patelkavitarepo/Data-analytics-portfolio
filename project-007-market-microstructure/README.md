@@ -8,7 +8,7 @@ Investigate how displayed liquidity and order-flow information relate to subsequ
 
 ## What is implemented
 
-A Python standard-library-only streaming audit for local paired LOBSTER message and book CSVs, including exact decimal timestamp parsing, original event order, post-event snapshot alignment, documented fixed-point prices, occupied-level sorting, event-type counts, halt handling, equal-time event preservation, non-destructive locked/crossed quote reports, prefix-only disclosures and SHA256 of both local inputs. Synthetic unit tests check failure handling and basic quantities. The audit does NOT reconstruct the exchange book, produce future price labels, train models or simulate fills.
+A Python standard-library-only streaming audit for local paired LOBSTER message and book CSVs, including exact decimal timestamp parsing, original event order, post-event snapshot alignment, documented fixed-point prices, occupied-level sorting, event-type counts, halt-state exclusion and duplicate-snapshot checks, equal-time event preservation, non-destructive locked/crossed quote reports, prefix-only disclosures and SHA256 of both local inputs. Synthetic unit tests check failure handling and basic quantities. The audit does NOT reconstruct the exchange book, produce future price labels, train models or simulate fills.
 
 ## Run tests (Python 3.11 or 3.12)
 
@@ -22,7 +22,9 @@ Get paired files directly through the official provider's sample page, not from 
 
     python -m microstructure --messages data/AMZN_message_1.csv --orderbook data/AMZN_orderbook_1.csv --levels 1 --max-events 10000 --output artifacts/local-audit.json
 
-File names above are placeholders: use the names actually inside the provider package. The output is local metadata, not a published study. Omit max_events from code (or pass None to the Python API) only when independently validating the whole file; the CLI intentionally runs a bounded prefix. A passing prefix is NOT full-file validation. No raw sample, vendor-derived report, or screenshots should be committed pending rights review.
+For an **entire paired file** instead of a bounded prefix, substitute `--full-file` for `--max-events 10000`. Both options are mutually exclusive. Whole-file validation checks both files' entire lengths; a prefix does not.
+
+File names above are placeholders: use the names actually inside the provider package. The output is local metadata, not a published study. Pass `max_events=None` to the Python API to audit the entire pair; the CLI defaults to a bounded prefix unless `--full-file` is supplied. A passing prefix is NOT full-file validation. No raw sample, vendor-derived report, or screenshots should be committed pending rights review.
 
 ## Next checkpoints
 
