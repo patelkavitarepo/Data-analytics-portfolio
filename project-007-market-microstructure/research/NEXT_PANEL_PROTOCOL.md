@@ -1,6 +1,6 @@
 # Project 007 — predeclared cross-stock label-construction replication (proposal)
 
-**Status:** Proposed design, not yet executed. Prepared after the independently verified single-stock/two-day Quant-Arena pilot. The human lead has not selected a predictive model or approved any holdout release. Study remains noncommercial under the source's **CC BY-NC 4.0** license. AI-assisted design; not a human finding.
+**Status:** Predeclared design; subsequently **executed November 11, 2026**, with original selection rules unchanged. Full real findings appear in [THREE_STOCK_PANEL_RESULTS.md](THREE_STOCK_PANEL_RESULTS.md). Prepared after the independently verified single-stock/two-day Quant-Arena pilot. The human lead has not selected a predictive model or approved any holdout release. Study remains noncommercial under the source's **CC BY-NC 4.0** license. AI-assisted design; not a human finding.
 
 ## Hypothesis and purpose
 
@@ -29,4 +29,4 @@ Test whether the strong stationary-class prevalence and its sensitivity to the c
 
 Only if the source labels remain trustworthy and boundaries are independently verified should a **separate, preregistered predictive experiment** be considered, beginning with a naive training-only benchmark. Before that experiment, define session-block training/validation/final-reserved holdout with gap/purge rules and no lookahead. A benchmark-classification score is not executable trading alpha.
 
-**Current empirical evidence:** [verified two-day report](QUANT_ARENA_EMPIRICAL_PILOT.md). Second-run independent quote check matched 10,230/10,230 label records. Further panel analysis has not run yet.
+**Current empirical evidence:** [verified two-day report](QUANT_ARENA_EMPIRICAL_PILOT.md). Second-run independent quote check matched 10,230/10,230 label records. The follow-on five-day/three-stock panel was completed and independently verified, with all empirical values recorded in [THREE_STOCK_PANEL_RESULTS.md](THREE_STOCK_PANEL_RESULTS.md). This plan remains preserved as the *prior* selection record.
