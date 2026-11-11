@@ -1,6 +1,6 @@
 # Case 018 — SQL-first retail KPI workbench
 
-**Status:** Reproducible SQLite workbench and five synthetic tests committed; **original-workbook SQL validation pending CI**. Source-specific accounting definitions and revenue recognition are **not approved**.
+**Status:** **Original-workbook SQL reconciliation verified.** [Successful GitHub Actions run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42941460657): **100 synthetic tests passed**, and SQL rederived all cohort counts, S0/S1/S2 amounts and qualifying invoice-ID counts. Source-specific accounting definitions and revenue recognition are **not approved**.
 
 ## Why we are switching gears
 
@@ -37,6 +37,20 @@ The standard-library SQLite workbench:
 The UCI source does not expose payment settlement, official revenue mapping, cost of goods, inventory ledger or promotions schedule. The strict S2 definition omits some possible legitimate paid entries (`M`, `D`, named postage/carriage/billing) and **does not become truer by excluding more**. The project will present all three scenario alternatives prominently.
 
 The calendar months may be unevenly covered, and the business may include wholesale outliers. Apparent growth, geographic differences or average invoice spend require additional context before interpretation.
+
+## Full-source verification outcome
+
+The original workbook's 1,067,371 source rows reconcile through Case 008's 22,523 exact cross-sheet links to **1,044,848** candidate rows. In SQLite, every candidate row was classified exactly once; **0 unresolved_other** rows remained.
+
+| Scenario | SQL qualifying lines | SQL qualifying invoice IDs | Source-reconciled illustrative gross line amount |
+| --- | ---: | ---: | ---: |
+| S0 | 1,019,654 | 40,077 | £20,533,741.92 |
+| S1 | 1,016,084 | 39,884 | £20,063,792.35 |
+| S2 | 1,015,218 | 39,569 | £19,723,764.52 |
+
+The workflow output explicitly reports `agrees_with_case_009_counts_invoice_ids_and_amounts = true`. It generated **25 monthly aggregates** covering Dec 2009 to Dec 2011 inclusive. The first and last calendar months may have different observed coverage; the late Dec 2011 source period must not be treated as a complete month without checking the raw date maximum. Month-level rounding can lead to a penny difference versus the full unrounded scenario total.
+
+[Case 019 business comparison](MONTHLY_BUSINESS_ACTIVITY.md) uses comparable Jan–Nov periods rather than superficially comparing all of 2010 with partial 2011.
 
 ## Next gates
 
