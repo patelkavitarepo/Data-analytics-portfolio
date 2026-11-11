@@ -1,7 +1,7 @@
-# Codex build task — Project 004: The Missing Customers
+# Codex build task — Project 005: The Missing Customers
 
 ## Goal
-Build and test a deployable **Streamlit analytics investigation** within this existing GitHub repository, preserving the investigative rigor of the portfolio. Work in the existing `project-004-missing-customers` branch (or a branch based on it); **do not overwrite other projects**.
+Build and test a deployable **Streamlit analytics investigation** within this existing GitHub repository, preserving the investigative rigor of the portfolio. Work in the existing `project-005-missing-customers` branch (or a branch based on it); **do not overwrite other projects**.
 
 The permanent stack is **GitHub (source + review) → Codex (code + tests) → Streamlit Community Cloud (published app)**. No BigQuery account or paid cloud service is required for v1. BigQuery and the existing Google GA4 SQL intake file are **optional future data-source adapters**, not launch blockers.
 
