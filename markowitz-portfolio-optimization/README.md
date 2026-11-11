@@ -58,6 +58,18 @@ No seed-search controls or new empirical strategy. Future targets/bootstrap are
 identical by construction across the paired scenarios. Serial-dependence and
 moving-block bootstrap remain deferred; rights and real holdout gates remain.
 
+## Independent synthetic serial-dependence investigation
+
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** The additive v3 study compares IID
+rows with circular five-row moving blocks on paired stationary AR(1) samples
+(phi 0/.5), using seeds 6006–6010, 504 rows and 15 draws/method. Read the
+[predeclared plan](SYNTHETIC_SERIAL_PLAN.md), [observed findings and counterexamples](SYNTHETIC_SERIAL_FINDINGS.md)
+and [complete labeled numerical artifact](synthetic-serial-results.json).
+The **Synthetic serial dependence** page is read-only; no app-time fits or data
+retrieval. Reproduce with `python -m markowitz.synthetic_serial --output work/synthetic-serial-v3`.
+The earlier v1/v2 reports are preserved. Block-bootstrap results are conditional
+diagnostics, not market evidence or permission to run empirical validation.
+
 ## Reproduce (Python 3.12)
 
 From the repository root:

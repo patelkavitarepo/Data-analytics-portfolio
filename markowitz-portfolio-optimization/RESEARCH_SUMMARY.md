@@ -1,5 +1,13 @@
 # Research and verification record · 2026-11-11
 
+The independent **v3 serial-dependence investigation** is complete as a separate
+synthetic study: [design](SYNTHETIC_SERIAL_PLAN.md), [numerical findings/limits](SYNTHETIC_SERIAL_FINDINGS.md).
+Moving-block versus IID differences are mixed, including material reversals for
+local max Sharpe and differences even in the independent control. These are
+explicitly **SYNTHETIC DATA — NOT EMPIRICAL RESULTS**. Prior v1/v2 numerical
+results and the original ETF protocol/holdout/permissions remain unchanged.
+
+
 ## Focused synthetic follow-up (not empirical evidence)
 
 The [predeclared follow-up](SYNTHETIC_ROBUSTNESS_PLAN.md) uses five seeds and two
