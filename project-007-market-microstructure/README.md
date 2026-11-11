@@ -78,6 +78,14 @@ An acquisition review identifies: (1) FI-2010 authors/Fairdata, (2) Aalto's Nasd
 
 **No true original Helsinki 2010 stock/day quote sequences have been obtained; no fee or access request was submitted.** See [source acquisition investigation](research/ORIGINAL_MIDPRICE_SOURCES.md) for contacts, links, rights and rigorous future acceptance gates. A metadata-only Fairdata probe is committed but results remain pending and are not treated as evidence of an available raw-data file.
 
+## D004: noncommercial source-identifiable quote fallback (in development)
+
+Research communication with the FI-2010 custodians may help but is **not a prerequisite** for continued analysis. While the original Helsinki 2010 quotes remain inaccessible, a distinct, noncommercial source has been selected for independent label-construction validation: [Quant-Arena Public L1](https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1). It contains 289 Shenzhen equities across 2022–2023, book prices in CNY, reported 15-second snapshots, stock identifiers, availability timestamps and source quality flags. The declared license is **CC BY-NC 4.0**; its original version/manifest and actual row schema still require validation. This is NOT data from FI-2010.
+
+The separate `microstructure/stockday_labels.py` prototype calculates the relative change between the origin midpoint and the **arithmetic mean of the next k valid midpoints**, using ±0.002 thresholds. It explicitly forbids crossing stock, trading date, stale/invalid quotes or >30-second availability gaps (a provisional setting for 15-second input). It calculates contiguous segment midpoints and prefix sums in linear time; source ingestion and true observed labels are not yet implemented. `tests/test_stockday_labels.py` contains synthetic stock/day/gap edge cases.
+
+A *bounded 4 KiB HTTP-range probe* is included in `research/probe_quant_arena_range.py` to check whether just one Parquet stock file can be accessed without downloading the complete **6.23 GB** release; do not assume HTTP partial-content support until independently confirmed. Its one-shot GitHub job was scheduled, but the job had not executed when documented. Routine CI remains synthetic only. See [separate-source protocol](research/ALTERNATE_STOCKDAY_TRACK.md).
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
