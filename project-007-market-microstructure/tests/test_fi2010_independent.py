@@ -13,7 +13,7 @@ def make_zip(train_labels, test_labels):
         for name, values in (("train.txt", train_labels), ("day8.txt", test_labels)):
             rows = ["0.1 " * len(values)] * 144
             for i in range(5):
-                rows.append(" ".join(map(str, values)) + "\n")
+                rows.append(" ".join(map(str, values)))
             z.writestr(name, "\n".join(rows))
         z.writestr("reserved-day9.txt", "SECRET")
     stream.seek(0)
