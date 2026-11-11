@@ -62,11 +62,19 @@ For local reproduction, obtain the attributed researcher-hosted archive (SHA256 
 
 Only the named fold and ignored output are supported. The standalone reproducible, pinned source procedure is [run_fi2010_once.py](research/run_fi2010_once.py); routine CI **never** fetches market data. For evidence, read [Day-eight research results](research/EMPIRICAL_DAY8.md) and [official license review](DATA_RIGHTS.md).
 
+## D009: dataset-construction audit (new real descriptive evidence)
+
+Following the human research lead's D002 decision to investigate the dataset's construction, a separate checksum-pinned runner read all **five publisher label horizons** from actual FI-2010 train CF7 and day-eight CF7. The stationary class is **12.69 to 19.58 percentage points more prevalent** on day eight across horizons 1, 2, 3, 5, and 10; it also declines with longer forecast horizon within each period under the fixed 0.2% threshold. Day-eight observation-order quintiles for horizon five range from 37.21% to 62.37% stationary; these are not clock-time or per-stock breakdowns. The code and **67 synthetic tests** passed on Python 3.11/3.12; the one-shot research-data job was removed after audit.
+
+**This is not proof of a flawed dataset or a changed market regime.** The published source labels cannot yet be independently reconstructed at stock/day boundaries; upstream preprocessing and boundary handling remain unverified. No predictive model has been fitted and days nine/ten remain unread.
+
+Read the complete [construction investigation](research/CONSTRUCTION_AUDIT.md), [human decision log](research/DECISIONS.md) and [source-verified baseline](research/EMPIRICAL_DAY8.md).
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
 2. Investigate precomputed FI-2010 label timing and possible train/day-boundary contamination without looking at reserved days; keep the LOBSTER paired-event study separate.
-3. Present the observed day-eight label shift to the human lead for interpretation before choosing a feature-based model.
+3. Human decision D002 prioritized investigating the dataset's construction; review [D009 findings](research/CONSTRUCTION_AUDIT.md) and unresolved per-day/per-stock label-boundary checks before selecting any feature-based model.
 4. Compare constant/majority baseline, imbalance sign, then a simple model only if enough permitted historical days exist.
 5. Add latency/fill simulation later, never reporting simulated returns as live results.
 
