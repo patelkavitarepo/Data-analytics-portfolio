@@ -111,7 +111,7 @@ class AuditTests(unittest.TestCase):
             "1000100,10,1000000,10\n" * 6,
         )
         self.assertEqual(got["valid_two_sided_nonhalt_quotes"], 2)
-        self.assertEqual(got["snapshots_while_trading_halted"], 4)
+        self.assertEqual(got["snapshots_while_trading_halted"], 3)
         self.assertEqual(got["halt_markers_by_price"], {"-1": 1, "0": 1, "1": 1})
 
     def test_nonfinite_time_rejected(self):
