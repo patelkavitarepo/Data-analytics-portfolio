@@ -12,6 +12,32 @@ and its GitHub job are disabled. A checkbox or JSON cannot enable the source-pol
 gate. No raw data, real validation results or holdout results are bundled.
 Educational research only, not investment advice.
 
+## Synthetic scenario lab — works offline
+
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS**
+
+The separately authorized [Stress Laboratory](SYNTHETIC_LAB.md) is available from
+Streamlit navigation or the main page link, even while all real-data analysis is
+blocked. It compares min-vol, local max-Sharpe and equal weight across five
+seeded constructed scenarios, with training-only bootstrap instability, explicit
+solver failures and separate estimated versus realized synthetic metrics.
+It uses six abstract assets and ordinal steps, never ETF proxies or historical
+holdout data. Lab controls do not change 006-v1. Every chart/table/download is
+labeled synthetic. No provider acquisition, licence grant or empirical conclusion
+is implied. The original “synthetic fixtures only in tests” restriction on
+empirical fallbacks is unchanged; this independent synthetic laboratory was
+explicitly authorized by the owner's latest instruction.
+
+```bash
+cd markowitz-portfolio-optimization
+.venv/bin/python -m markowitz.synthetic --scenario all --seed 6006 --draws 20 --output work/synthetic
+```
+
+See [SYNTHETIC_LAB.md](SYNTHETIC_LAB.md) for fixed assumptions, cost/rebalance
+interpretation, reproducibility, measured toy findings and limits. No additional
+dependencies. GitHub provider/documentation network jobs are paused during this
+synthetic-only work; the test job continues and acquisition remains disabled.
+
 ## Reproduce (Python 3.12)
 
 From the repository root:
@@ -172,9 +198,10 @@ for optimization and realized Sharpe. Sensitivity to this assumption matters.
 
 `.github/workflows/markowitz-research.yml` uses GitHub-hosted Ubuntu/Python 3.12
 with read-only repository permissions; the existing Project 002 workflow is
-unchanged. Current jobs run all synthetic tests, status-only **documentation**
-connectivity, and `scripts/rights_receipts.py` public-document receipts (bounded
-requests; status/hash/predeclared phrase detections only). No receipt automatically
+unchanged. The currently enabled job runs all synthetic tests. Previously enabled
+status-only documentation connectivity and `scripts/rights_receipts.py` receipts
+are paused during this synthetic-only assignment. Their retained receipts use
+bounded requests and status/hash/predeclared phrase detections only. No receipt automatically
 decides legal permission or logs full documents, prices or credentials.
 
 The prior `source-audit` job is explicitly **skipped** pending express provider

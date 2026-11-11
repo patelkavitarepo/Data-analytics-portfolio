@@ -1,5 +1,16 @@
 # Research and verification record · 2026-11-11
 
+## Separate synthetic laboratory (not empirical evidence)
+
+The owner authorized a constructed optimizer robustness lab while the permission
+inquiry is pending. [SYNTHETIC_LAB.md](SYNTHETIC_LAB.md) documents five scenarios,
+seeded outputs and tests. **SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** These runs
+are not ETF validation and do not resolve provider rights, industry-data
+feasibility or real holdout questions. 006-v1 and its gates are unchanged.
+Documentation network jobs are paused for this synthetic-only pass; no provider
+datasets or correspondence were accessed. No permission response/grant is
+recorded here. The following empirical evidence status remains in force.
+
 ## Current evidence status — rights checkpoint supersedes acquisition-only readiness
 
 **Validation remains blocked. No real holdout performance has been computed or
