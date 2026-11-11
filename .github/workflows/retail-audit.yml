@@ -76,6 +76,14 @@ jobs:
         run: python scripts/analyze_sku_composition.py
       - name: Verify published static dashboard against source-reconciled aggregates
         run: python scripts/verify_dashboard_preview.py
+      - name: Export source-verified aggregate-only Power BI CSV tables
+        run: python scripts/export_powerbi_aggregates.py
+      - name: Upload aggregate Power BI CSVs (no source rows)
+        uses: actions/upload-artifact@v4
+        with:
+          name: retail-powerbi-aggregates
+          path: retail-intelligence/outputs/powerbi_tables/*.csv
+          if-no-files-found: error
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
