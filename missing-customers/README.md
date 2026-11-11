@@ -5,13 +5,13 @@
 ## Case question
 Where might potential customers drop out of the shopping journey, and what can the event-level evidence actually support?
 
-## Dataset
-- Source: Google Merchandise Store obfuscated GA4 BigQuery ecommerce sample.
-- Tables: `bigquery-public-data.ga4_obfuscated_sample_ecommerce.events_*`
-- Period: 2020-11-01 through 2021-01-31.
-- Official documentation: https://developers.google.com/analytics/bigquery/web-ecommerce-demo-dataset
-
-**Caution:** Google deliberately obfuscated the dataset. Some values are placeholders or null, and its internal consistency may be limited. Results are historical, sample-specific, and are not verified business performance for the current Google Merchandise Store.
+## Dataset and stack
+- **Primary portable v1 source (proposed):** Retailrocket Ecommerce event logs, `events.csv`, https://www.kaggle.com/retailrocket/ecommerce-dataset
+- **V1 stack:** GitHub → Codex → Streamlit Community Cloud. The app will support CSV upload and reproducible local processing; no BigQuery account needed.
+- **Optional source for a future extension:** Google Merchandise Store obfuscated GA4 sample in BigQuery. The original SQL intake remains at `sql/01_evidence_intake.sql` and has **not** been run.
+- **Source cautions:** Retailrocket contains hashed IDs and event logs, not sales revenue, channel attribution, or directly observed customer intent. GA4's obfuscated sample also has documented consistency limits. Neither supports claims about what *caused* lost conversions without additional evidence.
+- **Codex build specification:** [`CODEX_TASK.md`](CODEX_TASK.md).
+- **Evidence log:** [`research/EVIDENCE.md`](research/EVIDENCE.md). No empirical data has yet been analyzed in this project.
 
 ## Investigation sequence (proposed, not yet interpreted)
 1. **Evidence intake:** Check covered dates, event volume, user IDs and missingness.
@@ -21,12 +21,12 @@ Where might potential customers drop out of the shopping journey, and what can t
 5. **Segment comparisons:** Examine acquisition/device/geography only where the fields are sufficiently complete and interpretable.
 6. **Alternative explanations and implications:** Test rival explanations and separate observed associations from causal claims.
 
-## How to reproduce the first check
-1. Open the [BigQuery console](https://console.cloud.google.com/bigquery).
-2. Select a Google Cloud project with BigQuery enabled (Sandbox or free tier is sufficient for light exploration).
-3. Run `sql/01_evidence_intake.sql`.
-4. Inspect BigQuery's estimated bytes processed before running.
-5. Record the returned result in `research/EVIDENCE.md` **only after it is actually run**. Do not invent values.
+## How to get started
+1. Have Codex read [`CODEX_TASK.md`](CODEX_TASK.md) and implement the Streamlit app in `missing-customers/` on this working branch.
+2. Download `events.csv` from the Retailrocket dataset page when its terms and access allow; keep the file outside git or use the planned CSV uploader.
+3. Run Codex's tests and inspect data-quality checks before interpreting any results.
+4. After reviewing and merging tested code, deploy `missing-customers/app.py` on [Streamlit Community Cloud](https://share.streamlit.io).
+5. BigQuery users can *optionally* run `sql/01_evidence_intake.sql` against the separate GA4 sample, after checking estimated bytes processed; its results are not interchangeable with Retailrocket.
 
 ## Research conventions
 - Queries are a proposed methodology, not proof they executed.
