@@ -46,6 +46,8 @@ python scripts/run_sql_kpi_workbench.py
 python scripts/analyze_monthly_business_activity.py
 python scripts/analyze_invoice_concentration.py
 python scripts/analyze_sku_composition.py
+python scripts/verify_dashboard_preview.py
+python scripts/export_powerbi_aggregates.py
 python -m pytest -q
 ```
 
