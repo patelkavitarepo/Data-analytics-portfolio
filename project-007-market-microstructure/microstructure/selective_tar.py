@@ -5,6 +5,7 @@ Reject unknown archive formats and HTTP 200 replies that ignore Range.
 No network activity is initiated by importing this module.
 """
 from dataclasses import dataclass
+import json
 import re
 import urllib.request
 
@@ -14,10 +15,47 @@ class RangeSourceError(ValueError):
 
 
 CONTENT_RANGE = re.compile(r"^bytes (\d+)-(\d+)/(\d+)$")
-PUBLIC_SOURCE = (
-    "https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1/"
-    "resolve/fa85d7b/quant-arena-public-l1-v1.tar"
-)
+REPO_ROOT = "https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1"
+PUBLIC_SOURCE = REPO_ROOT + "/resolve/main/quant-arena-public-l1-v1.tar"
+REPO_API = "https://huggingface.co/api/datasets/Ashitemaru/Quant-Arena-Public-L1"
+REVISION_PATTERN = re.compile(r"^[0-9a-f]{40}$")
+
+
+def pinned_source_url(revision):
+    """Never claim a guessed/abbreviated commit is a verified source revision."""
+    if not isinstance(revision, str) or REVISION_PATTERN.fullmatch(revision) is None:
+        raise RangeSourceError("require full 40-hex publisher revision")
+    return REPO_ROOT + "/resolve/" + revision + "/quant-arena-public-l1-v1.tar"
+
+
+def discover_publisher_revision():
+    """Fetch bounded dataset metadata and extract current immutable Git SHA.
+
+    The returned exact SHA is pinned in every source-range request. This
+    metadata call is NOT a data download and cannot validate archive bytes.
+    """
+    request = urllib.request.Request(REPO_API, headers={
+        "Accept": "application/json",
+        "User-Agent": "Project007-Noncommercial-PublisherMetadata/0.1",
+    })
+    try:
+        with urllib.request.urlopen(request, timeout=20) as response:
+            if response.status != 200:
+                raise RangeSourceError("publisher metadata API unavailable")
+            chunk = response.read(250_001)
+            if len(chunk) > 250_000:
+                raise RangeSourceError("publisher metadata exceeded bound")
+            metadata = json.loads(chunk)
+    except RangeSourceError:
+        raise
+    except Exception as exc:
+        raise RangeSourceError(
+            f"publisher metadata unavailable: {type(exc).__name__}"
+        ) from exc
+    revision = metadata.get("sha") if isinstance(metadata, dict) else None
+    if not isinstance(revision, str) or REVISION_PATTERN.fullmatch(revision) is None:
+        raise RangeSourceError("publisher did not supply a valid 40-hex revision")
+    return revision
 MAX_ARCHIVE = 8_000_000_000
 MAX_MEMBER = 150_000_000
 MAX_HEADERS = 500
@@ -27,10 +65,10 @@ class HTTPRange:
     """Range-only network adapter; check 206, range bounds and exact byte count."""
 
     def __init__(self, url=PUBLIC_SOURCE):
-        if not url.startswith(
-            "https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1/"
+        if not url.startswith(REPO_ROOT + "/resolve/") or not url.endswith(
+            "/quant-arena-public-l1-v1.tar"
         ):
-            raise RangeSourceError("source must be the pinned publisher dataset")
+            raise RangeSourceError("source must be the publisher's declared TAR path")
         self.url = url
         self.total_size = None
         self.bytes_transferred = 0
