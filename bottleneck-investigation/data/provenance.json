@@ -1,7 +1,7 @@
 {
   "status": "evidence_pending",
   "synthetic": false,
-  "reason": "Official DataSF identity/schema and a small 2025 query were verified on GitHub Actions (HTTP 200). Full 2025 evidence is acquired and validated as a separate review artifact; no unreviewed records or findings are bundled.",
+  "reason": "Official DataSF identity/schema and a small 2025 query were verified on GitHub Actions (HTTP 200). Full 2025 acquisition and validation run separately as a review workflow; no unreviewed records or findings are bundled.",
   "attempted_at": "2026-11-11T16:16:00Z",
   "candidate_sources": [
     "https://data.sfgov.org/api/views/vw6y-z8j6.json",
