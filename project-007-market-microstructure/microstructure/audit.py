@@ -48,7 +48,7 @@ def _message(row, number):
     if kind == 7 and (oid != 0 or size != 0 or side != -1 or price not in (-1, 0, 1)):
         raise AuditError(f"row {number}: invalid halt marker")
     # Type 6 is a cross/auction trade; vendor semantics differ from resting orders.
-    return timestamp, kind
+    return timestamp, kind, price
 
 
 def _book(row, number, levels):
@@ -104,6 +104,10 @@ def audit_pairs(messages, orderbook, levels=1, max_events=10000):
     sum_spread = 0
     imbalance_sum = 0.0
     previous_time = None
+    previous_book = None
+    trading_halted = False
+    trading_halt_rows = 0
+    halt_markers = Counter()
 
     with messages.open(newline="", encoding="utf-8") as mf, orderbook.open(
         newline="", encoding="utf-8"
@@ -114,8 +118,19 @@ def audit_pairs(messages, orderbook, levels=1, max_events=10000):
         for rows, (message_row, book_row) in enumerate(paired, 1):
             if message_row is None or book_row is None:
                 raise AuditError(f"row {rows}: message/snapshot counts differ")
-            timestamp, kind = _message(message_row, rows)
+            timestamp, kind, price = _message(message_row, rows)
             ask, bid = _book(book_row, rows, levels)
+            current_book = tuple(cell.strip() for cell in book_row)
+            if kind == 7 and previous_book is not None and current_book != previous_book:
+                raise AuditError(f"row {rows}: halt marker must duplicate prior snapshot")
+            previous_book = current_book
+            if kind == 7:
+                halt_markers[str(price)] += 1
+                if price == -1:
+                    trading_halted = True
+                elif price == 1:
+                    trading_halted = False
+            trading_halt_rows += int(trading_halted)
             if previous_time is not None:
                 if timestamp < previous_time:
                     raise AuditError(f"row {rows}: time reversed (no sorting allowed)")
@@ -127,7 +142,7 @@ def audit_pairs(messages, orderbook, levels=1, max_events=10000):
             elif ask[0] <= bid[0]:
                 # Flag, never silently delete, lock/cross observations.
                 crossed_or_locked += 1
-            elif kind != 7:
+            elif kind != 7 and not trading_halted:
                 valid_quotes += 1
                 sum_spread += ask[0] - bid[0]
                 imbalance_sum += (bid[1] - ask[1]) / (bid[1] + ask[1])
@@ -140,6 +155,8 @@ def audit_pairs(messages, orderbook, levels=1, max_events=10000):
         "levels": levels,
         "event_type_counts": {str(k): counts[k] for k in sorted(counts)},
         "equal_timestamp_neighbors": timestamp_ties,
+        "halt_markers_by_price": {key: halt_markers[key] for key in ("-1", "0", "1")},
+        "snapshots_while_trading_halted": trading_halt_rows,
         "valid_two_sided_nonhalt_quotes": valid_quotes,
         "one_sided_or_empty_quotes": one_sided,
         "locked_or_crossed_quotes": crossed_or_locked,
