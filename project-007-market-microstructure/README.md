@@ -88,7 +88,17 @@ A publisher-revision-pinned selective TAR reader has now successfully authentica
 
 ## Independent quote-label verification — second empirical pass
 
-An independently implemented quadratic oracle, distinct from the optimized rolling-average implementation, is now available at `microstructure/stockday_oracle.py`. A strictly predefined sensitivity check compares 0.1%, 0.2% and 0.4% thresholds at k=5 **descriptively**, while preserving the original ±0.2% registered labels. Per-day class counts and source-quality flags are reported separately. The expanded **95 synthetic tests pass** under Python 3.11 and 3.12. The independent oracle has not yet been validated on the real quote file; a separately gated source run is the next check.
+An independently implemented quadratic oracle, distinct from the optimized rolling-average implementation, is now available at `microstructure/stockday_oracle.py`. A strictly predefined sensitivity check compares 0.1%, 0.2% and 0.4% thresholds at k=5 **descriptively**, while preserving the original ±0.2% registered labels. Per-day class counts and source-quality flags are reported separately. The independent slow oracle has **successfully matched all 10,230 row-level decisions** (2,046 origins × five horizons) on actual quote data, with zero disagreements; the second real-data run and predeclared threshold sensitivity are documented in [the updated two-day report](research/QUANT_ARENA_EMPIRICAL_PILOT.md).
+
+## D005: predeclared three-stock/five-day panel — completed
+
+Our original source-identifiable two-day quote validation now has an expanded, deterministic **three-stock / five-day** replication on [Quant-Arena Public L1](https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1), a **CC BY-NC 4.0 noncommercial** dataset entirely distinct from FI-2010. Source revision and per-file SHA256 checks were verified, and **70,447,590 bytes** transferred selectively rather than downloading the full archive. The frozen stock-selection rule yielded **000012.SZ, 000025.SZ, 000031.SZ**, with the first five observed source sessions (January 4, 5, 6, 7, 10, 2022). All three files remain out of Git.
+
+The result: at the primary ±0.2% threshold and k=5 quote snapshots, **12,812 of 13,736 eligible labels were stationary (93.27%)**, across **15,233** raw quote observations and **1,497** explicitly unlabelled origins. The stock-level stationary percentages differed: **94.71%, 97.78%, 87.64%**. A predetermined threshold sensitivity check at k=5 yielded **79.97% stationary at ±0.1%**, **93.27% at ±0.2%**, **99.27% at ±0.4%**, illustrating that neutral-band definition matters; the remaining cross-stock differences are not explained by using different thresholds.
+
+An independent slower implementation matched **all 76,165** primary-horizon origin/target/exclusion decisions (15,233 rows × five horizons), plus the three sensitivity passes at k=5, with **zero disagreements**. The publisher documents truncated observations on January 6 and 10; missing targets were not interpolated. **99 synthetic tests passed** on Python 3.11 and 3.12. See [detailed attributed result](research/THREE_STOCK_PANEL_RESULTS.md) and [verified GitHub Actions job](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43105937543).
+
+The [preregistered plan](research/NEXT_PANEL_PROTOCOL.md) is retained separately as evidence of the frozen selection and labels. These are descriptive label-construction findings, **not** FI-2010 original-label verification, market predictions, investment advice or executable trading alpha.
 
 ## Next checkpoints
 
