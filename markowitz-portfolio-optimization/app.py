@@ -17,6 +17,7 @@ from markowitz.verification import verify_source, source_review_template
 st.set_page_config(page_title='The Efficient Frontier | Project 006', page_icon='◉', layout='wide')
 st.title('The Efficient Frontier')
 st.caption('PROJECT 006 · MARKOWITZ PORTFOLIO OPTIMIZATION · EDUCATIONAL RESEARCH')
+st.page_link('pages/1_Synthetic_scenario_lab.py', label='Synthetic scenario lab — constructed data only', icon='⚗')
 st.markdown('Can constrained optimization improve **out-of-sample risk-adjusted performance** over equal weights? The evidence must answer; optimization alone does not.')
 st.info('No investment recommendation. Real adjusted ETF prices only. No sample performance is substituted when data are unavailable.')
 

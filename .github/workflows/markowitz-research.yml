@@ -1,4 +1,4 @@
-name: Project 006 tests and rights investigation
+name: Project 006 synthetic-only tests (permissions pending)
 on:
   pull_request:
     paths:
@@ -9,6 +9,8 @@ permissions:
   contents: read
 jobs:
   connectivity:
+    # Synthetic-only engineering: no external provider/documentation requests.
+    if: ${{ false }}
     name: Status-only documentation connectivity
     runs-on: ubuntu-latest
     timeout-minutes: 4
@@ -58,6 +60,8 @@ jobs:
       - name: Acquire in runner memory and report quality only (no prices or performance)
         run: python markowitz-portfolio-optimization/scripts/source_audit.py
   rights-documents:
+    # Permission inquiry pending; preserve existing receipts without new contacts.
+    if: ${{ false }}
     name: Provider documentation receipts (no market data)
     runs-on: ubuntu-latest
     timeout-minutes: 4
