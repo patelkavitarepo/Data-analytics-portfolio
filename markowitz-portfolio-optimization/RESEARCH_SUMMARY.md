@@ -1,5 +1,14 @@
 # Research and verification record · 2026-11-11
 
+## Focused synthetic follow-up (not empirical evidence)
+
+The [predeclared follow-up](SYNTHETIC_ROBUSTNESS_PLAN.md) uses five seeds and two
+nested training windows with an unseen positive-correlation jump.
+[Observed numerical findings](SYNTHETIC_ROBUSTNESS_FINDINGS.md) and the separately
+labeled JSON retain all cases. **SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** Original
+synthetic results, 006-v1 methods, permission safeguards and real holdout remain
+unchanged. This work introduces no provider access or new empirical conclusions.
+
 ## Separate synthetic laboratory (not empirical evidence)
 
 The owner authorized a constructed optimizer robustness lab while the permission

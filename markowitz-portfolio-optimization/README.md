@@ -38,6 +38,26 @@ interpretation, reproducibility, measured toy findings and limits. No additional
 dependencies. GitHub provider/documentation network jobs are paused during this
 synthetic-only work; the test job continues and acquisition remains disabled.
 
+## Focused synthetic robustness check — additive investigation
+
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS**
+
+[Predeclared plan](SYNTHETIC_ROBUSTNESS_PLAN.md): seeds 6006–6010, nested trailing
+126/504-step training windows, ten IID draws/case, paired stationary versus unseen
++0.35 → +0.85 future correlation. [Observed findings](SYNTHETIC_ROBUSTNESS_FINDINGS.md)
+include per-seed values, median/ranges, cap incidence and numerical failures.
+The separate **Synthetic robustness check** Streamlit page reads the fixed report
+without fitting or provider calls. All old lab results remain unchanged.
+
+```bash
+cd markowitz-portfolio-optimization
+.venv/bin/python -m markowitz.synthetic_robustness --output work/synthetic-robustness-v2
+```
+
+No seed-search controls or new empirical strategy. Future targets/bootstrap are
+identical by construction across the paired scenarios. Serial-dependence and
+moving-block bootstrap remain deferred; rights and real holdout gates remain.
+
 ## Reproduce (Python 3.12)
 
 From the repository root:
