@@ -39,3 +39,13 @@ This refers to a **separate, publicly distributed stock/day order-book quote dat
 **AI-assisted implementation:** A selective HTTP Range/TAR scanner, a manifest-SHA256-gated single-stock Parquet importer, a source-identifiable two-day quote-label pipeline and synthetic tests have been proposed/committed. Stock `000012.SZ` is chosen in advance because the publisher names it as an example. The first two available source trading days are chosen chronologically, never based on label results. Noncommercial-only CC BY-NC 4.0 source terms are observed; no vendor bytes should be committed.
 
 **Current evidence gate:** No genuine Quant-Arena stock Parquet has been authenticated or analyzed yet. The GitHub workflow is queued, not successful. Do not ascribe the source inspection design, technical assumptions, or future results to the human lead.
+
+## D005 — November 11, 2026 — Human instruction to investigate the cross-stock question
+
+**Human directive:** "Let’s investigate holmes."
+
+The directive follows the discussion of a preregistered **three-stock, five-trading-day label-construction replication** on Quant-Arena Public L1. The human lead did not supply an explanation for the empirical differences, select stocks after seeing data, approve a model, or authorize any trading.
+
+**AI-assisted investigation and outcome:** We followed `NEXT_PANEL_PROTOCOL.md`, selected source-verified stock files 000012.SZ, 000025.SZ, 000031.SZ and the first five observed dates of January 2022. The pinned, CC BY-NC 4.0 noncommercial source panel comprised 15,233 quote observations and yielded different stock-level stationary shares (94.71%, 97.78%, 87.64%) under identical predefined k=5 and ±0.2% labeling. The independent oracle verified 76,165 origin records across five horizons without mismatch. The threshold sensitivity was also performed as preregistered; no prediction model was fitted. See the attributed result and limitations in `THREE_STOCK_PANEL_RESULTS.md`.
+
+**Interpretation limit:** Labels and stock effects both matter descriptively, but causal attribution to market structure, price behavior or data construction remains unresolved. The Shenzhen panel does not validate FI-2010's original Helsinki labels, nor establish trading profitability. PR #7 remains draft, unmerged.
