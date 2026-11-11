@@ -1,20 +1,36 @@
-# Data rights and source provenance — gate OPEN for code, BLOCKED for empirical publication
+# Data rights and source provenance — Project 007
 
-Reviewed November 11, 2026. This is a source-selection record, not a legal opinion or license grant.
+Reviewed November 11, 2026. This is evidence of public metadata and a research source, not legal advice or a universal permission grant.
 
-- Official samples: https://php.lobsterdata.com/info/DataSamples.php — provides AMZN level 1 (0.7 MB) and level 5 (2 MB) sample downloads and a paired message/snapshot README.
-- Official format: https://php.lobsterdata.com/info/DataStructure.php — message file is 6 columns; book file is 4 × depth levels; event types include cross trade (6) and halt (7). The corresponding book row is the POST-event state. Dummy zero-volume levels appear when depth is missing.
-- LOBSTER website use notice: https://php.lobsterdata.com/imprint.php — restricts systematic website downloading and other uses; access/download visibility is not evidence of redistribution, caching or publication rights.
-- Current-provider terms page: https://php.lobsterdata.com/termsAndConditions.php — states that academic subscriber terms are issued with contracts, not as a standalone public terms PDF. The terms applicable specifically to sample analysis and to public aggregate screenshots/metrics have NOT been established.
-- Separate alternative for future full raw event reconstruction: Nasdaq ITCH sample info at https://www.nasdaqtrader.com/Content/TechnicalSupport/FAQs/ITCH_FAQ.pdf; different format/rights require independent review.
+## FI-2010 (newly verified source)
 
-| Action | Current status |
+- **Official catalog:** https://etsin.fairdata.fi/dataset/73eb48d7-4dbc-4a10-a52a-da745b47a649
+- **Public official metadata endpoint:** https://metax.fairdata.fi/v3/datasets/73eb48d7-4dbc-4a10-a52a-da745b47a649
+- The official record returned HTTP 200 and states **access type Open; license Creative Commons Attribution 4.0 International (CC BY 4.0)**. Secondary old metadata API independently agreed.
+- **Attribution:** Ntakaris, Magris, Kanniainen, Gabbouj & Iosifidis (2018), *Benchmark Dataset for Mid-Price Forecasting of Limit Order Book Data with Machine Learning Methods*, *Journal of Forecasting*, DOI https://doi.org/10.1002/for.2543.
+- **Researcher-hosted copy:** https://github.com/zcakhaa/DeepLOB-Deep-Convolutional-Neural-Networks-for-Limit-Order-Books/tree/master/data. Their public research notebook explicitly directs users to the original dataset and its alternative research reproduction.
+- Reproducible archive SHA256: `7a5564290a504bdc104dccaf44aa6c0b3857bf1db6b0517b9b88577c2def3e5f` (56,278,154 bytes). This research archive's **byte identity with Fairdata's originally deposited file remains unverified**.
+- The project has downloaded and analyzed training CF7 and day-eight test CF7 only, on ephemeral CI runners. Reserved day-nine/day-ten ZIP members were listed but **never extracted, opened or scored**.
+- Attribution, original source, host, any transformations, input hashes and limitations must accompany published derived results. No user credentials, purchases, new provider account or full raw dataset upload were needed.
+
+## LOBSTER (separate rights gate, still unresolved)
+
+- Official samples: https://php.lobsterdata.com/info/DataSamples.php
+- Format: https://php.lobsterdata.com/info/DataStructure.php
+- Website and subscription conditions: https://php.lobsterdata.com/imprint.php and https://php.lobsterdata.com/termsAndConditions.php
+- Applicable research and public-output rights **have not been established** for this different provider.
+- No LOBSTER provider downloads, automated acquisition or public derived reports are authorized by the FI-2010 license. Our synthetic LOBSTER-format code can still be published.
+
+## Rules and separation
+
+| Activity | Status |
 | --- | --- |
-| Write and publish original code and synthetic unit tests | Allowed for this research workflow |
-| Read the published data format and plan a local importer | Supported |
-| Automated acquisition or rehosting provider CSVs | NOT authorized here |
-| Analyze locally supplied samples | Do only if the user's applicable access and research-use terms permit |
-| Publish actual-data aggregates or screenshots | NOT established; review separately |
-| Publish raw samples or machine-readable derived observations | NOT established; do not upload |
+| Publish original project code, synthetic tests and research protocol | Supported |
+| Run cited FI-2010 researcher-hosted source on ephemeral CI | Completed with official dataset metadata supporting open access and CC BY 4.0; provenance distinctions disclosed |
+| Publish attribution-bearing FI-2010 aggregate baseline scores | Supported by CC BY 4.0, conditional on proper attribution, disclosure of source and changes |
+| Claim mirror byte identity with original deposited archive | **Not verified** |
+| Commit or upload full FI-2010 files to this repository | Not done or needed; keep vendor data outside Git |
+| Acquire/use LOBSTER samples and publish its output | **Not cleared separately** |
+| Treat FI-2010 normalized data as raw exchange event messages or execution records | **Invalid** |
 
-No remote fetch, GitHub Action acquisition, provider account, credential or payment is part of this project. Local data, audit outputs and caches must remain ignored. Full-depth reconstruction is NOT supported by price-range-filtered LOBSTER message files alone. Do not confuse samples with full-sequence ITCH data.
+See `research/EMPIRICAL_DAY8.md` and `research/FI2010_SOURCE_REVIEW.md` for details. 
