@@ -29,3 +29,13 @@ Present construction-audit evidence and invite interpretation of the remaining a
 **AI-assisted acquisition response:** Prioritize the original five Helsinki securities across June 1–14, 2010 with authenticated stock/date/bid/ask and original sampling semantics. Inspect author, Fairdata, Aalto and Nasdaq HistoricalView sources; do not silently substitute US LOBSTER or a different stock exchange, invent stock/day identifiers, break access restrictions, incur paid costs, or claim FI-2010 original labels independently verified from processed data.
 
 **Current state:** The original per-stock, per-day FI-2010 best-quote series has **not been acquired**. Source paths and open questions are in `research/ORIGINAL_MIDPRICE_SOURCES.md`. Preliminary Aalto/Nasdaq access restrictions apply; a metadata-only official source probe was prepared. Reaching out to custodians requires an externally sent request and any permissions they grant; no message has been sent here.
+
+## D004 — November 11, 2026 — Human approval to start separate-source validation
+
+**Human directive:** "Let’s start working on the second option while we wait for the reply."
+
+This refers to a **separate, publicly distributed stock/day order-book quote dataset** (Quant-Arena Public L1) as an independent construction test, NOT evidence to retroactively verify FI-2010 labels or access original Helsinki Nasdaq quotes.
+
+**AI-assisted implementation:** A selective HTTP Range/TAR scanner, a manifest-SHA256-gated single-stock Parquet importer, a source-identifiable two-day quote-label pipeline and synthetic tests have been proposed/committed. Stock `000012.SZ` is chosen in advance because the publisher names it as an example. The first two available source trading days are chosen chronologically, never based on label results. Noncommercial-only CC BY-NC 4.0 source terms are observed; no vendor bytes should be committed.
+
+**Current evidence gate:** No genuine Quant-Arena stock Parquet has been authenticated or analyzed yet. The GitHub workflow is queued, not successful. Do not ascribe the source inspection design, technical assumptions, or future results to the human lead.
