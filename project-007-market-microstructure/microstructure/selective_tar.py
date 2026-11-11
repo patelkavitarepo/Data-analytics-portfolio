@@ -207,7 +207,7 @@ def checksum_from_sha256sums(data, member_path):
     basename = member_path.rsplit("/", 1)[-1]
     candidates = []
     for line in data.decode("utf-8").splitlines():
-        row = re.fullmatch(r"([0-9a-fA-F]{64})  \*?(.+)", line.strip())
+        row = re.fullmatch(r"([0-9a-fA-F]{64}) (?: |\*)(.+)", line.strip())
         if row is None:
             raise RangeSourceError("malformed publisher SHA256SUMS line")
         file_path = row.group(2)
