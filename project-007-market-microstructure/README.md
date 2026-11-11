@@ -100,6 +100,18 @@ An independent slower implementation matched **all 76,165** primary-horizon orig
 
 The [preregistered plan](research/NEXT_PANEL_PROTOCOL.md) is retained separately as evidence of the frozen selection and labels. These are descriptive label-construction findings, **not** FI-2010 original-label verification, market predictions, investment advice or executable trading alpha.
 
+## D006: quote-gap and quality-flag robustness — empirically verified
+
+The human lead asked to investigate how stale/missing quotes and the existing 30-second gap cutoff affect our three-stock/five-day historical label construction. We froze eight scenarios in [GAP_FLAG_SENSITIVITY_PROTOCOL.md](research/GAP_FLAG_SENSITIVITY_PROTOCOL.md) before fetching any new data. The same three Quant-Arena Public L1 members were re-authenticated against the same pinned source SHA256 hashes; no new stock/date or later price outcome was opened.
+
+- **G15, G30, G60, G120:** identical k=5, ±0.2% origin eligibility, targets and classes in this panel. There are 15 source timestamp gaps over 120 seconds, but varying the tested tolerance created no label changes. This does **not** establish that bridging gaps is always safe.
+- **FD / ignore missing-depth only:** no change, because every missing-depth source row had an invalid/absent best price already excluded by the hard price rule.
+- **FS / FSD / deliberately ignore stale:** eligible target count increases from **13,736 to 14,357** (+621), with stationary share moving only from **93.2732% to 93.4039%**. No already eligible class changes; these are **unsafe diagnostic counterfactuals**, NOT endorsed data-cleaning methods.
+- Stock ranking remains **000025.SZ > 000012.SZ > 000031.SZ** in stationary share across all eight scenarios.
+- Independent slow oracle verified **121,864 origin/target/exclusion decisions without mismatch**. **105 synthetic tests passed** on Python 3.11 and 3.12. Source data were only accessed in an ephemeral one-time CI job, then the job was removed and normal CI returned to synthetic-only.
+
+Read [the D006 real-data report](research/GAP_FLAG_SENSITIVITY_RESULTS.md), [predeclared protocol](research/GAP_FLAG_SENSITIVITY_PROTOCOL.md) and [GitHub Actions evidence](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43110070553). The public source remains noncommercial **CC BY-NC 4.0** and is **not** the source for FI-2010's inaccessible Helsinki labels.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
