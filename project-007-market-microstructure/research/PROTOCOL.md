@@ -12,6 +12,10 @@ Use original paired CSV rows in file order. Do not sort events, correct invalid 
 
 Run a **complete** paired file audit before descriptive windows. In strictly original event order, produce event-weighted 5-minute means of spread (integer price difference / 10,000) and best-level depth imbalance; count eligible, one-sided, crossed/locked and halted event observations, plus *backward-looking* changes in midpoint from the immediately preceding eligible event, resetting state across invalid books and halts. Do not silently fill inactive time buckets. Verify full-file hashes between audit and diagnostics passes. No forward target, P&L, order fill or model fit is in this phase.
 
+## Phase 0C: independent report verification (synthetic tested; real-data use blocked)
+
+Verify a complete descriptive report against the original paired files with an independent CSV decoding and Decimal depth-ratio calculation. Check both SHA256 inputs before and after, overall counts and anomaly categories, each window boundary and event-type frequency, spread, imbalance and backward midpoint changes. Refuse tampered fields and source mutation. This checks arithmetic consistency, **not** correctness of source data, exchange-reconstruction fidelity, market predictability, publication rights, or a successful strategy.
+
 ## Phase 1: empirical discovery (blocked pending appropriate data permissions)
 
 Start with the official LOBSTER AMZN one-level sample, June 21, 2012, held locally and never committed. Log official URL, actual file hashes, parsing boundaries, event counts, missingness, halt windows, empty-sided quotes, quote locking, and time ties. Follow with the five-level sample for depth sensitivity if permitted. One day is a demo, NOT a train/test split sufficient to support market-generalizable claims.
