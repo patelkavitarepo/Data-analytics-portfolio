@@ -28,3 +28,15 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
+
+  label-construction-one-shot:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Re-read checksum-pinned FI-2010 publisher labels for all five horizons (reserved folds unopened)
+        run: python project-007-market-microstructure/research/run_fi2010_construction_once.py
