@@ -39,7 +39,13 @@ The verifier compares the static HTML claims against Case 019–021 aggregate JS
 
 ## Power BI-importable aggregate tables
 
-A separate aggregate-only ZIP package prepared from the verified GitHub Actions artifact contains CSVs at these distinct grains:
+The versioned `scripts/export_powerbi_aggregates.py` regenerates these **eight** CSV files deterministically from the verified Case 018–021 aggregate-only JSON. Run it from `retail-intelligence/` after the full source audit completes:
+
+```bash
+python scripts/export_powerbi_aggregates.py
+```
+
+Its output directory is `outputs/powerbi_tables/` (ignored by Git). A separate `retail-powerbi-aggregates` GitHub Actions artifact includes only the CSVs when all source and schema checks pass. **The new artifact upload must still pass CI before its first release.** The tables retain different documented grains:
 
 - `monthly_activity.csv`: 25 recorded months.
 - `monthly_invoice_concentration.csv`: 25 monthly distribution summaries.
