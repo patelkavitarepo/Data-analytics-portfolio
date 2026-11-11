@@ -146,7 +146,8 @@
 - [SKU composition identity and guardrails](SKU_COMPOSITION_BRIDGE.md) computes a four-term arithmetic gross-line-value bridge by exact stock code for matched Jan–Nov periods.
 - Checks source S2 line counts, recorded units and gross amounts in **both** years against Case 018 SQL; no individual invoice IDs/customer IDs emitted and no source records changed.
 - Distinguishes common-SKU recorded unit-volume changes from a within-common-SKU observed gross-per-unit residual; this is not a causal price explanation or formal inflation measurement.
-- Next: verify then summarize top aggregate sources of change and build a qualified decision-focused dashboard report.
+- [Verified four-term bridge](SKU_COMPOSITION_BRIDGE.md): shared-SKU quantity **−£992,716.27**, shared-SKU effective value/unit **−£141,027.84**, 2011-only SKUs **+£2,058,492.44**, 2010-only SKUs **−£674,101.00**, reconciling to **+£250,647.33**. This is arithmetic, not causal or an inflation estimate.
+- A versioned [static dashboard preview](../dashboard/index.html) and [case study](PORTFOLIO_CASE_STUDY.md) now reflect verified results. The full native Power BI report remains an optional downstream publication step.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
