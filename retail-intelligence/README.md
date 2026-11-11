@@ -1,6 +1,6 @@
 # Project 003 — Retail Intelligence
 
-**Status:** Phase 01 raw-data audit complete; Phase 02 anomaly investigation underway. Observed findings are verified against the original workbook, but financial definitions and causal explanations remain open.
+**Status:** Source integrity audit, anomaly investigations, independent SQL KPI reconciliation, comparable-month business analysis, invoice concentration and the SKU composition bridge are **source-verified**. A [static executive dashboard](dashboard/index.html), [dashboard instructions](dashboard/README.md) and [portfolio case study](docs/PORTFOLIO_CASE_STUDY.md) are versioned on the draft branch. Financial definitions and causal interpretations remain provisional; a native Power BI `.pbix` is not yet built.
 
 ## Objective
 
