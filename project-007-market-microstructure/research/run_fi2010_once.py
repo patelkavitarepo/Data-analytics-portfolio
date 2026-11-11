@@ -18,6 +18,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from microstructure.fi2010_baseline import (
     evaluate_majority_baseline, TRAIN_FILENAME, DAY8_FILENAME,
 )
+from microstructure.fi2010_independent import verify_raw_label_tallies
 
 SOURCE = (
     "https://raw.githubusercontent.com/zcakhaa/"
@@ -85,6 +86,8 @@ def main():
             test_bytes = _extract_exact(z, DAY8_FILENAME, test, 175_000_000)
             # This pipeline NEVER calls ZipFile.open on reserved day 9/10 members.
         report = evaluate_majority_baseline(train, test, horizon=HORIZON)
+        with zipfile.ZipFile(archive) as source:
+            independent = verify_raw_label_tallies(source, TRAIN_FILENAME, DAY8_FILENAME, report)
         output = {
             "provenance": {
                 "original_dataset": LEGAL_RECORD,
@@ -105,6 +108,7 @@ def main():
                 "raw_samples_committed_or_uploaded": False,
             },
             "baseline": report,
+            "independent_raw_label_oracle": independent,
         }
         # Public aggregate scores with dataset authorship/licensing included;
         # no row-level data, original file payloads or user secrets printed.
