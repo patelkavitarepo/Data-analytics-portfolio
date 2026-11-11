@@ -34,7 +34,34 @@ At k=5, **168**/2,046 rows have no valid target: **126** invalid/stale quote ori
 
 Using a fixed ±0.2% label threshold on a regular 15-second quote grid produces a high stationary share in this one-stock/two-day example; that share is lower by k=10 than k=1. This finding illustrates the critical effect of data cadence, horizon definition and missing-value exclusion on class balance. It does **not** show how much of FI-2010's day-eight stationary shift was caused by label construction, because the original securities, source microstructure and calendar differ.
 
-More granular per-day quality counts, threshold-sensitivity diagnostics and an independently implemented quadratic label oracle were subsequently added for a **separate second validation run**; this first run's figures above must not be advertised as independently verified by that later oracle until the second run completes.
+## Independent quote-level replication — completed
+
+A **second** ephemeral run on the **same pinned publisher revision and stock-file SHA256** independently recomputed all labels from source quotes using a separate, deliberately slower algorithm. The two implementations agreed for **all 2,046 origin rows at each of the five horizons** (**10,230 comparisons; zero mismatches**, including excluded origins). This establishes agreement between two code paths on the accepted stock/quote inputs; it does **not** certify the source's original quote accuracy, exchange semantics, or anything about FI-2010 original labels.
+
+- [Completed independent empirical GitHub Actions run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43102185079)
+- **95 synthetic tests passed** on both Python 3.11 and Python 3.12.
+- Original ±0.2% threshold, horizon 5, day-separated class counts:
+
+| Source trading day | Up | Stationary | Down | Unlabelled | Eligible | Stationary / eligible |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| 2022-01-04 | 26 | 878 | 35 | 84 | 939 | 93.50% |
+| 2022-01-05 | 28 | 880 | 31 | 84 | 939 | 93.72% |
+
+- **Predetermined descriptive threshold sensitivity at k=5, on the same 1,878 eligible rows (no model tuning):**
+
+| Relative threshold | Up | Stationary | Down | Unlabelled | Stationary / eligible |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| ±0.1% | 244 | 1,366 | 268 | 168 | 72.74% |
+| ±0.2% | 54 | 1,758 | 66 | 168 | 93.61% |
+| ±0.4% | 14 | 1,859 | 5 | 168 | 98.99% |
+
+- Source-quality audit on 2,046 selected observations: 104 locked/crossed/nonpositive snapshots; 37 stale or missing source-event timestamps; 2 missing/null depth flags; 2 absent best quotes; 2 consecutive 15-second-grid gaps exceeding the provisional 30-second tolerance. **Quality counters may overlap** and must not be added together as mutually exclusive exclusions. At k=5, 126 origin rows were invalid/stale and another 42 had insufficient contiguous future.
+- The threshold change is a *deliberate change of label definitions*; larger stationary shares are mechanically expected as the neutral band widens. This alone does not show that market prices or the FI-2010 publisher labels were erroneous.
+
+### Next preregistered source-construction question (not yet run)
+
+Does the same threshold/cadence effect persist **across different stocks and days**? Define a deterministic, source-blind small panel before opening additional files (e.g., first five eligible stock filenames in the publisher manifest, earliest ten dates each), document any missing sessions/exclusions, rerun stock/day boundaries and independent label verification, and compare class balance under the same thresholds. Reserve a separate later set of days for any eventual predictive study. Keep raw vendor data outside Git; remain within CC BY-NC 4.0 noncommercial terms.
+
 
 ## Open scientific questions
 
