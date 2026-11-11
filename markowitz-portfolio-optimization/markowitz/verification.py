@@ -9,6 +9,7 @@ import numpy as np
 import pandas as pd
 
 from .data import TICKERS
+from .source_policy import require_approved_source
 
 # Known reference publishers. Yahoo cannot independently corroborate itself.
 REFERENCE_DOMAINS = ('nasdaq.com', 'ssga.com', 'invesco.com', 'ishares.com',
@@ -23,6 +24,10 @@ def verify_source(prices, audit, record):
     for field in ('reviewer', 'retrieved_utc', 'source_url', 'adjustment_evidence', 'analysis_permission_evidence'):
         if not isinstance(record.get(field), str) or not record[field].strip():
             raise ValueError(f'Source review needs {field}')
+    source_host = urlparse(record['source_url']).hostname or ''
+    if source_host == 'yahoo.com' or source_host.endswith('.yahoo.com'):
+        raise ValueError('Yahoo-based performance is blocked: express collection permission and intended-use rights have not been established; a checkbox is not a grant')
+    require_approved_source(record, audit)
     retrieved = pd.Timestamp(record['retrieved_utc'])
     if retrieved.tzinfo is None:
         raise ValueError('Source retrieval timestamp must include timezone')

@@ -86,6 +86,8 @@ def test_csv_validation():
 
 
 def test_failed_download_is_not_partial_or_synthetic(monkeypatch):
+    # Exercise the legacy client with synthetic responses only, not real permission.
+    monkeypatch.setattr('markowitz.data.require_yahoo_collection_permission', lambda: None)
     import yfinance
     class Broken:
         def __init__(self, ticker):
@@ -99,6 +101,7 @@ def test_failed_download_is_not_partial_or_synthetic(monkeypatch):
 
 
 def test_downloader_adjustment_end_exclusive_and_provenance(monkeypatch):
+    monkeypatch.setattr('markowitz.data.require_yahoo_collection_permission', lambda: None)
     import yfinance
     calls = []
     class Fake:
@@ -150,3 +153,12 @@ def test_cutoff_can_restrict_complete_snapshot_without_changing_splits():
     assert r.index.max() == pd.Timestamp('2016-01-08')
     assert summary['source_sessions_after_as_of'] == 2
     assert summary['lost_price_rows'] == 0
+
+
+def test_yahoo_collection_blocked_before_any_vendor_request(monkeypatch):
+    import yfinance
+    def forbidden(*args, **kwargs):
+        pytest.fail('Unpermitted Yahoo client must not be called')
+    monkeypatch.setattr(yfinance, 'Ticker', forbidden)
+    with pytest.raises(RuntimeError, match='YAHOO RIGHTS BLOCKED'):
+        download_prices()

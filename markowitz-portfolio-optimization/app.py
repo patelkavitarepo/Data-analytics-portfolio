@@ -41,7 +41,8 @@ st.caption('Protocol 006-v1: train 2016–2022 → validation 2023–2024. Refit
 prices = metadata = None
 as_of = None
 if mode == 'Live Yahoo Finance':
-    if st.button('Load / refresh live data'):
+    st.warning('YAHOO RIGHTS BLOCKED: no express prior collection permission is recorded. Successful past downloads did not establish permission. Use only separately authorized CSV inputs; see DATA_RIGHTS.md.')
+    if st.button('Load / refresh live data', disabled=True):
         live_data.clear()
         try:
             st.session_state['live_dataset'] = live_data(str(completed_session().date()))
@@ -49,14 +50,14 @@ if mode == 'Live Yahoo Finance':
             st.session_state.pop('live_dataset', None)
             st.error(f'LIVE DATA UNAVAILABLE: {exc}')
     if 'live_dataset' in st.session_state:
-        prices, metadata = st.session_state['live_dataset']
+        st.session_state.pop('live_dataset', None)
 else:
     upload = st.file_uploader('CSV: Date (YYYY-MM-DD), SPY, QQQ, IWM, EFA, EEM, TLT, GLD, VNQ', type=['csv'])
     source = st.text_input('CSV source / adjustment method / retrieval date')
     as_of = st.text_input('Historical as_of cutoff (YYYY-MM-DD; explicit archived snapshot date)', value='')
     st.caption('Every session from 2016 through as_of is audited. Cutoff cannot exceed observed prices or the latest complete session. Missing intervals cannot be hidden by moving the cutoff.')
     confirmed = st.checkbox('I confirm these are real historical split/dividend-adjusted prices and I am authorized to analyze them here.')
-    st.caption('Analysis permission does not establish permission to redistribute, publish or bundle these prices. Raw prices are never offered for download.')
+    st.caption('Analysis permission does not establish permission to redistribute, publish or bundle these prices. A checkbox records an assertion and grants no provider rights. Raw prices are never offered for download.')
     if upload and confirmed and source.strip() and as_of.strip():
         try:
             raw = upload.getvalue()
@@ -67,7 +68,7 @@ else:
         except Exception as exc:
             st.error(f'INVALID CSV: {exc}')
 if prices is None:
-    st.warning('NO HISTORICAL DATA LOADED. Load Yahoo prices or upload a validated real adjusted-price CSV. No financial findings are available.')
+    st.warning('NO HISTORICAL DATA LOADED. Yahoo collection is blocked; upload an entitled historical CSV for audit. Performance remains gated by provider-rights and independent review.')
     st.stop()
 
 st.json(metadata, expanded=False)

@@ -7,7 +7,9 @@ from markowitz.verification import verify_source
 
 
 @pytest.fixture
-def reviewed(source_review):
+def reviewed(source_review, monkeypatch):
+    # These tests isolate numerical review consistency, not a real provider grant.
+    monkeypatch.setattr('markowitz.verification.require_approved_source', lambda record, audit: None)
     idx = sessions('2016-01-01', '2024-12-31')
     p = pd.DataFrame(100., index=idx, columns=TICKERS)
     _, _, _, audit = audit_prices(p, as_of='2024-12-31')
@@ -53,4 +55,16 @@ def test_missing_ticker_or_incomplete_audit_cannot_pass(reviewed):
         verify_source(p, audit, missing)
     audit['lost_price_rows'] = 1
     with pytest.raises(ValueError, match='complete session'):
+        verify_source(p, audit, record)
+
+
+def test_supplied_json_and_user_checkbox_cannot_approve_a_source(source_review):
+    idx = sessions('2016-01-01', '2024-12-31')
+    p = pd.DataFrame(100., index=idx, columns=TICKERS)
+    _, _, _, audit = audit_prices(p, as_of='2024-12-31')
+    record = source_review(p, audit)
+    with pytest.raises(ValueError, match='SOURCE EVIDENCE BLOCKED'):
+        verify_source(p, audit, record)
+    record['source_url'] = 'https://finance.yahoo.com/'
+    with pytest.raises(ValueError, match='Yahoo-based performance is blocked'):
         verify_source(p, audit, record)

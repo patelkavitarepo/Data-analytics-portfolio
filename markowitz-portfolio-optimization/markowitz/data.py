@@ -42,7 +42,13 @@ def read_csv(raw):
     return frame.apply(pd.to_numeric, errors='raise')
 
 
+def require_yahoo_collection_permission():
+    """No provider express permission is recorded; HTTP access is not a grant."""
+    raise RuntimeError('YAHOO RIGHTS BLOCKED: automated collection requires express prior provider permission; none is recorded. Use a separately authorized source. See DATA_RIGHTS.md.')
+
+
 def download_prices(tickers=TICKERS, now=None):
+    require_yahoo_collection_permission()  # Before importing/calling the vendor client.
     import yfinance as yf
     yf.set_tz_cache_location(str(Path(__file__).resolve().parents[1] / 'work' / 'vendor-cache'))
     cutoff = completed_session(now)
