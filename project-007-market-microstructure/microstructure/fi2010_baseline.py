@@ -25,6 +25,7 @@ LABEL_START_ROW = 144
 TRAIN_FILENAME = "Train_Dst_NoAuction_DecPre_CF_7.txt"
 DAY8_FILENAME = "Test_Dst_NoAuction_DecPre_CF_7.txt"
 CLASSES = (1, 2, 3)  # publisher paper: 1=up, 2=stationary, 3=down
+CLASS_NAMES = {"1": "up", "2": "stationary", "3": "down"}
 
 
 def _digest(path):
@@ -147,6 +148,7 @@ def evaluate_majority_baseline(train, day8, horizon=5):
         "status": "local_fi2010_day8_majority_baseline_not_holdout",
         "dataset_family": "FI-2010 / NoAuction / DecPre / official CF7 fold",
         "dataset_presentation": "149-by-N source-preprocessed matrix; labels supplied by benchmark",
+        "publisher_class_mapping": dict(CLASS_NAMES),
         "horizon_sampled_observations": horizon,
         "train_period": "benchmark days 1-7 (Train_CF_7)",
         "evaluation_period": "benchmark day 8 (Test_CF_7)",
