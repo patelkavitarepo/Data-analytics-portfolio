@@ -3,6 +3,7 @@ import argparse
 import json
 from pathlib import Path
 from .audit import AuditError, audit_pairs
+from .paths import safe_report_output
 
 
 def main():
@@ -16,11 +17,12 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:
+        output = safe_report_output(args.output)
         result = audit_pairs(args.messages, args.orderbook, args.levels, None if args.full_file else args.max_events)
-    except (AuditError, OSError) as exc:
+    except (AuditError, OSError, ValueError) as exc:
         parser.error(str(exc))
-    args.output.parent.mkdir(parents=True, exist_ok=True)
-    args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+    output.parent.mkdir(parents=True, exist_ok=True)
+    output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print("Audit complete; locally stored metadata only. Not a trading result.")
 
 
