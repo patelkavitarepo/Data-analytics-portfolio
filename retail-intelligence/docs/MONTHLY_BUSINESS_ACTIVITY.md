@@ -2,7 +2,7 @@
 
 **Project:** 003 Retail Intelligence  
 **Source evidence date:** November 10, 2026 (US Eastern); GitHub Actions source audit 2026-11-11 UTC  
-**Status:** **Results below directly calculated from original-source-reconciled Case 018 SQL aggregates.** A separate Case 019 implementation and five synthetic tests are committed; **Case 019's full workflow recheck is pending**. This is descriptive **S2 gross positive-priced merchandise-like line activity**, *not* accounting revenue or verified customer demand.
+**Status:** **Case 019 original-workbook verification completed successfully.** [GitHub Actions run 42944895542](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42944895542) passed **105 synthetic tests**, source audit and the independent comparable-month reconciliation (`all_25_months_reconcile_to_case_018_s2_amount_within_5p = true`). Results below were independently reproduced from original-source-reconciled Case 018 SQL aggregates. This is descriptive **S2 gross positive-priced merchandise-like line activity**, *not* accounting revenue or verified customer demand.
 
 ## Evidence trail and definitions
 
