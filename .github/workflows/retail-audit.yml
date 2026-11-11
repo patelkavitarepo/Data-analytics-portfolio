@@ -74,6 +74,8 @@ jobs:
         run: python scripts/analyze_invoice_concentration.py
       - name: Decompose Jan-Nov SKU quantity and effective unit-value changes
         run: python scripts/analyze_sku_composition.py
+      - name: Verify published static dashboard against source-reconciled aggregates
+        run: python scripts/verify_dashboard_preview.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
