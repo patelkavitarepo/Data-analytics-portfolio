@@ -1,15 +1,45 @@
 # Research and verification record · 2026-11-11
 
-## Current evidence status
+## Current evidence status — rights checkpoint supersedes acquisition-only readiness
 
-**Real ETF acquisition now works on GitHub-hosted Actions. Validation performance
-has NOT been computed. Holdout performance has NOT been computed or revealed.**
+**Validation remains blocked. No real holdout performance has been computed or
+revealed. Yahoo collection is now disabled**, including the GitHub acquisition
+job, chart endpoint probes and guarded app/CLI downloader. Successful historical
+acquisition did not establish rights. No provider has passed the current
+source-policy checkpoint; uploaded assertions or JSON cannot enable performance.
 
-This supersedes the initial record that all acquisition attempts were blocked:
-Codex's proxy remains restrictive, but it does not describe GitHub runner access.
-No model choices, frozen calendar boundaries, default cap or objectives changed.
+See [DATA_RIGHTS.md](DATA_RIGHTS.md) for a provider-by-provider decision table and
+primary terms, and [ADJUSTMENT_REVIEW.md](ADJUSTMENT_REVIEW.md) for predeclared
+normal/action windows, sources, tolerances, equivalent-basis checks and blockers.
+No account created, subscription purchased, licensing correspondence sent, merge
+or deployment performed. No model/default/period changes.
 
-Latest examined source audit:
+### Documentation actually retrieved through GitHub
+
+[Run 43076180555](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43076180555),
+job `Provider documentation receipts (no market data)` (130716470107),
+2026-11-11T18:16:30.330706+00:00: Yahoo terms, yfinance notice, Tiingo terms,
+EODHD terms/personal-use FAQ, Sharadar terms and Alpha Vantage documentation all
+returned HTTP 200. Receipts record byte hashes and predeclared phrase detections;
+these are not automatic licence decisions and contain no raw market observations.
+The sanitized receipt is retained in [rights-receipts-2026-11-11.json](rights-receipts-2026-11-11.json).
+The Yahoo acquisition job was **skipped**. No market data or performance was
+collected/computed by this run's investigation jobs.
+
+Yahoo's permission/automation clauses and yfinance's personal-use notice were
+found. The Tiingo cross-dataset-validation restriction was found. EODHD's private
+analysis and publication distinction is documented, but user eligibility, full
+history entitlement, independent closing-price equivalence and public-project
+scope are unestablished. Alpha Vantage and Sharadar are documented API candidates,
+not approved project sources. There is **no approved primary/reference pair**.
+
+### Historical coverage evidence (not permission)
+
+The earlier GitHub-hosted audit established acquisition and coverage only. It is
+retained below as a historical observation, not authority for new collection or
+evaluation. It does not imply independent adjustment verification or data rights.
+
+Documented historical source audit:
 [Project 006 Actions run 43074147831](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43074147831),
 job `Ephemeral eight-ETF acquisition audit (no performance)` (130709468061),
 branch commit `e7a5e129504d6f938f0cf63dd2f103c3bbb3a5e4`.
@@ -78,7 +108,7 @@ No global access-failure claim is made.
 - At least 60 audited holdout sessions are required before UI reveal is enabled
   or the analytical engine may evaluate it. Only synthetic tests exercise reveal;
   no real holdout performance has been examined in this work.
-- Dedicated read-only GitHub workflow restores an independent acquisition path;
+- Dedicated read-only GitHub workflow now performs documentation-only research;
   existing Project 002 workflow is unchanged. No workflow computes performance.
 
 The application can verify consistency of a human review and numeric reference
@@ -87,8 +117,10 @@ access and a green acquisition audit do not themselves establish use rights.
 
 ## Verification actually performed
 
-- **74 Project 006 pytest tests passed locally**, Python 3.12. All fixtures are
-  synthetic. Original calculation, covariance/objective, solver, constraints,
+- **80 Project 006 pytest tests passed locally**, Python 3.12. All fixtures are
+  synthetic. Additional tests cover disabled collection, cache removal, no JSON-based
+  rights grant, bounded/sanitized documentation receipts and documentation-only
+  probe URLs. Original calculation, covariance/objective, solver, constraints,
   leakage, common-date benchmark, drift, cost, metrics and dashboard tests pass.
 - Added cutoff completeness/bounds, archived-source disclosure, gap concealment,
   CLI manifests/no unverified performance, source-review identity/adjustment/
@@ -98,19 +130,20 @@ access and a green acquisition audit do not themselves establish use rights.
   layout smoke checks pass; no JavaScript page errors, no page-level horizontal
   overflow. Full analytical UI paths are tested with synthetic AppTest fixtures.
 - GitHub runner run 43074147831 passed Project 006 tests at the preceding
-  72-test code state, endpoint probes and the real eight-ETF audit. The final
-  commit also runs the expanded suite through the same workflow.
+  72-test code state, endpoint probes and the real eight-ETF audit. Later rights
+  enforcement/documentation-only jobs supersede readiness; see current status above.
 - Existing Project 002 workflow passed on the preceding pushed revision;
   unrelated project files were not modified.
 
 ## Can real-data validation run now?
 
-**Not yet under the review's evidence requirements.** The infrastructure/data
-availability blocker is resolved on GitHub, and the full source coverage audit
-passes. Remaining gates are:
+**Not yet under the review's evidence requirements.** Historical technical acquisition succeeded on GitHub, but collection and
+performance are now disabled pending actual provider permission and the expanded
+independent review. The previous coverage audit is not a licence. Remaining gates are:
 
-1. Obtain independently documented spot checks for all eight ETFs on the same
-   split/dividend adjustment basis. Nasdaq's tested page returned 403; no
+1. Complete the predeclared normal/ex-dividend/split-history checks for all eight
+   ETFs on equivalent market-price adjustment bases; old single-point checks are
+   not sufficient. Nasdaq's tested page returned 403; no
    independent observations have yet been obtained or fabricated.
 2. Establish and record permission for the intended analysis under the source
    terms. HTTP 200 on a terms page and yfinance's accessibility establish no

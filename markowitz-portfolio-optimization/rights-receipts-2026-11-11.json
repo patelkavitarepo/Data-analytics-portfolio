@@ -1,0 +1,97 @@
+{
+  "environment": "GitHub-hosted Actions",
+  "checked_utc": "2026-11-11T18:16:30.330706+00:00",
+  "market_data_collected": false,
+  "validation_computed": false,
+  "holdout_computed": false,
+  "receipts": [
+    {
+      "document": "yahoo_terms",
+      "url": "https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html",
+      "http_status": 200,
+      "sha256": "268da8486fc5ac8919487c759188e60055386f7dd6aae0d0c667d06bb45439fe",
+      "phrase_detections": {
+        "prior_permission": true,
+        "automated_means": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    },
+    {
+      "document": "yfinance_notice",
+      "url": "https://ranaroussi.github.io/yfinance/",
+      "http_status": 200,
+      "sha256": "7fd290a8dc757f01c04eff8e6bfb11c87b5d63a6ebe9f1f19a54a1615ebf771f",
+      "phrase_detections": {
+        "personal_use_only": true,
+        "refer_to_yahoo_terms": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    },
+    {
+      "document": "tiingo_terms",
+      "url": "https://www.tiingo.com/tos/",
+      "http_status": 200,
+      "sha256": "fe4781210d7f81af428b77c0dad8672cf0356df4f3e9d642d7edf20eadd180dc",
+      "phrase_detections": {
+        "derived_products": true,
+        "starter_plan": true,
+        "dataset_validation_restriction": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    },
+    {
+      "document": "eodhd_terms",
+      "url": "https://eodhd.com/financial-apis/terms-conditions",
+      "http_status": 200,
+      "sha256": "51d5b3972d657f22fbf3c9afff4e72393dcde4a5e33d5feda45c32511879af47",
+      "phrase_detections": {
+        "private_noncommercial": true,
+        "redistribution_restriction": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    },
+    {
+      "document": "eodhd_personal_use",
+      "url": "https://eodhd.com/help/personal-use",
+      "http_status": 200,
+      "sha256": "24e2d8d4cb008ff38ed9da74fd8f574f8bfc824e441364bb36bdec17b8fb243f",
+      "phrase_detections": {
+        "publication_question": true,
+        "quality_checks": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    },
+    {
+      "document": "sharadar_terms",
+      "url": "https://sharadar.com/terms",
+      "http_status": 200,
+      "sha256": "c15d96df1ae9e3b2c7d55610873d9ccd2859ae2915755228769900e64a696a98",
+      "phrase_detections": {
+        "personal_use_license": true,
+        "prior_approval": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    },
+    {
+      "document": "alpha_vantage_docs",
+      "url": "https://www.alphavantage.co/documentation/",
+      "http_status": 200,
+      "sha256": "991e107e5c994a561072fa9cfb22cd28a20b5601e59dc0d2918bf59ace33c796",
+      "phrase_detections": {
+        "daily_adjusted": true,
+        "premium": true
+      },
+      "permission_granted": false,
+      "note": "Receipt only; no automated legal conclusion."
+    }
+  ],
+  "workflow_run_id": 43076180555,
+  "job_id": 130716470107,
+  "commit_sha": "b1048a9c5969c4ea2a9ec167a5627023f7916d8c"
+}

@@ -1,11 +1,16 @@
 # Project 006 · The Efficient Frontier
 
 Can capped Markowitz portfolios improve out-of-sample risk-adjusted performance
-versus equal weights? This MVP implements the experiment; **no empirical answer
-has been established**. Codex market-data access remains proxy-blocked, but
-the GitHub-hosted probe reached both Yahoo chart hosts (HTTP 200). Endpoint
-access does not establish source quality or rights. No vendor prices or
-synthetic performance results are bundled. Educational research only, not investment advice.
+versus equal weights? **No empirical conclusion has been established.**
+
+**Current checkpoint: all real performance evaluation is blocked.** Latest Holmes
+review requires provider rights and multi-date independent adjustment checks.
+[DATA_RIGHTS.md](DATA_RIGHTS.md) separates automation, private analysis, public
+derived output and redistribution. [ADJUSTMENT_REVIEW.md](ADJUSTMENT_REVIEW.md)
+predeclares the verification plan; no source has completed it. Yahoo acquisition
+and its GitHub job are disabled. A checkbox or JSON cannot enable the source-policy
+gate. No raw data, real validation results or holdout results are bundled.
+Educational research only, not investment advice.
 
 ## Reproduce (Python 3.12)
 
@@ -25,20 +30,16 @@ all versions installed for verification (including Playwright for browser smoke
 checks). All tests use deterministic **synthetic fixtures**, never research
 results. No network is needed for pytest. On Windows, use `.venv/Scripts/`.
 
-In the dashboard, click **Load / refresh live data**. Yahoo adjusted daily Close
-prices are retrieved separately for SPY, QQQ, IWM, EFA, EEM, TLT, GLD and VNQ from
-2016-01-01. The conservative cutoff is the last XNYS session **before the current
-New York calendar date**, even after today's close; it can lag the latest close
-by one session. It deliberately avoids intraday and same-day vendor uncertainty.
-The actual last observed date, retrieval UTC timestamp, versions, adjustments
-and checksums are disclosed. Cache TTL is six hours; refresh forces acquisition.
-Vendor timezone/cookie caches stay in ignored `work/vendor-cache/`.
+The live Yahoo control is visibly disabled: no express collection permission is
+recorded. The legacy yfinance acquisition implementation remains unit-tested with
+synthetic vendor responses, but `download_prices` rejects before a vendor call.
+Old live session caches are discarded, and new price probes/acquisitions do not
+run in Actions. The earlier all-eight coverage audit is historical evidence only.
 
-Network access may require `query1.finance.yahoo.com`,
-`query2.finance.yahoo.com`, `fc.yahoo.com` and, depending on Yahoo's cookie
-flow, `guce.yahoo.com` / `consent.yahoo.com`. Rate limits or any failed asset
-stop acquisition with a conspicuous warning after one bounded retry. No asset
-is silently dropped and no synthetic fallback is offered.
+For an entitled source, CSV audit supports SPY, QQQ, IWM, EFA, EEM, TLT, GLD and
+VNQ. The conservative live cutoff rule remains the last XNYS session before the
+current New York date. Explicit historical `as_of` supports archived snapshots;
+coverage and provenance are independent of permission to compute performance.
 
 ### Offline CSV fallback
 
@@ -69,7 +70,13 @@ shortening to the vendor's last date.
 
 ### Independent source review before performance
 
-Acquisition and audit alone do not authorize performance analysis. Both CLI and
+Acquisition and audit alone do not authorize performance analysis.
+**The current `source_policy.py` blocks every unapproved source.** No source has
+passed the latest rights and action-date evidence checkpoint, so this template
+cannot currently enable real performance. Full investigation and actual completed
+[adjustment review](ADJUSTMENT_REVIEW.md) must precede a reviewed policy change.
+The older one-price-per-ETF checker below tests consistency only and is not the
+complete latest review requirement. Both CLI and
 UI require a review JSON tied to the audited `as_of` and canonical snapshot
 SHA-256. Download the **unverified** template after auditing (CLI also writes
 `source_review_template.json`). Complete it only after actually checking:
@@ -163,26 +170,20 @@ for optimization and realized Sharpe. Sensitivity to this assumption matters.
 
 ## GitHub-based access verification
 
-`.github/workflows/markowitz-research.yml` runs on this PR, independently of the
-Codex proxy, alongside the existing Project 002 workflow (which is unchanged).
-It uses GitHub-hosted Ubuntu, Python 3.12 and read-only repository permissions;
-checkout credentials are removed before public probes. Jobs:
+`.github/workflows/markowitz-research.yml` uses GitHub-hosted Ubuntu/Python 3.12
+with read-only repository permissions; the existing Project 002 workflow is
+unchanged. Current jobs run all synthetic tests, status-only **documentation**
+connectivity, and `scripts/rights_receipts.py` public-document receipts (bounded
+requests; status/hash/predeclared phrase detections only). No receipt automatically
+decides legal permission or logs full documents, prices or credentials.
 
-1. `scripts/network_probe.py`: fixed public endpoints, 15-second timeout each,
-   no redirects, no body/header logging, endpoint/status or safe exception type
-   only. 404/403/timeout results are reported without claiming successful data.
-2. All Project 006 synthetic pytest tests with pinned installed versions.
-3. `scripts/source_audit.py`: ephemeral all-eight Yahoo acquisition, provenance,
-   adjustment setting, session coverage and checksum **only**. No raw prices,
-   reference observations or performance are logged, uploaded or committed.
-   It never imports the research evaluation module. Acquisition/quality failures
-   are reported with stage and safe error type and fail the job.
-
-A green connectivity job means its diagnostic completed, not that every host
-returned 200. A successful source audit is still not independent reference
-verification or confirmation of analysis/redistribution permissions. No GitHub
-job computes validation or holdout performance. See the research record for
-actual run IDs and results. An HTTP 200 terms page is not a license approval.
+The prior `source-audit` job is explicitly **skipped** pending express provider
+permission. Yahoo financial/chart endpoints are no longer probed. The legacy
+audit script also cannot collect Yahoo prices through the guarded downloader.
+A source must satisfy both rights and independent verification before any
+acquisition/performance path is enabled. No current job computes performance.
+See the research record for historical coverage and the rights investigation
+for current decisions. HTTP access and document phrase detection are not grants.
 
 ## Evidence and limits
 
@@ -211,5 +212,5 @@ has been established. CSV users must check their source's terms too.
 After owner approval, Streamlit Community Cloud can use this repository, branch
 `project-006-markowitz-portfolio-optimization`, entrypoint
 `markowitz-portfolio-optimization/app.py`, Python 3.12, and the colocated
-`requirements.txt`. Verify host egress, vendor terms and live retrieval first.
+`requirements.txt`. Resolve provider automation/analysis/publication rights and the independent review first; no source is currently approved.
 Do not bundle a market-data copy. No deployment or merge is authorized yet.
