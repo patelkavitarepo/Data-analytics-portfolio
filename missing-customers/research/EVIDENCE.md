@@ -85,6 +85,30 @@ Method: parse `events.csv` from the user-supplied archive; remove exact event du
 
 **Human interpretation:** The investigator has proposed H001; they have **not** asserted it to be true or approved any causal explanation.
 
+
+### H001 temporal follow-up — full supplied event archive (2026-11-11)
+
+A targeted product-level audit (exact-event deduplication; UTC monthly buckets) on the same uploaded source identified a sharp discontinuity in attention for item **187946**.
+
+| Month (UTC, 2015) | Item 187946 views | Item 461686 views |
+|---|---:|---:|
+| May | 7 | 289 |
+| June | 9 | 345 |
+| July | 29 | 637 |
+| August | 2,649 | 757 |
+| September (partial) | 716 | 510 |
+
+| Item | Unique viewing visitor IDs | Total cart events | Transaction events | Visitor IDs with strictly later same-item cart after a view | Visitor IDs with same-item view→cart→transaction |
+|---|---:|---:|---:|---:|---:|
+| 187946 | 2,911 | 2 | 0 | 0 | 0 |
+| 461686 | 1,379 | 304 | 133 | 252 | 116 |
+
+Item 187946 had 45 view events across May–July and 2,649 in August (out of its 3,410 total). This spike is **observed**, not an established promotion, recommendation exposure, availability issue, pricing mismatch, or bot pattern. Item 461686 recorded cart and transaction events throughout the observation period. The observed two cart events for 187946 have no earlier **same-item view for that visitor** within the source; date censoring, attribution gaps, or ordering may explain this, but are not verified.
+
+**Next evidence requested:** Both original publisher files `item_properties_part1.csv` and `item_properties_part2.csv`. They carry time-varying `available` and `categoryid` values and other deliberately hashed properties. Join their most recent **as-of** values to each event; do not treat a later change as a prior attribute. Existing `category_tree.csv` alone cannot join items to categories. Google/Kaggle publisher documentation confirms the availability indicator uses 1 = available, other values = unavailable, but it does not establish whether the web UI actually allowed cart entry on each event date. Hashed property IDs do not reliably identify product names, brands, or actual prices.
+
+**Human researcher stance:** requested more item context before attributing poor cart progression to popularity. No causal interpretation approved.
+
 ## Implementation execution — 2026-11-11 UTC
 
 Synthetic fixtures used in automated tests only. They are not empirical evidence and do not appear as startup findings. Final validation completed in this managed Linux environment:
