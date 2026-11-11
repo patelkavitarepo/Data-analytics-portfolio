@@ -98,6 +98,20 @@ class QuantArenaPilotTests(unittest.TestCase):
         with self.assertRaisesRegex(PilotError, "flags"):
             convert_quote_rows([x], "000012.SZ", ["2022-01-04"])
 
+    def test_entire_source_chronology_checked_even_after_selected_days(self):
+        raw = [row("2022-01-04", 0, 100),
+               row("2022-01-05", 0, 101),
+               row("2022-01-06", 20, 102),
+               row("2022-01-06", 10, 102)]
+        with self.assertRaisesRegex(PilotError, "repeated or reversed"):
+            convert_quote_rows(raw, "000012.SZ", ["2022-01-04", "2022-01-05"])
+
+    def test_boolean_quality_flags_reject_numeric_aliases(self):
+        r = row("2022-01-04", 0, 100)
+        r["stale"] = 0
+        with self.assertRaisesRegex(PilotError, "flags"):
+            convert_quote_rows([r], "000012.SZ", ["2022-01-04"])
+
     def test_selected_dates_do_not_hide_source_rows(self):
         data = [row("2022-01-04", 0, 100),
                 row("2022-01-05", 0, 101),
