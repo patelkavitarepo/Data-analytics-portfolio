@@ -46,8 +46,8 @@ The proposed dashboard should answer this with **recorded invoice activity**, no
 1. Source-reconciled SQL **Case 018**: complete, 100 tests passed.
 2. Matched-month activity **Case 019**: complete, 105 tests passed.
 3. Invoice concentration **Case 020**: complete, 110 tests passed.
-4. SKU composition **Case 021**: implemented, original-workbook verification pending.
-5. Build Power BI dashboards using **aggregate-only, vetted outputs**, verify displayed totals against the GitHub Actions artifact, then draft a one-page case study with business interpretation and limitations.
-6. Keep draft PR #3 unmerged until the project-level code review, documentation and responsible source attribution have passed.
+4. SKU composition **Case 021**: source verified, 115 tests passed.
+5. Static HTML preview and [portfolio case study](PORTFOLIO_CASE_STUDY.md) prepared using **aggregate-only** findings, with CI verification that the dashboard matches Cases 019–021. Importable CSV tables are available separately. A true Power BI report still requires native authoring in Power BI Desktop.
+6. Keep draft PR #3 unmerged until all source audit checks and project-level code review, documentation and responsible attribution have passed.
 
 **No source data, cleaning policy or accounting rule is changed by this design.**
