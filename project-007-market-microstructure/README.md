@@ -44,6 +44,12 @@ From this project directory, after generating an approved local diagnostics JSON
 
 The audit and diagnostic CLIs require JSON outputs inside the project's ignored `artifacts/` directory. No vendor downloads happen in CI.
 
+## Phase 1C: synthetic-only forward-label prototype
+
+The `microstructure.chronology` module adds **in-memory only** prototype labels and embargoed session partitioning, without reading actual provider files. It uses strictly later timestamps and elapsed-time horizons, never crosses trading sessions, and refuses labels that would cross halts or invalid snapshots. Up, down, and unchanged midpoint outcomes are distinct, and missing targets retain their exclusion reasons. Synthetic seeded differential tests independently enumerate future targets and check for future-feature leakage.
+
+**These are candidate rules, not approved real-data labels or a trained strategy.** No project has been promoted from discovery to predictive modeling. Horizon and multi-day train/validation/holdout settings must be signed off after suitable authorized real data and human interpretation.
+
 ## Next checkpoints
 
 1. Confirm applicable source and use rights for research, aggregate publication and GitHub. Do not bypass this gate just because the code can read local files.
