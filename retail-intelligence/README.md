@@ -92,6 +92,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 019 — Monthly business activity:** [source-backed Jan–Nov comparisons](docs/MONTHLY_BUSINESS_ACTIVITY.md). Independent verified SQL output shows **£8.639M in 2010 versus £8.890M in 2011 (+2.90%) in provisional S2 gross positive-priced line amounts**, with qualifying S2 lines up 4.03% but sum of monthly distinct invoice-ID counts down 3.93%; known-customer-ID coverage drops by 4.92 percentage points. These are **not revenue, verified orders or customer demand**. A separate like-for-like monthly analysis script and five synthetic tests were added; Case 019 pipeline confirmation is pending.
 
+**Investigation 020 — Invoice concentration (source verification pending):** [outlier and top-1% gross line amount sensitivity](docs/INVOICE_CONCENTRATION_ANALYSIS.md). Builds month-and-invoice-ID aggregate groups from the local candidate source view and compares how much of illustrative S2 gross activity comes from the largest 1% of qualifying invoice-ID-month groups, including Jan–Nov 2010/2011 sensitivity. Validates against the already-verified Case 018 SQL source counts, line amounts and monthly invoice-ID counts. Five synthetic tests included. No source data, accounting policy, or raw rows published.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
