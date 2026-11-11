@@ -6,7 +6,7 @@ Do limit-order-book imbalance features help anticipate subsequent mid-price move
 
 ## Phase 0: engineering evidence (implemented)
 
-Use original paired CSV rows in file order. Do not sort events, correct invalid quotes, deduplicate identical timestamps, or interpolate missing events. Verify row pairing, schema, nondecreasing time, levels and fixed-point units. Report anomalous/locked quotes rather than erasing them. One event maps to its post-event snapshot. Audit only; no strategy or profit metrics.
+Use original paired CSV rows in file order. Do not sort events, correct invalid quotes, deduplicate identical timestamps, or interpolate missing events. Verify row pairing, schema, nondecreasing time, levels and fixed-point units. Trading-halt messages must duplicate the preceding supplied book; suspend normal quote summaries until a trade-resumption marker. Report anomalous/locked quotes rather than erasing them. One event maps to its post-event snapshot. Audit only; no strategy or profit metrics.
 
 ## Phase 1: empirical discovery (blocked pending appropriate data permissions)
 
