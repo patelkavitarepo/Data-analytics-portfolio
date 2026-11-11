@@ -105,11 +105,12 @@
 
 ## R017 — Does an equal multi-unit £0+paid pattern recur for the same SKU in a short period?
 
-**Status:** Case 017 analysis implemented; original-workbook GitHub Actions verification pending.
+**Status:** Case 017 original workbook audit complete; promotions and corrections remain unverified.
 
-- Case 016 found no repeated *strict one-unit+one-unit* pattern by SKU, but multi-unit BOGO-like forms remain an open hypothesis.
-- [Case 017 method](MULTIUNIT_WEEKLY_CONTEXT.md) distinguishes equal summed multi-unit quantities (e.g. 8 + 8) from strict 1 + 1, and counts repeat SKU patterns and **same-week** paid-only invoice-SKU groups.
-- Do not interpret equal quantities or increased same-week pairing frequency as confirmed promotions; compare denominators and watch selection bias. No source row, candidate-view policy, or KPI change.
+- [Case 017 verified results](MULTIUNIT_WEEKLY_CONTEXT.md): **43** invoice+SKU groups across **33** invoice IDs; **10** have equal total positive priced versus £0 quantities, including **five** multi-unit groups and **five** strict 1+1 groups. No SKU exhibits multi-unit equality on two separate invoices.
+- A high same-week pairing fraction can arise from tiny denominators: e.g., SKU `22043` appeared 1 of 1 paid invoice+SKU group that week, *not* an established campaign rate. Recurring `84016` and `20724` never show equal quantities.
+- Original [workflow passed 95 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42940297437). This narrows the BOGO hypothesis without proving it impossible, and does not validate a correction cause.
+- Pricing follow-up remains optional; prioritize Case 018 SQL reconciliation and business analysis. Preserve source records, reversible provenance and provisional financial scenarios.
 
 ## R018 — Can SQL reproduce all candidate classifications and provisional gross amounts independently?
 
