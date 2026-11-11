@@ -70,6 +70,14 @@ Following the human research lead's D002 decision to investigate the dataset's c
 
 Read the complete [construction investigation](research/CONSTRUCTION_AUDIT.md), [human decision log](research/DECISIONS.md) and [source-verified baseline](research/EMPIRICAL_DAY8.md).
 
+## D003: original stock/day midpoint source investigation
+
+The human lead requested a source-authentic set of **per-stock, per-day best bid/ask quotes** to investigate FI-2010 label construction. The original exchange prices are not present in the published normalized files; a separate source license and permission may be needed.
+
+An acquisition review identifies: (1) FI-2010 authors/Fairdata, (2) Aalto's Nasdaq Nordic ITCH archive (available to Aalto users; external use requires approval), and (3) Nasdaq Nordic HistoricalView (historic files via sales). The previous `simaki/fi2010` CSV with claimed stock/day columns has been deleted by its author and was not provenance authenticated. An unrelated CC BY-NC 4.0 stock-and-day book-quote dataset is only an **alternative experiment**, not a way to confirm FI-2010 label provenance.
+
+**No true original Helsinki 2010 stock/day quote sequences have been obtained; no fee or access request was submitted.** See [source acquisition investigation](research/ORIGINAL_MIDPRICE_SOURCES.md) for contacts, links, rights and rigorous future acceptance gates. A metadata-only Fairdata probe is committed but results remain pending and are not treated as evidence of an available raw-data file.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
