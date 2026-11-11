@@ -121,6 +121,15 @@
 - Monthly S2 gross positive-priced line activity, units, qualifying invoice identifiers, missing customer coverage, cancellation codes, and zero-price entries remain **exploratory only**. No refunds, revenue or BOGO labels are inferred.
 - Next: verify on original source, then analyze month/country completeness and invoice concentration, not endless source anomalies.
 
+## R019 — Does recorded merchandise-like activity increase between comparable 2010 and 2011 months?
+
+**Status:** Case 018's original-source SQL cohort/scenario reconciliation passed **100 tests**. [Case 019 verified monthly aggregate interpretation](MONTHLY_BUSINESS_ACTIVITY.md) computes descriptive Jan–Nov comparisons; separate Case 019 pipeline verification pending.
+
+- From source-verified SQLite 25-month aggregate: **Jan–Nov S2 gross positive-priced line amount £8,639,086.69 in 2010 vs £8,889,734.02 in 2011 (+2.90%)**, not recognized revenue.
+- Qualifying lines **443,587 → 461,446**; sum of monthly distinct invoice IDs **18,122 → 17,410**; customer-ID coverage **81.43% → 76.51%**. Invoices and line IDs are not completed orders or unique customers.
+- November shows the highest S2 amount in each of 2010 and 2011, but seasonal causation, discounting, shipping/wholesale, product mix and changes in coverage remain untested.
+- Next business step: analyze concentration in high-value invoice IDs, month/year source completeness and scenario sensitivity before presenting any growth or dashboard conclusion.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
