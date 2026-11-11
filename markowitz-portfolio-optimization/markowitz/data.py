@@ -79,7 +79,7 @@ def download_prices(tickers=TICKERS, now=None):
     return prices, metadata
 
 
-def audit_prices(prices, required=TICKERS, end=None):
+def audit_prices(prices, required=TICKERS, as_of=None, *, now=None):
     """Return clean common prices, daily returns, and a downloadable audit.
 
     Missing sessions are never bridged as daily returns. Each retained return
@@ -99,7 +99,27 @@ def audit_prices(prices, required=TICKERS, end=None):
     p = prices.loc[:, list(required)].sort_index().astype(float)
     if np.isinf(p.to_numpy()).any() or (p <= 0).any().any():
         raise ValueError('Prices must be finite and strictly positive (missing values audited separately)')
-    cutoff = pd.Timestamp(end) if end is not None else completed_session()
+    latest_complete = completed_session(now)
+    eligible = p.loc[START:latest_complete]
+    observed = eligible.index[eligible.notna().any(axis=1)]
+    if observed.empty:
+        raise ValueError('No observed prices on or before the last complete session')
+    last_observed = observed.max()
+    explicit = as_of is not None
+    cutoff = pd.Timestamp(as_of) if explicit else latest_complete
+    if (isinstance(as_of, str) and as_of != str(cutoff.date())) or pd.isna(cutoff) or cutoff.tzinfo is not None or cutoff != cutoff.normalize():
+        raise ValueError('as_of must be a timezone-naive YYYY-MM-DD session date')
+    if cutoff < pd.Timestamp(START) or cutoff > latest_complete:
+        raise ValueError('as_of must be within the research interval and no later than the last complete session')
+    if cutoff not in sessions(cutoff, cutoff):
+        raise ValueError('as_of must be an XNYS trading session')
+    if explicit and cutoff > last_observed:
+        raise ValueError('as_of cannot exceed the snapshot last observed date')
+    # A user cannot move the cutoff just before a suspicious gap in a longer
+    # supplied snapshot. Check the excluded tail without calculating its returns.
+    tail = eligible.reindex(sessions(cutoff, last_observed)) if cutoff < last_observed else None
+    if tail is not None and tail.isna().any(axis=None):
+        raise ValueError('as_of would conceal missing sessions in the supplied snapshot tail; resolve source gaps first')
     ignored = int(((p.index < pd.Timestamp(START)) | (p.index > cutoff)).sum())
     p = p.loc[START:cutoff]
     if p.empty:
@@ -122,7 +142,13 @@ def audit_prices(prices, required=TICKERS, end=None):
             'missing_sessions': int(absent.sum()), 'longest_missing_run': longest,
             'first_date': str(s.first_valid_index().date()) if s.notna().any() else None,
             'last_date': str(s.last_valid_index().date()) if s.notna().any() else None})
-    summary = {'expected_sessions': len(expected), 'common_prices': int(valid.sum()),
+    summary = {'as_of': str(cutoff.date()), 'as_of_explicit': explicit,
+        'latest_complete_session': str(latest_complete.date()),
+        'snapshot_last_observed': str(last_observed.date()),
+        'source_is_stale': bool(last_observed < latest_complete),
+        'historical_as_of': bool(cutoff < latest_complete),
+        'source_sessions_after_as_of': int((eligible.index > cutoff).sum()),
+        'expected_sessions': len(expected), 'common_prices': int(valid.sum()),
         'lost_price_rows': int((~valid).sum()), 'valid_daily_returns': len(daily),
         'excluded_return_intervals': len(expected) - 1 - len(daily),
         'ignored_outside_interval': ignored, 'duplicate_rows': 0, 'nonpositive_prices': 0,

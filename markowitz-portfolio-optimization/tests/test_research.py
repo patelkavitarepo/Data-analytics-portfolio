@@ -96,3 +96,18 @@ def test_insufficient_data_bad_dates_and_missing_values(historical_returns):
 def test_evaluation_rejects_skipped_market_intervals(historical_returns):
     with pytest.raises(ValueError, match='Missing or non-session'):
         evaluate(historical_returns.drop(historical_returns.index[100]), list(historical_returns.columns))
+
+
+def test_insufficient_holdout_never_runs_optimization(historical_returns, monkeypatch):
+    truncated = pd.concat([historical_returns.loc[:'2024'], historical_returns.loc['2025':].iloc[:59]])
+    def forbidden(*args, **kwargs):
+        pytest.fail('Optimization must not run before holdout length check')
+    monkeypatch.setattr('markowitz.research.optimize', forbidden)
+    with pytest.raises(ValueError, match='>=60'):
+        evaluate(truncated, list(truncated.columns))
+
+
+def test_exactly_sixty_holdout_sessions(historical_returns):
+    truncated = pd.concat([historical_returns.loc[:'2024'], historical_returns.loc['2025':].iloc[:60]])
+    result = evaluate(truncated, list(truncated.columns))
+    assert len(result['holdout']['returns']) == 60

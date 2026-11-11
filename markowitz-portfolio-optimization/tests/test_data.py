@@ -64,7 +64,7 @@ def test_unexpected_sessions_and_timestamp():
 
 def test_stale_and_long_gaps_audited():
     p = sample().iloc[:3]
-    _, _, audit, summary = audit_prices(p, ['A', 'SPY'], '2016-02-01')
+    _, _, audit, summary = audit_prices(p, ['A', 'SPY'], now='2016-02-02T10:00:00-05:00')
     assert audit.loc['A', 'longest_missing_run'] > 5
     assert summary['lost_price_rows'] > 5
 
@@ -113,3 +113,40 @@ def test_downloader_adjustment_end_exclusive_and_provenance(monkeypatch):
     assert calls[0]['end'] == '2026-11-11'
     assert p.index.tz is None and m['last_observation'] == '2026-11-10'
     assert m['retrieved_utc'] and m['versions']['yfinance']
+
+
+def test_explicit_archived_as_of_completeness_and_stale_disclosure():
+    p = sample()
+    _, r, audit, summary = audit_prices(p, ['A', 'SPY'], as_of='2016-01-12', now='2026-11-11T12:00:00-05:00')
+    assert summary['as_of'] == '2016-01-12' and summary['as_of_explicit']
+    assert summary['historical_as_of'] and summary['source_is_stale']
+    assert summary['lost_price_rows'] == 0
+    assert len(r) == len(p) - 1
+    assert summary['snapshot_last_observed'] == '2016-01-12'
+    assert summary['latest_complete_session'] == '2026-11-10'
+    # Default audit does not silently shorten the interval to the observed date.
+    _, _, _, current = audit_prices(p, ['A', 'SPY'], now='2026-11-11T12:00:00-05:00')
+    assert current['as_of'] == '2026-11-10' and current['lost_price_rows'] > 0
+
+
+@pytest.mark.parametrize('as_of', ['2026-11-12', '2016-01-13', '2016-01-09', '2015-12-31', '2016-01-12T01:00:00', '2016-01-12T00:00:00Z'])
+def test_as_of_bounds_and_session(as_of):
+    with pytest.raises(ValueError, match='as_of'):
+        audit_prices(sample(), ['A', 'SPY'], as_of=as_of, now='2026-11-11T12:00:00-05:00')
+
+
+def test_cutoff_cannot_hide_interior_or_excluded_tail_gaps():
+    p = sample().drop(sample().index[3])
+    # A gap inside the chosen period is audited and blocks downstream analysis.
+    _, _, _, summary = audit_prices(p, ['A', 'SPY'], as_of='2016-01-12')
+    assert summary['lost_price_rows'] == 1
+    # Moving the cutoff before the missing session in a supplied longer source is rejected.
+    with pytest.raises(ValueError, match='conceal missing'):
+        audit_prices(p, ['A', 'SPY'], as_of='2016-01-06')
+
+
+def test_cutoff_can_restrict_complete_snapshot_without_changing_splits():
+    _, r, _, summary = audit_prices(sample(), ['A', 'SPY'], as_of='2016-01-08')
+    assert r.index.max() == pd.Timestamp('2016-01-08')
+    assert summary['source_sessions_after_as_of'] == 2
+    assert summary['lost_price_rows'] == 0

@@ -12,6 +12,7 @@ import streamlit as st
 from markowitz.analytics import frontier, moments, optimize, portfolio_stats
 from markowitz.data import TICKERS, audit_prices, completed_session, download_prices, read_csv
 from markowitz.research import PROTOCOL, evaluate, wealth_and_drawdown
+from markowitz.verification import verify_source, source_review_template
 
 st.set_page_config(page_title='The Efficient Frontier | Project 006', page_icon='◉', layout='wide')
 st.title('The Efficient Frontier')
@@ -33,14 +34,12 @@ with st.sidebar:
     rf = st.number_input('Assumed constant effective annual risk-free rate (%)', min_value=0., max_value=20., value=2., step=.25) / 100
     cost = st.number_input('Sensitivity cost (bps per gross traded notional)', min_value=0., max_value=100., value=10., step=1.)
     st.caption('Risk-free rate is a user assumption, not a historical Treasury series. Defaults fixed before observing results. Changes are exploratory and consume the holdout.')
-    reveal = st.checkbox('Reveal final holdout (2025 onward)', value=False)
-    if reveal:
-        st.warning('Once inspected, this holdout is no longer untouched. Do not tune settings to its results.')
 
 st.header('1 · Case overview & provenance')
 st.write('SPY / QQQ / IWM overlap in US equities; EFA and EEM add international equities; TLT, GLD and VNQ represent long Treasury bonds, gold and US real estate. All predate 2016, but availability must still be checked. This selected surviving universe cannot establish freedom from selection or survivorship bias.')
 st.caption('Protocol 006-v1: train 2016–2022 → validation 2023–2024. Refit both prespecified objectives on 2016–2024 → holdout 2025 onward. No strategy winner or hyperparameter is selected automatically.')
 prices = metadata = None
+as_of = None
 if mode == 'Live Yahoo Finance':
     if st.button('Load / refresh live data'):
         live_data.clear()
@@ -54,8 +53,11 @@ if mode == 'Live Yahoo Finance':
 else:
     upload = st.file_uploader('CSV: Date (YYYY-MM-DD), SPY, QQQ, IWM, EFA, EEM, TLT, GLD, VNQ', type=['csv'])
     source = st.text_input('CSV source / adjustment method / retrieval date')
-    confirmed = st.checkbox('I confirm these are real historical prices adjusted for splits and dividends, with redistribution/use rights.')
-    if upload and confirmed and source.strip():
+    as_of = st.text_input('Historical as_of cutoff (YYYY-MM-DD; explicit archived snapshot date)', value='')
+    st.caption('Every session from 2016 through as_of is audited. Cutoff cannot exceed observed prices or the latest complete session. Missing intervals cannot be hidden by moving the cutoff.')
+    confirmed = st.checkbox('I confirm these are real historical split/dividend-adjusted prices and I am authorized to analyze them here.')
+    st.caption('Analysis permission does not establish permission to redistribute, publish or bundle these prices. Raw prices are never offered for download.')
+    if upload and confirmed and source.strip() and as_of.strip():
         try:
             raw = upload.getvalue()
             prices = read_csv(raw)
@@ -72,13 +74,16 @@ st.json(metadata, expanded=False)
 if len(assets) < 2 or len(assets) * cap < 1 - 1e-10:
     st.error('Infeasible selection: require at least two assets and number of assets × cap ≥ 1.')
     st.stop()
-required = list(dict.fromkeys([*assets, 'SPY']))
+required = list(TICKERS)  # Verify the full prespecified source, even when exploring a subset.
 try:
-    clean, returns, audit, summary = audit_prices(prices, required)
+    clean, returns, audit, summary = audit_prices(prices, required, as_of=as_of)
 except Exception as exc:
     st.error(f'DATA VALIDATION FAILED: {exc}')
     st.stop()
 st.write(f'Observed common prices: **{clean.index.min().date()} → {clean.index.max().date()}** · latest eligible completed session: **{completed_session().date()}**')
+st.write(f"Research as_of: **{summary['as_of']}** · snapshot last observation: **{summary['snapshot_last_observed']}**")
+if summary['source_is_stale'] or summary['historical_as_of']:
+    st.warning('HISTORICAL SNAPSHOT: not current market data. Results, if verified, end at the explicitly recorded as_of; calendar period boundaries remain fixed.')
 st.caption('Conservative end rule excludes the current New York date, including after close. XNYS calendar. 252 sessions/year. No forward/back filling. Prices align on common valid sessions; returns spanning a missing exchange session are excluded.')
 
 st.header('2 · Evidence audit')
@@ -89,6 +94,27 @@ st.download_button('Download provenance & complete audit', json.dumps({'provenan
 if summary['lost_price_rows']:
     st.error('INCOMPLETE HISTORY: performance evaluation blocked. Review missing sessions and calendar mismatches above; supply complete real data. No missing interval is silently omitted from a backtest.')
     st.stop()
+st.download_button('Download unverified source-review template (no prices)', json.dumps(source_review_template(summary), indent=2), 'source_review_template.json', 'application/json')
+review_upload = st.file_uploader('Source verification JSON (all eight ETFs; independent adjustment/spot checks and analysis rights)', type=['json'])
+if review_upload:
+    try:
+        st.session_state['source_review'] = json.loads(review_upload.getvalue())
+    except (ValueError, UnicodeDecodeError) as exc:
+        st.error(f'INVALID SOURCE REVIEW: {exc}')
+        st.stop()
+try:
+    source_verification = verify_source(prices, summary, st.session_state.get('source_review'))
+except (ValueError, TypeError, KeyError) as exc:
+    st.warning(f'SOURCE UNVERIFIED: {exc}. No performance analysis computed. See README source-review format.')
+    st.stop()
+st.json(source_verification, expanded=False)
+with st.sidebar:
+    holdout_count = len(returns.loc['2025-01-01':])
+    reveal = st.checkbox('Reveal final holdout (2025 onward)', value=False, disabled=holdout_count < 60)
+    if holdout_count < 60:
+        st.caption('Holdout reveal unavailable: at least 60 audited holdout sessions required.')
+    if reveal:
+        st.warning('Once inspected, this holdout is no longer untouched. Do not tune settings to its results.')
 try:
     train = returns.loc['2016':'2022', assets]
     mu, cov = moments(train)
@@ -141,7 +167,7 @@ try:
         with st.expander(f'{period.title()} solver diagnostics & reproducibility'):
             st.json(result['diagnostics'])
             manifest = dict(protocol=PROTOCOL, selected_assets=assets, cap=cap, assumed_rf=rf, cost_bps=cost,
-                provenance=metadata, audit=summary, fit_start=result['fit_start'], fit_end=result['fit_end'],
+                provenance=metadata, as_of=summary['as_of'], source_verification=source_verification, audit=summary, fit_start=result['fit_start'], fit_end=result['fit_end'],
                 test_start=result['test_start'], test_end=result['test_end'], diagnostics=result['diagnostics'])
             st.download_button(f'Download {period} run manifest', json.dumps(manifest, indent=2), f'{period}_manifest.json', 'application/json')
             st.download_button(f'Download {period} weights', result['weights'].to_csv(), f'{period}_weights.csv', 'text/csv')
