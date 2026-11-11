@@ -59,7 +59,24 @@ def probe(folder):
                     ],
                 )
                 (folder / "source_metadata.json").write_text(
-                    json.dumps(result, indent=2) + "\n"
+                    json.dumps(
+                        {
+                            **{
+                                k: result.get(k)
+                                for k in [
+                                    "id",
+                                    "name",
+                                    "description",
+                                    "attribution",
+                                    "licenseId",
+                                    "rowsUpdatedAt",
+                                ]
+                            },
+                            "columns": entry["columns"],
+                        },
+                        indent=2,
+                    )
+                    + "\n"
                 )
             else:
                 entry.update(

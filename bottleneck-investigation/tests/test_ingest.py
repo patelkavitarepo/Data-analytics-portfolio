@@ -89,12 +89,14 @@ def test_keyset_pages_and_cross_page_duplicate(tmp_path):
         source(),
         [{"n": "2"}],
     ]
-    with patch("src.ingest.get", side_effect=responses) as get:
+    with patch("src.ingest.time.sleep"), patch(
+        "src.ingest.get", side_effect=responses
+    ) as get:
         meta = extract(tmp_path, page_size=1)
     assert meta["unique_request_ids"] == 2 and meta["sql_python_parity_pages"] == 2
     assert "service_request_id > 100" in get.call_args_list[3].args[2]["$where"]
     responses = [source(), [{"n": "2"}], [row("100")], [row("100")]]
-    with patch("src.ingest.get", side_effect=responses):
+    with patch("src.ingest.time.sleep"), patch("src.ingest.get", side_effect=responses):
         with pytest.raises(ValueError, match="pagination"):
             extract(tmp_path / "bad", page_size=1)
 

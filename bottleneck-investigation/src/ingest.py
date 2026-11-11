@@ -10,6 +10,7 @@ import os
 from pathlib import Path
 import sqlite3
 import tempfile
+import time
 import pandas as pd
 import requests
 from requests.adapters import HTTPAdapter
@@ -46,10 +47,35 @@ def get(session, url, params=None):
                 "event": "http",
                 "endpoint": "metadata" if "/api/views/" in url else "query",
                 "status_code": response.status_code,
+                "retry_statuses": [
+                    h.status
+                    for h in getattr(
+                        getattr(response.raw, "retries", None), "history", []
+                    )
+                ],
             }
         ),
         flush=True,
     )
+    if response.status_code >= 400:
+        diagnostic = {
+            "event": "source_error",
+            "status_code": response.status_code,
+            "content_type": response.headers.get("Content-Type"),
+            "response_bytes": len(response.content),
+            "retry_after": response.headers.get("Retry-After"),
+        }
+        if "json" in response.headers.get("Content-Type", ""):
+            try:
+                body = response.json()
+                diagnostic["error_fields"] = {
+                    k: str(body[k])[:300]
+                    for k in ("code", "error", "message")
+                    if isinstance(body, dict) and k in body
+                }
+            except ValueError:
+                pass
+        print(json.dumps(diagnostic), flush=True)
     response.raise_for_status()
     return response.json()
 
@@ -90,7 +116,8 @@ def extract(folder, page_size=10000):
     retry = Retry(
         total=4,
         backoff_factor=2,
-        status_forcelist=[429, 500, 502, 503, 504],
+        status_forcelist=[428, 429, 500, 502, 503, 504],
+        raise_on_status=False,
         allowed_methods=["GET"],
         respect_retry_after_header=True,
     )
@@ -111,6 +138,10 @@ def extract(folder, page_size=10000):
         with sqlite3.connect(scratch / "identity.sqlite") as ids:
             ids.execute("CREATE TABLE ids (id TEXT PRIMARY KEY) WITHOUT ROWID")
             while downloaded < expected:
+                if pages:
+                    time.sleep(
+                        2
+                    )  # respect the anonymous public endpoint; no burst pagination
                 where = (
                     WHERE
                     if last is None
