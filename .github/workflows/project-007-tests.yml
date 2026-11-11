@@ -28,3 +28,15 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
+
+  source-intake-one-shot:
+    if: github.event_name == 'push' && contains(github.event.head_commit.message, 'run FI2010 source intake once')
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Download public researcher-hosted FI2010 ZIP to ephemeral runner; print metadata only
+        run: python project-007-market-microstructure/research/intake_fi2010.py
