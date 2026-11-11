@@ -86,6 +86,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 017 — The Multi-Unit Mystery (source verification pending):** [read-only multi-unit and same-week comparison](docs/MULTIUNIT_WEEKLY_CONTEXT.md). The new analysis checks equal multi-unit £0/paid same-SKU invoice quantities, repeat patterns across invoices, and same-week paid-only denominators. Six additional synthetic test cases were added; the original-workbook outcome is **not yet verified**, and no promotions, operational causes or KPI changes are asserted.
 
+**Investigation 018 — SQL exploratory KPI workbench (source verification pending):** [semantic dictionary](docs/PROVISIONAL_KPI_DICTIONARY.md), [SQL workbench design](docs/SQL_KPI_WORKBENCH.md), and [SQLite classification view](sql/001_provisional_retail_kpis.sql). Recomputes mutually exclusive line classes and S0/S1/S2 amounts using a separate SQL engine; it fails if aggregate row counts, invoice-ID counts or source scenario amounts disagree with Case 009. Monthly merchandise-like gross line activity and cancellations are explicitly exploratory, not recognized sales. The source-data SQL run is not yet verified.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
