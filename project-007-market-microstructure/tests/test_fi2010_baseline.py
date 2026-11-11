@@ -33,7 +33,7 @@ class FI2010BaselineTests(unittest.TestCase):
     def test_train_prior_only_and_known_day8_accuracy(self):
         write_matrix(self.train, [1, 2, 2, 2, 3, 1])
         write_matrix(self.day8, [1, 1, 1, 2, 3, 3])
-        result = evaluate_majority_baseline(self.train, self.day8, 50)
+        result = evaluate_majority_baseline(self.train, self.day8, 5)
         self.assertEqual(result["constant_prediction_class"], 2)
         self.assertEqual(result["day8_accuracy"], round(1 / 6, 8))
         self.assertEqual(result["day8_macro_f1"], round((2 / 7) / 3, 8))
@@ -43,10 +43,10 @@ class FI2010BaselineTests(unittest.TestCase):
     def test_all_label_horizons_available_without_horizon_leakage(self):
         write_matrix(self.train)
         write_matrix(self.day8)
-        for horizon in (10, 20, 30, 50, 100):
+        for horizon in (1, 2, 3, 5, 10):
             with self.subTest(horizon=horizon):
                 self.assertEqual(
-                    evaluate_majority_baseline(self.train, self.day8, horizon)["horizon_events"],
+                    evaluate_majority_baseline(self.train, self.day8, horizon)["horizon_sampled_observations"],
                     horizon,
                 )
 
@@ -73,7 +73,7 @@ class FI2010BaselineTests(unittest.TestCase):
         write_matrix(self.train, wrong_row=144)
         write_matrix(self.day8)
         with self.assertRaisesRegex(BenchmarkError, "unexpected label"):
-            evaluate_majority_baseline(self.train, self.day8, 50)
+            evaluate_majority_baseline(self.train, self.day8, 5)
 
     def test_inconsistent_matrix_width_rejected(self):
         write_matrix(self.train)
