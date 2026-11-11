@@ -83,6 +83,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 016 — Timed BOGO hypothesis:** [source-verified recurrence findings](docs/TEMPORAL_BOGO_HYPOTHESIS.md). Of **32** stock codes with any same-invoice zero-price and positive-price pairing, **five** recur across different invoices, **two** recur within seven days, and **four** within 30 days. Only **five invoice/SKU groups** have an exact one-paid-unit + one-zero-unit structure, and **none** recur across different invoices for the same stock code. The [original-workbook audit passed 89 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42937165126). This weakens a repeat literal-BOGO interpretation but does not establish corrections or rule out different promotions. No data or KPI definitions changed.
 
+**Investigation 017 — The Multi-Unit Mystery (source verification pending):** [read-only multi-unit and same-week comparison](docs/MULTIUNIT_WEEKLY_CONTEXT.md). The new analysis checks equal multi-unit £0/paid same-SKU invoice quantities, repeat patterns across invoices, and same-week paid-only denominators. Six additional synthetic test cases were added; the original-workbook outcome is **not yet verified**, and no promotions, operational causes or KPI changes are asserted.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
