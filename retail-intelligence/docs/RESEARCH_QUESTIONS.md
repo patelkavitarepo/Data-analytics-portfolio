@@ -132,11 +132,12 @@
 
 ## R020 — Does a small number of large invoice IDs explain the provisional S2 year-over-year difference?
 
-**Status:** Case 020 aggregation and synthetic tests implemented, **full-source CI verification pending**.
+**Status:** Case 020 verified against original workbook, [110 tests passed](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42945421106).
 
-- [Method and guardrails](INVOICE_CONCENTRATION_ANALYSIS.md) compare median, 95th percentile, largest invoice-ID-month amounts, and the upper 1% contribution to each month and Jan–Nov period.
-- Compare 2010/2011 Jan–Nov provisional gross activity with and without each period's largest 1% invoice-ID-month groups **as a sensitivity check only**. No unusual invoice is deleted or deemed a wholesale sale.
-- Before interpreting any output, reconcile all S2 line counts, per-month distinct invoice IDs and gross amounts against independent Case 018 SQL source report. Do not interpret gross-positive line amounts as recognized revenue.
+- [Verified Case 020 findings](INVOICE_CONCENTRATION_ANALYSIS.md) show top 1% of qualifying invoice-ID-month groups contribute **16.06% of S2 gross line amount in Jan–Nov 2010** (182 groups) and **17.80% in Jan–Nov 2011** (175 groups).
+- Removing each period's top 1% **for sensitivity only** reduces the apparent S2 gross amount change from **+2.90%** to **+0.77%**. The respective independently selected top groups account for £194,744.51 of the £250,647.33 arithmetic period difference; not causal attribution of growth.
+- Median group amounts rise £300.58 → £304.24; changes in product mix, quantity, effective prices, customer coverage or large invoices are still unproven. **No actual source rows, KPI rules or unusual invoices were removed.**
+- Next: test product mix and within-SKU amount-per-unit composition, then build a concise decision-focused report.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
