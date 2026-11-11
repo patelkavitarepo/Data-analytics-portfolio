@@ -1,6 +1,6 @@
 # Project 003 — Retail Intelligence | Portfolio Case Study (Draft)
 
-**Project status:** Source-verified retrospective analysis and dashboard preview prepared; **Case 021 SKU-composition findings and final Power BI report pending**. The project is a portfolio investigation, **not audited financial reporting**.
+**Project status:** Source-verified retrospective analysis, SKU composition bridge, static dashboard preview and aggregate Power BI import tables prepared; **a final native Power BI report remains unbuilt**. Case 021 passed its full-source audit with **115 tests**. This is a portfolio investigation, **not audited financial reporting**.
 
 ## Executive question
 
@@ -41,6 +41,22 @@ All source-level data and customer identifiers remain out of the public aggregat
 
 **Customer-data interpretation:** Falling customer-ID coverage limits customer behavior and retention conclusions. Missing identifiers are not silently converted into invented customers.
 
+## SKU composition: the arithmetic bridge behind the headline (Case 021)
+
+The verified [SKU composition analysis](SKU_COMPOSITION_BRIDGE.md) reconciled both Jan–Nov periods independently to SQL; its [original-source audit passed 115 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42949051946).
+
+| Descriptive S2 decomposition (2011 vs. 2010, Jan–Nov) | Contribution |
+| --- | ---: |
+| Shared stock codes: quantity component at earlier gross/unit | **−£992,716.27** |
+| Shared stock codes: effective gross amount per unit residual | **−£141,027.84** |
+| Stock codes present in 2011 only: S2 amount | **+£2,058,492.44** |
+| Stock codes present in 2010 only: subtract S2 amount | **−£674,101.00** |
+| **Net S2 gross change (reconciles)** | **+£250,647.33** |
+
+Exactly **3,067** stock codes had qualifying lines in both periods, **655** only in 2011, and **881** only in 2010. The **shared-code components combined are negative (−£1,133,744.11)**, while codes present in only one period contribute a positive arithmetic net **(+£1,384,391.44)**.
+
+**Conservative reading:** This clarifies the *arithmetic* sources of change, not why they occurred. A code appearing only in 2011 is not independently verified as a new product; an observed effective gross-per-unit residual does **not** establish price inflation. Source coverage, code reuse, pricing/billing conventions and assortment differences could all matter.
+
 ## What the project prevented
 
 The analysis avoided three common errors:
@@ -63,8 +79,8 @@ Use **descriptive source activity**, not unverified recognized revenue, for expl
 - [Invoice concentration findings](INVOICE_CONCENTRATION_ANALYSIS.md)
 - [Dashboard specification](DASHBOARD_SPEC.md)
 
-**Case 021:** SKU-composition bridge script and tests committed; full-source verification pending. Its findings may refine this case study, not retroactively transform observational patterns into causal claims.
+**Case 021:** Full-source source and independent-SQL verification completed with **115 tests passed**. The observed four-term SKU bridge above is now part of the case-study findings, without causal claims.
 
-**Final publication gates:** verify Case 021; generate a genuine Power BI report or clearly labeled static portfolio dashboard; validate every chart against source-reconciled aggregates; retain independent source attribution and caveats; review draft PR #3 before merge.
+**Final publication gates:** Review the versioned static HTML preview and importable Power BI aggregate tables; build a genuine Power BI report if desired; validate every chart against source-reconciled aggregates; retain independent source attribution and caveats; review draft PR #3 before merge.
 
 **Methodological bottom line:** **Reproducible ≠ causal; gross positive-priced line amount ≠ recognized revenue; invoice identifier ≠ verified order; customer-ID coverage ≠ retention.**
