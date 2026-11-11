@@ -80,6 +80,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 015 — Same-SKU mixed-price follow-up (original-workbook verification pending):** [method and test plan](docs/SAME_SKU_MIXED_PRICE_FINDINGS.md). The new read-only script examines the **43** zero-priced lines on **33** invoice IDs that share stock codes with paid lines in Case 014. It distinguishes pair comparisons from unique line and invoice counts, records quantity/time/customer-information context, and makes no causal, gift, duplicate, or financial claims. Six new synthetic test cases are included; GitHub Actions source verification is pending.
 
+**Investigation 016 — Timed BOGO hypothesis (original-source verification pending):** [read-only temporal recurrence method](docs/TEMPORAL_BOGO_HYPOTHESIS.md). The new analysis tests whether zero-priced and positively priced lines for the same stock code recur across distinct invoices within seven- and thirty-day windows, including exact one-free-unit/one-paid-unit shapes. No promotion, refund, stock correction or accounting category is inferred. Six synthetic test cases were added; original-workbook evidence has not yet been validated.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
