@@ -64,6 +64,8 @@ jobs:
         run: python scripts/investigate_same_sku_price_pairs.py
       - name: Investigate temporal recurrence of zero-price and paid SKU patterns
         run: python scripts/investigate_temporal_zero_paid_sku.py
+      - name: Compare multi-unit equal £0 and paid SKU patterns with same-week denominators
+        run: python scripts/investigate_multiunit_weekly_context.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
