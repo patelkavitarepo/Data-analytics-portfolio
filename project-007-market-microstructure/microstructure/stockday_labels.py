@@ -4,7 +4,7 @@ Works with verified local quote observations, never FI-2010 normalized rows.
 Avoids source/stock/day mixing, invalid-book bridging and invented outcomes.
 """
 from dataclasses import dataclass
-from datetime import date, datetime
+from datetime import date, datetime, timedelta
 from decimal import Decimal, InvalidOperation
 
 
@@ -45,13 +45,16 @@ def _valid(q):
             and ask is not None and bid > 0 and ask > bid)
 
 
-def labels_from_quotes(quotes, k, threshold="0.002"):
+def labels_from_quotes(quotes, k, threshold="0.002", max_gap_seconds=30):
     """Paper-style average-of-next-k midpoints; never cross stock/day/invalidity."""
     if type(k) is not int or k < 1:
         raise ValueError("k must be positive integer sampled-snapshot count")
     t = _to_decimal(threshold)
     if t is None or t <= 0 or t >= 1:
         raise ValueError("threshold must be 0 < t < 1")
+    if max_gap_seconds is not None and (type(max_gap_seconds) not in (int, float) or not 0 < max_gap_seconds < 86400):
+        raise ValueError("max_gap_seconds must be positive seconds or None")
+    max_gap = timedelta(seconds=max_gap_seconds) if max_gap_seconds is not None else None
     rows = tuple(quotes)
     prior = None
     for i, q in enumerate(rows):
@@ -81,16 +84,29 @@ def labels_from_quotes(quotes, k, threshold="0.002"):
             continue
         first, day, symbol = i, q.trading_date, q.symbol
         while i < len(rows) and rows[i].trading_date == day and rows[i].symbol == symbol and _valid(rows[i]):
+            if max_gap is not None and i > first and (
+                rows[i].available_at - rows[i - 1].available_at
+            ) > max_gap:
+                break
             i += 1
         end = i
+        # Compute all midpoints and prefix sums exactly once for this contiguous
+        # group. Total runtime is O(number of observations), not O(N^2).
+        mids = [
+            (_to_decimal(rows[j].bid) + _to_decimal(rows[j].ask)) / 2
+            for j in range(first, end)
+        ]
+        prefix = [Decimal(0)]
+        for midpoint in mids:
+            prefix.append(prefix[-1] + midpoint)
         for origin in range(first, end):
             if origin + k >= end:
                 out[origin] = Label(origin, symbol, day, None, (), "incomplete_future")
                 continue
-            mids = [(_to_decimal(x.bid) + _to_decimal(x.ask)) / 2 for x in rows[origin:i]]
-            current = mids[origin - first]
-            future = mids[origin - first + 1: origin - first + k + 1]
-            ratio = (sum(future, Decimal(0)) / k - current) / current
+            offset = origin - first
+            current = mids[offset]
+            future_mean = (prefix[offset + k + 1] - prefix[offset + 1]) / k
+            ratio = (future_mean - current) / current
             cls = 1 if ratio >= t else 3 if ratio <= -t else 2
             out[origin] = Label(origin, symbol, day, cls, tuple(range(origin + 1, origin + k + 1)), None)
     return tuple(out)
