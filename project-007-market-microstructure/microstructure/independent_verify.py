@@ -128,6 +128,16 @@ def independently_verify(messages, orderbook, report):
                 w["event_types"][event] += 1
                 event_types[event] += 1
 
+                # Audit counts invalid snapshots even while a trading halt is active.
+                # Diagnostic windows, in contrast, exclude halt events from
+                # descriptive quote eligibility and anomaly window tallies.
+                asks = [(cells[i], cells[i + 1]) for i in range(0, len(cells), 4) if cells[i + 1] > 0]
+                bids = [(cells[i + 2], cells[i + 3]) for i in range(0, len(cells), 4) if cells[i + 3] > 0]
+                if not asks or not bids:
+                    one_sided += 1
+                elif asks[0][0] <= bids[0][0]:
+                    locked += 1
+
                 if event == 7:
                     w["halt_marker_count"] += 1
                     halt_markers[str(marker)] += 1
@@ -146,20 +156,16 @@ def independently_verify(messages, orderbook, report):
                     previous_mid = None
                     continue
 
-                # Read the first occupied price level from each *side*.
-                # Do not use the production _book() logic.
-                asks = [(cells[i], cells[i + 1]) for i in range(0, len(cells), 4) if cells[i + 1] > 0]
-                bids = [(cells[i + 2], cells[i + 3]) for i in range(0, len(cells), 4) if cells[i + 3] > 0]
+                # Quote anomaly counters above cover all events; the window
+                # fields below cover only active, nonhalt observations.
                 if not asks or not bids:
                     w["one_sided_count"] += 1
-                    one_sided += 1
                     previous_mid = None
                     continue
                 ask_price, ask_size = asks[0]
                 bid_price, bid_size = bids[0]
                 if ask_price <= bid_price:
                     w["locked_or_crossed_count"] += 1
-                    locked += 1
                     previous_mid = None
                     continue
                 if ask_size <= 0 or bid_size <= 0:
