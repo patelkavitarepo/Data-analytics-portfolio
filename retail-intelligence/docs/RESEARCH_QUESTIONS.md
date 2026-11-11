@@ -74,6 +74,14 @@
 - [Case 013 source-verified findings](PRICE_PARADOX_FINDINGS.md); [successful original-workbook workflow](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42912802097).
 - **Next:** review mixed-price invoices, then draft a provisional semantic dictionary without altering the raw workbook or Case 008 reversible view.
 
+## R014 — Are mixed zero/positive-price invoices semantically distinct?
+
+**Status:** Code and local synthetic tests prepared; original-workbook verification pending.
+
+- Case 013 confirmed 125 invoice IDs that mix zero-priced and positively priced positive-quantity lines, containing 709 such zero-priced lines.
+- [Case 014 method](MIXED_PRICE_INVOICE_FINDINGS.md) compares context, keyword probes, and same-invoice stock-code overlap with strict safeguards; it does not infer free samples, promotions, operational adjustments or losses.
+- Verify the new source output, then separately examine `A`-invoice / `B`-stock-code entries before proposing a provisional KPI semantic dictionary. No cleaning or revenue definition change.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
