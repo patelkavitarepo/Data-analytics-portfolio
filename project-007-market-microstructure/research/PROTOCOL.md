@@ -8,6 +8,10 @@ Do limit-order-book imbalance features help anticipate subsequent mid-price move
 
 Use original paired CSV rows in file order. Do not sort events, correct invalid quotes, deduplicate identical timestamps, or interpolate missing events. Verify row pairing, schema, nondecreasing time, levels and fixed-point units. Trading-halt messages must duplicate the preceding supplied book; suspend normal quote summaries until a trade-resumption marker. Report anomalous/locked quotes rather than erasing them. One event maps to its post-event snapshot. Audit only; no strategy or profit metrics.
 
+## Phase 0B: descriptive diagnostics implementation (synthetic tested; real-data use blocked)
+
+Run a **complete** paired file audit before descriptive windows. In strictly original event order, produce event-weighted 5-minute means of spread (integer price difference / 10,000) and best-level depth imbalance; count eligible, one-sided, crossed/locked and halted event observations, plus *backward-looking* changes in midpoint from the immediately preceding eligible event, resetting state across invalid books and halts. Do not silently fill inactive time buckets. Verify full-file hashes between audit and diagnostics passes. No forward target, P&L, order fill or model fit is in this phase.
+
 ## Phase 1: empirical discovery (blocked pending appropriate data permissions)
 
 Start with the official LOBSTER AMZN one-level sample, June 21, 2012, held locally and never committed. Log official URL, actual file hashes, parsing boundaries, event counts, missingness, halt windows, empty-sided quotes, quote locking, and time ties. Follow with the five-level sample for depth sensitivity if permitted. One day is a demo, NOT a train/test split sufficient to support market-generalizable claims.
