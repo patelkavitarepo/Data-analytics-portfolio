@@ -8,8 +8,16 @@ No direction to trade live, buy subscriptions, merge branches, publish provider 
 
 ## AI-assisted implementation (not human findings)
 
-The assistant proposed: begin with a streaming paired-message/snapshot schema audit, synthetic checks, local-only inputs, and a separately gated empirical stage. This proposal and its code are AI-assisted, not original human code. No empirical interpretations have been supplied yet.
+The assistant proposed: begin with a streaming paired-message/snapshot schema audit, synthetic checks, local-only inputs, and a separately gated empirical stage. This proposal and its code are AI-assisted, not original human code. The human lead's subsequent interpretation is preserved in D002; it is not attributed to the assistant.
+
+## D002 — November 11, 2026 — Human decision after the first historical baseline
+
+**Actual human lead's direction:** "I would like to investigate the datasets construction."
+
+**Context, not a user-authored causal explanation:** After the train-days-1–7 constant-majority baseline scored 26.20% accuracy on FI-2010 day eight, the lead was asked whether to prioritize genuine market behavior or possible dataset-construction effects in the large stationary-label increase. The lead selected investigating the dataset's construction.
+
+**Authorized next task:** Audit how the publisher's sampling, label thresholds, preprocessing, and chronological folds relate to observed class proportions. Investigate source-label boundary contamination before fitting models. Do not attribute any specific data-construction flaw, market-regime interpretation, or empirical conclusion to the human lead. Do not access days nine and ten.
 
 ## Pending human interpretation
 
-After authorized data and full-file QC, present descriptive observations and invite the human lead's interpretation before hypothesis refinement or model selection. Do not backfill a decision or mark a pending experiment as successful.
+Present construction-audit evidence and invite interpretation of the remaining ambiguity. No predictive model selection, testing on reserved days or merger has been approved. AI-generated analysis, code, explanations and hypotheses must remain clearly labeled as assistance.
