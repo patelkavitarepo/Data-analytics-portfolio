@@ -74,6 +74,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 013 — The Price Paradox:** [verified zero- and negative-unit-price findings](docs/PRICE_PARADOX_FINDINGS.md). Among **2,631** positive-quantity zero-priced lines, **2,561** lack customer IDs, **1,642** lack descriptions, and **1,861 of 1,986** affected invoice IDs consist exclusively of zero-priced lines. The **five negative-unit-price, positive-quantity lines** are all `A`-prefixed, stock code `B`, description `Adjust bad debt`, and total **−£158,676.14** in signed line amount. None is treated as an ordinary negative-priced merchandise sale or verified accounting write-off. [Successful original-workbook workflow (72 tests)](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42912802097). No source or KPI rules changed.
 
+**Investigation 014 — Mixed-price invoice context (verification pending):** [method, synthetic tests, and guardrails](docs/MIXED_PRICE_INVOICE_FINDINGS.md). The new read-only diagnostic distinguishes zero-priced entries on invoices that also have positive-priced merchandise from other zero-priced entries, compares description/customer-availability patterns and within-invoice stock-code overlap, and reconciles with Case 013. **Original-workbook Case 014 results have not yet been confirmed**; no new promotions, stocktakes or KPI definitions are asserted.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
