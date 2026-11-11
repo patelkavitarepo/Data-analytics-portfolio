@@ -27,6 +27,21 @@
 
 The invoice identifier counts are **summed from distinct-per-month values**. A repeated invoice ID across months would be counted again; the report **does not claim a distinct customer or completed-order count for the whole period**.
 
+## Unit and invoice-ID composition: independent descriptive checks
+
+Derived **only** from the same Case 018 source-reconciled Jan–Nov aggregates, with both years covering the same calendar months:
+
+| Derived ratio | 2010 Jan–Nov | 2011 Jan–Nov | Change |
+| --- | ---: | ---: | ---: |
+| S2 gross positive-priced line amount per **recorded unit** | **£1.6556** | **£1.8123** | **+9.47%** |
+| S2 positive-priced **lines per invoice-ID-month pair** | **24.48** | **26.50** | **+8.28%** |
+| S2 gross amount per positive-priced **line** | **£19.48** | **£19.26** | **−1.08%** |
+| S2 recorded **units per invoice-ID-month pair** | **287.95** | **281.74** | **−2.16%** |
+
+Each ratio uses aggregate sums, not the arithmetic mean of monthly ratios. A year-over-year change in gross amount per recorded unit is **not** evidence of price inflation: the observed ratio can move because of **product mix, invoices, unit counts or price**. Likewise, more lines per invoice-ID-month are **not** necessarily more products per completed customer order. **None of these ratios confirms revenue growth, better unit economics, increased profitability or a causal effect.**
+
+These indicators reinforce the need for [Case 020 invoice-size concentration](INVOICE_CONCENTRATION_ANALYSIS.md) before presenting the 2.90% gross S2 change as a meaningful business performance improvement.
+
 ## Matched-month gross line-amount comparison
 
 | Calendar month | 2010 S2 gross line amount | 2011 S2 gross line amount | 2011 vs 2010 |
