@@ -40,6 +40,7 @@ python scripts/investigate_m_bidirectional.py
 python scripts/investigate_price_paradox.py
 python scripts/investigate_mixed_price_invoices.py
 python scripts/investigate_same_sku_price_pairs.py
+python scripts/investigate_temporal_zero_paid_sku.py
 python -m pytest -q
 ```
 
