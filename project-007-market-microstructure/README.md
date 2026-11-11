@@ -8,7 +8,7 @@ Investigate how displayed liquidity and order-flow information relate to subsequ
 
 ## What is implemented
 
-A Python standard-library-only streaming audit for local paired LOBSTER message and book CSVs, including exact decimal timestamp parsing, original event order, post-event snapshot alignment, documented fixed-point prices, occupied-level sorting, event-type counts, halt-state exclusion and duplicate-snapshot checks, equal-time event preservation, non-destructive locked/crossed quote reports, prefix-only disclosures and SHA256 of both local inputs. Synthetic unit tests check failure handling and basic quantities. The audit does NOT reconstruct the exchange book, produce future price labels, train models or simulate fills.
+A Python standard-library-only streaming audit for local paired LOBSTER message and book CSVs, including exact decimal timestamp parsing, original event order, post-event snapshot alignment, documented fixed-point prices, occupied-level sorting, event-type counts, halt-state exclusion and duplicate-snapshot checks, equal-time event preservation, non-destructive locked/crossed quote reports, prefix-only disclosures and SHA256 of both local inputs. An independent second-pass diagnostics tool computes descriptive five-minute liquidity summaries only after a complete-file audit, and checks that the input hashes remain unchanged. Synthetic unit tests verify hand-calculated results and failure handling. The audit does NOT reconstruct the exchange book, produce future price labels, train models or simulate fills.
 
 ## Run tests (Python 3.11 or 3.12)
 
@@ -26,9 +26,17 @@ For an **entire paired file** instead of a bounded prefix, substitute `--full-fi
 
 File names above are placeholders: use the names actually inside the provider package. The output is local metadata, not a published study. Pass `max_events=None` to the Python API to audit the entire pair; the CLI defaults to a bounded prefix unless `--full-file` is supplied. A passing prefix is NOT full-file validation. No raw sample, vendor-derived report, or screenshots should be committed pending rights review.
 
+## Phase 1A: local descriptive liquidity diagnostics (code ready, no empirical claims)
+
+Run only with **authorized locally supplied** paired files, from this project directory:
+
+    python -m microstructure.diagnostics --messages data/AMZN_message_1.csv --orderbook data/AMZN_orderbook_1.csv --levels 1 --bucket-seconds 300 --output artifacts/local-diagnostics.json
+
+The output contains event-weighted spread and top-of-book imbalance summaries, counts of up/down/unchanged backward-looking mid-price changes, and anomaly tallies. The code first runs a complete paired audit. Outputs are restricted to JSON files under this project's git-ignored `artifacts/` directory; these local files are NOT authorization to redistribute vendor-derived information. The CLI does not create forward labels, train models, or simulate orders. Actual filenames, vendor rights, and source approval still need separate verification.
+
 ## Next checkpoints
 
-1. Confirm applicable source and use rights for research, aggregate publication and GitHub.
+1. Confirm applicable source and use rights for research, aggregate publication and GitHub. Do not bypass this gate just because the code can read local files.
 2. Perform full-file paired QC and independent spot-checks on authorized sample data.
 3. Show descriptive evidence to the human lead for interpretation; finalize horizon and time splits before fitting.
 4. Compare constant/majority baseline, imbalance sign, then a simple model only if enough permitted historical days exist.
