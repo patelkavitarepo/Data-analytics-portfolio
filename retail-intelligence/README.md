@@ -45,6 +45,7 @@ python scripts/investigate_multiunit_weekly_context.py
 python scripts/run_sql_kpi_workbench.py
 python scripts/analyze_monthly_business_activity.py
 python scripts/analyze_invoice_concentration.py
+python scripts/analyze_sku_composition.py
 python -m pytest -q
 ```
 
