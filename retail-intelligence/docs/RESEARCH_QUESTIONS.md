@@ -130,6 +130,14 @@
 - November shows the highest S2 amount in each of 2010 and 2011, but seasonal causation, discounting, shipping/wholesale, product mix and changes in coverage remain untested.
 - Next business step: analyze concentration in high-value invoice IDs, month/year source completeness and scenario sensitivity before presenting any growth or dashboard conclusion.
 
+## R020 — Does a small number of large invoice IDs explain the provisional S2 year-over-year difference?
+
+**Status:** Case 020 aggregation and synthetic tests implemented, **full-source CI verification pending**.
+
+- [Method and guardrails](INVOICE_CONCENTRATION_ANALYSIS.md) compare median, 95th percentile, largest invoice-ID-month amounts, and the upper 1% contribution to each month and Jan–Nov period.
+- Compare 2010/2011 Jan–Nov provisional gross activity with and without each period's largest 1% invoice-ID-month groups **as a sensitivity check only**. No unusual invoice is deleted or deemed a wholesale sale.
+- Before interpreting any output, reconcile all S2 line counts, per-month distinct invoice IDs and gross amounts against independent Case 018 SQL source report. Do not interpret gross-positive line amounts as recognized revenue.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
