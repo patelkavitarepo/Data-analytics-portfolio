@@ -5,7 +5,7 @@ It consumes only CF7 train and day-8 test members of a caller-supplied
 provenance-pinned ZIP. An empirical run must check archive checksum separately.
 """
 from collections import Counter
-from io import TextIOWrapper
+from decimal import Decimal, InvalidOperation
 import zipfile
 
 TRAIN = "Train_Dst_NoAuction_DecPre_CF_7.txt"
@@ -41,9 +41,13 @@ def read_labels_only(archive: zipfile.ZipFile, filename):
             tokens = row.split()
             values = bytearray()
             for token in tokens:
-                if token not in (b"1", b"2", b"3", b"1.0", b"2.0", b"3.0"):
+                try:
+                    value = Decimal(token.decode("ascii"))
+                except (UnicodeError, InvalidOperation) as exc:
+                    raise ConstructionError("invalid label token in original publisher matrix") from exc
+                if not value.is_finite() or value not in (1, 2, 3):
                     raise ConstructionError("invalid label token in original publisher matrix")
-                values.append(int(float(token)))
+                values.append(int(value))
             labels.append(values)
     if len(labels) != 5 or not all(labels):
         raise ConstructionError("expected exactly 149 rows and five nonempty label rows")
