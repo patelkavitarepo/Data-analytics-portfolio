@@ -103,6 +103,14 @@
 - [Original-workbook workflow passed 89 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42937165126). Do not infer promotion dates, customer redemptions, correction causes or financial totals; no raw or candidate rows or KPI definitions changed.
 - Next: explore *multi-unit equal-quantity* paid/zero pairings and time-window-specific paid-only baselines, and investigate code 84016 separately.
 
+## R017 — Does an equal multi-unit £0+paid pattern recur for the same SKU in a short period?
+
+**Status:** Case 017 analysis implemented; original-workbook GitHub Actions verification pending.
+
+- Case 016 found no repeated *strict one-unit+one-unit* pattern by SKU, but multi-unit BOGO-like forms remain an open hypothesis.
+- [Case 017 method](MULTIUNIT_WEEKLY_CONTEXT.md) distinguishes equal summed multi-unit quantities (e.g. 8 + 8) from strict 1 + 1, and counts repeat SKU patterns and **same-week** paid-only invoice-SKU groups.
+- Do not interpret equal quantities or increased same-week pairing frequency as confirmed promotions; compare denominators and watch selection bias. No source row, candidate-view policy, or KPI change.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
