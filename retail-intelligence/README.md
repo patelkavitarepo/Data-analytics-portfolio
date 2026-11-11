@@ -42,6 +42,7 @@ python scripts/investigate_mixed_price_invoices.py
 python scripts/investigate_same_sku_price_pairs.py
 python scripts/investigate_temporal_zero_paid_sku.py
 python scripts/investigate_multiunit_weekly_context.py
+python scripts/run_sql_kpi_workbench.py
 python -m pytest -q
 ```
 
