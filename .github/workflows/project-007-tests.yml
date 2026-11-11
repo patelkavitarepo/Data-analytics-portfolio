@@ -28,3 +28,15 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
+
+  alternate-source-range-once:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe only 4 KiB range of public Quant-Arena tar; no full download
+        run: python project-007-market-microstructure/research/probe_quant_arena_range.py
