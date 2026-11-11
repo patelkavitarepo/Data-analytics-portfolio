@@ -49,3 +49,13 @@ The directive follows the discussion of a preregistered **three-stock, five-trad
 **AI-assisted investigation and outcome:** We followed `NEXT_PANEL_PROTOCOL.md`, selected source-verified stock files 000012.SZ, 000025.SZ, 000031.SZ and the first five observed dates of January 2022. The pinned, CC BY-NC 4.0 noncommercial source panel comprised 15,233 quote observations and yielded different stock-level stationary shares (94.71%, 97.78%, 87.64%) under identical predefined k=5 and ±0.2% labeling. The independent oracle verified 76,165 origin records across five horizons without mismatch. The threshold sensitivity was also performed as preregistered; no prediction model was fitted. See the attributed result and limitations in `THREE_STOCK_PANEL_RESULTS.md`.
 
 **Interpretation limit:** Labels and stock effects both matter descriptively, but causal attribution to market structure, price behavior or data construction remains unresolved. The Shenzhen panel does not validate FI-2010's original Helsinki labels, nor establish trading profitability. PR #7 remains draft, unmerged.
+
+## D006 — November 11, 2026 — Human direction: quote-quality sensitivity
+
+**Human directive:** "Next challenge it is holmes."
+
+In context, this accepts investigating how the three-stock/five-day descriptive labels respond to **missing quotes, stale/missing-depth flags and the existing 30-second maximum gap policy**. The human lead did **not** choose a new preferred data-cleaning policy, prediction model, or trading strategy; nor did they supply a causal explanation.
+
+**AI-assisted protocol:** Before the expanded source-data run, freeze G15/G30/G60/G120 maximum adjacent-quote gaps and F0/FS/FD/FSD source-flag counterfactuals, retaining best-price positivity and ordered-book integrity in every case. All scenarios share the same pinned source revision, three files, first five dates and k=5/±0.2% label definition, and G30/F0 must reproduce the already-published stock counts exactly. Each origin is independently verified by a separate quote-label oracle, and differences in eligible labels and still-eligible classes are reported separately. See `GAP_FLAG_SENSITIVITY_PROTOCOL.md`.
+
+**Boundary:** Ignoring source stale/missing-depth flags is a **diagnostic counterfactual only**, not an approved inference about real executable liquidity. Raw quotes and original flags must not be modified or published. No prediction models, profitability claims, FI-2010 holdout access or merging have been approved.
