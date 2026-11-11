@@ -52,13 +52,13 @@ The `microstructure.chronology` module adds **in-memory only** prototype labels 
 
 ## Alternative multi-day benchmark route: FI-2010 (code ready; source not acquired)
 
-The 10-day FI-2010 public research benchmark is a **separate** dataset family, not a LOBSTER event stream. It ships normalized/preprocessed 149-row matrices (144 features, five publisher-supplied label rows); event horizons cannot be equated with elapsed seconds. The original archive/license metadata and all source hashes still need independent verification. Secondary sources describe CC BY 4.0 licensing. Read [source/rights review](research/FI2010_SOURCE_REVIEW.md) before any download or public empirical score.
+The 10-day FI-2010 public research benchmark is a **separate** dataset family, not a LOBSTER event stream. It ships normalized/preprocessed 149-row matrices (144 features, five publisher-supplied label rows); published label horizons are 1, 2, 3, 5, and 10 sampled observations, not elapsed seconds or raw exchange event counts. The original archive/license metadata and all source hashes still need independent verification. Secondary sources describe CC BY 4.0 licensing. Read [source/rights review](research/FI2010_SOURCE_REVIEW.md) before any download or public empirical score.
 
 A synthetic-tested, training-prior-only **constant majority-class baseline** is implemented for the CF7 training fold (days 1–7) and day-8 test fold. Days 9–10 are reserved and never opened. This is a preliminary benchmark, not evidence of alpha, label-boundary independence, executable profit, or approved model evaluation.
 
 Once original data and permitted use are confirmed, place the source files in ignored `data/` and run locally:
 
-    python -m microstructure.fi2010_baseline --train data/Train_Dst_NoAuction_DecPre_CF_7.txt --day8 data/Test_Dst_NoAuction_DecPre_CF_7.txt --horizon 50 --output artifacts/local-fi2010-day8.json
+    python -m microstructure.fi2010_baseline --train data/Train_Dst_NoAuction_DecPre_CF_7.txt --day8 data/Test_Dst_NoAuction_DecPre_CF_7.txt --horizon 5 --output artifacts/local-fi2010-day8.json
 
 Only the named fold and local ignored output are supported. No vendor files are fetched by the code.
 
