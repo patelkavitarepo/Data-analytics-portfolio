@@ -77,6 +77,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 014 — The Mixed-Price Mystery:** [source-verified invoice context](docs/MIXED_PRICE_INVOICE_FINDINGS.md). The original workbook confirms **125 mixed-price invoice IDs** containing **709 zero-price lines** and **7,660 positive-priced lines**; all 709 zero-price lines on mixed invoices have descriptions, versus **1,642 missing descriptions among 1,922 zero-priced lines on zero-price-only invoices**. **43** zero-priced lines share a stock code with paid lines on the same invoice, across **33** invoice IDs. The verified full-source workflow [passed 77 synthetic tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42933178973). This does not establish promotions, gifts, inventory adjustments or revenue, and no rows, provenance or KPI rules were changed.
 
+**Investigation 015 — Same-SKU mixed-price follow-up (original-workbook verification pending):** [method and test plan](docs/SAME_SKU_MIXED_PRICE_FINDINGS.md). The new read-only script examines the **43** zero-priced lines on **33** invoice IDs that share stock codes with paid lines in Case 014. It distinguishes pair comparisons from unique line and invoice counts, records quantity/time/customer-information context, and makes no causal, gift, duplicate, or financial claims. Six new synthetic test cases are included; GitHub Actions source verification is pending.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
