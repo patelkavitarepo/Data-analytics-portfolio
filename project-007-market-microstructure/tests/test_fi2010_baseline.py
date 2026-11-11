@@ -7,7 +7,7 @@ from microstructure.fi2010_baseline import (
 )
 
 
-def write_matrix(path, row_labels, n=6, wrong_row=None):
+def write_matrix(path, row_labels=None, n=6, wrong_row=None):
     """Generate a strict 149-by-N matrix with synthetic normalized features."""
     if row_labels is None:
         row_labels = [1, 1, 2, 2, 3, 3]
