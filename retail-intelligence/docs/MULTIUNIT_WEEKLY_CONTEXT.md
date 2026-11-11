@@ -1,47 +1,73 @@
-# Investigation 017 — The Multi-Unit Mystery: paid / £0 quantities and same-week comparison
+# Investigation 017 — The Multi-Unit Mystery: source-verified paid/£0 comparisons
 
 **Project:** 003 Retail Intelligence  
 **Date:** November 10, 2026  
-**Status:** Script and six synthetic tests committed; **full original-source results pending GitHub Actions verification**. No business/financial rule has changed.
+**Status:** **Verified on the original UCI Online Retail II workbook.** No BOGO promotion, correction, refund, delivery or revenue classification is established.
 
-## Question
+## Question and analyst hypothesis
 
-Does an equal-quantity multi-unit pattern (e.g. **8 units positively priced plus 8 units at £0**, or **12 + 12**) recur across invoices for the same SKU within narrow time periods? Compared with *all paid invoice-SKU occurrences of that product in the same week*, are zero/paid combinations conspicuous? Could this be consistent with a BOGO-like campaign, or might it reflect operational recording conventions?
+A classic buy-one-get-one campaign might appear as equal quantities of the same SKU positively priced and £0 on one invoice, with **the same pairing recurring across different invoice IDs during a short period**. Case 016 found no repeated *strict 1+1-unit* pairing for the same SKU. Does a broader multi-unit equal-quantity pattern (e.g., 8 paid + 8 £0) repeat, particularly during weeks when that SKU had other ordinary paid-only invoicing activity?
 
-## Previously verified facts
+## Verification and source integrity
 
-- Case 015: 43 zero-priced line comparisons have a paid same-SKU counterpart on the same invoice; 10 comparisons have equal **line quantities**, while others have very unequal quantities.
-- Case 016: 43 invoice-SKU groups across 33 invoice IDs and 32 SKUs; five groups have exactly one paid unit + one £0 unit, **none recurring on distinct invoices of the same SKU**.
-- Five SKUs have any paid/£0 pattern on more than one invoice; two recur in rolling seven-day windows. The source **does not** identify promotions, shipments or reasons.
+- **Official source:** UCI Online Retail II, original workbook SHA-256 `bcbe73b35f5b7babf197fb0cb983a11f5d9ff929078d4aa53d171b1f2df2e980`.
+- **GitHub Actions:** https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42940297437 — **completed success; 95 synthetic tests passed**, and original-source Case 017 analysis completed.
+- **Source code:** `scripts/investigate_multiunit_weekly_context.py`; tests `tests/test_multiunit_weekly_context.py`.
+- **Result:** `outputs/multiunit_weekly_context.json` in GitHub Actions `retail-initial-audit` summary artifact; only aggregates and bounded SKU/week context, no original row-level records or customer IDs.
+- **Reference view:** 1,044,848 candidate lines after the 22,523 reversible cross-sheet copy links; all 1,067,371 source records remain accounted for in provenance.
+- **Prior-case check:** `agrees_with_case_016_cohorts = true`. No source data, canonical links, scenario rules, or financial classifications were modified.
 
-## New analysis and safeguards
+## Core findings
 
-- **Code:** `scripts/investigate_multiunit_weekly_context.py`; tests `tests/test_multiunit_weekly_context.py` (six new synthetic-data test cases).
-- **Reproduction:** after Case 016, run `python scripts/investigate_multiunit_weekly_context.py` from `retail-intelligence/`. Output: ignored `outputs/multiunit_weekly_context.json` and JSON-only GitHub Actions artifact.
-- Use the unchanged Case 008 reversible candidate view built from the original UCI workbook; preserve all original-row provenance.
-- Group **non-C positive-quantity lines** by exact invoice ID and stock code. Separate £0 lines from positive-priced lines; do not infer returns or customer identity.
-- Define `equal_total_quantity`: the **sum** of all positive £0 quantities equals the sum of positively priced quantities within an invoice+SKU group. This can hold across multiple lines and does **not** prove a gift or 1:1 unit linkage.
-- Define `multiunit_equal`: equal total quantities, each strictly greater than **one unit**.
-- Keep `strict_one_plus_one` separate: one £0 line with one unit and one paid line with one unit.
-- For each SKU, report how many invoice-SKU groups exhibit multiunit equality and whether **multiple distinct invoices** with that shape occur within *rolling* 7- or 30-day intervals.
-- For products with any paired group, compare qualifying invoice-SKU groups against **paid-only** invoice-SKU groups in the **same fixed Monday–Sunday calendar week**, using the recorded paid-side invoice time. A fixed calendar week is not a rolling seven-day window.
-- Emit at most 15 SKU summaries and 15 calendar-week summaries. Ratios use paid invoice-SKU **groups**, not customers, individual unit counts, shipments, revenue, or experimental randomized controls.
-- Assert consistency with Case 016: zero lines with same-invoice paid counterpart, total paired invoice-SKU groups, strict 1+1 group count and SKU count. If counts disagree, fail rather than silently changing the definition.
-- Preserve no-source-row-export / no-customer-ID-export safeguards; no full invoice tables or derived row-level files are published.
+| Measure | Original-source verified value |
+| --- | ---: |
+| Non-C positive-quantity zero-price lines | **2,631** |
+| Non-C positive-quantity positive-price lines | **1,019,654** |
+| £0 lines with positively priced same-SKU neighbors on same invoice | **43** |
+| Invoice+SKU groups with qualifying paid and zero-price lines | **43** |
+| Distinct invoice IDs containing these groups | **33** |
+| Distinct stock codes with any qualifying group | **32** |
+| Strict one-paid-unit + one-zero-unit invoice+SKU groups | **5** |
+| **Equal total paid and zero quantity**, any positive size | **10** |
+| **Equal multi-unit quantities** (both sides > 1 unit) | **5** |
+| Unequal total quantities | **33** |
+| SKUs with multi-unit equal-quantity patterns on ≥2 distinct invoices | **0** |
+| SKUs with multi-unit equal-quantity patterns within rolling seven days | **0** |
 
-## How to interpret (before seeing source results)
+All **five** equal multi-unit groups occur on **different stock codes**, and none recurs for the same product on another invoice. The exact 1+1 structure and the multi-unit equality structures are disjoint in the observed source view. Thus **neither strict 1+1 nor multi-unit equal quantities show repeated same-SKU invoice evidence** consistent with a documented recurring BOGO mechanism, within these narrowly observed candidate groups.
 
-**Potential support for a campaign hypothesis:** the same product repeatedly shows equal multi-unit £0/paid quantities across *distinct invoices* in a short window; the ratio of paired groups to all paid invoice-SKU groups is larger inside that window than outside it, with sufficient denominator and ideally external promotion evidence.
+**Caution:** This does not disprove promotions that use discount codes, sale prices rather than explicit £0 lines, other bundle ratios, or different recording conventions.
 
-**Counterexamples or alternatives:** zero-to-paid quantities vary greatly, pairs are dominated by one unusual invoice, the SKU also has many routine paid-only transactions, or similar patterns persist over a long time. Even repeated equal units could be bundles, stock corrections, repricing, invoice conventions or another promotion format.
+## Same-week denominator examples
 
-**Important limitations:** observational clustering is **not** a randomized causal control or verified promotion; week selection after observing peaks introduces selection bias. No rule can assign free-unit monetary value from the source alone. Sparse counts cannot support a confident general conclusion.
+Same-week comparison uses fixed calendar **Monday–Sunday** weeks of *paid invoice+SKU groups* (not physical deliveries, customers, verified orders, or campaign eligible populations). Ratios are descriptive and **not promotional redemption rates**. These observations were selected after viewing results.
 
-## Pending steps
+| SKU | Week starting | Paid+£0 invoice+SKU groups | Paid-only groups same week | Total paid invoice+SKU groups | Equal multi-unit groups |
+| --- | --- | ---: | ---: | ---: | ---: |
+| `20724` | Jan 3, 2011 | **2** | **13** | **15** | 0 |
+| `84016` | Apr 26, 2010 | **2** | **2** | **4** | 0 |
+| `85042` | Dec 14, 2009 | **1** | **13** | **14** | **1** |
+| `21143` | Dec 14, 2009 | **1** | **5** | **6** | **1** |
+| `22043` | Nov 1, 2010 | **1** | **0** | **1** | **1** |
+| `22044` | Nov 1, 2010 | **1** | **5** | **6** | **1** |
+| `23407` | Nov 14, 2011 | **1** | **8** | **9** | **1** |
 
-1. Verify that GitHub Actions passes all tests and the original-source analysis, including Case 016 reconciliation.
-2. Interpret the actual SKU/week cohorts, noting denominator sizes and concentration in the same invoice.
-3. Only if compelling, pursue an independent promotion/price-list record to confirm business meaning; otherwise leave the category **uncertain**.
-4. Continue toward provisional KPI definitions and decision-focused SQL analysis without endlessly expanding anomalies.
+Note that a 100% observed pairing fraction for `22043` that week is **only 1 out of 1 qualifying paid invoice+SKU group**. One observation cannot prove a promotion. Conversely, `20724` and `84016` recur in a week, **but neither has equal total paid/£0 quantities**. Different grouping and denominator choices change impressions considerably.
 
-**Decision D054 (investigation stage):** test the multi-unit BOGO hypothesis while holding operational correction as a competing explanation; preserve the unchanged original workbook, reversible candidate view, every source-to-canonical link, and financial scenario definitions.
+## Interpretation
+
+1. **Not verified:** BOGO, free goods, pricing corrections, stock adjustment, customer uptake, official campaign dates, product shipment, actual payments, realized refunds or accounting revenue.
+2. **Weakening of narrow BOGO hypothesis:** The paid-plus-£0 same-SKU pattern exists, but repeated exact quantity parity for the **same** SKU across **different** invoice IDs is **not observed**. That is the strong differentiator between an isolated pattern and an apparent repeating deal.
+3. **Separate hypothesis:** Stock code `84016` appears in six paid+£0 invoice groups yet never with equal recorded total quantities; some have extreme quantity imbalance. This warrants a separately preserved operational/billing-convention lead, not an automatic diagnosis.
+4. **Methodological warning:** Small weekly denominators, selection of high-frequency weeks after seeing them, lack of promotion metadata, and wholesale-like orders prohibit attributing causation.
+
+## Decisions and next milestone
+
+- **D055:** Retain paid/£0 same-SKU pairs as **descriptive anomalies**. No automatic promotion, giveaway, adjustment, duplicate, return or cash-refund classification.
+- **D056:** Record that repeated *strict* and *multi-unit* equal-quantity BOGO-like forms were not observed for the same SKU on multiple invoices. The evidence weakens that specific hypothesis only; do not convert an absence-of-evidence result into proof of no promotions.
+- **D057:** Keep original workbook, reversible candidate view, complete provenance and S0/S1/S2 scenario definitions untouched.
+- **R017a:** Optional independent merchant promotion calendar/price-list verification if available; not essential before analysis.
+- **R017b:** Keep `84016` as a possible operational convention for later review, without holding the full project hostage to one unresolved SKU.
+- **Next:** Begin Case 018 SQL cohort/scenario validation and monthly business performance work, with source-grain checks and transparent provisional definitions.
+
+**Milestone conclusion:** The £0/paid pricing branch can be documented as **unresolved business semantics, descriptively investigated**. We have enough to begin exploratory business analytics without claiming every posting type has been explained.
