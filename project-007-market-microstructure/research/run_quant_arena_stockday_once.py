@@ -14,7 +14,7 @@ import urllib.request
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from microstructure.selective_tar import (
     HTTPRange, RangeSourceError, scan_tar, download_member,
-    discover_publisher_revision, pinned_source_url,
+    discover_publisher_revision, pinned_source_url, checksum_from_sha256sums,
 )
 from microstructure.quant_arena_pilot import audit_local_parquet
 
@@ -22,6 +22,7 @@ STOCK = "000012.SZ"  # Publisher's example stock; selected before accessing labe
 STOCK_FILE = STOCK + ".parquet"
 RELATIVE_STOCK = "quant-arena-public-l1-v1/" + STOCK_FILE
 MANIFEST = "quant-arena-public-l1-v1/manifest.json"
+SHA256SUMS = "quant-arena-public-l1-v1/SHA256SUMS"
 MAX_BYTES_TRANSFERRED = 75_000_000  # protect research runner
 MAX_STOCK_MEMBER = 65_000_000
 
@@ -94,13 +95,23 @@ def main():
     by_name = {m.name: m for m in files}
     if len(files) != len(by_name):
         raise RangeSourceError("duplicate archive member names")
-    if MANIFEST not in by_name or RELATIVE_STOCK not in by_name:
-        raise RangeSourceError("expected stock file/manifest not present in TAR")
+    if MANIFEST not in by_name or SHA256SUMS not in by_name or RELATIVE_STOCK not in by_name:
+        raise RangeSourceError("expected stock, manifest and SHA256SUMS absent from TAR")
     manifest = by_name[MANIFEST]
     if not 0 < manifest.size <= 4_000_000:
         raise RangeSourceError("publisher manifest size outside research cap")
     metadata = download_member(fetch, manifest, max_bytes=4_000_000)
-    expected_sha = _manifest_digest(metadata, STOCK_FILE)
+    try:
+        metadata_json = json.loads(metadata)
+    except (ValueError, UnicodeDecodeError) as exc:
+        raise RangeSourceError("publisher manifest is not valid JSON") from exc
+    if not isinstance(metadata_json, dict):
+        raise RangeSourceError("publisher manifest must be an object")
+    checksums = by_name[SHA256SUMS]
+    if not 0 < checksums.size <= 200_000:
+        raise RangeSourceError("publisher SHA256SUMS size unexpected")
+    checksums_bytes = download_member(fetch, checksums, max_bytes=200_000)
+    expected_sha = checksum_from_sha256sums(checksums_bytes, RELATIVE_STOCK)
     member = by_name[RELATIVE_STOCK]
     if not 0 < member.size <= MAX_STOCK_MEMBER:
         raise RangeSourceError("selected stock file exceeds pilot limit")
@@ -122,8 +133,10 @@ def main():
         "publisher_license": "CC BY-NC 4.0",
         "original_archive_fully_downloaded": False,
         "original_archive_sha256_not_checked": True,
-        "one_stock_member_sha256_verified_by_manifest": True,
+        "one_stock_member_sha256_verified_by_sha256sums": True,
+        "publisher_manifest_json_present": True,
         "archive_members_seen": len(files),
+        "archive_sha256_not_verified": True,
         "remote_range_bytes_received": fetch.bytes_transferred,
         "archive_size_from_content_range": fetch.total_size,
         "data_committed_or_uploaded": False,
