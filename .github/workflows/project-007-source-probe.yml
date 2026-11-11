@@ -1,0 +1,23 @@
+name: Project 007 official FI-2010 metadata probe
+
+on:
+  push:
+    branches: ['feat/007-market-microstructure-research']
+    paths:
+      - 'project-007-market-microstructure/research/probe_fairdata.py'
+      - '.github/workflows/project-007-source-probe.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  read-metadata-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe public Fairdata metadata; no dataset file download
+        run: python project-007-market-microstructure/research/probe_fairdata.py
