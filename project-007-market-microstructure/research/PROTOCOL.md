@@ -1,4 +1,4 @@
-# Preregistered research protocol — Project 007 (proposal, not scored)
+# Project 007 research protocol — engineering prototypes and one historical FI-2010 baseline
 
 ## Primary question
 
@@ -28,11 +28,11 @@ A provisional chronological **session-level** partition function produces disjoi
 
 **Crucial:** Neither the candidate horizon, target policy nor split sizes are approved for empirical analysis. They require the human lead's interpretation and sufficient authorized multi-day data. No model fit, prediction score, return series, forecast or backtest is part of this prototype. Seeded synthetic tests include a separately implemented quadratic-search oracle for target selection and a mutation check that future quote changes cannot modify origin features.
 
-## Phase 1D: separate FI-2010 benchmark (synthetic-tested only; real data pending)
+## Phase 1D: separate FI-2010 benchmark (real, baseline-only evaluation completed)
 
 FI-2010 is a preprocessed ten-day five-stock benchmark, not an event-message reconstruction input. It contains 144 normalized features and five publisher-derived label rows (horizons 1, 2, 3, 5, 10 sampled observations; class 1 up, 2 stationary, 3 down) in a 149-by-N matrix. The anchored-fold convention uses the first k days for training and day k+1 for test. A strictly simple initial baseline reads `Train_Dst_NoAuction_DecPre_CF_7.txt` (days 1–7) and `Test_Dst_NoAuction_DecPre_CF_7.txt` (day 8) only. All rows and numeric labels are validated; output is train-prior constant prediction and day-8 accuracy/macro-F1. Days 9/10 stay reserved and unread. No raw-spread, order-flow, elapsed-time, fill or P&L inference is authorized by normalized features.
 
-The actual official dataset/license snapshot has **not** been acquired here. The source documentation, attribution requirements, and whether precomputed training labels incorporate information beyond the 7th-day boundary must be checked before treating any empirical score as leakage-clean. See `FI2010_SOURCE_REVIEW.md`.
+The official Fairdata API confirmed **Open / CC BY 4.0** licensing; the DeepLOB researcher-hosted archive was downloaded with a pinned SHA256 and its CF7 train/day-eight files validated. Results: 254,750 training observations; 55,478 day-eight observations; constant class 1 from training; day-eight accuracy 26.20% and macro-F1 0.1384. A **separate raw-ZIP label-row parser** independently verified counts and exact score fractions. Day-nine/day-ten files were never opened. The researcher archive's binary identity with the original Fairdata distribution, and whether publisher-generated training labels overlap the day-eight outcome period, **remain unverified**. See `EMPIRICAL_DAY8.md` and `FI2010_SOURCE_REVIEW.md`.
 
 ## Phase 2: signal definition and falsification (not implemented)
 
