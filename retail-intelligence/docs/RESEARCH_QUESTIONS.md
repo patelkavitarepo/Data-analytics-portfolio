@@ -141,7 +141,7 @@
 
 ## R021 — How much of the observed S2 difference reflects recorded quantities versus observed unit values and changing stock-code coverage?
 
-**Status:** Case 021 diagnostic committed, independent original-source workflow verification pending.
+**Status:** Case 021 original-source verification completed successfully; [115 synthetic tests passed](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42949051946).
 
 - [SKU composition identity and guardrails](SKU_COMPOSITION_BRIDGE.md) computes a four-term arithmetic gross-line-value bridge by exact stock code for matched Jan–Nov periods.
 - Checks source S2 line counts, recorded units and gross amounts in **both** years against Case 018 SQL; no individual invoice IDs/customer IDs emitted and no source records changed.
