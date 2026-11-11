@@ -10,6 +10,7 @@ import json
 from pathlib import Path
 
 from .audit import AuditError, _book, _file_hash, _message, audit_pairs
+from .paths import safe_report_output
 
 
 def _bucket(timestamp, seconds):
@@ -162,12 +163,13 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:
+        output = safe_report_output(args.output)
         result = describe_pairs(
             args.messages, args.orderbook, levels=args.levels,
             bucket_seconds=args.bucket_seconds,
         )
-        args.output.parent.mkdir(parents=True, exist_ok=True)
-        args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
+        output.parent.mkdir(parents=True, exist_ok=True)
+        output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     except (AuditError, OSError, ValueError) as exc:
         parser.error(str(exc))
     print("Complete local paired audit and descriptive diagnostics written; no model was fitted.")
