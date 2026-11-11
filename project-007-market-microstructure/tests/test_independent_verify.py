@@ -77,6 +77,26 @@ class IndependentVerificationTests(unittest.TestCase):
         with self.assertRaisesRegex(VerificationError, "full-file"):
             independently_verify(self.m, self.b, report)
 
+    def test_audit_counts_one_sided_quotes_through_halt(self):
+        self.m.write_text(
+            "34200,1,101,80,1000000,1\n"
+            "34201,7,0,0,-1,-1\n"
+            "34202,7,0,0,0,-1\n"
+            "34203,7,0,0,1,-1\n"
+            "34204,1,102,50,1000100,-1\n",
+            encoding="utf-8",
+        )
+        self.b.write_text(
+            "9999999999,0,1000000,50\n" * 4
+            + "1000200,50,1000000,50\n",
+            encoding="utf-8",
+        )
+        report = describe_pairs(self.m, self.b, levels=1)
+        self.assertEqual(report["audit"]["one_sided_or_empty_quotes"], 4)
+        self.assertEqual(report["windows"][0]["one_sided_count"], 1)
+        result = independently_verify(self.m, self.b, report)
+        self.assertEqual(result["events_verified"], 5)
+
     def test_missing_window_is_rejected(self):
         report = self.fixture()
         report["windows"].pop()
