@@ -119,6 +119,17 @@ def pilot_summary(quotes, symbol, days, *, gap_seconds=30):
         results = labels_from_quotes(quotes, horizon, max_gap_seconds=gap_seconds)
         counts = Counter(item.classification for item in results)
         exclusions = Counter(item.excluded for item in results if item.excluded is not None)
+        by_day = {}
+        for day in sorted(days):
+            daily = Counter(
+                x.classification for x in results if x.trading_date == day
+            )
+            by_day[day] = {
+                "up": daily[1],
+                "stationary": daily[2],
+                "down": daily[3],
+                "unlabelled": daily[None],
+            }
         per_horizon[str(horizon)] = {
             "up": counts[1],
             "stationary": counts[2],
@@ -126,11 +137,33 @@ def pilot_summary(quotes, symbol, days, *, gap_seconds=30):
             "unlabelled": counts[None],
             "excluded_reasons": dict(sorted(exclusions.items())),
             "stock_date_boundary_crossings": 0,
+            "daily_class_counts": by_day,
         }
         if sum(counts.values()) != len(quotes):
             raise PilotError("class tallies do not reconcile to observations")
+    # Descriptive source QC, computed without training or using future labels.
+    issue_counts = Counter()
+    previous = None
+    for q in quotes:
+        if q.stale:
+            issue_counts["stale_or_missing_event_time"] += 1
+        if q.missing_depth:
+            issue_counts["missing_or_null_depth_flag"] += 1
+        bid, ask = q.bid, q.ask
+        if bid is None or ask is None:
+            issue_counts["absent_best_quote"] += 1
+        elif bid <= 0 or ask <= bid:
+            issue_counts["nonpositive_or_locked_crossed_quote"] += 1
+        if (
+            previous is not None and previous.symbol == q.symbol
+            and previous.trading_date == q.trading_date
+            and (q.available_at - previous.available_at).total_seconds() > gap_seconds
+        ):
+            issue_counts["consecutive_quote_gap_exceeds_cutoff"] += 1
+        previous = q
     return {
         "status": "source_identifiable_stockday_labels_no_forecast",
+        "selected_observation_quality_counts": dict(sorted(issue_counts.items())),
         "source": SOURCE_URL,
         "license": SOURCE_LICENSE,
         "citation": "Quant-Arena Public L1, LaPlace's Eye / Einsia AI, 2026",
@@ -186,7 +219,7 @@ def audit_local_parquet(path, symbol, days, expected_sha256):
         "file_bytes": path.stat().st_size,
         "actual_schema_columns": field_names,
         "available_rows": source.metadata.num_rows,
-        "expected_file_hash_from_manifest": True,
+        "source_checksum_source": "publisher SHA256SUMS in pinned research TAR",
     }
     report["source_quality_counts"] = qc
     return report
