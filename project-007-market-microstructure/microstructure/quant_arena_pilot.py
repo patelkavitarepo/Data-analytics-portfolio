@@ -53,8 +53,8 @@ def convert_quote_rows(raw_rows, symbol, days):
     """
     if not isinstance(symbol, str) or not symbol.endswith(".SZ"):
         raise PilotError("expected a literal Shenzhen .SZ symbol")
-    if not days or len(set(days)) != len(days) or len(days) > 2:
-        raise PilotError("pilot requires one or two distinct requested days")
+    if not days or len(set(days)) != len(days) or len(days) > 5:
+        raise PilotError("pilot requires one to five distinct requested days")
     for day in days:
         try:
             x = date.fromisoformat(day)
