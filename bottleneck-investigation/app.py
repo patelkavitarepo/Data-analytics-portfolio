@@ -17,7 +17,8 @@ st.set_page_config(
 st.markdown(
     """<style>.block-container{padding-top:2.3rem;max-width:1450px}h1{letter-spacing:-1.3px}
 [data-testid="stMetric"]{background:#fff;border:1px solid #dce5ed;border-radius:12px;padding:18px}
-[data-testid="stSidebar"]{border-right:1px solid #dce5ed}</style>""",
+[data-testid="stSidebar"]{border-right:1px solid #dce5ed}
+@media(max-width:640px){h1{font-size:2rem!important;overflow-wrap:anywhere}h3{font-size:1.25rem!important}.block-container{padding-left:1rem;padding-right:1rem}p{overflow-wrap:anywhere}}</style>""",
     unsafe_allow_html=True,
 )
 st.caption("CASE 002  /  OPERATIONS INTELLIGENCE  /  SAN FRANCISCO 311")
