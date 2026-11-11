@@ -56,6 +56,35 @@ The event file's **transactionid** is intentionally blank on non-transaction eve
 
 **Researcher interpretation:** **PENDING.** The AI's potential leads or competing explanations are not findings attributed to the researcher.
 
+
+## H001 — Product appeal / popularity (human-proposed hypothesis, 2026-11-11)
+
+The human investigator asked: **"The product is not popular?"** This is a candidate explanation for low recorded view-to-cart progression, **not** an observed or accepted explanation. It is possible that people view items they do not intend to purchase. Popularity can mean attention (views), desirability (cart activity), or purchases, and these should not be conflated.
+
+### Independent product-level check on supplied full source
+
+Method: parse `events.csv` from the user-supplied archive; remove exact event duplicates; group by `itemid` and `event`. **These are item-level event counts, not a cohort or conversion rate**. For selected item examples, separately count unique visitor IDs and carts occurring strictly after a view. The full source is as identified by SHA-256 in the intake section above.
+
+| Descriptive measure | Observed |
+|---|---:|
+| Distinct products with at least one recorded view | 234,838 |
+| Products with views but **zero** recorded add-to-cart events anywhere in the full period | 211,157 (89.92% of viewed products) |
+| View events on those zero-cart products | 1,438,833 (54.01% of accepted product-view events) |
+| Products with at least 100 recorded views | 3,984 |
+| Among 100+ view products, those with no recorded cart additions | 908 (22.79%) |
+
+| Item ID (anonymous identifier, not product title) | View events | Distinct viewing IDs | Cart-addition events | Distinct cart IDs | Cart IDs observed strictly after a view of same item |
+|---|---:|---:|---:|---:|---:|
+| 187946 | 3,410 | 2,911 | 2 | 2 | 0 |
+| 461686 | 2,538 | 1,379 | 304 | 267 | 252 |
+| 370653 | 1,854 | 1,577 | 0 | 0 | 0 |
+
+**Initial implication:** The low overall cart progression cannot be explained solely by low *viewing* popularity: some heavily viewed items exhibit almost no recorded cart activity, while other heavily viewed items do. The dataset does **not** tell us why. Competing explanations include product availability, pricing, browsing rather than buying intent, instrumentation/coverage differences, or other item-level characteristics absent from `events.csv`. Unknown causes must not be promoted to findings.
+
+**Follow-up:** compare high-exposure items' ordered same-item view-to-cart ratios, check for temporal drift and availability proxies only if supported by source data, and consider product/item-properties metadata. Long-tail sparsity (many items receive few views) makes per-item ratio estimates unstable; avoid ranking by tiny denominators. Product category_tree alone cannot map these items to categories without item properties.
+
+**Human interpretation:** The investigator has proposed H001; they have **not** asserted it to be true or approved any causal explanation.
+
 ## Implementation execution — 2026-11-11 UTC
 
 Synthetic fixtures used in automated tests only. They are not empirical evidence and do not appear as startup findings. Final validation completed in this managed Linux environment:
