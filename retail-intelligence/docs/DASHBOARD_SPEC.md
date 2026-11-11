@@ -31,11 +31,11 @@ The proposed dashboard should answer this with **recorded invoice activity**, no
 - Show distribution reference points: medians **£300.58 vs £304.24** and 95th percentiles **£1,384.68 vs £1,493.66** per invoice-ID-month group.
 - Drilldown to **month aggregates only**, no individual invoice IDs/customer IDs in a public dashboard. Annotate selection and denominator limitations.
 
-## Page 4: SKU and unit-value bridge (conditional, Case 021 pending)
+## Page 4: SKU and unit-value bridge (Case 021 source-verified)
 
-- Only display once the independent Case 021 source checks pass and the product-code bridge reconciles to Case 018.
-- Visualize **four arithmetic terms** for Jan–Nov S2 gross change: common-SKU recorded-quantity component, common-SKU effective gross amount-per-unit component, later-only SKU gross contribution, earlier-only SKU disappearing contribution.
-- The effective per-unit residual is not automatically **price inflation**, and earlier/later-only source codes do not establish new/discontinued products. No causal claim without external evidence.
+- [Full-source verification](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42949051946): 115 tests passed; four components reconcile exactly to the matched-month S2 difference **+£250,647.33**.
+- Visualize recorded shared-SKU quantity **−£992,716.27**, shared-SKU effective value/unit residual **−£141,027.84**, 2011-only stock-code gross **+£2,058,492.44** and 2010-only stock-code gross **−£674,101.00**. The dashboard preview now includes all four as signed diverging bars.
+- **3,067** stock codes qualify in both years, **655** only in 2011 and **881** only in 2010. Code presence is not a validated launch/retirement; the effective unit-value residual is not necessarily **price inflation**. These are arithmetic identities, **not causal components**.
 
 ## Required footnote and narrative contract
 
