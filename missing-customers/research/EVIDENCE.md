@@ -109,6 +109,25 @@ Item 187946 had 45 view events across May–July and 2,649 in August (out of its
 
 **Human researcher stance:** requested more item context before attributing poor cart progression to popularity. No causal interpretation approved.
 
+
+### H001 visitor-level behavioral follow-up — full event source, 2026-11-11
+
+Question: Do visitors who viewed the unusually high-view/low-cart item subsequently interact with **other** items? This checks whether the pattern is specific to the item or accompanies sparse recorded behavior by those viewer IDs.
+
+Method: exactly deduplicated full `events.csv`; for each item find each visitor ID's *first recorded view* of the target item. Count distinct viewers with later cart / transaction events for **any item**, strictly after that first view. Also count distinct viewers who have **any recorded event** involving another product anywhere in the complete file (not just later). This is **not** a session-level or causal analysis.
+
+| Observed visitor-ID measure | Item 187946 | Item 461686 | Item 370653 |
+|---|---:|---:|---:|
+| Distinct viewers of item | 2,911 | 1,379 | 1,577 |
+| Viewers with later cart of any item | 4 | 322 | 4 |
+| Viewers with later cart of another item | 4 | 192 | 4 |
+| Viewers with later transaction of any item | 0 | 174 | 2 |
+| Viewers with any interaction on another item (before or after) | 173 | 676 | 363 |
+
+**Observation:** For item 187946, very few viewer identifiers show a later cart action anywhere in the recorded site data, while item 461686's viewer identifiers show much more later shopping activity. This is compatible with differences in visitor intent or incoming traffic composition, but can also reflect tracking/identity artifacts, censoring, acquisition placement, or other unmeasured factors. It does **not** prove that item 187946 was unavailable, less appealing, or visited by bots. The data contains no referral source or device metadata to identify channels. Do not interpret absent events as confirmed inactivity outside the tracking system.
+
+**Required next source:** Original `item_properties_part1.csv` and `item_properties_part2.csv`, with event-time as-of availability/category associations. Inspect both items and matched peers on comparable dates; note that most other property keys/values are anonymized.
+
 ## Implementation execution — 2026-11-11 UTC
 
 Synthetic fixtures used in automated tests only. They are not empirical evidence and do not appear as startup findings. Final validation completed in this managed Linux environment:
