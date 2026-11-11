@@ -43,6 +43,7 @@ python scripts/investigate_same_sku_price_pairs.py
 python scripts/investigate_temporal_zero_paid_sku.py
 python scripts/investigate_multiunit_weekly_context.py
 python scripts/run_sql_kpi_workbench.py
+python scripts/analyze_monthly_business_activity.py
 python -m pytest -q
 ```
 
