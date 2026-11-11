@@ -10,7 +10,7 @@ def q(symbol, day, minute, midpoint, stale=False, invalid=False):
     mid=Decimal(str(midpoint))
     bid=mid-Decimal("0.01")
     ask=mid+Decimal("0.01") if not invalid else bid
-    return Quote(symbol,day,datetime.fromisoformat(day+"T09:30:00").replace(tzinfo=TZ)+timedelta(minutes=minute),bid,ask,stale)
+    return Quote(symbol,day,datetime.fromisoformat(day+"T09:30:00").replace(tzinfo=TZ)+timedelta(seconds=15 * minute),bid,ask,stale)
 
 class Tests(unittest.TestCase):
     def test_exact_average_not_final_snapshot(self):
@@ -56,6 +56,24 @@ class Tests(unittest.TestCase):
         bad=Quote(x.symbol,"2022-01-05",x.available_at,x.bid,x.ask)
         with self.assertRaisesRegex(ValueError,"differ"):
             labels_from_quotes([bad],1)
+
+    def test_gap_longer_than_declared_cadence_breaks_segment(self):
+        rows = [q("A", "2022-01-04", 0, 100),
+                q("A", "2022-01-04", 1, 100),
+                q("A", "2022-01-04", 10, 102),
+                q("A", "2022-01-04", 11, 102)]
+        labels = labels_from_quotes(rows, 1, max_gap_seconds=30)
+        self.assertEqual([x.classification for x in labels], [2, None, 2, None])
+        self.assertEqual(labels[1].excluded, "incomplete_future")
+
+    def test_large_window_exact_rolling_average(self):
+        rows = [q("A", "2022-01-04", i, 100 + i * 0.03) for i in range(300)]
+        lab = labels_from_quotes(rows, 5)
+        self.assertEqual(len(lab), len(rows))
+        self.assertEqual(sum(x.classification is not None for x in lab), 295)
+        self.assertTrue(all(x.target_indices == tuple(range(i+1, i+6))
+                            for i, x in enumerate(lab[:295])))
+        self.assertTrue(all(x.classification is None for x in lab[-5:]))
 
     def test_short_segment_never_fabricates_label(self):
         z=labels_from_quotes([q("A","2022-01-04",0,100)],5)
