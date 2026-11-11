@@ -14,7 +14,7 @@
 
 - Actual DataSF/BigQuery schema, source coverage and authentic data metrics: HTTPS requests fail with managed proxy HTTP CONNECT 403. Current network policy has no custom allowed hosts. No GCP identity is configured, and no paid resources were provisioned.
 - Full-volume extraction size, performance and real-data charts: cannot be validated without accessible authentic records. The field mapping is provisional and fails closed when metadata differs. Dataset completeness is not claimed.
-- Python 3.11 locally: only 3.12 is installed/tested here; the GitHub Actions matrix targets 3.11 and 3.12.
+- Python 3.11 locally: only 3.12 is installed here. Both Python 3.11 and 3.12 GitHub Actions jobs subsequently completed successfully on the review commit.
 - Public Streamlit hosting: no application was published, so no public deployment is claimed. Account authorization/publication and review of a real bundle remain owner actions.
 
 ## Release interpretation
