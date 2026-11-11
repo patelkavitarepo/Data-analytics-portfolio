@@ -89,6 +89,8 @@ The download command obtains the official UCI workbook. The thirteen analyses sa
 
 **Investigation 018 — SQL exploratory KPI workbench (source verification pending):** [semantic dictionary](docs/PROVISIONAL_KPI_DICTIONARY.md), [SQL workbench design](docs/SQL_KPI_WORKBENCH.md), and [SQLite classification view](sql/001_provisional_retail_kpis.sql). Recomputes mutually exclusive line classes and S0/S1/S2 amounts using a separate SQL engine; it fails if aggregate row counts, invoice-ID counts or source scenario amounts disagree with Case 009. Monthly merchandise-like gross line activity and cancellations are explicitly exploratory, not recognized sales. The source-data SQL run is not yet verified.
 
+**Investigation 019 — Monthly business activity:** [source-backed Jan–Nov comparisons](docs/MONTHLY_BUSINESS_ACTIVITY.md). Independent verified SQL output shows **£8.639M in 2010 versus £8.890M in 2011 (+2.90%) in provisional S2 gross positive-priced line amounts**, with qualifying S2 lines up 4.03% but sum of monthly distinct invoice-ID counts down 3.93%; known-customer-ID coverage drops by 4.92 percentage points. These are **not revenue, verified orders or customer demand**. A separate like-for-like monthly analysis script and five synthetic tests were added; Case 019 pipeline confirmation is pending.
+
 ## Research directions (questions, not findings)
 
 1. How sensitive is reported merchandise performance to cancellation, return and non-product definitions?
