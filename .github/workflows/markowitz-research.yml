@@ -1,4 +1,4 @@
-name: Project 006 tests and market-data connectivity
+name: Project 006 tests and rights investigation
 on:
   pull_request:
     paths:
@@ -9,7 +9,7 @@ permissions:
   contents: read
 jobs:
   connectivity:
-    name: Status-only market-data connectivity
+    name: Status-only documentation connectivity
     runs-on: ubuntu-latest
     timeout-minutes: 4
     steps:
@@ -19,7 +19,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Probe public endpoints without logging bodies or credentials
+      - name: Probe documentation endpoints only; no market-data collection
         run: python markowitz-portfolio-optimization/scripts/network_probe.py
   test:
     name: Project 006 synthetic tests
@@ -40,7 +40,9 @@ jobs:
       - run: python -m pip install -r requirements-lock.txt
       - run: python -m pytest -q
   source-audit:
-    name: Ephemeral eight-ETF acquisition audit (no performance)
+    # Latest Holmes review: no express provider permission for Yahoo collection.
+    if: ${{ false }}
+    name: BLOCKED - Yahoo acquisition requires express provider permission
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -55,3 +57,15 @@ jobs:
       - run: python -m pip install -r markowitz-portfolio-optimization/requirements-lock.txt
       - name: Acquire in runner memory and report quality only (no prices or performance)
         run: python markowitz-portfolio-optimization/scripts/source_audit.py
+  rights-documents:
+    name: Provider documentation receipts (no market data)
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python markowitz-portfolio-optimization/scripts/rights_receipts.py

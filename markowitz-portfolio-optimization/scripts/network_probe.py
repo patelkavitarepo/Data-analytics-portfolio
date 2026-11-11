@@ -5,14 +5,15 @@ import os
 import urllib.error
 import urllib.request
 
+# Status probes are documentation-only. Do not probe Yahoo chart endpoints
+# while collection permission is unestablished, even if the body is discarded.
 ENDPOINTS = (
-    ('query1.finance.yahoo.com', 'https://query1.finance.yahoo.com/v8/finance/chart/SPY?range=5d&interval=1d'),
-    ('query2.finance.yahoo.com', 'https://query2.finance.yahoo.com/v8/finance/chart/SPY?range=5d&interval=1d'),
-    ('fc.yahoo.com', 'https://fc.yahoo.com/'),
-    ('fred.stlouisfed.org', 'https://fred.stlouisfed.org/graph/fredgraph.csv?id=DGS3MO'),
     ('legal.yahoo.com', 'https://legal.yahoo.com/us/en/yahoo/terms/otos/index.html'),
-    ('www.nasdaq.com', 'https://www.nasdaq.com/market-activity/etf/spy/historical'),
+    ('ranaroussi.github.io', 'https://ranaroussi.github.io/yfinance/'),
+    ('www.alphavantage.co', 'https://www.alphavantage.co/terms_of_service/'),
+    ('www.tiingo.com', 'https://www.tiingo.com/tos/'),
 )
+
 
 
 class NoRedirect(urllib.request.HTTPRedirectHandler):
