@@ -6,10 +6,8 @@ Publishes only aggregate class counts, source manifests and uncertainty notes.
 from hashlib import sha256
 import json
 from pathlib import Path
-import re
 import sys
 import tempfile
-import urllib.request
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from microstructure.selective_tar import (
@@ -26,40 +24,6 @@ SHA256SUMS = "quant-arena-public-l1-v1/SHA256SUMS"
 MAX_BYTES_TRANSFERRED = 75_000_000  # protect research runner
 MAX_STOCK_MEMBER = 65_000_000
 
-
-def _manifest_digest(data, filename):
-    """Find one unambiguous expected file SHA from original publisher metadata."""
-    try:
-        document = json.loads(data)
-    except (UnicodeError, ValueError) as exc:
-        raise RangeSourceError("publisher manifest is not valid UTF-8 JSON") from exc
-    found = []
-    def visit(node, ancestors=()):
-        if isinstance(node, dict):
-            candidate = node.get("sha256")
-            names = list(ancestors[-2:])
-            names += [str(node.get(k, "")) for k in (
-                "name", "path", "filename", "file", "symbol"
-            )]
-            if isinstance(candidate, str) and any(
-                value == filename
-                or value.endswith("/" + filename)
-                or value == filename.removesuffix(".parquet")
-                for value in names
-            ):
-                found.append(candidate.lower())
-            for k, v in node.items():
-                visit(v, ancestors + (str(k),))
-        elif isinstance(node, list):
-            for value in node:
-                visit(value, ancestors)
-    visit(document)
-    found = list(dict.fromkeys(found))
-    if len(found) != 1 or re.fullmatch(r"[0-9a-f]{64}", found[0]) is None:
-        raise RangeSourceError(
-            "cannot resolve a unique SHA-256 for selected stock from official manifest"
-        )
-    return found[0]
 
 
 def _first_dates(source):
@@ -89,9 +53,12 @@ def _first_dates(source):
 
 def main():
     revision = discover_publisher_revision()
+    print("SOURCE_COMMIT_SHA:", revision, flush=True)
     source_url = pinned_source_url(revision)
     fetch = HTTPRange(source_url)
     files = scan_tar(fetch)
+    print("ARCHIVE_HEADER_MEMBERS:", len(files), flush=True)
+    print("ARCHIVE_TOTAL_BYTES:", fetch.total_size, flush=True)
     by_name = {m.name: m for m in files}
     if len(files) != len(by_name):
         raise RangeSourceError("duplicate archive member names")
@@ -120,7 +87,8 @@ def main():
         raise RangeSourceError("total range bytes exceed noncommercial pilot cap")
     observed_sha = sha256(stock_bytes).hexdigest()
     if observed_sha != expected_sha:
-        raise RangeSourceError("stock Parquet SHA256 mismatches publisher manifest")
+        raise RangeSourceError("stock Parquet SHA256 mismatches publisher SHA256SUMS")
+    print("STOCK_MEMBER_SHA256_VERIFIED:", observed_sha, flush=True)
     with tempfile.TemporaryDirectory(prefix="quantarena-private-") as folder:
         local = Path(folder) / STOCK_FILE
         local.write_bytes(stock_bytes)
