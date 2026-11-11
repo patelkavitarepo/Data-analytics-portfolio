@@ -1,4 +1,4 @@
--- Project 004 | 01: evidence intake
+-- Project 005 | 01: evidence intake
 -- Purpose: verify volume, date coverage, and availability of user identifiers.
 -- Dataset: Google's publicly available, obfuscated GA4 ecommerce sample.
 -- Expected date range: 2020-11-01 to 2021-01-31 (92 calendar days).
