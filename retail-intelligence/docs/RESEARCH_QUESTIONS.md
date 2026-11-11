@@ -84,6 +84,14 @@
 - Full original-workbook [GitHub Actions run succeeded with 77 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42933178973), with no source changes, revenue assumptions or customer identity exports.
 - A separate later inquiry into `A`-invoice / `B`-stock-code entries is still open.
 
+## R015 — Do zero-priced lines sharing a SKU with paid lines on the same invoice form a meaningful pattern?
+
+**Status:** Diagnostic code and synthetic guardrails added; source-workbook test pending.
+
+- Case 014 confirmed 43 £0 lines across 33 invoices with exact same-SKU paid-looking invoice neighbors; this is descriptive, not a verified matching business event.
+- [Case 015 method](SAME_SKU_MIXED_PRICE_FINDINGS.md) quantifies unique rows versus potentially many-to-many comparisons, quantity agreement, timestamps, customer-ID missingness, country discrepancies and multiple paid prices.
+- Do not infer bundles, gifts, corrections, duplicate events, losses or refunds. Verify the full-data audit before interpreting any finer counts.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
