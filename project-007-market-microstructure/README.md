@@ -1,6 +1,6 @@
 # Project 007 · Market Microstructure Research Lab
 
-**Status: research foundation only; no licensed market sample audited, prediction fitted, or trading result claimed.** Human-led research with AI-assisted implementation. New draft branch; other projects remain unchanged.
+**Status: FI-2010 historical training-majority baseline successfully acquired, computed and independently verified; no feature-based model, execution result or trading profit claimed.** Human-led research with AI-assisted implementation. New draft branch; other projects remain unchanged.
 
 ## Research objective
 
@@ -50,23 +50,23 @@ The `microstructure.chronology` module adds **in-memory only** prototype labels 
 
 **These are candidate rules, not approved real-data labels or a trained strategy.** No project has been promoted from discovery to predictive modeling. Horizon and multi-day train/validation/holdout settings must be signed off after suitable authorized real data and human interpretation.
 
-## Alternative multi-day benchmark route: FI-2010 (code ready; source not acquired)
+## FI-2010 multi-day benchmark: real historical baseline now verified
 
-The 10-day FI-2010 public research benchmark is a **separate** dataset family, not a LOBSTER event stream. It ships normalized/preprocessed 149-row matrices (144 features, five publisher-supplied label rows); published label horizons are 1, 2, 3, 5, and 10 sampled observations, not elapsed seconds or raw exchange event counts. The original archive/license metadata and all source hashes still need independent verification. Secondary sources describe CC BY 4.0 licensing. Read [source/rights review](research/FI2010_SOURCE_REVIEW.md) before any download or public empirical score.
+The 10-day FI-2010 public research benchmark is a **separate** dataset family, not a LOBSTER event stream. It ships normalized/preprocessed 149-row matrices (144 features, five publisher-supplied label rows); published label horizons are 1, 2, 3, 5, and 10 sampled observations, not elapsed seconds or raw exchange event counts. The official Fairdata API confirms **Open / CC BY 4.0**. The researcher-hosted archive was downloaded and SHA256-pinned. Byte identity with the originally deposited publisher file is not independently established. Read [source/rights review](research/FI2010_SOURCE_REVIEW.md) before any download or public empirical score.
 
-A synthetic-tested, training-prior-only **constant majority-class baseline** is implemented for the CF7 training fold (days 1–7) and day-8 test fold. Days 9–10 are reserved and never opened. This is a preliminary benchmark, not evidence of alpha, label-boundary independence, executable profit, or approved model evaluation.
+A training-prior-only **constant majority-class baseline** was run on real CF7 training data (254,750 observations, days 1–7) and the day-eight file (55,478 observations), scoring **26.20% accuracy / 0.1384 macro-F1**. Independent recalculation directly from ZIP label rows verified the class counts and exact score fractions. Days 9–10 remain reserved and unread. This is a preliminary benchmark, not evidence of alpha, label-boundary independence, executable profit, or approved model evaluation.
 
-Once original data and permitted use are confirmed, place the source files in ignored `data/` and run locally:
+For local reproduction, obtain the attributed researcher-hosted archive (SHA256 and link in [EMPIRICAL_DAY8.md](research/EMPIRICAL_DAY8.md)), retain the original files in ignored `data/`, and run:
 
     python -m microstructure.fi2010_baseline --train data/Train_Dst_NoAuction_DecPre_CF_7.txt --day8 data/Test_Dst_NoAuction_DecPre_CF_7.txt --horizon 5 --output artifacts/local-fi2010-day8.json
 
-Only the named fold and local ignored output are supported. No vendor files are fetched by the code.
+Only the named fold and ignored output are supported. The standalone reproducible, pinned source procedure is [run_fi2010_once.py](research/run_fi2010_once.py); routine CI **never** fetches market data. For evidence, read [Day-eight research results](research/EMPIRICAL_DAY8.md) and [official license review](DATA_RIGHTS.md).
 
 ## Next checkpoints
 
-1. Confirm applicable source and use rights for research, aggregate publication and GitHub. Do not bypass this gate just because the code can read local files.
-2. Perform full-file paired QC and independent spot-checks on authorized sample data.
-3. Show descriptive evidence to the human lead for interpretation; finalize horizon and time splits before fitting.
+1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
+2. Investigate precomputed FI-2010 label timing and possible train/day-boundary contamination without looking at reserved days; keep the LOBSTER paired-event study separate.
+3. Present the observed day-eight label shift to the human lead for interpretation before choosing a feature-based model.
 4. Compare constant/majority baseline, imbalance sign, then a simple model only if enough permitted historical days exist.
 5. Add latency/fill simulation later, never reporting simulated returns as live results.
 
