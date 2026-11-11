@@ -92,6 +92,15 @@
 - [Case 015 method](SAME_SKU_MIXED_PRICE_FINDINGS.md) quantifies unique rows versus potentially many-to-many comparisons, quantity agreement, timestamps, customer-ID missingness, country discrepancies and multiple paid prices.
 - Do not infer bundles, gifts, corrections, duplicate events, losses or refunds. Verify the full-data audit before interpreting any finer counts.
 
+## R016 — Could repeated same-SKU £0/paid pairs across nearby invoices indicate a BOGO campaign?
+
+**Status:** Case 016 method and synthetic tests committed; full-source verification pending.
+
+- Hypothesis from analyst: repeated exact one-paid + one-free unit pattern on different invoices for the **same SKU during a short period** would support *investigating* a BOGO promotion.
+- [Case 016 method](TEMPORAL_BOGO_HYPOTHESIS.md) counts invoice-SKU recurrence over seven and thirty days, the exact 1+1 shape, and all paid invoice-SKU groups as descriptive denominator context.
+- Repeated patterns could also reflect corrections, quantity-tier pricing, stock adjustments or data-entry processes. Do not infer advertised promotions, cause, campaign dates or items given away.
+- Validate Cases 015–016 on full-source GitHub Actions before interpreting detailed counts. Continue preserving raw records, provenance and provisional financial scenario definitions.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
