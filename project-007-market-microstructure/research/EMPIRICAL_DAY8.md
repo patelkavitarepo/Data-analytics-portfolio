@@ -29,11 +29,11 @@ Selected publisher target row corresponding to **five sampled observations** ahe
 **Day-eight accuracy:** 14,534 / 55,478 = **0.26197772** (26.20%).  
 **Day-eight macro-F1:** (2 × 14,534 / (55,478 + 14,534)) / 3 = **0.13839532**.
 
-Independent numerical recomputation from the source class-count receipts agrees with the program's displayed accuracy and F1. This arithmetic cross-check is **not** a second independent parsing of the raw data.
+An independent second source-parser reopened the ZIP's publisher-label rows, reproduced every training/day-eight class count and verified accuracy and macro-F1 using exact rational arithmetic: accuracy 7267/27739; macro-F1 7267/52509. [Independent verification run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43093046158). This confirms the recorded label-row arithmetic, **not** the publisher's underlying target-construction logic.
 
 ## Preliminary finding and alternative interpretations
 
-The train/test **publisher-label composition** changed: stationary increased from 31.67% to 51.24% (+19.57 percentage points), while up and down became less prevalent. The training-majority classifier therefore lost to the hindsight day-eight majority-class rate of 51.24% (which is **not** a legitimate predeclared baseline because it uses test labels). This is evidence of a changed **benchmark label distribution**, not necessarily a change in market microstructure. Possible explanations—including real conditions, stock mixture, label conventions/thresholds or preprocessing—have NOT been discriminated.
+The train/test **publisher-label composition** changed: stationary increased from 31.67% to 51.24% (+19.58 percentage points), while up and down became less prevalent. The training-majority classifier therefore lost to the hindsight day-eight majority-class rate of 51.24% (which is **not** a legitimate predeclared baseline because it uses test labels). This is evidence of a changed **benchmark label distribution**, not necessarily a change in market microstructure. Possible explanations—including real conditions, stock mixture, label conventions/thresholds or preprocessing—have NOT been discriminated.
 
 Do **not** infer statistical independence from 55,478 sampled observations: overlapping forward labels and clustered order-book data violate IID assumptions. No p-value, causality or confidence interval is claimed. No fitted feature-based model was scored; no model-family selection occurred.
 
