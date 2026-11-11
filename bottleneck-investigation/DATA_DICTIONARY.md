@@ -1,7 +1,7 @@
 ### Definitions and analytical contract
 
 - **Request:** one unique source request identifier. Duplicate/missing IDs halt publication; no arbitrary deduplication.
-- **Creation cohort:** calendar year 2025 in San Francisco local time. Floating source timestamps are interpreted in `America/Los_Angeles`, converted to UTC; ambiguous/nonexistent creation times halt validation. Aggregates use San Francisco local creation date; elapsed horizons use UTC timestamps and exact 24-hour days.
+- **Creation cohort:** calendar year 2025 in San Francisco local time. Floating source timestamps are interpreted in `America/Los_Angeles`, converted to UTC; nonexistent/unparseable creation times halt validation. Repeated fall-back-hour times are flagged uncertain and retain local cohort membership; affected requests stay in denominators but cannot count as closure successes or enter time quantiles. Aggregates use San Francisco local creation date; elapsed horizons use UTC timestamps and exact 24-hour days.
 - **Agency/category/neighborhood:** source labels, not manually inferred organizational boundaries. Missing labels become `Unknown`. Category is a coarse complexity proxy; residual complexity remains.
 - **As of:** extraction completion timestamp, held fixed for all dashboard calculations. Current snapshot statuses are not historical event logs.
 - **Valid administrative closure:** status is `closed`, closure timestamp is present, creation ≤ closure ≤ as of. This does not establish confirmed physical resolution. Inconsistent records remain in rate denominators but cannot count as successful closures.
@@ -15,18 +15,18 @@
 - **Geography:** neighborhood labels only; Unknown coverage shown. No population, service exposure or need denominator. Heatmap cells require ≥30 eligible requests. No unverified map boundaries are used.
 - **Coverage:** count reconciliation and unchanged API `rowsUpdatedAt` are checks of extraction consistency, not proof of all real service events, immutable snapshots, or source correctness. Deleted/revised records and unreported needs cannot be measured.
 
-### Provisional DataSF source mapping
+### Verified DataSF source mapping
 
-This mapping is not claimed verified until a live metadata check passes. Any missing column halts extraction. Review source definitions and change the mapping explicitly when needed.
+Live field names, types and descriptions were verified by GitHub Actions probe run 43060974195; see `data/source_schema.json`. Any missing column halts extraction. Review source definitions and change the mapping explicitly when needed.
 
-| Common field | Candidate DataSF field |
+| Common field | Verified DataSF field |
 |---|---|
 | request_id | service_request_id |
 | created_at | requested_datetime |
 | closed_at | closed_date |
 | status | status_description |
 | category | service_name |
-| agency | responsible_agency |
+| agency | agency_responsible |
 | neighborhood | neighborhoods_sffind_boundaries |
 
 ### Quality ledger

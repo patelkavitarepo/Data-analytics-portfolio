@@ -130,3 +130,21 @@ def test_followup_boundary(records):
             == 0
         )
         assert metrics(aggregate(d, start + pd.Timedelta(days=h)))[f"eligible{h}"] == 1
+
+
+def test_ambiguous_fall_back_is_conservative():
+    from src.ingest import MAPPING
+
+    r = {v: None for v in MAPPING.values()}
+    r.update(
+        service_request_id="TEST-DST",
+        requested_datetime="2025-11-02T01:30:00",
+        closed_date="2025-11-03T12:00:00",
+        status_description="Closed",
+    )
+    d = normalize(pd.DataFrame([r]), MAPPING)
+    q = validate(d, "2026-01-01T00:00:00Z")
+    assert q["ambiguous_local_times"]["created_at"] == 1
+    assert q["timestamp_uncertain_requests"] == 1
+    m = metrics(aggregate(d, "2026-01-01T00:00:00Z"))
+    assert m["eligible30"] == 1 and m["closed30"] == m["closed_valid"] == 0

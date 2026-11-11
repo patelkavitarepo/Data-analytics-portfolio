@@ -1,7 +1,7 @@
 {
   "status": "evidence_pending",
   "synthetic": false,
-  "reason": "DataSF and BigQuery metadata requests were blocked by the managed environment network policy (HTTP CONNECT 403). No records were downloaded. Candidate source identity, schema, coverage and 2025 completeness remain unverified.",
+  "reason": "Official DataSF identity/schema and a small 2025 query were verified on GitHub Actions (HTTP 200). Full 2025 evidence is acquired and validated as a separate review artifact; no unreviewed records or findings are bundled.",
   "attempted_at": "2026-11-11T16:16:00Z",
   "candidate_sources": [
     "https://data.sfgov.org/api/views/vw6y-z8j6.json",
@@ -10,5 +10,9 @@
   "requested_cohort": "Requests created during calendar year 2025 in America/Los_Angeles",
   "verified_rows": 0,
   "findings": [],
-  "limitations": ["Candidate API field mapping is provisional and gated by live metadata verification.", "Baltimore D001–D007 methodology supplies no verified San Francisco findings."]
+  "limitations": [
+    "Bundled evidence remains pending until a verified acquisition artifact is reviewed and explicitly approved for promotion.",
+    "Baltimore D001\u2013D007 methodology supplies no verified San Francisco findings."
+  ],
+  "schema_verification_run": "https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43060974195"
 }

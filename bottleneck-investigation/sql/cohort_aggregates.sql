@@ -4,7 +4,7 @@
 WITH base AS (
  SELECT *, CAST(timezone('America/Los_Angeles', created_at) AS DATE)::VARCHAR AS created_date,
    epoch(closed_at-created_at)/86400.0 AS elapsed,
-   status='closed' AND closed_at>=created_at AND closed_at<=$as_of::TIMESTAMPTZ AS valid,
+   NOT timestamp_uncertain AND status='closed' AND closed_at>=created_at AND closed_at<=$as_of::TIMESTAMPTZ AS valid,
    epoch($as_of::TIMESTAMPTZ-created_at)/86400.0 AS age
  FROM requests
 )

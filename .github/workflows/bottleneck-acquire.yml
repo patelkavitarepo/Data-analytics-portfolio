@@ -28,11 +28,21 @@ jobs:
       - run: python -m pip install -r requirements-dev.txt
       - name: Probe official metadata and small 2025 query
         run: python -m src.probe --output review-evidence
-      - name: Upload source-access diagnostics
+      - name: Run acquisition and analytics unit tests
+        run: python -m pytest -q
+      - name: Extract and reconcile authentic 2025 evidence
+        run: python -m src.ingest --output review-evidence --page-size 10000
+      - name: Generate data quality report and preliminary observations
+        run: python -m src.review --evidence review-evidence
+      - name: Test all five dashboard sections with authentic evidence
+        env:
+          CASE002_EVIDENCE_DIR: review-evidence
+        run: python -m pytest -q tests/test_authentic.py
+      - name: Upload review evidence and source-access diagnostics
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: case-002-source-probe-${{ github.run_id }}
+          name: case-002-evidence-review-${{ github.run_id }}
           path: bottleneck-investigation/review-evidence/
           retention-days: 30
           if-no-files-found: error

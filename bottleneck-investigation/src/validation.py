@@ -19,19 +19,31 @@ def normalize(raw, mapping):
         raise ValueError(f"Source schema missing fields: {sorted(missing)}")
     parse_issues = {}
     d = raw.rename(columns={v: k for k, v in mapping.items()})[REQUIRED].copy()
+    uncertain = pd.Series(False, index=d.index)
+    ambiguous_counts = {}
     for name in ["created_at", "closed_at"]:
         # DataSF floating timestamps are San Francisco local time.
         values = pd.to_datetime(d[name], errors="coerce", format="ISO8601")
         parse_issues[name] = int((d[name].notna() & values.isna()).sum())
+        ambiguous = (
+            values.notna()
+            & values.dt.tz_localize(
+                "America/Los_Angeles", ambiguous="NaT", nonexistent="shift_forward"
+            ).isna()
+        )
+        uncertain |= ambiguous
+        ambiguous_counts[name] = int(ambiguous.sum())
         d[name] = values.dt.tz_localize(
-            "America/Los_Angeles", ambiguous="NaT", nonexistent="NaT"
+            "America/Los_Angeles", ambiguous=False, nonexistent="NaT"
         ).dt.tz_convert("UTC")
     d["status"] = d.status.fillna("unknown").astype(str).str.strip().str.lower()
     for name in ["category", "agency", "neighborhood"]:
         d[name] = (
             d[name].fillna("Unknown").astype(str).str.strip().replace("", "Unknown")
         )
+    d["timestamp_uncertain"] = uncertain
     d.attrs["timestamp_parse_failures"] = parse_issues
+    d.attrs["ambiguous_local_times"] = ambiguous_counts
     return d
 
 
@@ -41,6 +53,10 @@ def validate(d, as_of):
         cutoff = cutoff.tz_localize("UTC")
     report = {
         "timestamp_parse_failures": d.attrs.get("timestamp_parse_failures", {}),
+        "ambiguous_local_times": d.attrs.get("ambiguous_local_times", {}),
+        "timestamp_uncertain_requests": int(
+            d.get("timestamp_uncertain", pd.Series(False, index=d.index)).sum()
+        ),
         "rows": len(d),
         "missing_ids": int(d.request_id.isna().sum() + d.request_id.eq("").sum()),
         "duplicate_ids": int(d.request_id.duplicated().sum()),

@@ -15,7 +15,12 @@ def aggregate(records, as_of):
         cutoff = cutoff.tz_localize("UTC")
     age = (cutoff - d.created_at).dt.total_seconds() / 86400
     elapsed = (d.closed_at - d.created_at).dt.total_seconds() / 86400
-    valid = d.status.eq("closed") & elapsed.ge(0) & d.closed_at.le(cutoff)
+    valid = (
+        d.status.eq("closed")
+        & elapsed.ge(0)
+        & d.closed_at.le(cutoff)
+        & ~d.get("timestamp_uncertain", pd.Series(False, index=d.index))
+    )
     d["created_date"] = d.created_at.dt.tz_convert("America/Los_Angeles").dt.strftime(
         "%Y-%m-%d"
     )

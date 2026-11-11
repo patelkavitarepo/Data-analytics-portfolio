@@ -13,6 +13,7 @@ def records():
     s = pd.Timestamp("2025-01-01T12:00:00", tz="UTC")
     return pd.DataFrame(
         {
+            "timestamp_uncertain": [False] * 5,
             "request_id": ["TEST-" + str(i) for i in range(5)],
             "created_at": [s, s, s, s + pd.Timedelta(days=59), s],
             "closed_at": [

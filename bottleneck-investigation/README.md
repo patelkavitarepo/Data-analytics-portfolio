@@ -4,7 +4,7 @@
 
 Why do some public-service requests take significantly longer to resolve than others? This Streamlit investigation examines administrative closure, with explicit limits on what those records establish. Five workspaces cover overview, performance, geography, recurring problems and evidence-backed investigation briefs.
 
-**Current release: evidence pending.** Neither candidate source's live schema or coverage could be verified because the development environment blocks the hosts. No public records, real metrics or San Francisco findings are fabricated. The application is usable in this state, showing the evidence ledger and investigation methodology. Baltimore D001–D007 material is methodological background only.
+**Bundled dashboard: evidence pending, awaiting artifact review.** GitHub-hosted Actions verified the official live dataset identity, full schema and a small 2025 query (HTTP 200) in [probe run 43060974195](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43060974195). The corrected agency field is `agency_responsible`. Metadata/schema evidence is recorded in `data/source_schema.json`. No source records are bundled automatically, and prior Baltimore work supplies no San Francisco findings.
 
 ![Evidence-pending dashboard preview](docs/evidence-pending-desktop.png)
 
@@ -26,11 +26,11 @@ Run production with `requirements.txt`; dev requirements add pytest, DuckDB SQL 
 ## Refresh authentic evidence
 
 1. Allow HTTPS access to `data.sfgov.org`. For optional BigQuery metadata inspection, allow `bigquery.googleapis.com`; no GCP identity is configured here. Do not provision billing.
-2. Inspect `https://data.sfgov.org/api/views/vw6y-z8j6.json`. Confirm official dataset identity, public accessibility, actual field definitions and availability of 2025 records. The ID and mapping in `src/ingest.py` are **candidate configuration, not a verified schema**. If different, revise mapping deliberately and update the dictionary/tests. Never substitute unlabeled synthetic records.
-3. From this project directory run `python -m src.ingest`. This retrieves only mapped fields for requests created in local calendar year 2025. Pages use deterministic request-ID ordering. All records must fit development memory; this command is not run by visitors. Retry failed mutable-source snapshots; do not bypass checks.
-4. Review `data/provenance.json`: source URL, extraction start/end, as-of, observed columns, mapping, before/after source counts, update marker, quality results and coverage limitations. Counts must reconcile; missing/duplicate IDs or invalid cohort timestamps stop publication. Review nonblocking quality issues too.
-5. Run `python -m pytest -q`, inspect all dashboard workspaces with the real bundle, and confirm `cube.parquet` is compact (target <25 MB). Do not commit raw records. If aggregates exceed the target, revise storage deliberately and preserve filter/quantile semantics.
-6. Commit the cube and provenance together on a feature branch; submit a PR. Hash mismatch or interrupted publication causes a visible evidence-unavailable state. Do not claim completeness beyond the source-count reconciliation checks.
+2. Inspect `https://data.sfgov.org/api/views/vw6y-z8j6.json`. Confirm official dataset identity, public accessibility, actual field definitions and availability of 2025 records. The ID, mapped fields and types were verified in the recorded probe; every extraction checks them again. If different, revise mapping deliberately and update the dictionary/tests. Never substitute unlabeled synthetic records.
+3. From this project directory run `python -m src.ingest --output review-evidence`. This retrieves only mapped fields for requests created in local calendar year 2025. Pages use ascending numeric request-ID keyset pagination, with cross-page uniqueness checks and per-page SQL/Python parity. Raw pages are processed in bounded memory; transient SQLite identifiers and aggregate shards are removed on exit. This command is not run by visitors. Retry failed mutable-source snapshots; do not bypass checks.
+4. Review `review-evidence/provenance.json`: source URL, extraction start/end, as-of, observed columns, mapping, before/after source counts, update marker, quality results and coverage limitations. Counts must reconcile; missing/duplicate IDs or invalid cohort timestamps stop publication. Review nonblocking quality issues too.
+5. Run `python -m src.review --evidence review-evidence`, then `CASE002_EVIDENCE_DIR=review-evidence python -m pytest -q tests/test_authentic.py` and `python -m pytest -q`, inspect all dashboard workspaces with the real bundle, and confirm `cube.parquet` is compact (target <25 MB). Do not commit raw records. If aggregates exceed the target, revise storage deliberately and preserve filter/quantile semantics.
+6. Review the generated report and Actions artifact first. Only after explicit review approval, copy the cube and provenance together into `data/` and submit a PR. The workflow has read-only repository permissions and never commits or deploys findings. Hash mismatch or interrupted publication causes a visible evidence-unavailable state. Do not claim completeness beyond the source-count reconciliation checks.
 
 `sql/verify_bigquery.sql` is an unexecuted metadata inspection template. No unverified source-field analysis query is supplied. `sql/cohort_aggregates.sql` is executable DuckDB SQL over the documented normalized schema and is tested against Python.
 
@@ -60,3 +60,9 @@ Closure rates use eligible cohorts and retain unresolved cases. Closed-case quan
 - `app.py`: cached, filterable five-section dashboard
 
 No modifications to `optiver-realized-volatility` are required.
+
+## GitHub-hosted acquisition
+
+`.github/workflows/bottleneck-acquire.yml` runs on pushes changing acquisition source/tests/workflow on `feat/case-002-streamlit`, without merging to main. It probes metadata and a two-record query, runs unit tests, extracts the full 2025 cohort, validates every page with Python and SQL, generates aggregate observations and a readable quality report, and tests all five dashboard sections against the authentic package. Each HTTP request logs only its status and endpoint class. No raw query rows, credentials or arbitrary response headers are logged.
+
+An always-running upload step retains the review package/diagnostics for 30 days. A successful package includes `cube.parquet`, `provenance.json`, `DATA_QUALITY_REPORT.md`, `observations.json`, comparison/sensitivity CSVs and source metadata. Failure artifacts are diagnostic only. No raw records, identifier database or shards are uploaded. Download from the run's Artifacts section and review before promotion. The checked-in pending bundle is preserved.

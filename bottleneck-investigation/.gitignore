@@ -5,3 +5,4 @@ data/raw/
 data/*.tmp
 .streamlit/secrets.toml
 *.log
+review-evidence/
