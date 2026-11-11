@@ -12,6 +12,38 @@ and its GitHub job are disabled. A checkbox or JSON cannot enable the source-pol
 gate. No raw data, real validation results or holdout results are bundled.
 Educational research only, not investment advice.
 
+## Navigation
+
+Start with the [case study](CASE_STUDY.md): research question, three synthetic
+stages, counterexamples, glossary and the gates to empirical validation.
+
+| Track | Plans, findings and evidence | Streamlit page source |
+| --- | --- | --- |
+| Unvalidated ETF application | [Frozen brief](PROJECT_BRIEF.md), [research status](RESEARCH_SUMMARY.md), [rights](DATA_RIGHTS.md), [adjustment review](ADJUSTMENT_REVIEW.md) | [Main application](app.py) — performance blocked |
+| Synthetic v1 | [Design/findings](SYNTHETIC_LAB.md), [artifact](synthetic-default-summary.json) | [Synthetic scenario lab](pages/1_Synthetic_scenario_lab.py) |
+| Synthetic v2 | [Predeclaration](SYNTHETIC_ROBUSTNESS_PLAN.md), [findings](SYNTHETIC_ROBUSTNESS_FINDINGS.md), [artifact](synthetic-robustness-results.json) | [Synthetic robustness check](pages/2_Synthetic_robustness_check.py) |
+| Synthetic v3 | [Predeclaration](SYNTHETIC_SERIAL_PLAN.md), [findings](SYNTHETIC_SERIAL_FINDINGS.md), [artifact](synthetic-serial-results.json) | [Synthetic serial dependence](pages/3_Synthetic_serial_dependence.py) |
+
+**Offline commands**, after the [environment setup](#reproduce-python-312), from
+`markowitz-portfolio-optimization/`:
+
+```bash
+# Inspect the existing dashboard/report pages; no market data required.
+.venv/bin/streamlit run app.py
+# Check documentation against committed evidence, without fitting models.
+.venv/bin/python scripts/check_case_study.py
+.venv/bin/python -m pytest -q
+# Exact historical reproduction commands; documented here, NOT run in this synthesis pass.
+.venv/bin/python -m markowitz.synthetic --scenario all --seed 6006 --draws 20 --output work/synthetic
+.venv/bin/python -m markowitz.synthetic_robustness --output work/synthetic-robustness-v2
+.venv/bin/python -m markowitz.synthetic_serial --output work/synthetic-serial-v3
+```
+
+All three investigations are **SYNTHETIC DATA — NOT EMPIRICAL RESULTS**. CLI
+reproduction writes ignored `work/` artifacts; it does not replace the committed
+reports or enable empirical validation. The v2/v3 pages are read-only; the v1
+page runs a bounded synthetic experiment only when explicitly submitted.
+
 ## Synthetic scenario lab — works offline
 
 **SYNTHETIC DATA — NOT EMPIRICAL RESULTS**
@@ -56,7 +88,8 @@ cd markowitz-portfolio-optimization
 
 No seed-search controls or new empirical strategy. Future targets/bootstrap are
 identical by construction across the paired scenarios. Serial-dependence and
-moving-block bootstrap remain deferred; rights and real holdout gates remain.
+moving-block bootstrap were deferred at this checkpoint and subsequently studied
+in the separate v3 investigation below; rights and real holdout gates remain.
 
 ## Independent synthetic serial-dependence investigation
 
@@ -85,8 +118,8 @@ markowitz-portfolio-optimization/.venv/bin/streamlit run markowitz-portfolio-opt
 
 `requirements.txt` pins the direct runtime/test dependencies; the lock records
 all versions installed for verification (including Playwright for browser smoke
-checks). All tests use deterministic **synthetic fixtures**, never research
-results. No network is needed for pytest. On Windows, use `.venv/Scripts/`.
+checks). Tests use deterministic **synthetic fixtures** and committed synthetic reports,
+never provider datasets. No network is needed for pytest. On Windows, use `.venv/Scripts/`.
 
 The live Yahoo control is visibly disabled: no express collection permission is
 recorded. The legacy yfinance acquisition implementation remains unit-tested with
