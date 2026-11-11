@@ -111,6 +111,15 @@
 - [Case 017 method](MULTIUNIT_WEEKLY_CONTEXT.md) distinguishes equal summed multi-unit quantities (e.g. 8 + 8) from strict 1 + 1, and counts repeat SKU patterns and **same-week** paid-only invoice-SKU groups.
 - Do not interpret equal quantities or increased same-week pairing frequency as confirmed promotions; compare denominators and watch selection bias. No source row, candidate-view policy, or KPI change.
 
+## R018 — Can SQL reproduce all candidate classifications and provisional gross amounts independently?
+
+**Status:** SQL classification view, streaming SQLite workbench and five synthetic tests committed; original-workbook SQL reconciliation pending.
+
+- [Provisional semantic dictionary](PROVISIONAL_KPI_DICTIONARY.md) maps source-record shapes to exhaustive, non-causal analytical categories with explicit precedence.
+- [SQL workbench](SQL_KPI_WORKBENCH.md) re-derives 1,044,848 candidate-line cohort counts and source-verified S0/S1/S2 amounts/qualifying invoice IDs. The script fails if counts or currency values differ beyond 2p tolerance.
+- Monthly S2 gross positive-priced line activity, units, qualifying invoice identifiers, missing customer coverage, cancellation codes, and zero-price entries remain **exploratory only**. No refunds, revenue or BOGO labels are inferred.
+- Next: verify on original source, then analyze month/country completeness and invoice concentration, not endless source anomalies.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
