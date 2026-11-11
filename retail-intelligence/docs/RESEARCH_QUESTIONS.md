@@ -139,6 +139,15 @@
 - Median group amounts rise £300.58 → £304.24; changes in product mix, quantity, effective prices, customer coverage or large invoices are still unproven. **No actual source rows, KPI rules or unusual invoices were removed.**
 - Next: test product mix and within-SKU amount-per-unit composition, then build a concise decision-focused report.
 
+## R021 — How much of the observed S2 difference reflects recorded quantities versus observed unit values and changing stock-code coverage?
+
+**Status:** Case 021 diagnostic committed, independent original-source workflow verification pending.
+
+- [SKU composition identity and guardrails](SKU_COMPOSITION_BRIDGE.md) computes a four-term arithmetic gross-line-value bridge by exact stock code for matched Jan–Nov periods.
+- Checks source S2 line counts, recorded units and gross amounts in **both** years against Case 018 SQL; no individual invoice IDs/customer IDs emitted and no source records changed.
+- Distinguishes common-SKU recorded unit-volume changes from a within-common-SKU observed gross-per-unit residual; this is not a causal price explanation or formal inflation measurement.
+- Next: verify then summarize top aggregate sources of change and build a qualified decision-focused dashboard report.
+
 ## R002 — Are monthly or geographic differences meaningful?
 
 **Status:** open, not yet tested.
