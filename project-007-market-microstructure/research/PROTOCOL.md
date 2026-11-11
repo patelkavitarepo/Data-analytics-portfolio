@@ -28,6 +28,12 @@ A provisional chronological **session-level** partition function produces disjoi
 
 **Crucial:** Neither the candidate horizon, target policy nor split sizes are approved for empirical analysis. They require the human lead's interpretation and sufficient authorized multi-day data. No model fit, prediction score, return series, forecast or backtest is part of this prototype. Seeded synthetic tests include a separately implemented quadratic-search oracle for target selection and a mutation check that future quote changes cannot modify origin features.
 
+## Phase 1D: separate FI-2010 benchmark (synthetic-tested only; real data pending)
+
+FI-2010 is a preprocessed ten-day five-stock benchmark, not an event-message reconstruction input. It contains 144 normalized features and five publisher-derived label rows in a 149-by-N matrix. The anchored-fold convention uses the first k days for training and day k+1 for test. A strictly simple initial baseline reads `Train_Dst_NoAuction_DecPre_CF_7.txt` (days 1–7) and `Test_Dst_NoAuction_DecPre_CF_7.txt` (day 8) only. All rows and numeric labels are validated; output is train-prior constant prediction and day-8 accuracy/macro-F1. Days 9/10 stay reserved and unread. No raw-spread, order-flow, elapsed-time, fill or P&L inference is authorized by normalized features.
+
+The actual official dataset/license snapshot has **not** been acquired here. The source documentation, attribution requirements, and whether precomputed training labels incorporate information beyond the 7th-day boundary must be checked before treating any empirical score as leakage-clean. See `FI2010_SOURCE_REVIEW.md`.
+
 ## Phase 2: signal definition and falsification (not implemented)
 
 Candidate feature: best-level depth imbalance I_t = (bid_size_t - ask_size_t)/(bid_size_t + ask_size_t), defined only when both are positive and quotes uncrossed. Candidate target: signed change in mid-price after a prespecified later, strictly later timestamp (and report zero/no-change as its own category). Do not label using the snapshot that generated I_t. Separate a pre-registered constant/majority baseline, naive imbalance sign and a simple logistic model. A random IID split is not acceptable; group by trading session, use strict chronological evaluation, embargo at least the prediction horizon, and use day-block uncertainty. If insufficient days are licensed, label all performance exploratory only.
