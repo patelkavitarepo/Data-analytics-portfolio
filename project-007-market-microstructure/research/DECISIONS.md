@@ -21,3 +21,11 @@ The assistant proposed: begin with a streaming paired-message/snapshot schema au
 ## Pending human interpretation
 
 Present construction-audit evidence and invite interpretation of the remaining ambiguity. No predictive model selection, testing on reserved days or merger has been approved. AI-generated analysis, code, explanations and hypotheses must remain clearly labeled as assistance.
+
+## D003 — November 11, 2026 — Human request to obtain source quote sequences
+
+**Human directive:** "Alright Holmes lets try to obtain reliable per-stock, per-day mid-price sequences."
+
+**AI-assisted acquisition response:** Prioritize the original five Helsinki securities across June 1–14, 2010 with authenticated stock/date/bid/ask and original sampling semantics. Inspect author, Fairdata, Aalto and Nasdaq HistoricalView sources; do not silently substitute US LOBSTER or a different stock exchange, invent stock/day identifiers, break access restrictions, incur paid costs, or claim FI-2010 original labels independently verified from processed data.
+
+**Current state:** The original per-stock, per-day FI-2010 best-quote series has **not been acquired**. Source paths and open questions are in `research/ORIGINAL_MIDPRICE_SOURCES.md`. Preliminary Aalto/Nasdaq access restrictions apply; a metadata-only official source probe was prepared. Reaching out to custodians requires an externally sent request and any permissions they grant; no message has been sent here.
