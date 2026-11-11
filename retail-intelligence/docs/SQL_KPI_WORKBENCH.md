@@ -12,16 +12,16 @@ See [provisional KPI semantic dictionary](PROVISIONAL_KPI_DICTIONARY.md): it sta
 
 In the local project directory after Case 008 and Case 009 have run:
 
-\`\`\`bash
+```bash
 python scripts/run_sql_kpi_workbench.py
 python -m pytest -q
-\`\`\`
+```
 
 The standard-library SQLite workbench:
-1. Loads only the **local ignored** \`data/derived/candidate_analysis_lines.csv.gz\` that Case 008 writes. It does **not** upload or commit row-level source material.
-2. Applies \`sql/001_provisional_retail_kpis.sql\` to create an exhaustive, mutually exclusive **temporary** \`retail_classified\` view. Source records remain unchanged.
-3. Verifies all descriptive cohort counts and the S0/S1/S2 **line counts**, **distinct invoice identifier counts**, and **gross positive line amounts** against source-verified Case 009 \`outputs/revenue_sensitivity.json\`. The monetary comparison permits only 2p difference for float summation at large scale; it does not silently revise the business definition.
-4. Generates an aggregate-only \`outputs/sql_kpi_workbench.json\` summarizing the 9 provisional row cohorts, S0/S1/S2 values, and monthly S2 positive-priced line amounts, qualifying invoice IDs, recorded units, known customer-ID lines, C-coded cancellation lines and zero-price exceptions.
+1. Loads only the **local ignored** `data/derived/candidate_analysis_lines.csv.gz` that Case 008 writes. It does **not** upload or commit row-level source material.
+2. Applies `sql/001_provisional_retail_kpis.sql` to create an exhaustive, mutually exclusive **temporary** `retail_classified` view. Source records remain unchanged.
+3. Verifies all descriptive cohort counts and the S0/S1/S2 **line counts**, **distinct invoice identifier counts**, and **gross positive line amounts** against source-verified Case 009 `outputs/revenue_sensitivity.json`. The monetary comparison permits only 2p difference for float summation at large scale; it does not silently revise the business definition.
+4. Generates an aggregate-only `outputs/sql_kpi_workbench.json` summarizing the 9 provisional row cohorts, S0/S1/S2 values, and monthly S2 positive-priced line amounts, qualifying invoice IDs, recorded units, known customer-ID lines, C-coded cancellation lines and zero-price exceptions.
 5. Fails on missing input, unexpected cohort discrepancies, inconsistent invoice-ID counts or gross-amount mismatches. No dataframe with original rows or individual IDs is published.
 
 ## Proposed analyses, not certified KPIs
@@ -34,7 +34,7 @@ The standard-library SQLite workbench:
 
 ## Current limitations
 
-The UCI source does not expose payment settlement, official revenue mapping, cost of goods, inventory ledger or promotions schedule. The strict S2 definition omits some possible legitimate paid entries (\`M\`, \`D\`, named postage/carriage/billing) and **does not become truer by excluding more**. The project will present all three scenario alternatives prominently.
+The UCI source does not expose payment settlement, official revenue mapping, cost of goods, inventory ledger or promotions schedule. The strict S2 definition omits some possible legitimate paid entries (`M`, `D`, named postage/carriage/billing) and **does not become truer by excluding more**. The project will present all three scenario alternatives prominently.
 
 The calendar months may be unevenly covered, and the business may include wholesale outliers. Apparent growth, geographic differences or average invoice spend require additional context before interpretation.
 
