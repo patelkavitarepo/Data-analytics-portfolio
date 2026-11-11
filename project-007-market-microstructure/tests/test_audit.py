@@ -91,6 +91,29 @@ class AuditTests(unittest.TestCase):
         self.assertEqual(got["scope"], "prefix_only")
         self.assertEqual(got["events_checked"], 1)
 
+    def test_halt_snapshot_must_duplicate_previous(self):
+        with self.assertRaisesRegex(AuditError, "halt marker must duplicate"):
+            self.load(
+                "34200,1,1,10,1000000,1\n"
+                "34201,7,0,0,-1,-1\n",
+                "1000100,10,1000000,10\n"
+                "1000100,11,1000000,10\n",
+            )
+
+    def test_halted_trading_excludes_intervening_quotes(self):
+        got = self.load(
+            "34200,1,1,10,1000000,1\n"
+            "34201,7,0,0,-1,-1\n"
+            "34202,7,0,0,0,-1\n"
+            "34203,1,2,10,1000000,1\n"
+            "34204,7,0,0,1,-1\n"
+            "34205,1,3,10,1000000,1\n",
+            "1000100,10,1000000,10\n" * 6,
+        )
+        self.assertEqual(got["valid_two_sided_nonhalt_quotes"], 2)
+        self.assertEqual(got["snapshots_while_trading_halted"], 4)
+        self.assertEqual(got["halt_markers_by_price"], {"-1": 1, "0": 1, "1": 1})
+
     def test_nonfinite_time_rejected(self):
         with self.assertRaisesRegex(AuditError, "nonfinite"):
             self.load("NaN,1,1,10,1000000,1\n", "1000100,10,1000000,10\n")
