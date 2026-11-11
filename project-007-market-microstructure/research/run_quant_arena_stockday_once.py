@@ -13,7 +13,8 @@ import urllib.request
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from microstructure.selective_tar import (
-    PUBLIC_SOURCE, HTTPRange, RangeSourceError, scan_tar, download_member,
+    HTTPRange, RangeSourceError, scan_tar, download_member,
+    discover_publisher_revision, pinned_source_url,
 )
 from microstructure.quant_arena_pilot import audit_local_parquet
 
@@ -86,7 +87,9 @@ def _first_dates(source):
 
 
 def main():
-    fetch = HTTPRange(PUBLIC_SOURCE)
+    revision = discover_publisher_revision()
+    source_url = pinned_source_url(revision)
+    fetch = HTTPRange(source_url)
     files = scan_tar(fetch)
     by_name = {m.name: m for m in files}
     if len(files) != len(by_name):
@@ -113,9 +116,9 @@ def main():
         days = _first_dates(local)
         result = audit_local_parquet(local, STOCK, days, expected_sha)
     result["acquisition"] = {
-        "source": PUBLIC_SOURCE,
+        "source": source_url,
         "source_dataset": "Ashitemaru/Quant-Arena-Public-L1",
-        "public_dataset_commit_prefix": "fa85d7b",
+        "public_dataset_full_commit": revision,
         "publisher_license": "CC BY-NC 4.0",
         "original_archive_fully_downloaded": False,
         "original_archive_sha256_not_checked": True,
