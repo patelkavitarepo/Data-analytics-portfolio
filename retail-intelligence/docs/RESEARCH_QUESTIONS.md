@@ -95,12 +95,13 @@
 
 ## R016 — Could repeated same-SKU £0/paid pairs across nearby invoices indicate a BOGO campaign?
 
-**Status:** Case 016 method and synthetic tests committed; full-source verification pending.
+**Status:** Case 016 original-workbook diagnostic completed; BOGO explanation not established.
 
-- Hypothesis from analyst: repeated exact one-paid + one-free unit pattern on different invoices for the **same SKU during a short period** would support *investigating* a BOGO promotion.
-- [Case 016 method](TEMPORAL_BOGO_HYPOTHESIS.md) counts invoice-SKU recurrence over seven and thirty days, the exact 1+1 shape, and all paid invoice-SKU groups as descriptive denominator context.
-- Repeated patterns could also reflect corrections, quantity-tier pricing, stock adjustments or data-entry processes. Do not infer advertised promotions, cause, campaign dates or items given away.
-- Validate Cases 015–016 on full-source GitHub Actions before interpreting detailed counts. Continue preserving raw records, provenance and provisional financial scenario definitions.
+- [Case 016 source-verified findings](TEMPORAL_BOGO_HYPOTHESIS.md): **32** SKUs have paid-and-zero same-invoice patterns; **five** have such patterns on different invoices; **two** recur within 7 days, **four** within 30 days.
+- Exactly **five** invoice/SKU groups have a strict one-paid-unit + one-zero-unit pattern, but **none** of these groups repeats for the same SKU across different invoices. This weakens the specific recurring literal-BOGO signature.
+- The repeated codes include **84016** (six invoices, often highly unequal quantities) and **20724** (four invoices). Neither has an exact 1+1 pattern in the original-source report.
+- [Original-workbook workflow passed 89 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42937165126). Do not infer promotion dates, customer redemptions, correction causes or financial totals; no raw or candidate rows or KPI definitions changed.
+- Next: explore *multi-unit equal-quantity* paid/zero pairings and time-window-specific paid-only baselines, and investigate code 84016 separately.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
