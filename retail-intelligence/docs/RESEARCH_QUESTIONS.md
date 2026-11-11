@@ -76,11 +76,13 @@
 
 ## R014 — Are mixed zero/positive-price invoices semantically distinct?
 
-**Status:** Code and local synthetic tests prepared; original-workbook verification pending.
+**Status:** Case 014 verified against the original workbook; business classifications remain unresolved.
 
-- Case 013 confirmed 125 invoice IDs that mix zero-priced and positively priced positive-quantity lines, containing 709 such zero-priced lines.
-- [Case 014 method](MIXED_PRICE_INVOICE_FINDINGS.md) compares context, keyword probes, and same-invoice stock-code overlap with strict safeguards; it does not infer free samples, promotions, operational adjustments or losses.
-- Verify the new source output, then separately examine `A`-invoice / `B`-stock-code entries before proposing a provisional KPI semantic dictionary. No cleaning or revenue definition change.
+- [Case 014 source-verified report](MIXED_PRICE_INVOICE_FINDINGS.md): 125 mixed invoice IDs include 709 zero-price lines and 7,660 positive-priced lines; 1,861 zero-price-only invoices contain the other 1,922 zero-price lines.
+- All **709** zero-price lines in mixed invoices have descriptions. In the zero-price-only cohort, **1,642 of 1,922** lack descriptions. Known customer IDs: 61 versus 9 lines, respectively.
+- **43** zero-price lines across **33** mixed invoices share a stock code with a positive-priced line *on the same invoice*. Examine these with quantities, pricing and time context before trying any label or correction rule.
+- Full original-workbook [GitHub Actions run succeeded with 77 tests](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42933178973), with no source changes, revenue assumptions or customer identity exports.
+- A separate later inquiry into `A`-invoice / `B`-stock-code entries is still open.
 
 ## R002 — Are monthly or geographic differences meaningful?
 
