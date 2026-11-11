@@ -28,15 +28,3 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
-
-  empirical-fi2010-day8-once:
-    if: github.event_name == 'pull_request'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Verify pinned FI-2010 ZIP, train-class-prior baseline on day 8 only
-        run: python project-007-market-microstructure/research/run_fi2010_once.py
