@@ -19,12 +19,12 @@ class BenchmarkError(ValueError):
     """A benchmark file fails to match the declared testable format."""
 
 
-HORIZONS = (10, 20, 30, 50, 100)
+HORIZONS = (1, 2, 3, 5, 10)
 N_ROWS = 149
 LABEL_START_ROW = 144
 TRAIN_FILENAME = "Train_Dst_NoAuction_DecPre_CF_7.txt"
 DAY8_FILENAME = "Test_Dst_NoAuction_DecPre_CF_7.txt"
-CLASSES = (1, 2, 3)  # 1=down, 2=stationary, 3=up
+CLASSES = (1, 2, 3)  # publisher paper: 1=up, 2=stationary, 3=down
 
 
 def _digest(path):
@@ -118,14 +118,14 @@ def _macro_f1_constant(y, chosen):
     return round(f1_chosen / len(CLASSES), 8)
 
 
-def evaluate_majority_baseline(train, day8, horizon=50):
+def evaluate_majority_baseline(train, day8, horizon=5):
     """Train days 1-7; validate on day 8 ONLY. Days 9/10 never opened.
 
     Upstream benchmark labels are trusted provisionally as labels only.
     Derived scores are not execution P&L, market alpha, or pristine holdout.
     """
     if type(horizon) is not int or horizon not in HORIZONS:
-        raise BenchmarkError("horizon must be one of 10,20,30,50,100 events")
+        raise BenchmarkError("horizon must be one of 1,2,3,5,10 sampled observations")
     train = _safe_input(train, TRAIN_FILENAME)
     day8 = _safe_input(day8, DAY8_FILENAME)
     if train.resolve() == day8.resolve():
@@ -147,7 +147,7 @@ def evaluate_majority_baseline(train, day8, horizon=50):
         "status": "local_fi2010_day8_majority_baseline_not_holdout",
         "dataset_family": "FI-2010 / NoAuction / DecPre / official CF7 fold",
         "dataset_presentation": "149-by-N source-preprocessed matrix; labels supplied by benchmark",
-        "horizon_events": horizon,
+        "horizon_sampled_observations": horizon,
         "train_period": "benchmark days 1-7 (Train_CF_7)",
         "evaluation_period": "benchmark day 8 (Test_CF_7)",
         "reserved_unread": ["benchmark day 9 (Test_CF_8)", "benchmark day 10 (Test_CF_9)"],
@@ -161,7 +161,7 @@ def evaluate_majority_baseline(train, day8, horizon=50):
         "source_sha256": initial,
         "source_files": [train.name, day8.name],
         "limitations": [
-            "No original event timestamps or raw order messages; event horizon != elapsed seconds.",
+            "No original event timestamps or raw order messages; benchmark sample horizon != elapsed seconds.",
             "Preprocessed/normalized features cannot justify raw-size imbalance, spread, or fill inference.",
             "Benchmark supplier's labels have not been independently reconstructed.",
             "A ten-day 2010 benchmark cannot establish current market predictability or execution profits.",
@@ -175,7 +175,7 @@ def main():
     parser = argparse.ArgumentParser(description="FI-2010 local training-prior vs day-8 baseline")
     parser.add_argument("--train", type=Path, required=True)
     parser.add_argument("--day8", type=Path, required=True)
-    parser.add_argument("--horizon", type=int, default=50, choices=HORIZONS)
+    parser.add_argument("--horizon", type=int, default=5, choices=HORIZONS)
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     try:
