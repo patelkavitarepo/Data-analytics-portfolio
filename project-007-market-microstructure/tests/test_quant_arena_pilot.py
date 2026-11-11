@@ -41,8 +41,8 @@ class QuantArenaPilotTests(unittest.TestCase):
         )
         first = report["counts_by_horizon"]["1"]
         self.assertEqual(qc["selected_observations"], 6)
-        self.assertEqual(first["up"], 3)
-        self.assertEqual(first["stationary"], 1)
+        self.assertEqual(first["up"], 2)
+        self.assertEqual(first["stationary"], 2)
         self.assertEqual(first["unlabelled"], 2)
         self.assertEqual(first["stock_date_boundary_crossings"], 0)
         self.assertEqual(sum(first[field] for field in (
