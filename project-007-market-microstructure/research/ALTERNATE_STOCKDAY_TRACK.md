@@ -1,0 +1,31 @@
+# Project 007 — independent stock/day label-construction route
+
+**Status (November 11, 2026): fallback source identified, selective acquisition not yet verified.** This is a **separate methodology experiment**, not a replication of FI-2010’s Helsinki exchange data or proof of its published labels.
+
+## Original unresolved question
+
+FI-2010's authors supply normalized, pooled, pre-labeled matrix files. We know the paper's approximate sampling and published 0.2% labeling rule, but cannot independently recover the original June 2010 Helsinki per-stock/day mid-price observations. The preferred original source is documented in `ORIGINAL_MIDPRICE_SOURCES.md`. Correspondence with the custodians is optional, not a gate for continuing.
+
+## Alternate public research source
+
+- **Dataset:** Quant-Arena Public L1, https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1
+- **Maintainer:** Quant Arena (LaPlace's Eye / Einsia AI); publisher card and benchmark documentation https://quant.lab.einsia.ai/arena/doc
+- **Declared coverage:** 289 Shenzhen A-share securities, 484 trading days (2022–2023), approximately 131.9 million rows; 10-level quote snapshots sampled to a 15-second time grid.
+- **Format:** 6.23 GB plain tar, stock-specific Parquet files, SHA256 manifest and per-file checksums inside. Published card says date+symbol and `available_at` / `source_event_time`, top-level bid and ask prices, `stale` and `missing_depth` flags; exact schema must be inspected on genuine local files rather than inferred from documentation (the benchmark's public DataSpec uses different identity names).
+- **License:** CC BY-NC 4.0. Attribution and *noncommercial use restriction* apply. The FI-2010 dataset's CC BY license does NOT grant permission to use Quant-Arena data commercially. The current experiment is strictly noncommercial/educational.
+- **No original mid-price equivalence:** Different market (Shenzhen, not Helsinki), stocks, dates, quote cadence and license. Results cannot validate FI-2010's original labels, regime explanation or trading returns.
+
+## Selective-first intake, never assume a full download
+
+1. Probe **only 4096 bytes** of the public TAR using HTTP `Range`; require explicit HTTP **206 Partial Content** and a valid TAR header. If server ignores Range, stop the attempt rather than download 6.23 GB.
+2. If range works, design a bounded per-file extraction and verify a stock-specific Parquet against manifest SHA256. Do not use a transient URL as a stable file provenance identity; retain publisher commit/version, archive SHA256 and per-file checksum.
+3. Inspect exact columns, price decimals, stock/date fields, monotonicity, exchange timezone and `available_at` semantics; flag 15s gaps and noncontinuous quote periods.
+4. Limit the first pilot to **one stock and one or two complete trading days**, with no exploratory model fit, fees, returns, or holdout data. Do not publish raw quotes.
+5. Regenerate labels for k={1,2,3,5,10} using the arithmetic average of the *next k midpoints* relative to the origin; ±0.002 three-class threshold. Require all targets to be in the same contiguous valid stock/trading-date segment; exclude incomplete windows, stale/locked/one-sided quotes and gap breaks.
+6. Run hand-calculated synthetic oracles and report exclusion counts, class composition and sensitivity to gap/threshold choices. Report class proportions as descriptive outcomes, not alpha.
+
+## Prototype in repository
+
+`microstructure/stockday_labels.py` is an **input-independent label construction helper**, not a verified adapter for Quant-Arena Parquet files. It consumes explicit quote records, verifies chronological ordering and stock/date identity, and uses a linear-time rolling midpoint sum. Default >30-second consecutive quote gaps interrupt segments; the 30-second choice is a provisional conservative engineering rule for nominal 15-second sampling, not an empirical market finding. `tests/test_stockday_labels.py` uses only synthetic observations.
+
+**Admission status:** no real Quant-Arena samples have yet been downloaded or processed into the helper, and no real source validation or empirical class ratios can be claimed from this prototype. If selective byte access fails, the next choice is an independently licensed smaller per-stock/day dataset, not a forced 6.23 GB download or unverified mirror.
