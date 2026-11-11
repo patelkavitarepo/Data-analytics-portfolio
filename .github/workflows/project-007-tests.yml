@@ -29,14 +29,14 @@ jobs:
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
 
-  source-intake-one-shot:
+  empirical-fi2010-day8-once:
     if: github.event_name == 'pull_request'
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Download public researcher-hosted FI2010 ZIP to ephemeral runner; print metadata only
-        run: python project-007-market-microstructure/research/intake_fi2010.py
+      - name: Verify pinned FI-2010 ZIP, train-class-prior baseline on day 8 only
+        run: python project-007-market-microstructure/research/run_fi2010_once.py
