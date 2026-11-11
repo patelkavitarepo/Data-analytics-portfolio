@@ -60,6 +60,8 @@ jobs:
         run: python scripts/investigate_price_paradox.py
       - name: Investigate mixed zero/positive price invoice context
         run: python scripts/investigate_mixed_price_invoices.py
+      - name: Inspect same-invoice zero/paid stock-code patterns
+        run: python scripts/investigate_same_sku_price_pairs.py
       - name: Publish summary only (not source workbook)
         if: always()
         uses: actions/upload-artifact@v4
