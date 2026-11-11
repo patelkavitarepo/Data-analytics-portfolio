@@ -14,6 +14,7 @@ from pathlib import Path
 
 from .paths import safe_report_output
 from .stockday_labels import Quote, labels_from_quotes
+from .stockday_oracle import verify_labels
 
 
 class PilotError(ValueError):
@@ -141,6 +142,19 @@ def pilot_summary(quotes, symbol, days, *, gap_seconds=30):
         }
         if sum(counts.values()) != len(quotes):
             raise PilotError("class tallies do not reconcile to observations")
+    # Predetermined construction sensitivity only. This is not a search
+    # for a label threshold that improves prediction or trading results.
+    threshold_diagnostics = {}
+    for t in ("0.001", "0.002", "0.004"):
+        calculated = labels_from_quotes(
+            quotes, 5, threshold=t, max_gap_seconds=gap_seconds
+        )
+        c = Counter(x.classification for x in calculated)
+        threshold_diagnostics[t] = {
+            "up": c[1], "stationary": c[2],
+            "down": c[3], "unlabelled": c[None],
+            "eligible_count": c[1] + c[2] + c[3],
+        }
     # Descriptive source QC, computed without training or using future labels.
     issue_counts = Counter()
     previous = None
@@ -164,6 +178,7 @@ def pilot_summary(quotes, symbol, days, *, gap_seconds=30):
     return {
         "status": "source_identifiable_stockday_labels_no_forecast",
         "selected_observation_quality_counts": dict(sorted(issue_counts.items())),
+        "threshold_sensitivity_descriptive_only_horizon_5": threshold_diagnostics,
         "source": SOURCE_URL,
         "license": SOURCE_LICENSE,
         "citation": "Quant-Arena Public L1, LaPlace's Eye / Einsia AI, 2026",
@@ -211,6 +226,9 @@ def audit_local_parquet(path, symbol, days, expected_sha256):
     raw = table.to_pylist()
     rows, qc = convert_quote_rows(raw, symbol, days)
     report = pilot_summary(rows, symbol, days)
+    report["independent_label_verification"] = {
+        str(h): verify_labels(rows, h) for h in (1, 2, 3, 5, 10)
+    }
     after = file_sha256(path)
     if after != before:
         raise PilotError("source changed while being audited")
