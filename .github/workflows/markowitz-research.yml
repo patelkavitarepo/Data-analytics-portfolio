@@ -1,0 +1,41 @@
+name: Project 006 tests and market-data connectivity
+on:
+  pull_request:
+    paths:
+      - 'markowitz-portfolio-optimization/**'
+      - '.github/workflows/markowitz-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  connectivity:
+    name: Status-only market-data connectivity
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe public endpoints without logging bodies or credentials
+        run: python markowitz-portfolio-optimization/scripts/network_probe.py
+  test:
+    name: Project 006 synthetic tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: markowitz-portfolio-optimization
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: markowitz-portfolio-optimization/requirements-lock.txt
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python -m pytest -q
