@@ -123,7 +123,7 @@
 
 ## R019 — Does recorded merchandise-like activity increase between comparable 2010 and 2011 months?
 
-**Status:** Case 018's original-source SQL cohort/scenario reconciliation passed **100 tests**. [Case 019 verified monthly aggregate interpretation](MONTHLY_BUSINESS_ACTIVITY.md) computes descriptive Jan–Nov comparisons; separate Case 019 pipeline verification pending.
+**Status:** Case 019 original-workbook source and independent SQL-month reconciliation completed, [105 tests passed](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/42944895542); [Case 019 verified findings](MONTHLY_BUSINESS_ACTIVITY.md) compare like-for-like Jan–Nov periods.
 
 - From source-verified SQLite 25-month aggregate: **Jan–Nov S2 gross positive-priced line amount £8,639,086.69 in 2010 vs £8,889,734.02 in 2011 (+2.90%)**, not recognized revenue.
 - Qualifying lines **443,587 → 461,446**; sum of monthly distinct invoice IDs **18,122 → 17,410**; customer-ID coverage **81.43% → 76.51%**. Invoices and line IDs are not completed orders or unique customers.
