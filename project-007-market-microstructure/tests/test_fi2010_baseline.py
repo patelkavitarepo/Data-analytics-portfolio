@@ -100,7 +100,7 @@ class FI2010BaselineTests(unittest.TestCase):
         write_matrix(self.train)
         write_matrix(self.day8)
         with self.assertRaises(BenchmarkError):
-            evaluate_majority_baseline(self.train, self.day8, 1)
+            evaluate_majority_baseline(self.train, self.day8, 50)
         with self.assertRaises(BenchmarkError):
             evaluate_majority_baseline(self.train, self.train)
 
