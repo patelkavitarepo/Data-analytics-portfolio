@@ -1,7 +1,7 @@
 """D015 timestamp-ONLY selection, before ANY new quote or label access.
 
 Authenticate three already pinned Quant-Arena Public L1 Parquet members and
-choose first 40 common observed dates AFTER D014's sealed final May 16, 2022.
+choose first 40 common observed dates AFTER D014's sealed final July 12, 2022.
 Source CC BY-NC 4.0 noncommercial with attribution. No outcome queries.
 """
 from hashlib import sha256
@@ -33,7 +33,7 @@ def select_dates(inventory):
     common=sorted(set.intersection(*(set(inventory[s]) for s in STOCKS)))
     later=[d for d in common if d>AFTER_SEALED_D014]
     if len(later)<40:
-        raise ValueError("insufficient source dates beyond sealed original D012")
+        raise ValueError("insufficient source dates beyond sealed original D014")
     picked=later[:40]
     result={}
     cursor=0
@@ -42,7 +42,7 @@ def select_dates(inventory):
         cursor+=n
     validate_calendar(*(result[k] for k,n in PARTS))
     return result,{"all_common_dates":len(common),
-                   "post_D012_sealed_common_dates":len(later)}
+                   "post_D014_sealed_common_dates":len(later)}
 
 
 def checksum(dates):
