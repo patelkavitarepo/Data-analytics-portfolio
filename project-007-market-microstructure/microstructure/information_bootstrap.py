@@ -108,3 +108,65 @@ def paired_model_ap_lift_difference(model_stock_day,first,second,seed=SEED,repli
             "n_cluster_days":len(dates),"bootstrap_replicates":replicates,
             "bootstrap_seed":seed,"not_pooled_ap":True}
     return result
+
+
+def missingness_aware_ap_lift(model_stock_day,seed=SEED,replicates=REPLICATES):
+    """Report availability before estimating *complete-day* descriptive AP lift.
+
+    A trading day contributes only when all stocks have finite AP and base rate
+    for a model/direction. Never impute undefined AP, silently omit a day, or
+    report an interval when fewer than two complete trading days exist.
+    Missingness is reported separately for each model/direction.
+    """
+    if not model_stock_day or type(replicates) is not int or replicates<1:
+        raise ValueError("invalid bootstrap input")
+    models=sorted(model_stock_day)
+    stocks=sorted(model_stock_day[models[0]])
+    if not stocks:raise ValueError("no stocks")
+    dates=sorted(model_stock_day[models[0]][stocks[0]])
+    if not dates:raise ValueError("no dates")
+    for model in models:
+        if sorted(model_stock_day[model])!=stocks:
+            raise ValueError("unpaired stock panel")
+        for stock in stocks:
+            if sorted(model_stock_day[model][stock])!=dates:
+                raise ValueError("unpaired dates")
+    output={}
+    for model in models:
+        output[model]={}
+        for direction in ("1","3"):
+            usable=[];missing=[]
+            for day in dates:
+                lifts=[];reasons=[]
+                for stock in stocks:
+                    metric=model_stock_day[model][stock][day]["directions"][direction]
+                    ap=metric["average_precision"];base=metric["base_rate"]
+                    if ap is None or base is None:
+                        reasons.append({"stock":stock,"reason":"undefined_ap_or_base"})
+                    elif not isinstance(ap,(int,float)) or not isinstance(base,(int,float)) or not all(isfinite(v) for v in (ap,base)):
+                        reasons.append({"stock":stock,"reason":"nonfinite_ap_or_base"})
+                    else:
+                        lifts.append(ap-base)
+                if reasons:missing.append({"day":day,"unavailable":reasons})
+                else:usable.append((day,sum(lifts)/len(stocks)))
+            result={"total_days":len(dates),"complete_days":len(usable),
+                    "incomplete_days":len(missing),"incomplete_day_details":missing,
+                    "stock_day_slots":len(dates)*len(stocks),
+                    "unavailable_stock_day_slots":sum(len(x["unavailable"]) for x in missing),
+                    "estimand":"mean AP minus matched prevalence across complete three-stock days only",
+                    "selection_warning":"Complete-day restriction may bias results; no imputation",
+                    "bootstrap_replicates":replicates,"bootstrap_seed":seed,
+                    "mean_complete_day_ap_lift":None,
+                    "day_cluster_percentile_95_interval":None,
+                    "interval_status":"insufficient_complete_days"}
+            if len(usable)>=2:
+                daily=[v for _,v in usable]
+                rng=random.Random(seed)
+                draws=[sum(daily[rng.randrange(len(daily))] for _ in daily)/len(daily)
+                       for _ in range(replicates)]
+                result["mean_complete_day_ap_lift"]=sum(daily)/len(daily)
+                result["day_cluster_percentile_95_interval"]=[
+                    _percentile(draws,.025),_percentile(draws,.975)]
+                result["interval_status"]="descriptive_complete_day_only"
+            output[model][direction]=result
+    return output
