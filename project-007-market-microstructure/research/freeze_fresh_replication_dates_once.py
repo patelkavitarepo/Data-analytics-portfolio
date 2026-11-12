@@ -129,7 +129,7 @@ def main():
             s:{d:inventories[s][d] for d in chosen} for s in STOCKS
         },
         "common_date_inventory":calendar,
-        "prior_D009_D012_D014_D015_D017_finals_sealed":True,
+        "prior_D009_D012_D014_D015_D016_D017_finals_sealed":True,
         "new_final_sealed":True,
         "price_or_label_columns_read":False,
         "source_member_bytes_authenticated":True,
