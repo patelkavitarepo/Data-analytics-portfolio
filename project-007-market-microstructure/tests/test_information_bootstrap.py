@@ -1,6 +1,6 @@
 """Deterministic paired-day cluster bootstrap synthetic tests."""
 import unittest
-from microstructure.information_bootstrap import day_cluster_ap_lift
+from microstructure.information_bootstrap import day_cluster_ap_lift, paired_model_ap_lift_difference
 
 def leaf(ap,base):
     return {"directions":{k:{"average_precision":ap,"base_rate":base} for k in ("1","3")}}
@@ -23,4 +23,15 @@ class InformationBootstrapTests(unittest.TestCase):
     def test_missing_day_ap_fails_closed(self):
         data={"a":{"s":{"day1":leaf(None,.1)}}}
         with self.assertRaises(ValueError):day_cluster_ap_lift(data)
+    def test_paired_model_difference_preserves_shared_days(self):
+        data={"balanced":{"s":{d:leaf(.3,.1) for d in ("a","b","c")}},
+              "unweighted":{"s":{d:leaf(.2,.1) for d in ("a","b","c")}}}
+        result=paired_model_ap_lift_difference(data,"balanced","unweighted",replicates=30)
+        self.assertAlmostEqual(result["1"]["mean_paired_stock_day_ap_lift_difference"],.1)
+        self.assertAlmostEqual(result["3"]["day_cluster_percentile_95_interval"][1],.1)
+    def test_paired_model_rejects_unaligned_dates(self):
+        data={"balanced":{"s":{"a":leaf(.3,.1)}},
+              "unweighted":{"s":{"b":leaf(.2,.1)}}}
+        with self.assertRaises(ValueError):
+            paired_model_ap_lift_difference(data,"balanced","unweighted")
 if __name__=="__main__":unittest.main()
