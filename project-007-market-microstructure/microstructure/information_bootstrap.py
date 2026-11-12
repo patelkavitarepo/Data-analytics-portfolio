@@ -60,3 +60,51 @@ def day_cluster_ap_lift(model_stock_day,seed=SEED,replicates=REPLICATES):
             "bootstrap_seed":seed,
             "not_pooled_ap":True}
     return out
+
+
+def paired_model_ap_lift_difference(model_stock_day,first,second,seed=SEED,replicates=REPLICATES):
+    """Paired-day bootstrap of (first - second) stock-day AP lift.
+
+    Shared dates and stocks are resampled together. This is descriptive, not
+    an independent holdout or a pooled average-precision comparison.
+    """
+    if first==second or first not in model_stock_day or second not in model_stock_day:
+        raise ValueError("require two distinct present models")
+    if type(replicates) is not int or replicates<1:
+        raise ValueError("invalid replicate count")
+    stocks=sorted(model_stock_day[first])
+    if not stocks or sorted(model_stock_day[second])!=stocks:
+        raise ValueError("unpaired stocks")
+    dates=sorted(model_stock_day[first][stocks[0]])
+    if not dates:
+        raise ValueError("empty dates")
+    for model in (first,second):
+        for stock in stocks:
+            if sorted(model_stock_day[model][stock])!=dates:
+                raise ValueError("unpaired calendar")
+    rng=random.Random(seed)
+    draws=[tuple(rng.randrange(len(dates)) for _ in dates)
+           for _ in range(replicates)]
+    result={}
+    for direction in ("1","3"):
+        daily=[]
+        for day in dates:
+            paired=[]
+            for stock in stocks:
+                vals=[]
+                for model in (first,second):
+                    d=model_stock_day[model][stock][day]["directions"][direction]
+                    ap=d["average_precision"];base=d["base_rate"]
+                    if ap is None or base is None or not all(isfinite(v) for v in (ap,base)):
+                        raise ValueError("missing/nonfinite paired AP or prevalence")
+                    vals.append(ap-base)
+                paired.append(vals[0]-vals[1])
+            daily.append(sum(paired)/len(paired))
+        sampled=[sum(daily[i] for i in draw)/len(draw) for draw in draws]
+        result[direction]={
+            "mean_paired_stock_day_ap_lift_difference":sum(daily)/len(daily),
+            "day_cluster_percentile_95_interval":[_percentile(sampled,.025),_percentile(sampled,.975)],
+            "first_model":first,"second_model":second,
+            "n_cluster_days":len(dates),"bootstrap_replicates":replicates,
+            "bootstrap_seed":seed,"not_pooled_ap":True}
+    return result
