@@ -1,6 +1,6 @@
 # Project 007 — D012 frozen selective-alert study (NEW chronological cohort)
 
-**Registered November 12, 2026 before looking at any D012 post-March-7 quote prices.** Human direction: "let’s get that bread" after D011 repeated the severe direction-alert false-positive failure. AI-assisted design, not a promise of trading profits. This is a **new independent chronological development cohort**, not a retest of D009's validation or the 10-day legacy sealed block.
+**Registered November 12, 2026 before looking at any D012 post-March-7 quote prices; successfully executed without changing model/alert/date rules.** Verified findings: [SELECTIVE_ALERTS_RESULTS.md](SELECTIVE_ALERTS_RESULTS.md). Human direction: "let’s get that bread" after D011 repeated the severe direction-alert false-positive failure. AI-assisted design, not a promise of trading profits. This is a **new independent chronological development cohort**, not a retest of D009's validation or the 10-day legacy sealed block.
 
 ## Critical time-ordering decision
 
