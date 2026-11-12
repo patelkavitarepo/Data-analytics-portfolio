@@ -53,9 +53,9 @@ def read_first_14_dates_only(path, stock, allowed_dates, frozen_counts):
     the timestamp column of the batch is converted before slicing. Only
     allowed first-14-day rows ever become Python quote/depth objects.
     """
-    import pyarrow.parquet as pq
     if len(allowed_dates) != MAX_ALLOWED_DATES or tuple(sorted(allowed_dates)) != tuple(allowed_dates):
         raise PilotError("D011 must use fourteen chronological registered fit dates")
+    import pyarrow.parquet as pq
     approved = set(allowed_dates)
     cutoff = allowed_dates[-1]
     source = pq.ParquetFile(path)
