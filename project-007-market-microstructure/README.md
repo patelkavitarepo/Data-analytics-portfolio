@@ -183,6 +183,17 @@ The human lead requested continued research on reducing B2's severe directional 
 
 Complete source-verifiable report, stock-level precision/recall, per-day counts, calibration cutoffs and caveats: [D012 Selective Alert Results](research/SELECTIVE_ALERTS_RESULTS.md). **Result is negative**: neither weighted nor unweighted cutoff model is suitable for promotion. Avoid score-driven retuning against April 21–27, and **do not open the sealed April 28–May 16 test simply to find a stronger score**.
 
+## D013: source-authenticated score-drift diagnosis — **reproduced, no rescue**
+
+Following D012's failed 2%-calibrated selective directional-alert study, we committed [a D013 denominator-aligned audit protocol](research/SCORE_STABILITY_AUDIT_PROTOCOL.md) before re-reading the same historical source. This was a **retrospective explanation of previously examined dates**, NOT another out-of-sample confirmation or opportunity to optimize the models. The fitted models, six stock-specific score cutoffs, session/feature rules and 2022 calendar are unchanged.
+
+- The label-free calibration decision-time population had **27,756** observations and **553 alerts (1.9924%)** for each model. On a precisely matched *current/past-only decision-eligibility* definition, confirmation had **14,001** observations: balanced **923 alerts (6.5924%)**; unweighted **886 alerts (6.3281%)**. The original future-target-matched **13,819 observations** and **919/882** alert counts were reproduced exactly. Only four of the additional 182 decision-ready confirmation rows alerted under either model. **Target-selection denominators cannot account for the 2%-to-6% score-tail change.**
+- The confirmation score-tail shift occurred for **all three stocks**, though unevenly. Balanced confirmation alert rates were **9.07%, 5.75%, 4.94%** for 000012.SZ, 000025.SZ and 000031.SZ. Pooling the already-inspected five dates, balanced alert rates grew from **4.20% on April 21** to **11.71% on April 27**. Morning/afternoon comparison was **7.35% / 5.81%**; all are descriptive, not IID-independent.
+- Median spread increased from calibration to confirmation for each stock, while five-level displayed-volume-imbalance medians moved in different directions across stocks. This is **associated feature change, not a proven cause** of alert errors or a discovered market regime.
+- [Full D013 source-receipted results](research/SCORE_STABILITY_AUDIT_RESULTS.md), [successful one-time audit](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43262562364); **174 synthetic tests passed on Python 3.11 and 3.12**. The temporary real-source workflow was removed, raw vendor quote rows and per-origin scores were not committed, both sealed tests stayed unscored and PR #7 remains draft/unmerged.
+
+**Next scientific gate:** define the operational cost and acceptable false-alarm/recall tradeoff before designing a *fresh* future development sample for genuinely new model calibration; assess performance by date/stock clusters and evaluate once on an untouched future cohort. D013 did not promote either model and is not evidence of executable alpha.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
