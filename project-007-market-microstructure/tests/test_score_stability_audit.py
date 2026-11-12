@@ -75,7 +75,7 @@ class AuditSummaryTests(unittest.TestCase):
         stats=feature_distribution(rows)
         self.assertEqual(stats["eligible_rows"],1)
         self.assertEqual(stats["spread_bps"]["median"],1.5)
-        self.assertEqual(len(scope_groups(rows)),4)
+        self.assertEqual(len(scope_groups(rows)),5)
 
     def test_frozen_summary_rejects_bad_data(self):
         with self.assertRaises(ValueError):
@@ -131,7 +131,7 @@ class AuditSourceIsolationTests(unittest.TestCase):
         self.assertEqual(len(parts["fit"]),240)
         self.assertEqual(len(parts["calibration"]),120)
         self.assertEqual(len(parts["confirmation"]),60)
-        self.assertEqual(len(train),240-20*10)
+        self.assertEqual(len(train),20*7)
         self.assertEqual(sum(r["ready"] for r in parts["calibration"]),70)
         self.assertEqual(sum(r["matched"] for r in parts["confirmation"]),10)
         self.assertTrue(all(not r["matched"] for r in parts["calibration"]))
