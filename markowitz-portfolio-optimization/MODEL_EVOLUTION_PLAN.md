@@ -137,8 +137,11 @@ It does not contain data or performance. Do not edit it in place: append a new
 registry checkpoint/file with predecessor path/hash, retain all prior decisions,
 fingerprints and consumption events, and reference sealed decision/report artifacts.
 Use new candidate IDs for revisions; keep rejected/abandoned reports too. For a
-completed study append outcome/reasons and owner signoff to a **new sealed record**,
-not to an already hashed file. The current checker covers preregistration metadata
+completed study append outcome/reasons and owner signoff to a **new sealed outcome
+report referencing the original candidate ID**, not to an already hashed file.
+Add its path/hash to the next registry’s `preserved_artifacts`; the `decisions`
+list retains the unchanged candidate preregistration. Do not reuse a candidate
+ID for a changed model or alter its sealed criteria. The current checker covers preregistration metadata
 and registry continuity, not automatic outcome adjudication or adoption.
 
 Eligibility distinguishes automated access, analysis, retention, independent
@@ -172,3 +175,13 @@ append-only database. The checker cannot prove honest timestamps, unseen outcome
 actual rights or adjustment correctness. Review manifests and evidence manually;
 existing runtime source/holdout safeguards remain authoritative and unchanged.
 Future policy changes must be explicit and versioned, not bypasses of those gates.
+
+## Implementation verification
+
+The initial checkpoint passed **41 metadata-only unit tests** and the full
+**168-test offline regression suite**, including all 127 earlier tests. The case
+study check passed **125 assertions / 42 local links and anchors**; all four local
+links in this plan resolve. All **26 protected historical files** match the
+reviewed baseline commit recorded in the registry. The proposal checker passes
+structure/hash checks and correctly exits 1 with `--require-preregistered`.
+No new research run or market-data request was performed.
