@@ -3,6 +3,7 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 import importlib.util
+import sys
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -14,6 +15,7 @@ from microstructure.chronological_baselines import (
 from microstructure.stockday_labels import Quote
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT/"research"))
 spec = importlib.util.spec_from_file_location(
     "d009_metadata_only", ROOT/"research"/"freeze_chronological_dates_once.py"
 )
