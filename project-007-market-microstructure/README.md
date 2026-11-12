@@ -112,6 +112,14 @@ The human lead asked to investigate how stale/missing quotes and the existing 30
 
 Read [the D006 real-data report](research/GAP_FLAG_SENSITIVITY_RESULTS.md), [predeclared protocol](research/GAP_FLAG_SENSITIVITY_PROTOCOL.md) and [GitHub Actions evidence](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43110070553). The public source remains noncommercial **CC BY-NC 4.0** and is **not** the source for FI-2010's inaccessible Helsinki labels.
 
+## D007: the fifteen long source gaps were scheduled midday recesses
+
+Following the human lead's instruction to continue investigating, we preregistered a direct **timestamp and label-window boundary** check in [GAP_BOUNDARY_PROTOCOL.md](research/GAP_BOUNDARY_PROTOCOL.md), then reauthenticated the exact same **three Quant-Arena Public L1 files** under their pinned SHA256s (noncommercial CC BY-NC 4.0), without accessing any new stock/date market prices.
+
+All **15** >120-second within-stock/day source gaps were **exactly 5,400 seconds, 11:30:00–13:00:00 Asia/Shanghai**, one per stock/date, matching the [Shenzhen Stock Exchange lunch recess](https://www.szse.cn/English/services/trading/tradOverview/). The immediate before/after quotes were valid and unflagged, so only the temporal continuity condition prevented target windows from spanning the nontrading break. With no maximum time gap, **74** across-lunch labels appeared despite full quote flags; with flags deliberately ignored too, **75** appeared. The strict 30-second reference still has **13,736** eligible labels and **zero** cross-lunch windows. No previously eligible class changed. All **45,699** independent oracle checks agreed, with **110 synthetic tests** passing on Python 3.11/3.12.
+
+Detailed attribution, source-integrity receipts, counterfactual caveats and per-stock/day breakdown: [D007 verified gap-boundary report](research/GAP_BOUNDARY_RESULTS.md), [successful empirical GitHub Actions](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43136010196). The temporary vendor access job was removed after success. We will require explicit **morning/afternoon session boundaries** in any future predictive labeling design rather than relying solely on a numerical timestamp gap.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
