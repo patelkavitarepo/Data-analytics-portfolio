@@ -194,6 +194,22 @@ Following D012's failed 2%-calibrated selective directional-alert study, we comm
 
 **Next scientific gate:** define the operational cost and acceptable false-alarm/recall tradeoff before designing a *fresh* future development sample for genuinely new model calibration; assess performance by date/stock clusters and evaluate once on an untouched future cohort. D013 did not promote either model and is not evidence of executable alpha.
 
+## D014: past-only adaptive cutoff test — **stopped at source coverage gate**
+
+Following D013's real score-tail shift, a [pre-price-registered D014 protocol](research/ADAPTIVE_ALERT_PROTOCOL.md) fixed a comparison of D012's **static original score cutoff** against a **ten-prior-complete-trading-day, label-free rolling cutoff**, each for the original class-balanced and unweighted liquidity models. The 2% alerting objective and hypothetical +1 correct / −4 false costs were frozen before new source access; costs are **not actual P&L**.
+
+The original immutable three-stock Quant-Arena Public L1 (CC BY-NC 4.0 noncommercial) source was authenticated from the publisher. A separate timestamp-only run precommitted [the D014 date manifest](research/ADAPTIVE_ALERT_DATE_MANIFEST.json), SHA256 `953b173e4b0ba4b6968ce6113e8345c85e942dbe6b46b31ca722968a98f208c8`, **before** new price/depth reads: **20 warmup May 17–Jun 14**, **10 confirmation Jun 15–28**, **10 final sealed Jun 29–Jul 12**, all 2022.
+
+The [one-time D014 empirical runner](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43275799910) failed closed **before fitting, scoring, or comparing either model**, because `000025.SZ` had a source day without usable current-book-and-past-five-quote history. A strictly [label-free source postmortem](research/ADAPTIVE_ALERT_COVERAGE_POSTMORTEM_PROTOCOL.md) [verified this in GitHub Actions](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43277130722):
+
+- **000025.SZ May 30**: 1,022 source snapshots, **0 valid five-level books**, **0 decision-ready**; source missing-depth flag unhealthy on 971.
+- **000025.SZ June 2**: 1,023 snapshots, **3** valid books, **0 decision-ready**; missing-depth unhealthy on 948.
+- That security had only **10,653 decision-ready / 20,458 warmup** source rows, versus **18,765 / 20,456** for 000012.SZ and **18,733 / 20,455** for 000031.SZ. Other sparse 000025.SZ days further support a source coverage problem; no exchange halt or causal market mechanism proven.
+
+**D014 has NO empirical precision, recall, utility or model-improvement findings.** The proposed rolling rule required at least one eligible score on every day in its ten-day history; it cannot be salvaged by post-hoc imputation, shortening the history, deleting dates or changing securities. The failed first run read some new confirmation targets but produced no model outcomes; the subsequent coverage postmortem read **no** future labels. **187 synthetic tests pass** on Python 3.11/3.12, temporary provider workflows have been removed, both previous reserved tests and the new D014 final remain statistically sealed, no models promoted, no PR merge.
+
+[Complete D014 negative feasibility result](research/ADAPTIVE_ALERT_COVERAGE_RESULTS.md) documents checksums, full counts and limitations. Next gate: prospective, explicitly source-availability-aware abstention and history policy on a **new** genuinely later cohort, without exploiting the already encountered 000025.SZ missingness to rewrite D014 results.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
