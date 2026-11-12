@@ -1,6 +1,6 @@
 # Project 007 — D011 preregistered diagnosis of B2 cross-stock failure
 
-**Frozen November 12, 2026 before any new D011 market-price read.** Human directive: "On to the next", following our recommendation to investigate why the class-balanced snapshot-liquidity model B2 collapsed on 000031.SZ. The research design and provisional interpretations are AI-assisted, not authored conclusions by the human lead.
+**Frozen November 12, 2026 before any new D011 market-price read; successfully executed afterward without modifying the registered comparisons.** Full findings: [CLASS_WEIGHT_STOCK_SHIFT_RESULTS.md](CLASS_WEIGHT_STOCK_SHIFT_RESULTS.md). Human directive: "On to the next", following our recommendation to investigate why the class-balanced snapshot-liquidity model B2 collapsed on 000031.SZ. The research design and provisional interpretations are AI-assisted, not authored conclusions by the human lead.
 
 ## Hypotheses (not findings)
 
