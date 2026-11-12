@@ -120,6 +120,16 @@ All **15** >120-second within-stock/day source gaps were **exactly 5,400 seconds
 
 Detailed attribution, source-integrity receipts, counterfactual caveats and per-stock/day breakdown: [D007 verified gap-boundary report](research/GAP_BOUNDARY_RESULTS.md), [successful empirical GitHub Actions](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43136010196). The temporary vendor access job was removed after success. We will require explicit **morning/afternoon session boundaries** in any future predictive labeling design rather than relying solely on a numerical timestamp gap.
 
+## D008: session-aware target labeling independently verified
+
+The human lead continued from D007's proof that the long quote gaps were exactly SZSE midday recesses. We preregistered explicit stock/date/**morning-vs-afternoon** segmentation and built a separate `microstructure/session_labels.py` plus a deliberately independent per-origin `microstructure/session_oracle.py`. The original label generator remains unchanged. See [D008 preregistered protocol](research/SESSION_AWARE_PROTOCOL.md).
+
+The **same** SHA256-verified three-stock, five-day noncommercial source panel was reprocessed. All **15,233** quotes were accounted for; **909 observations** (303 per stock) were outside the adopted 09:30–11:30 / 13:00–15:00 exchange-local operational windows, but they had **already been excluded** from the original strict k=5/±0.2% labels. Therefore the published **13,736 eligible / 12,812 stationary (93.2732%)** baseline was preserved with **zero class changes**. Even with the numeric gap cutoff deliberately removed, explicit-session labels produced **zero cross-lunch targets**, compared with **74 false crossing targets** in D007's older, non-session-aware no-gap stress. The 30-second cap remains our primary rule.
+
+An independent source-quote oracle agreed on **30,466** original rows × scenarios checks, zero mismatches, and **121 synthetic tests passed** on Python 3.11 and 3.12. The publisher source release remains CC BY-NC 4.0 and no raw vendor quotes are in GitHub. Complete source-integrity, exclusions and scientific limitations: [D008 result](research/SESSION_AWARE_RESULTS.md), [verified empirical GitHub Actions](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43138003201). Temporary vendor-intake CI has been removed, returning to synthetic-only routine checks. Note that the closing call auction at 14:57–15:00 is a distinct trading phase and is not claimed to be equivalent to continuous trading.
+
+A [new chronological prediction research design](research/CHRONOLOGICAL_PREDICTION_PROTOCOL.md) is now documented: 20 later common trading dates for training, 5 for validation, 10 sealed final holdout after the already inspected discovery dates. **Design only:** no later-date market-price reads, predictive fit, evaluation, trading or merge.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
