@@ -94,7 +94,7 @@ class AvailabilityTests(unittest.TestCase):
         result=replay(d[:20],d[20:30],d[30:],scores,"000012.SZ","W_BALANCED")
         self.assertEqual(result[d[20]]["ROLLING_HEALTH"]["statuses"],
                          ("NO_SIGNAL",)*10)
-        self.assertEqual(sum(aggregate_states(result[d[20]][p]["statuses"])["counts"].values()
+        self.assertEqual(sum(sum(aggregate_states(result[d[20]][p]["statuses"])["counts"].values())
                              for p in POLICIES),30)
 
 if __name__=="__main__":unittest.main()
