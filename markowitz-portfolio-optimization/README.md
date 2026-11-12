@@ -14,6 +14,10 @@ Educational research only, not investment advice.
 
 ## Navigation
 
+[Model Evolution Protocol](MODEL_EVOLUTION_PLAN.md) defines future champion/challenger
+preregistration, temporal/vintage contracts and fresh-confirmation rules. It is a
+policy/checkpoint only: no approved challenger, new experiment or market access.
+
 Start with the [case study](CASE_STUDY.md): research question, three synthetic
 stages, counterexamples, glossary and the gates to empirical validation.
 

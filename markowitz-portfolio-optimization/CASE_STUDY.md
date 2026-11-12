@@ -157,6 +157,11 @@ max-Sharpe candidates near caps. None of the bootstrap ranges are demonstrated
 uncertainty bounds. Findings do not transfer automatically across samples,
 strategies or real markets.
 
+Future changes follow the [Model Evolution Protocol](MODEL_EVOLUTION_PLAN.md):
+versioned preregistration, as-of information and a fresh confirmation reservation.
+This policy adds no experiment or result. The owner’s personal lesson/quotation
+remains **pending final editorial approval**.
+
 ## Status and gates to empirical validation
 
 [DATA_RIGHTS.md](DATA_RIGHTS.md) records rights questions separately for automated

@@ -1,5 +1,16 @@
 # Research and verification record · 2026-11-11
 
+## Model Evolution Protocol — policy only
+
+[006-evolution-v1](MODEL_EVOLUTION_PLAN.md) adds a versioned champion/challenger
+review process, a temporal/vintage information contract, immutable historical
+fingerprints and an irreversible holdout-consumption checklist. It is not a new
+model, experiment, rights grant or empirical result. No candidate is preregistered
+or adopted; confirmation dates remain unassigned. The original 006-v1 protocol,
+v1/v2/v3 artifacts and untouched real holdout remain unchanged. The owner's
+personal lesson/quotation is pending final editorial approval.
+
+
 The independent **v3 serial-dependence investigation** is complete as a separate
 synthetic study: [design](SYNTHETIC_SERIAL_PLAN.md), [numerical findings/limits](SYNTHETIC_SERIAL_FINDINGS.md).
 Moving-block versus IID differences are mixed, including material reversals for
