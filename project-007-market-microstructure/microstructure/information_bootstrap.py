@@ -170,3 +170,56 @@ def missingness_aware_ap_lift(model_stock_day,seed=SEED,replicates=REPLICATES):
                 result["interval_status"]="descriptive_complete_day_only"
             output[model][direction]=result
     return output
+
+
+def missingness_aware_paired_difference(panel,first,second,seed=SEED,replicates=REPLICATES):
+    """Paired-model lift difference on jointly complete dates only."""
+    if first==second or first not in panel or second not in panel:
+        raise ValueError("two distinct present models required")
+    if type(replicates) is not int or replicates<1:
+        raise ValueError("invalid replicates")
+    stocks=sorted(panel[first])
+    if not stocks or sorted(panel[second])!=stocks:
+        raise ValueError("stock mismatch")
+    dates=sorted(panel[first][stocks[0]])
+    if not dates:raise ValueError("empty dates")
+    for model in (first,second):
+        for stock in stocks:
+            if sorted(panel[model][stock])!=dates:
+                raise ValueError("unpaired dates")
+    result={}
+    for direction in ("1","3"):
+        usable=[];excluded=[]
+        for day in dates:
+            differences=[];missing=[]
+            for stock in stocks:
+                vals=[]
+                for model in (first,second):
+                    d=panel[model][stock][day]["directions"][direction]
+                    ap=d["average_precision"];base=d["base_rate"]
+                    if ap is None or base is None:
+                        missing.append({"model":model,"stock":stock,"reason":"undefined"})
+                    elif not isinstance(ap,(int,float)) or not isinstance(base,(int,float)) or not all(isfinite(v) for v in (ap,base)):
+                        missing.append({"model":model,"stock":stock,"reason":"nonfinite"})
+                    else:vals.append(ap-base)
+                if len(vals)==2:differences.append(vals[0]-vals[1])
+            if missing:excluded.append({"day":day,"missing":missing})
+            else:usable.append(sum(differences)/len(stocks))
+        out={"first_model":first,"second_model":second,
+             "total_days":len(dates),"joint_complete_days":len(usable),
+             "excluded_days":excluded,
+             "mean_joint_complete_day_difference":None,
+             "day_cluster_percentile_95_interval":None,
+             "interval_status":"insufficient_joint_complete_days",
+             "bootstrap_seed":seed,"bootstrap_replicates":replicates,
+             "not_pooled_ap":True,
+             "selection_warning":"Joint complete-day restriction may bias comparison"}
+        if len(usable)>=2:
+            rng=random.Random(seed)
+            draws=[sum(usable[rng.randrange(len(usable))] for _ in usable)/len(usable)
+                   for _ in range(replicates)]
+            out["mean_joint_complete_day_difference"]=sum(usable)/len(usable)
+            out["day_cluster_percentile_95_interval"]=[_percentile(draws,.025),_percentile(draws,.975)]
+            out["interval_status"]="descriptive_joint_complete_day_only"
+        result[direction]=out
+    return result
