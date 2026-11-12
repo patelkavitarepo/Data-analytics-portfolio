@@ -1,6 +1,6 @@
 # Project 007 — D007 preregistered source-gap boundary investigation
 
-**Frozen November 11, 2026 before opening source data for this investigation.** Human direction: "Let’s keep at it Holmes" following our verified D006 quote-gap/flag audit and recommendation to examine the fifteen large within-stock/day gaps. This proposal and any ensuing interpretation are AI-assisted. No model selection, strategy, trade, merge, or FI-2010 holdout access is authorized.
+**Frozen November 11, 2026 before opening source data for this investigation; executed afterward without changing any source, sample or diagnostic rule.** Attribution-bearing results: [GAP_BOUNDARY_RESULTS.md](GAP_BOUNDARY_RESULTS.md). Human direction: "Let’s keep at it Holmes" following our verified D006 quote-gap/flag audit and recommendation to examine the fifteen large within-stock/day gaps. This proposal and any ensuing interpretation are AI-assisted. No model selection, strategy, trade, merge, or FI-2010 holdout access is authorized.
 
 ## Question
 
