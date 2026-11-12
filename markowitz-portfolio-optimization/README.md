@@ -28,6 +28,7 @@ stages, counterexamples, glossary and the gates to empirical validation.
 | Synthetic v2 | [Predeclaration](SYNTHETIC_ROBUSTNESS_PLAN.md), [findings](SYNTHETIC_ROBUSTNESS_FINDINGS.md), [artifact](synthetic-robustness-results.json) | [Synthetic robustness check](pages/2_Synthetic_robustness_check.py) |
 | Synthetic v3 | [Predeclaration](SYNTHETIC_SERIAL_PLAN.md), [findings](SYNTHETIC_SERIAL_FINDINGS.md), [artifact](synthetic-serial-results.json) | [Synthetic serial dependence](pages/3_Synthetic_serial_dependence.py) |
 | Exploratory synthetic shrinkage | [Predeclaration](SYNTHETIC_SHRINKAGE_PLAN.md), [findings](SYNTHETIC_SHRINKAGE_FINDINGS.md), [artifact](synthetic-shrinkage-results.json) | CLI/report only; no empirical challenger |
+| Synthetic shrinkage mechanism | [Predeclaration](SYNTHETIC_SHRINKAGE_MECHANISM_PLAN.md), [findings](SYNTHETIC_SHRINKAGE_MECHANISM_FINDINGS.md), [artifact](synthetic-shrinkage-mechanism-results.json) | Estimation/oracle diagnostic only; no paths |
 
 **Offline commands**, after the [environment setup](#reproduce-python-312), from
 `markowitz-portfolio-optimization/`:
@@ -121,6 +122,21 @@ the evolution registry and all earlier results remain unchanged.
 # From markowitz-portfolio-optimization/, using the existing environment:
 .venv/bin/python -m markowitz.synthetic_shrinkage --output work/synthetic-shrinkage-v1
 .venv/bin/python scripts/check_shrinkage_report.py
+```
+
+## Independent shrinkage-mechanism study
+
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** The [mechanism report](SYNTHETIC_SHRINKAGE_MECHANISM_FINDINGS.md)
+contrasts true correlation 0/.35 using fixed seeds 7101–7105 and paired 63/504-row
+windows. It separates diagonal/off-diagonal squared error from true variance
+regret against a **theoretical, non-investable** capped oracle. This deliberately
+constructed follow-up is not independent confirmation, a new empirical model or
+a path backtest. Earlier experiments and the evolution registry remain unchanged.
+
+```bash
+# From markowitz-portfolio-optimization/, with the existing environment:
+.venv/bin/python -m markowitz.synthetic_shrinkage_mechanism --output work/synthetic-shrinkage-mechanism-v1
+.venv/bin/python scripts/check_mechanism_report.py
 ```
 
 ## Reproduce (Python 3.12)

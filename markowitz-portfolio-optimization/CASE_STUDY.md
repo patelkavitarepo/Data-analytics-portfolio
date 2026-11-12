@@ -7,7 +7,9 @@ resampling assumptions must be examined before interpreting an optimized portfol
 
 This synthesis covers the original three synthetic stages. The later independent
 [fixed covariance-shrinkage study](SYNTHETIC_SHRINKAGE_FINDINGS.md) is exploratory
-and leaves their evidence and the empirical registry unchanged.
+and leaves their evidence and the empirical registry unchanged. A subsequent
+[mechanism study](SYNTHETIC_SHRINKAGE_MECHANISM_FINDINGS.md) isolates target mismatch
+and sampling error using a labelled theoretical oracle; it is not confirmation.
 
 ## Two distinct research tracks
 

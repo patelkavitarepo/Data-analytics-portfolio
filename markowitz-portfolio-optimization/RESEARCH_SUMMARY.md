@@ -1,5 +1,18 @@
 # Research and verification record · 2026-11-11
 
+## Independent synthetic shrinkage mechanism
+
+The [predeclared mechanism study](SYNTHETIC_SHRINKAGE_MECHANISM_PLAN.md) contrasts
+true rho=0/.35 with fixed .25 diagonal shrinkage and paired 63/504-row samples.
+[Evidence and counterexamples](SYNTHETIC_SHRINKAGE_MECHANISM_FINDINGS.md) distinguish
+matrix squared loss, its diagonal/off-diagonal decomposition, concentration and
+true min-vol variance regret against a theoretical, non-investable oracle.
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** No future paths or resampling are part
+of this narrow pass. It is deliberately constructed follow-up, not independent
+confirmation or an empirical challenger. Existing models, rights gates, registry,
+original holdout and earlier numerical records remain unchanged.
+
+
 ## Independent exploratory covariance shrinkage
 
 The [predeclared fixed-shrinkage study](SYNTHETIC_SHRINKAGE_PLAN.md) compares
