@@ -28,17 +28,3 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
-
-  source-verified-session-aware-once:
-    if: github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[QA-SESSION-ONCE]')
-    runs-on: ubuntu-latest
-    timeout-minutes: 22
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install pinned source Parquet reader for noncommercial research
-        run: python -m pip install --disable-pip-version-check pyarrow==19.0.1
-      - name: Verify pinned stock members and compare session-aware labels with independent oracle
-        run: python project-007-market-microstructure/research/run_session_aware_once.py
