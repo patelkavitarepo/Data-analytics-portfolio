@@ -45,7 +45,6 @@ def read_audit_35_only(path,stock,dates,expected_counts):
     Arrow may decompress a boundary-overlapping batch; selected original
     quote dictionaries are restricted to the first 35 dates, never final.
     """
-    import pyarrow.parquet as pq
     approved=sum((dates[k] for k in ("fit","calibration","confirmation")),[])
     if (len(approved)!=35 or approved!=sorted(set(approved))
             or set(approved)&set(dates["sealed_final"])
@@ -53,6 +52,7 @@ def read_audit_35_only(path,stock,dates,expected_counts):
         raise PilotError("D013 reader restricted to original 35 pre-final D012 dates")
     allowed=set(approved)
     final_date=approved[-1]
+    import pyarrow.parquet as pq
     source=pq.ParquetFile(path)
     columns=tuple(dict.fromkeys(REQUIRED_FIELDS+SOURCE_FIELDS))
     if any(c not in source.schema_arrow.names for c in columns):
