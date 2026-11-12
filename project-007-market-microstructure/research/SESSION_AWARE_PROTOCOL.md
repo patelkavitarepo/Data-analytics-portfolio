@@ -1,6 +1,6 @@
 # Project 007 — D008 registered plan: explicit Shenzhen session labels and chronological prediction gate
 
-**Research status:** engineering validation authorized by the human lead's continuation (“On to the next Holmes”). This plan precedes the new real-data session audit. **No predictive model authorized or fitted; no future-date market outcomes accessed.** AI-assisted methods, not human-authored empirical interpretations.
+**Research status:** engineering validation was authorized by the human lead's continuation (“On to the next Holmes”). This protocol was frozen **before** the real-source audit, which has now completed and is documented in [SESSION_AWARE_RESULTS.md](SESSION_AWARE_RESULTS.md). **No predictive model authorized or fitted; no future-date market outcomes accessed.** AI-assisted methods, not human-authored empirical interpretations.
 
 ## Why session structure matters
 
