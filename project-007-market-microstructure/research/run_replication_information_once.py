@@ -209,6 +209,9 @@ def main():
                 daily[day]=day_result
             stock_results[stock]=daily
         result[model_name]=stock_results
+    from microstructure.information_bootstrap import day_cluster_ap_lift,paired_model_ap_lift_difference
+    bootstrap=day_cluster_ap_lift(result)
+    comparison=paired_model_ap_lift_difference(result,"W_BALANCED","W_UNWEIGHTED")
     report={
         "status":"D017_ONE_TIME_INFORMATION_CONFIRMATION_NO_FINAL_ACCESS",
         "source":"Quant-Arena Public L1 / Quant Arena / LaPlace's Eye / Einsia AI",
@@ -224,6 +227,8 @@ def main():
         "trading_PnL_evaluated":False,
         "source_bytes_transferred":fetch.bytes_transferred,
         "models":result,
+        "day_cluster_bootstrap":bootstrap,
+        "paired_model_ap_lift_difference":comparison,
         "note":"Directional AP versus base prevalence and Brier are descriptive diagnostics; retrospective top-fraction is not an executable strategy."
     }
     print("D017_INFORMATION_AGGREGATES_BEGIN",flush=True)
