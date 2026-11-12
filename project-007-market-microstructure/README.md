@@ -130,6 +130,19 @@ An independent source-quote oracle agreed on **30,466** original rows × scenari
 
 A [new chronological prediction research design](research/CHRONOLOGICAL_PREDICTION_PROTOCOL.md) is now documented: 20 later common trading dates for training, 5 for validation, 10 sealed final holdout after the already inspected discovery dates. **Design only:** no later-date market-price reads, predictive fit, evaluation, trading or merge.
 
+## D009: chronological B0/B1 prediction validation — completed, sealed final test intact
+
+The human lead authorized moving into the **first carefully separated, noncommercial prediction baseline comparison** on the authentic, source-SHA256-verified Quant-Arena Public L1 (CC BY-NC 4.0) quotes. The study design was frozen in [CHRONOLOGICAL_PREDICTION_PROTOCOL.md](research/CHRONOLOGICAL_PREDICTION_PROTOCOL.md) **before** newly selected market prices were read. A separate [metadata-only audit](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43143127390) confirmed **484 stock-common observed dates**, and the date manifest was committed as [CHRONOLOGICAL_SPLIT_MANIFEST.json](research/CHRONOLOGICAL_SPLIT_MANIFEST.json) (SHA256 `50d134f5b85c18c38423d974fbdb3376a105870211b95377a3aec22f73a870d6`) before model evaluation.
+
+- **Previously analyzed discovery:** January 4–10, 2022 (five source dates), not an untouched test.
+- **Training:** 20 source dates, January 11–February 14. Source origins **61,329**, eligible future-label targets **54,063**; up **1,778**, stationary **50,583**, down **1,702**.
+- **Validation:** five source dates, February 15–21. Source origins **15,345**, eligible targets **13,315**. B1 had sufficient strictly past-only quote history for **12,718** (95.52%); B0 predictions used the **training-only** majority class **2**.
+- **Fair matched-coverage validation:** B0 accuracy **94.15%**, three-class macro-F1 **0.3233**, balanced accuracy **0.3333**; B1 five-previous-quote trend accuracy **89.83%**, macro-F1 **0.3573**, balanced accuracy **0.3571**. B1 detected only ~6% of actual up/down targets, and one of three stocks did not share the pooled macro-F1 improvement.
+- Continuous-auction modeling policy excludes 14:57–15:00 closing call auction and respects explicit morning/afternoon segmentation, original source validity and max 30-second gaps; never interpolates quotes or uses future information for features.
+- **Sealed, unscored final test:** ten dates, February 22–March 7. Their target labels, prevalence and predictive results were NOT analyzed, used to tune parameters, or published. The entire source Parquet files were downloaded for hash verification; a decoded batch may physically overlap the sealed boundary, but **no heldout row was admitted to modeling computations**. This is statistical isolation, not byte-level secrecy.
+
+See the complete [D009 validation report](research/CHRONOLOGICAL_BASELINE_RESULTS.md), [successful real-data job](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43143730597), and model/source tests in `tests/test_chronological_baselines.py`. **135 synthetic tests passed** on Python 3.11 and 3.12. One-shot source data CI removed; routine CI synthetic-only. No advanced model trained, no stock prediction system deployed, no fill/execution model, no trading profitability or FI-2010 Helsinki label-identity claim. PR #7 remains draft and unmerged.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
