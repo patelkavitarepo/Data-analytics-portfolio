@@ -120,11 +120,11 @@ def alert_report(examples,predictions,reference_majority):
     got_up=sum(v==1 and e.target==1 for e,v in zip(examples,choices))
     got_down=sum(v==3 and e.target==3 for e,v in zip(examples,choices))
     # Classifying no-alert as 2 is only an artificial diagnostic proxy.
-    proxy={e.row_index:(v if v is not None else 2)
+    proxy={(e.symbol,e.trading_date,e.row_index):(v if v is not None else 2)
            for e,v in zip(examples,choices)}
     if len(proxy)!=len(examples):
-        raise ValueError("source-origin index must be unique per scored stock/date group")
-    threeclass=_confusion(examples,lambda e:proxy[e.row_index])
+        raise ValueError("source origin identity must be unique per stock/date")
+    threeclass=_confusion(examples,lambda e:proxy[(e.symbol,e.trading_date,e.row_index)])
     return {
         "eligible":n,"directional_alerts":nalert,
         "true_direction_alerts":good,"false_direction_alerts":bad,
