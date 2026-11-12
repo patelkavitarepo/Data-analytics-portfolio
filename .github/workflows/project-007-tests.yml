@@ -28,17 +28,3 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
-
-  d012-fresh-alerts-once:
-    if: github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[QA-D012-ALERTS]')
-    runs-on: ubuntu-latest
-    timeout-minutes: 27
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install pinned noncommercial Parquet reader and frozen classification model
-        run: python -m pip install --disable-pip-version-check pyarrow==19.0.1 scikit-learn==1.6.1
-      - name: Check committed new-date SHA256, fit 20, calibrate 10 WITHOUT labels, confirm 5, seal final 10
-        run: python project-007-market-microstructure/research/run_fresh_selective_alerts_once.py
