@@ -1,0 +1,22 @@
+name: Project 007 D016 TEMPORARY source-only timestamp freeze
+on:
+  push:
+    branches: ['feat/007-market-microstructure-research']
+    paths:
+      - '.github/workflows/project-007-d016-dates-temp.yml'
+permissions:
+  contents: read
+jobs:
+  freeze-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install frozen publisher parser
+        run: python -m pip install 'pyarrow==19.0.1'
+      - name: Authenticate publisher and freeze D016 timestamps only
+        working-directory: project-007-market-microstructure
+        run: python -u research/freeze_information_dates_once.py
