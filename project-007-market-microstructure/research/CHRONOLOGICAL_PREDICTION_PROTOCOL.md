@@ -1,6 +1,6 @@
 # Project 007 — Prospective chronological prediction design (NOT YET EXECUTED)
 
-**Status:** study design only, written during the D008 explicit-session labeling audit; **no model has been trained, scored, or selected, and no later-date market prices have been opened**. The human lead authorized moving forward from data quality to session-aware engineering and design, not discretionary release of a holdout. AI-assisted experiment design; the human lead has not supplied an empirical result.
+**Status:** Original design frozen before the D009 baseline training/validation study. Following the human lead's approval, the date-only manifest was committed before later-price access; the B0/B1 validation completed. **See [CHRONOLOGICAL_BASELINE_RESULTS.md](CHRONOLOGICAL_BASELINE_RESULTS.md) for measured metrics and limitations. The final ten-date test remains sealed; no model was promoted or merged.** The human lead authorized moving forward from data quality to session-aware engineering and design, not discretionary release of a holdout. AI-assisted experiment design; the human lead has not supplied an empirical result.
 
 ## Separate scientific questions
 
@@ -49,7 +49,7 @@ Before reading any additional bid/ask/volume prices or derived targets:
 
 ## Stop conditions and next authorization
 
-**At this stage, only synthetic tests and the source-confirmed D008 session audit are authorized.** Implementing the date-only metadata selection and a dry-run B0/B1 trainer will require another explicitly recorded research gate before reading new market prices. Do not merge PR #7 or imply that a high classification score is financially useful.
+**The next human instruction, “Let's get it Holmes,” authorized the limited D009 date-only manifest and B0/B1 training/validation evaluation, but NOT the sealed test.** The original restrictions and B0/B1 choices were retained; see the completed [D009 report](CHRONOLOGICAL_BASELINE_RESULTS.md) and preserved frozen [source-date manifest](CHRONOLOGICAL_SPLIT_MANIFEST.json). Do not merge PR #7 or imply that a high classification score is financially useful.
 
 **Scientific question to answer first:** Does the newly enforced session policy match or appropriately correct our previously published class counts on the *already inspected* 15,233 source observations, with an independent oracle? See [SESSION_AWARE_PROTOCOL.md](SESSION_AWARE_PROTOCOL.md) and subsequent D008 results.
 
