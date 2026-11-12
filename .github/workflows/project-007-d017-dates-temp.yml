@@ -1,0 +1,22 @@
+name: Project 007 D017 TEMPORARY timestamp-only replication calendar
+on:
+  push:
+    branches: ['feat/007-market-microstructure-research']
+    paths:
+      - '.github/workflows/project-007-d017-dates-temp.yml'
+permissions:
+  contents: read
+jobs:
+  freeze-once:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source timestamp parser
+        run: python -m pip install 'pyarrow==19.0.1'
+      - name: Authenticate source and select prospective dates without price reads
+        working-directory: project-007-market-microstructure
+        run: python -u research/freeze_replication_dates_once.py
