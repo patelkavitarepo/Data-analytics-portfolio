@@ -1,5 +1,17 @@
 # Research and verification record · 2026-11-11
 
+## Independent exploratory covariance shrinkage
+
+The [predeclared fixed-shrinkage study](SYNTHETIC_SHRINKAGE_PLAN.md) compares
+sample covariance with a fixed 25% diagonal target in constructed six-asset
+scenarios. [Numerical findings](SYNTHETIC_SHRINKAGE_FINDINGS.md) retain every seed,
+unfavorable covariance-error results, mixed stability and path counterexamples.
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** No empirical challenger, confirmation
+reservation or consumption event is registered. All previous calculations,
+26 historical fingerprints, evolution records and source/holdout gates remain
+unchanged. No ETF performance or market-data acquisition occurred.
+
+
 ## Model Evolution Protocol — policy only
 
 [006-evolution-v1](MODEL_EVOLUTION_PLAN.md) adds a versioned champion/challenger

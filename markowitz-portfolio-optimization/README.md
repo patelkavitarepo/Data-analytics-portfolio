@@ -27,6 +27,7 @@ stages, counterexamples, glossary and the gates to empirical validation.
 | Synthetic v1 | [Design/findings](SYNTHETIC_LAB.md), [artifact](synthetic-default-summary.json) | [Synthetic scenario lab](pages/1_Synthetic_scenario_lab.py) |
 | Synthetic v2 | [Predeclaration](SYNTHETIC_ROBUSTNESS_PLAN.md), [findings](SYNTHETIC_ROBUSTNESS_FINDINGS.md), [artifact](synthetic-robustness-results.json) | [Synthetic robustness check](pages/2_Synthetic_robustness_check.py) |
 | Synthetic v3 | [Predeclaration](SYNTHETIC_SERIAL_PLAN.md), [findings](SYNTHETIC_SERIAL_FINDINGS.md), [artifact](synthetic-serial-results.json) | [Synthetic serial dependence](pages/3_Synthetic_serial_dependence.py) |
+| Exploratory synthetic shrinkage | [Predeclaration](SYNTHETIC_SHRINKAGE_PLAN.md), [findings](SYNTHETIC_SHRINKAGE_FINDINGS.md), [artifact](synthetic-shrinkage-results.json) | CLI/report only; no empirical challenger |
 
 **Offline commands**, after the [environment setup](#reproduce-python-312), from
 `markowitz-portfolio-optimization/`:
@@ -106,6 +107,21 @@ The **Synthetic serial dependence** page is read-only; no app-time fits or data
 retrieval. Reproduce with `python -m markowitz.synthetic_serial --output work/synthetic-serial-v3`.
 The earlier v1/v2 reports are preserved. Block-bootstrap results are conditional
 diagnostics, not market evidence or permission to run empirical validation.
+
+## Exploratory synthetic covariance shrinkage
+
+**SYNTHETIC DATA — NOT EMPIRICAL RESULTS.** Fixed 25% diagonal shrinkage versus
+sample covariance uses seeds 7001–7005, paired trailing windows/futures and
+15 paired IID resamples. [Findings and counterexamples](SYNTHETIC_SHRINKAGE_FINDINGS.md)
+show mixed stability, worse covariance error in all ten training cases, and
+concentration/risk tradeoffs. No dashboard or empirical challenger is added;
+the evolution registry and all earlier results remain unchanged.
+
+```bash
+# From markowitz-portfolio-optimization/, using the existing environment:
+.venv/bin/python -m markowitz.synthetic_shrinkage --output work/synthetic-shrinkage-v1
+.venv/bin/python scripts/check_shrinkage_report.py
+```
 
 ## Reproduce (Python 3.12)
 

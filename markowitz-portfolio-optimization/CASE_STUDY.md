@@ -5,6 +5,10 @@ performance** over equal weights? That empirical question remains unanswered.
 The completed work shows why estimation error, changing asset relationships and
 resampling assumptions must be examined before interpreting an optimized portfolio.
 
+This synthesis covers the original three synthetic stages. The later independent
+[fixed covariance-shrinkage study](SYNTHETIC_SHRINKAGE_FINDINGS.md) is exploratory
+and leaves their evidence and the empirical registry unchanged.
+
 ## Two distinct research tracks
 
 The **unvalidated ETF application** is a Python/Streamlit research engine for
