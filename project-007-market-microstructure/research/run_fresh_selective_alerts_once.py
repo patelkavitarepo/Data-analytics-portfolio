@@ -54,12 +54,12 @@ def read_fresh_35_only(path,stock,dates,expected_counts):
     rows selected strictly inside the authorized 35 dates are converted.
     The last ten sealed dates are never admitted to feature/label objects.
     """
-    import pyarrow.parquet as pq
     allowed=sum((dates[k] for k in ("fit","calibration","confirmation")),[])
     if (len(allowed)!=35 or allowed!=sorted(set(allowed))
             or set(allowed)&set(dates["sealed_final"])
             or allowed[0]<="2022-03-07"):
         raise PilotError("D012 authorized 35 fresh source dates only")
+    import pyarrow.parquet as pq
     final_confirm=allowed[-1]
     allowed_set=set(allowed)
     source=pq.ParquetFile(path)
