@@ -210,6 +210,14 @@ The [one-time D014 empirical runner](https://github.com/patelkavitarepo/Data-ana
 
 [Complete D014 negative feasibility result](research/ADAPTIVE_ALERT_COVERAGE_RESULTS.md) documents checksums, full counts and limitations. Next gate: prospective, explicitly source-availability-aware abstention and history policy on a **new** genuinely later cohort, without exploiting the already encountered 000025.SZ missingness to rewrite D014 results.
 
+## D015: availability-aware abstention — preregistered, no model results yet
+
+After D014's fail-closed data-depth coverage barrier, [D015's prospective protocol](research/AVAILABILITY_AWARE_PROTOCOL.md) distinguishes **invalid current source**, **insufficient preceding ten-day source coverage**, **valid but below-cutoff no-signal**, and **up/down alerts**. The original three stocks, two March-trained models, source rights and static D012 cutoffs remain unchanged.
+
+D015 fixes a 50% previous-day source-eligible threshold on **each** of the ten immediately preceding observed common dates, never skipping a sparse date. Three policies per model are fixed: original static cutoff, static cutoff plus health gate, and rolling past-ten-day p98 cutoff plus the **same** health gate. No current-day quality aggregate may determine that day's threshold; no-data does **not** imply a stationary price forecast. All source rows remain in denominators, and abstentions are counted by reason. Future labels are forbidden on warmup dates; original D009, D012 and D014 reserved final blocks remain sealed.
+
+The [pure decision engine](microstructure/availability_alerts.py) and [synthetic isolation tests](tests/test_availability_alerts.py) are committed. A one-time authenticated timestamp-only source-calendar freeze is the next prerequisite; no new D015 directional model evaluation has been completed. **No performance or trading advantage is claimed.**
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
