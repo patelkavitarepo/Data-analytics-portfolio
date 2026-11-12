@@ -61,3 +61,13 @@ In context, this accepts investigating how the three-stock/five-day descriptive 
 **Boundary:** Ignoring source stale/missing-depth flags is a **diagnostic counterfactual only**, not an approved inference about real executable liquidity. Raw quotes and original flags must not be modified or published. No prediction models, profitability claims, FI-2010 holdout access or merging have been approved.
 
 **AI-assisted empirical result (not human authored):** The predeclared eight-scenario sensitivity study passed on the original pinned three-stock/five-day source: the 15,233 input rows reproduced the strict reference exactly; all tested gap tolerances and missing-depth-only relaxation changed **zero** label assignments, while ignoring stale flags restored **621** formerly excluded labels and changed **zero** class assignments among previously eligible origins. Pooled stationary share shifted from **93.2732%** to **93.4039%** under this explicitly unsafe counterfactual. Stock ranking was unchanged. Two independent label calculators agreed on **121,864** decisions; **105 synthetic unit tests passed** on both Python versions. Full attribution and limits: `GAP_FLAG_SENSITIVITY_RESULTS.md`. Human interpretation and any future predictive-study approval remain pending.
+
+## D007 — November 11, 2026 — Human continuation of gap-boundary inquiry
+
+**Human directive:** "Let’s keep at it Holmes."
+
+This followed the confirmed D006 quote-gap/flag sensitivity and our proposal to examine whether the **fifteen** long within-stock/day gaps correspond to scheduled Shenzhen lunch recesses and whether invalid quotes already block cross-recess labels.
+
+**AI-assisted design (not a human-supplied conclusion):** Freeze the same authenticated Shenzhen stock/date population; enumerate all intervals exceeding 120 seconds; compare their timestamps with a predeclared 11:28–11:30:30 / 12:59–13:02 local-time lunch-window heuristic, and investigate whether strict quality flags versus a deliberately *unsafe* no-gap counterfactual produce any label windows across them. Strict k=5, ±0.2%, same-stock/day 30-second baseline and publisher SHA256s must reproduce exactly. Independent second label implementation must confirm all scenarios. All rules are in `GAP_BOUNDARY_PROTOCOL.md`, recorded before the new market-data run.
+
+**Caveat:** Lunch-time alignment is evidence of a scheduled nontrading break, not proof that other missing data are absent. No request to trade, fit predictive models, open FI-2010 reserved days, or merge PR #7 was made.
