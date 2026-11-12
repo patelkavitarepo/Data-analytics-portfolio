@@ -3,7 +3,10 @@ from collections import Counter
 from datetime import datetime, timedelta, timezone
 from decimal import Decimal
 import importlib.util
+import json
 import sys
+import tempfile
+import types
 from pathlib import Path
 import unittest
 from unittest.mock import patch
@@ -21,6 +24,11 @@ spec = importlib.util.spec_from_file_location(
 )
 manifest = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(manifest)
+baseline_spec = importlib.util.spec_from_file_location(
+    "d009_baseline_runner", ROOT/"research"/"run_chronological_baselines_once.py"
+)
+runner = importlib.util.module_from_spec(baseline_spec)
+baseline_spec.loader.exec_module(runner)
 TZ=timezone(timedelta(hours=8))
 
 
@@ -86,6 +94,77 @@ class ChronologicalManifestTests(unittest.TestCase):
         del inputs["000025.SZ"][manifest.FROZEN_DAYS[2]]
         with self.assertRaisesRegex(ValueError,"discovery dates changed"):
             manifest.select_dates(inputs)
+
+    def test_manifest_freeze_rejects_tampered_dates_and_test_release(self):
+        selected, _ = manifest.select_dates(self.inventory())
+        receipt = {
+            "status":"D009_METADATA_ONLY_SPLIT_PROPOSED_FOR_FREEZE",
+            "publisher_revision":manifest.EXPECTED_REVISION,
+            "selected_members":list(manifest.FROZEN_MEMBERS),
+            "source_prices_or_flags_accessed":False,
+            "holdout_sealed":True,
+            "dates":selected,
+            "date_list_sha256":manifest.canonical_manifest_hash(
+                [s.removesuffix(".parquet") for s in manifest.FROZEN_MEMBERS],
+                selected
+            ),
+        }
+        with tempfile.TemporaryDirectory() as td:
+            p=Path(td)/"source_date_manifest.json"
+            p.write_text(json.dumps(receipt))
+            self.assertEqual(runner.load_manifest(p)["date_list_sha256"],
+                             receipt["date_list_sha256"])
+            modified=json.loads(json.dumps(receipt))
+            modified["dates"]["holdout"][0]="2024-01-01"
+            p.write_text(json.dumps(modified))
+            with self.assertRaisesRegex(ValueError, "increasing/disjoint|checksum"):
+                runner.load_manifest(p)
+            modified=json.loads(json.dumps(receipt))
+            modified["holdout_sealed"]=False
+            p.write_text(json.dumps(modified))
+            with self.assertRaisesRegex(ValueError,"sealed holdout"):
+                runner.load_manifest(p)
+
+    def test_price_reader_filters_out_holdout_rows_even_in_same_batch(self):
+        selected,_=manifest.select_dates(self.inventory())
+        tz=timezone(timedelta(hours=8))
+        batch=[]
+        for day in selected["train"]+selected["validation"]+[selected["holdout"][0]]:
+            stamp=datetime.fromisoformat(day+"T09:30:15").replace(tzinfo=tz)
+            batch.append({
+                "symbol":"000012.SZ",
+                "available_at":stamp,
+                "source_event_time":stamp-timedelta(seconds=1),
+                "bid_price_1":Decimal("99.99"),
+                "ask_price_1":Decimal("100.01"),
+                "stale":False,
+                "missing_depth":False,
+            })
+        class FakeBatch:
+            def to_pylist(self):return batch
+        class FakeParquet:
+            schema_arrow=type("Schema",(),{"names":list(runner.REQUIRED_FIELDS)})()
+            def __init__(self,_path): pass
+            def iter_batches(self,**kwargs):
+                yield FakeBatch()
+                raise AssertionError("must stop before decoding the next batch")
+        module=types.ModuleType("pyarrow")
+        module.__path__=[]
+        sub=types.ModuleType("pyarrow.parquet")
+        sub.ParquetFile=FakeParquet
+        module.parquet=sub
+        counts={d:1 for d in selected["train"]+selected["validation"]}
+        with patch.dict(sys.modules, {"pyarrow":module,"pyarrow.parquet":sub}):
+            training,validation,stats=runner.read_train_validation_rows(
+                "/mock-only", "000012.SZ",selected,counts
+            )
+        self.assertEqual(len(training),20)
+        self.assertEqual(len(validation),5)
+        self.assertEqual(stats["train_source_rows"],20)
+        self.assertEqual(stats["validation_source_rows"],5)
+        self.assertFalse(stats["later_row_admitted_to_feature_or_label_computation"])
+        self.assertTrue(all(x.trading_date not in selected["holdout"]
+                            for x in training+validation))
 
     def test_no_new_stock_is_allowed(self):
         inputs=self.inventory()
