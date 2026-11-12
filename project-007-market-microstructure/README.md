@@ -143,12 +143,26 @@ The human lead authorized moving into the **first carefully separated, noncommer
 
 See the complete [D009 validation report](research/CHRONOLOGICAL_BASELINE_RESULTS.md), [successful real-data job](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43143730597), and model/source tests in `tests/test_chronological_baselines.py`. **135 synthetic tests passed** on Python 3.11 and 3.12. One-shot source data CI removed; routine CI synthetic-only. No advanced model trained, no stock prediction system deployed, no fill/execution model, no trading profitability or FI-2010 Helsinki label-identity claim. PR #7 remains draft and unmerged.
 
+## D010: first order-book snapshot liquidity classifier — training-internal test complete
+
+The human lead directed us to advance from the historical midpoint trend study to displayed book-side liquidity signals. We **preregistered the D010 design before any new source-price read** in [LIQUIDITY_FEATURES_PROTOCOL.md](research/LIQUIDITY_FEATURES_PROTOCOL.md). The data remain [Quant-Arena Public L1](https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1), **CC BY-NC 4.0 noncommercial**, on the original three checksum-pinned Shenzhen stocks and exact source-date SHA256 manifest.
+
+- New *current-quote snapshot* features: spread (bps clipped at 100), level-one bid/ask displayed volume imbalance, and level-one-through-five cumulative displayed volume imbalance, with strict five-level bid/ask integrity. These are **not actual order-event or trade flow** and do not reveal fills, cancellations or queue priority.
+- **No original validation or final-test access:** Split the previously allocated **20 training dates** into **14 fitting dates (Jan 11–28, 2022)** and **six internal confirmation dates (Feb 7–14)**, leaving the original five validation dates **Feb 15–21** and final sealed ten days **Feb 22–Mar 7** outside this experiment. The entire source-member bytes were re-downloaded for publisher SHA256, but source rows outside training dates were **not admitted** to feature/target/model computations; the Parquet reader can physically decompress a boundary-overlapping batch, so the holdout is statistically isolated rather than byte-inaccessible.
+- **One frozen B2 model:** training-only StandardScaler and one class-balanced multinomial logistic regression (C=1, lbfgs, max 400 iterations), fixed a priori; no hyperparameter search or model tuning. B0 is training-only majority class 2; B1 the previous-five-quote unfitted trend.
+- The fit pool included **42,915** source quote origins, **37,906** future-label eligible; the confirmation pool included **18,414** source origins, **16,157** eligible; **15,524** had the common B0/B1/B2 coverage used to score all methods fairly.
+- On identical internal-confirmation rows: B0 accuracy/macro-F1/balanced accuracy **92.31% / 0.3200 / 0.3333**; B1 **86.85% / 0.3725 / 0.3730**; B2 **58.05% / 0.3405 / 0.5199**. B2 up/down recall **45.62% / 51.50%**, but **precision only 8.51% / 8.66%**; it produced **5,899 false directional alerts** among genuinely stationary rows.
+- **Severe cross-stock failure:** On 000031.SZ, B2 accuracy only **9.60%**, macro-F1 **0.1124**, and **zero** true stationary observations were predicted as stationary. That is *not* a reliable classifier, despite higher pooled balanced accuracy. No model has been promoted.
+- **150 synthetic tests passed** on both Python 3.11 and 3.12, including source-level depth validation, no future-feature leak, hard source-date isolation and matched-denominator scoring. [Verified D010 source run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43230081435); [full attributed empirical report](research/LIQUIDITY_FEATURES_RESULTS.md) with confusion matrices and per-stock/day splits. One-off provider-data CI is disabled, routine CI is synthetic-only; PR #7 remains draft/unmerged.
+
+Next scientific gate: diagnose the large cross-stock directional false-positive problem using **fit-period-only data** and a separately frozen plan; do not iterate on the six confirmation days or original later validation period. A high recall number alone is not executable trading alpha.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
 2. Investigate precomputed FI-2010 label timing and possible train/day-boundary contamination without looking at reserved days; keep the LOBSTER paired-event study separate.
 3. Human decision D002 prioritized investigating the dataset's construction; review [D009 findings](research/CONSTRUCTION_AUDIT.md) and unresolved per-day/per-stock label-boundary checks before selecting any feature-based model.
-4. Compare constant/majority baseline, imbalance sign, then a simple model only if enough permitted historical days exist.
+4. D010 has now compared B0 majority, B1 lagged trend and B2 fixed book-liquidity logistic model. Investigate the B2 cross-stock collapse with a new train-only diagnostic gate before any further validation.
 5. Add latency/fill simulation later, never reporting simulated returns as live results.
 
 Methods: [research protocol](research/PROTOCOL.md) · [human decisions](research/DECISIONS.md) · [rights gate](DATA_RIGHTS.md).
