@@ -28,3 +28,17 @@ jobs:
       - name: Synthetic-only unit tests; never fetch provider data
         working-directory: project-007-market-microstructure
         run: python -m unittest discover -s tests -v
+
+  fit-only-class-weight-stock-shift-once:
+    if: github.event_name == 'pull_request' && contains(github.event.pull_request.title, '[QA-D011-ONCE]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned noncommercial source reader and deterministic estimators
+        run: python -m pip install --disable-pip-version-check pyarrow==19.0.1 scikit-learn==1.6.1
+      - name: Verify publisher hashes; analyze Jan 11–28 fit dates only, split first10/last4
+        run: python project-007-market-microstructure/research/run_class_weight_stock_shift_once.py
