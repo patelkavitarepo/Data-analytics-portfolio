@@ -45,11 +45,11 @@ class BoundaryAuditTests(unittest.TestCase):
 
     def test_regular_gap_does_not_get_called_lunch(self):
         q = examples()
-        self.assertFalse(_lunch_match(q[1].available_at, q[4].available_at))
+        self.assertFalse(_lunch_match(q[0].available_at, q[1].available_at))
         bogus = list(q)
         bogus[3] = Quote(
             bogus[3].symbol, bogus[3].trading_date,
-            bogus[2].available_at + timedelta(minutes=12),
+            bogus[2].available_at - timedelta(minutes=12),
             bogus[3].bid, bogus[3].ask
         )
         # This would reorder data and should fail in full label validation.
