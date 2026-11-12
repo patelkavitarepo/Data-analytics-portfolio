@@ -157,6 +157,20 @@ The human lead directed us to advance from the historical midpoint trend study t
 
 Next scientific gate: diagnose the large cross-stock directional false-positive problem using **fit-period-only data** and a separately frozen plan; do not iterate on the six confirmation days or original later validation period. A high recall number alone is not executable trading alpha.
 
+## D011: why the balanced liquidity model failed — registered fit-only diagnosis
+
+The human lead continued the D010 investigation. We preregistered [D011 class-weight/stock-shift methods](research/CLASS_WEIGHT_STOCK_SHIFT_PROTOCOL.md) before accessing the same source. The new analysis deliberately used **only the January 11–28, 2022 fourteen dates previously used to fit B2**, chronologically divided **first 10 for re-fitting** and **last four for one diagnostic**. All six February D010 internal confirmation days, five D009 February validation days, and ten sealed final test days remained outside this diagnostic. This earlier diagnostic split is **not an untouched test**.
+
+Two otherwise identical three-feature StandardScaler + multinomial logistic models with `class_weight="balanced"` versus `None` were fixed before source access. Publisher-SHA256-verified Quant-Arena Public L1 (CC BY-NC 4.0 noncommercial) source, three stocks, and exact SHA-pinned 20/5/10 calendar were unchanged. On **10,218** identical internal diagnostic target-eligible origins:
+
+- Weighted classifier accuracy **53.73%**, macro-F1 **0.3245**, balanced accuracy **0.5468**; unweighted accuracy **92.86%**, macro-F1 **0.3229**, balanced accuracy **0.3341**. The previously frozen B1 macro-F1 on the same rows was **0.3634**.
+- Weighted made **4,970 directional calls** versus just **6** for unweighted. The unweighted model largely returned to classifying everything stationary, so it did **not** solve minority detection.
+- On **000031.SZ**, weighted accuracy **9.53%** and correct stationary predictions **0/3,164**; it predicted stationary only once across **3,650** matched rows. Unweighted accuracy **86.58%**, but up recall **0%** and down recall ~0.4%. This repeats the qualitative D010 failure without reusing those later confirmation outcomes.
+- Stock feature distributions were notably different: ten-date average spread **26.08bps (000031.SZ)**, **11.78bps (000012.SZ)**, **8.27bps (000025.SZ)**; displayed five-level volume imbalances also differed. This is a *possible contributing stock shift*, **not a verified causal explanation**.
+- [Full D011 source-receipted study](research/CLASS_WEIGHT_STOCK_SHIFT_RESULTS.md), [successful GitHub Actions empirical run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43234247334), **155 synthetic tests passing** under Python 3.11 and 3.12. Temporary publisher-access CI was disabled after success. Raw source quotes and individual prediction rows were never committed. No model promoted or trading/market-making P&L attempted.
+
+**Next gate:** consider a separately preregistered fit-only model diagnosis or truly new non-holdout data for model development. Do not repeatedly tune on the four internal diagnostic days, the six D010 confirmation days, the five D009 validation days, or the sealed final ten days.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
