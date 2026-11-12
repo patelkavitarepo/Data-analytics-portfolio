@@ -171,6 +171,18 @@ Two otherwise identical three-feature StandardScaler + multinomial logistic mode
 
 **Next gate:** consider a separately preregistered fit-only model diagnosis or truly new non-holdout data for model development. Do not repeatedly tune on the four internal diagnostic days, the six D010 confirmation days, the five D009 validation days, or the sealed final ten days.
 
+## D012: prospective selective directional-alert confirmation — **negative result**
+
+The human lead requested continued research on reducing B2's severe directional false positives. We **precommitted [D012 registered methods](research/SELECTIVE_ALERTS_PROTOCOL.md) before any new post-March-7 market-price access** and froze a **new metadata-only 20/10/5/10 chronological date manifest**: [FRESH_SELECTIVE_DATE_MANIFEST.json](research/FRESH_SELECTIVE_DATE_MANIFEST.json), SHA256 `fe19d601c74f3276e13d8fda3e03ebebcc548bcdb1a2b748138c2d7040d7f3da`.
+
+- **Fit 20 days:** March 8–April 6, 2022, **54,290** complete-book label-eligible training observations. Two fixed three-feature StandardScaler + logistic models, class-weight balanced vs none.
+- **Unlabelled cutoff calibration 10 days:** April 7–20. **No future-target labels constructed or consulted.** Source-valid current+five-previous quote features determined a fixed stock-specific *98th percentile* directional score cutoff, `max(p_up,p_down)/(p_stationary+1e-12)`; alert only if the current score exceeds the cutoff. "No alert" means **abstain**, not stationary.
+- **One-time confirmation 5 days:** April 21–27, on exactly **13,819** matched eligible stock/quote origins. Weighted model **919 alerts, 150 correct, 769 false**: precision **16.32%**, **55.65 false alerts per 1,000**, approximately **6.65%** confirmation alert rate. Unweighted model **882 alerts, 144 correct, 738 false**: precision **16.33%**, **53.40 false alerts per 1,000**, approximately **6.38%** confirmation alert rate. Both catch only ~5% of actual up/down movements. The 2% calibration budget did **not** carry into the later period and no cause of the model-score drift is established.
+- **Two preserved final blocks:** D009 legacy Feb 22–Mar 7 is unscored but *too early* to be a prospective final evaluation of a March/April model. D012 has a **new, genuinely later sealed final Apr 28–May 16**; its prices/targets/predictions were **not admitted to model evaluation or scoring**. Source-member byte SHA verification may physically decompress later batches, so final isolation is statistical, not cryptographic.
+- The original three publisher-SHA256-pinned Shenzhen stock members, noncommercial [Quant-Arena Public L1](https://huggingface.co/datasets/Ashitemaru/Quant-Arena-Public-L1) **CC BY-NC 4.0** source and source availability rules remain unchanged; no real order flow, fill simulation or P&L is represented. **168 synthetic tests passed** under Python 3.11 and 3.12. Source-validation [GitHub run](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43237929585). One-shot data-reading job removed, CI back to synthetic-only, draft PR unmerged.
+
+Complete source-verifiable report, stock-level precision/recall, per-day counts, calibration cutoffs and caveats: [D012 Selective Alert Results](research/SELECTIVE_ALERTS_RESULTS.md). **Result is negative**: neither weighted nor unweighted cutoff model is suitable for promotion. Avoid score-driven retuning against April 21–27, and **do not open the sealed April 28–May 16 test simply to find a stronger score**.
+
 ## Next checkpoints
 
 1. For FI-2010, retain CC BY attribution and verify any remaining publisher-binary equivalence questions; separately resolve rights before any LOBSTER provider acquisition.
