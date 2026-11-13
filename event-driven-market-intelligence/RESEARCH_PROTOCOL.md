@@ -50,7 +50,7 @@ Production extensions **NOT implemented**: immutable raw-byte object store with 
 
 Do not choose events because TSMC stock moved. Build source eligibility rules and sampling dates before viewing outcomes. Construct positive, negative, ambiguous, delayed and corrected examples. Source overlapping event lists are not independent ground truth; compare to an adjudicated catalog with missed-event audits. For geospatial scoring use actual credible shake intensity maps or hazard footprints (when authorized), not earthquake epicenter proximity as impact evidence. Estimate confidence intervals for eventual empirical metrics; never infer achieved recall/precision from unit tests.
 
-Known fatal gaps for a real inference claim: unverified site polygons/coordinates; unknown suppliers/utilities and output shares; first-release-time history generally absent; publication revisions and feed lag; earthquakes not equal factory disruption; strong geographic false positives; incomplete official flooding surveys; primary company reporting delays; same-owner syndication errors. Missing production-verified evidence must result in **Potential Exposure** or abstention, never fabricated confirmation.
+Known fatal gaps for a real inference claim: unverified site polygons/coordinates; unknown suppliers/utilities and output shares; first-release-time history generally absent; publication revisions, 2026-06-01 CWA earthquake schema change and feed lag; earthquakes not equal factory disruption; strong geographic false positives; incomplete official flooding surveys; primary company reporting delays; same-owner syndication errors. Missing production-verified evidence must result in **Potential Exposure** or abstention, never fabricated confirmation.
 
 ## Advancement gates
 
