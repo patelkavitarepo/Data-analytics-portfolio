@@ -59,3 +59,16 @@ Known fatal gaps for a real inference claim: unverified site polygons/coordinate
 **Gate B (not met):** written, source-specific acquisition approval, raw immutable snapshots, valid event+facility geodata and replayable first-seen times, operational source verification, predeclared evaluation sample and manual adjudication protocol. No live alerts until Gate B.
 
 **Gate C (not met):** measured out-of-sample event completeness, geography matching errors, abstention and false-claim rates on independently reviewed samples. Only then consider financial relevance, separately predeclared.
+## v0.2 predeclared acquisition validation (before first successful live USGS capture)
+
+**New subsystem boundary:** `market_intel.usgs_capture` may retain observed USGS *hazard* records but may never produce alerts or be imported by the synthetic-only risk engine. There is no company-facility matching for real events. USGS first-publication time is treated as unknown.
+
+**AQ1 — reproducibility:** For each accepted source snapshot, check that stored original bytes round-trip and their SHA-256 digest matches. An altered archive must fail verification. Repeated identical responses require distinct receipt IDs but share one content-addressed object. Changed feed bytes must not overwrite prior objects.
+
+**AQ2 — malformed and provenance data:** Non-200 status, redirect, unrecognized content type, malformed JSON, surprising source URL, duplicate event IDs, invalid coordinates/time fields, count mismatch, and oversize payload must not produce a valid receipt. Poller/network actions are disabled by default and excluded from CI.
+
+**AQ3 — first-seen observability:** Record UTC request start, response completion, and USGS feed-generation times separately. Do not call observed-at minus source-updated-at *release latency*. A USGS updated value is a revision marker, not an audited first-release timestamp; no empirical alert latency is calculated.
+
+**AQ4 — exploratory geographic screening:** Report magnitude >=4.5, past-day, Taiwan-box events as geographical **candidates only**. This screening does not estimate facility shaking or operational damage. Do not claim geographic recall until a predeclared independently adjudicated sample and coverage eligibility criteria exist.
+
+**Gate B remains unmet:** The one-shot adapter is a software capability, not proof that a legitimate snapshot has been acquired or an authorized continuous data operation established. Any manual test artifacts must remain outside version-controlled source folders, or in ignored `outputs/` with provenance logged.
