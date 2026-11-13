@@ -1,10 +1,10 @@
-# Project 008 — Event-Driven Market Intelligence (research foundation)
+# Project 008 — Event-Driven Market Intelligence (research foundation + USGS capture)
 
-> **SYNTHETIC ONLY — NOT A REAL-WORLD RISK ALERT, TRADING SIGNAL, OR DEPLOYED MONITOR.**
+> **NO REAL-WORLD COMPANY RISK ALERTS, TRADING SIGNALS, OR DEPLOYED MONITOR.** Synthetic risk assessment remains isolated; optional USGS capture stores earthquake observations only.
 
 **Question:** Can time-stamped event reports be connected to verified company exposures and updated as evidence arrives, without inventing impact or accidentally using future information?
 
-Version 0.1 is a narrow, auditable **offline code experiment**, not a validated event monitor. It makes no network requests, uses no brokerage data, and does not scrape third-party sites. No other portfolio project is edited.
+Version 0.2 adds a **separate opt-in, one-shot USGS capture adapter** to the narrow, auditable offline synthetic case. The alert replay makes no network requests and refuses real-world inputs. The capture adapter cannot produce company alerts and is never executed by CI. No brokerage data or uncontrolled scraping. No other portfolio project is edited.
 
 ## Scope
 
@@ -53,10 +53,42 @@ The fictional south facility is outside the radius and produces no alert. This i
 - `market_intel/models.py` — type-checked record contracts, source identity and time validation.
 - `market_intel/engine.py` — deterministic event-to-site screening and evidence-state replay.
 - `market_intel/demo.py` — offline repeatable output.
-- `tests/test_engine.py` — negative/positive regression tests.
+- `tests/test_engine.py` — negative/positive synthetic replay tests.
+- `market_intel/usgs_capture.py` — independent single-request USGS snapshot adapter; **no company alert logic**.
+- `tests/test_usgs_capture.py` — offline USGS-shaped synthetic feed tests, archive and corruption rejection.
 
 ## Not built, intentionally
 
-No CWA/USGS download, HTTP poller, real-time notifications, verified facility geometry, seismic shaking maps, flood footprints, suppliers, source authentication, incident adjudication, financial labels, model, dashboard, backtest, deployment, or production data-rights approval.
+No automatic data collection, scheduled polling, production source monitoring, real-time notifications, verified facility geometry, seismic shaking maps, flood footprints, suppliers, source authentication, incident adjudication, financial labels, model, dashboard, backtest, or deployment. A **manual USGS one-shot download interface** is built but **no real snapshot has been captured or validated here**.
 
-**Next checkpoint:** establish an explicitly permitted USGS snapshot adapter *in a new draft PR/review step*, capture raw feed versions and their first-seen times, and verify defensible facility-site geometry before trying real company/event matching. Keep any human-adjudicated evaluation separate from synthetic developer tests.
+**Next checkpoint:** perform a single authorized source capture in an approved network-enabled environment, inspect the stored receipt, test repeated revisions, and independently verify defensible facility-site geometry before attempting real company/event matching. Human-adjudicated evaluation remains separate from synthetic tests.
+
+## Checkpoint 2 — one-shot USGS earthquake snapshot prototype (v0.2)
+
+The USGS real-time **M4.5+ past-day** GeoJSON feed is the first candidate: a documented developer-facing interface updated approximately once per minute. We preserve the **entire worldwide source response** first; a broad Taiwan-epicenter bounding box is applied **only afterward**, in memory. The box is neither an earthquake shaking footprint nor an impact prediction. The M4.5 minimum and 24-hour rolling horizon omit smaller and older events; this is **not a complete Taiwan earthquake detection system**.
+
+**Offline unit tests (safe, no network):**
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+**Optional, explicitly authorized manual one-shot capture (requires network access):**
+
+```bash
+python -m market_intel.usgs_capture --live-usgs --output outputs/usgs-observations
+```
+
+Without **both** flags, the command fails closed. No unattended polling, scheduled requests, credentials, retries, dashboard, trading, or automated alerting are included. `outputs/` is Git-ignored. A local USGS request could not be completed in the restricted working environment, so **no genuine source response is represented as captured evidence in this branch**.
+
+A successful capture produces:
+
+- `objects/<sha256-prefix>/<sha256>.json`: exact raw feed bytes, created once, verified on repeat.
+- `receipts/<capture_id>.json`: a unique logical append-only receipt for every retrieval, including request/receipt UTC times, source feed-generated time, response headers, response size, payload SHA-256, USGS credit, and **null** original-publication time.
+- A Taiwan-screen summary containing only geographic candidate earthquakes with `alert_permitted=false`. Real company facilities are **not matched**.
+
+The raw-byte hash guards accidental corruption, but **a local filesystem is not cryptographically tamper-proof**. Receipt metadata is unsigned. Strong adversarial immutability requires a future trusted append-only store. HTTP completion time is a conservative observed-at time, not proof of first publication. `properties.updated` and `metadata.generated` do not establish initial availability.
+
+The API design is vetted against [USGS GeoJSON documentation](https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php), [USGS catalog API advice](https://earthquake.usgs.gov/fdsnws/event/1/), and [USGS public-domain attribution guidance](https://www.usgs.gov/faqs/are-usgs-reportspublications-copyrighted). USGS-produced data are generally public domain with requested attribution; the adapter limits itself to the documented feed, bounded HTTP size, timeout, no redirects and no automatic retries.
+
+**Validation distinction:** Synthetic capture tests show archive/parser correctness on controlled inputs. They do *not* prove real USGS availability, geographic coverage, detection recall, latency, or any TSMC exposure.
