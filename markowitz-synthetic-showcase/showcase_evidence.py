@@ -7,7 +7,7 @@ from pathlib import Path
 ROOT=Path(__file__).resolve().parent
 WARNING='SYNTHETIC DATA — NOT EMPIRICAL RESULTS'
 ORACLE='THEORETICAL ORACLE — NON-INVESTABLE DIAGNOSTIC'
-REPOSITORY='https://github.com/patelkavitarepo/Data-analytics-portfolio/blob/project-006-markowitz-portfolio-optimization/markowitz-portfolio-optimization/'
+REPOSITORY='https://github.com/patelkavitarepo/Data-analytics-portfolio/blob/main/markowitz-synthetic-showcase/'
 SPECS = {'lab': {'file': 'synthetic-default-summary.json',
          'findings': 'SYNTHETIC_LAB.md',
          'title': 'Scenario lab',
