@@ -1,12 +1,11 @@
 """Synthetic USGS-shaped feed fixtures. Never require network access."""
 from __future__ import annotations
 
-import copy
 import hashlib
 import json
 import tempfile
 import unittest
-from datetime import datetime, timezone, timedelta
+from datetime import datetime, timezone
 from pathlib import Path
 
 from market_intel.usgs_capture import (
@@ -128,7 +127,6 @@ class CapturedFeedTests(unittest.TestCase):
     def test_invalid_json_does_not_create_archive(self):
         with self.assertRaises(ValueError):
             self.capture(transport(b"{oops"))
-        self.assertFalse(self.root.exists() is False)
         self.assertFalse((self.root / "objects").exists())
 
     def test_aware_clock_required(self):
