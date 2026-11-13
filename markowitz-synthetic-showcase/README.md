@@ -1,16 +1,20 @@
-# Project 006 — Synthetic Portfolio Research Showcase (release candidate)
+# Project 006 — Synthetic Portfolio Research Showcase · v0.1.0
 
 **SYNTHETIC DATA — NOT EMPIRICAL RESULTS**
 
-This is an **offline, read-only release candidate** for the educational Markowitz portfolio research showcase. It combines five previously completed, deterministic synthetic investigations. **No historical ETF performance has been demonstrated**, and no strategy, estimator or investment allocation is recommended.
+This is a **versioned, offline, read-only research showcase** for the educational Markowitz portfolio research showcase. It combines five previously completed, deterministic synthetic investigations. **No historical ETF performance has been demonstrated**, and no strategy, estimator or investment allocation is recommended.
 
-**Status: for owner review only. Not merged, deployed, tagged, or released.**
+**Status:** Synthetic-only project merged into the public repository. Versioned release: `project-006-synthetic-v0.1.0`. Streamlit deployment is a separate action.
 
 ## The research question
 
 Can constrained portfolio optimization improve out-of-sample risk-adjusted performance versus equally weighted investments? **Unanswered for real ETFs.** The separate eight-ETF research prototype remains a draft in [PR #6](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/6) with the 2025+ holdout untouched and provider-data permission/independent adjusted-price verification outstanding.
 
 This package is deliberately restricted to a standalone Streamlit presentation, a standard-library evidence reader, five unchanged labeled synthetic JSON reports, research documentation, and isolated offline tests. It contains **no provider downloader, ETF prices, empirical optimization runner, vendor credentials or live trading system**.
+
+## Deploy on Streamlit Community Cloud
+
+See [DEPLOYMENT.md](DEPLOYMENT.md) for the exact GitHub repository, `main` branch, Streamlit entrypoint and Python version. The hosted app is **not** deployed by publishing a GitHub release. It must be connected from your Streamlit Community Cloud account.
 
 ## Run the showcase locally
 
@@ -51,6 +55,6 @@ Start with the [case study](CASE_STUDY.md) and [Decision Quality Framework](DECI
 
 Source of the reviewed showcase and JSON evidence: Project 006 branch at commit `d37127250826d410e24b41bbf6289d3f1401aa58`. The five JSON files and the showcase Python files are copied by their original Git blob hashes, not regenerated or recalculated. Panel downloads are byte-for-byte source reports. The educational scenarios use constructed Gaussian assets, limited fixed random seeds and simplified assumptions; known covariance and the theoretical oracle are **synthetic privileges**, not observable market truths.
 
-Do not present synthetic Sharpe, drawdown, volatility or optimization regret as historical or investable results. **No provider permission has been established for historical ETF validation.** Approval of this release candidate does not authorize a merge, GitHub release, public Streamlit deployment, evaluation of the real holdout, or use of a restricted data provider.
+Do not present synthetic Sharpe, drawdown, volatility or optimization regret as historical or investable results. **No provider permission has been established for historical ETF validation.** This synthetic-only release does not authorize empirical backtests, evaluation of the real holdout or use of a restricted data provider. Public Streamlit deployment uses only this showcase.
 
-This branch is an independently reviewable release **candidate**. The owner decides whether to publish the synthetic-only results after manual review.
+This directory is an independently reviewed **synthetic-only** publication. All numerical reports are immutable copies from the completed research; no real ETF performance has been claimed.

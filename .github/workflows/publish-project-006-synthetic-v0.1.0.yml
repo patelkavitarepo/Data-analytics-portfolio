@@ -1,0 +1,53 @@
+name: Publish Project 006 Synthetic Research v0.1.0
+on:
+  pull_request:
+    paths:
+      - 'markowitz-synthetic-showcase/**'
+      - '.github/workflows/publish-project-006-synthetic-v0.1.0.yml'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-project-006-synthetic-v0.1.0.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install isolated release requirements
+        run: python -m pip install -r markowitz-synthetic-showcase/requirements.txt
+      - name: Verify synthetic-only display and original evidence
+        working-directory: markowitz-synthetic-showcase
+        run: |
+          python -m pytest -q tests/test_showcase.py
+          python scripts/check_showcase.py
+  publish:
+    needs: verify
+    if: github.repository == 'patelkavitarepo/Data-analytics-portfolio' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish the scoped GitHub release once
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          TAG='project-006-synthetic-v0.1.0'
+          if gh release view "$TAG" --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "Release already exists; refusing duplicate publication."
+            exit 0
+          fi
+          if gh api "repos/$GH_REPO/git/ref/tags/$TAG" >/dev/null 2>&1; then
+            echo "Tag exists without a release; stopping for manual review."
+            exit 1
+          fi
+          gh release create "$TAG" --repo "$GH_REPO" --target "$GITHUB_SHA" --title 'Project 006 — Synthetic Portfolio Research v0.1.0' --notes-file markowitz-synthetic-showcase/RELEASE_NOTES_v0.1.0.md --latest=false
+          echo "Created release $TAG at $GITHUB_SHA"
