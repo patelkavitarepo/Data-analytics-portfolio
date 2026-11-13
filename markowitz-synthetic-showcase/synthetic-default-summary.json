@@ -1,0 +1,861 @@
+{
+  "warning": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+  "description": "Constructed illustration only; no market analogue, empirical claim, or investment forecast.",
+  "scenarios": {
+    "baseline": {
+      "warning": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+      "version": "006-synthetic-lab-v1",
+      "config": {
+        "seed": 6006,
+        "train_steps": 504,
+        "future_steps": 252,
+        "bootstrap_draws": 20,
+        "cap": 0.35,
+        "annual_rf": 0.02
+      },
+      "versions": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.3",
+        "scipy": "1.15.3"
+      },
+      "training_sha256": "2d2b3c675639b1a3d79adcddd4995382f04a327b057a324586c26ec10cafa455",
+      "future_sha256": "b777bbc2844fdc8ce763b53dc6fc00ee1cdb232813facd7b1f2a8636b83ebe63",
+      "estimated": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.05861111831797176,
+          "estimated_volatility": 0.09249084979346782,
+          "estimated_sharpe": 0.41958434833804414,
+          "target_HHI": 0.297268646204211,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.09534418239232038
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.28116145818016053,
+          "estimated_volatility": 0.1483113105335184,
+          "estimated_sharpe": 1.7622260356262303,
+          "target_HHI": 0.3350000000000001,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.14790816407487453
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.12907683790636204,
+          "estimated_volatility": 0.11755498471930989,
+          "estimated_sharpe": 0.9295516713913099,
+          "target_HHI": 0.16666666666666663,
+          "max_target_weight": 0.16666666666666666,
+          "constructed_future_volatility": 0.11966968427021663
+        }
+      ],
+      "realized": [
+        {
+          "index": 0,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.2366771270156238,
+          "CAGR": 0.03696535309106996,
+          "volatility": 0.08546163345731557,
+          "sharpe": 0.23556528124721732,
+          "cumulative_return": 0.03696535309106963,
+          "max_drawdown": -0.12159653943482651
+        },
+        {
+          "index": 1,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.2366771270156238,
+          "CAGR": 0.035683233166638066,
+          "volatility": 0.08554077040254389,
+          "sharpe": 0.2209613935856004,
+          "cumulative_return": 0.03568323316663791,
+          "max_drawdown": -0.12164823722079798
+        },
+        {
+          "index": 2,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.4074544286252628,
+          "CAGR": 0.11091427582084173,
+          "volatility": 0.14189678099630912,
+          "sharpe": 0.6724364112421191,
+          "cumulative_return": 0.11091427582084346,
+          "max_drawdown": -0.10509370684746178
+        },
+        {
+          "index": 3,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.4074544286252628,
+          "CAGR": 0.10935124942678486,
+          "volatility": 0.14196705475925633,
+          "sharpe": 0.6622521095439609,
+          "cumulative_return": 0.10935124942678498,
+          "max_drawdown": -0.1052011276313074
+        },
+        {
+          "index": 4,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.3541152488359751,
+          "CAGR": 0.07740909878754403,
+          "volatility": 0.10765401993624042,
+          "sharpe": 0.5622696108812509,
+          "cumulative_return": 0.07740909878754487,
+          "max_drawdown": -0.12259890323705247
+        },
+        {
+          "index": 5,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.3541152488359751,
+          "CAGR": 0.07595060492266807,
+          "volatility": 0.10772404442065882,
+          "sharpe": 0.549395482709467,
+          "cumulative_return": 0.07595060492266681,
+          "max_drawdown": -0.12269474311761797
+        }
+      ],
+      "target_weight_L1_change_from_baseline": {
+        "min_vol": 0.0,
+        "max_sharpe": 0.0,
+        "equal_weight": 0.0
+      },
+      "bootstrap_summary": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.050941446045192094,
+          "p95_L1": 0.09146345828007509,
+          "max_L1": 0.15499794466081768,
+          "mean_half_L1_reallocation": 0.025470723022596047,
+          "mean_asset_weight_std": 0.011763067186323384
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.25459783223515153,
+          "p95_L1": 0.6501180300684372,
+          "max_L1": 0.7000000000000004,
+          "mean_half_L1_reallocation": 0.12729891611757577,
+          "mean_asset_weight_std": 0.06932053833171022
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.0,
+          "p95_L1": 0.0,
+          "max_L1": 0.0,
+          "mean_half_L1_reallocation": 0.0,
+          "mean_asset_weight_std": 5.695323946259567e-17
+        }
+      ],
+      "bootstrap_failures": 0,
+      "failed_solver_starts": 0,
+      "max_checked_bootstrap_violation": 1.0447198661722723e-13
+    },
+    "correlation_sign_flip": {
+      "warning": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+      "version": "006-synthetic-lab-v1",
+      "config": {
+        "seed": 6006,
+        "train_steps": 504,
+        "future_steps": 252,
+        "bootstrap_draws": 20,
+        "cap": 0.35,
+        "annual_rf": 0.02
+      },
+      "versions": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.3",
+        "scipy": "1.15.3"
+      },
+      "training_sha256": "2d2b3c675639b1a3d79adcddd4995382f04a327b057a324586c26ec10cafa455",
+      "future_sha256": "d3229dbd8d8c42e3fcc356fed70a84f8a7d07a22d921873e9b83b3f660e1a966",
+      "estimated": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.05861111831797176,
+          "estimated_volatility": 0.09249084979346782,
+          "estimated_sharpe": 0.41958434833804414,
+          "target_HHI": 0.297268646204211,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.0797905385967384
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.28116145818016053,
+          "estimated_volatility": 0.1483113105335184,
+          "estimated_sharpe": 1.7622260356262303,
+          "target_HHI": 0.3350000000000001,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.11605354367704587
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.12907683790636204,
+          "estimated_volatility": 0.11755498471930989,
+          "estimated_sharpe": 0.9295516713913099,
+          "target_HHI": 0.16666666666666663,
+          "max_target_weight": 0.16666666666666666,
+          "constructed_future_volatility": 0.06565693667338839
+        }
+      ],
+      "realized": [
+        {
+          "index": 0,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.273704330454006,
+          "CAGR": 0.04206663014354279,
+          "volatility": 0.07203693779274817,
+          "sharpe": 0.3330006648402766,
+          "cumulative_return": 0.04206663014354306,
+          "max_drawdown": -0.10634910884888382
+        },
+        {
+          "index": 1,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.273704330454006,
+          "CAGR": 0.04073966558341402,
+          "volatility": 0.07210858442459722,
+          "sharpe": 0.3150678114267127,
+          "cumulative_return": 0.04073966558341291,
+          "max_drawdown": -0.10640718874892074
+        },
+        {
+          "index": 2,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.5092593036862914,
+          "CAGR": 0.14529301422187038,
+          "volatility": 0.1179928495043053,
+          "sharpe": 1.0410113077330372,
+          "cumulative_return": 0.14529301422186958,
+          "max_drawdown": -0.08304718328016192
+        },
+        {
+          "index": 3,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.5092593036862914,
+          "CAGR": 0.143565187461224,
+          "volatility": 0.11795178715149489,
+          "sharpe": 1.0285262618753837,
+          "cumulative_return": 0.14356518746122315,
+          "max_drawdown": -0.0831613339757602
+        },
+        {
+          "index": 4,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.468257473674761,
+          "CAGR": 0.10196350209689048,
+          "volatility": 0.06665549886916719,
+          "sharpe": 1.1930273807659122,
+          "cumulative_return": 0.10196350209689076,
+          "max_drawdown": -0.03870269668076243
+        },
+        {
+          "index": 5,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.468257473674761,
+          "CAGR": 0.10034616106230046,
+          "volatility": 0.0666134639894386,
+          "sharpe": 1.1716808509352026,
+          "cumulative_return": 0.10034616106230265,
+          "max_drawdown": -0.03876021613221736
+        }
+      ],
+      "target_weight_L1_change_from_baseline": {
+        "min_vol": 0.0,
+        "max_sharpe": 0.0,
+        "equal_weight": 0.0
+      },
+      "bootstrap_summary": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.050941446045192094,
+          "p95_L1": 0.09146345828007509,
+          "max_L1": 0.15499794466081768,
+          "mean_half_L1_reallocation": 0.025470723022596047,
+          "mean_asset_weight_std": 0.011763067186323384
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.25459783223515153,
+          "p95_L1": 0.6501180300684372,
+          "max_L1": 0.7000000000000004,
+          "mean_half_L1_reallocation": 0.12729891611757577,
+          "mean_asset_weight_std": 0.06932053833171022
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.0,
+          "p95_L1": 0.0,
+          "max_L1": 0.0,
+          "mean_half_L1_reallocation": 0.0,
+          "mean_asset_weight_std": 5.695323946259567e-17
+        }
+      ],
+      "bootstrap_failures": 0,
+      "failed_solver_starts": 0,
+      "max_checked_bootstrap_violation": 1.0447198661722723e-13
+    },
+    "correlation_spike": {
+      "warning": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+      "version": "006-synthetic-lab-v1",
+      "config": {
+        "seed": 6006,
+        "train_steps": 504,
+        "future_steps": 252,
+        "bootstrap_draws": 20,
+        "cap": 0.35,
+        "annual_rf": 0.02
+      },
+      "versions": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.3",
+        "scipy": "1.15.3"
+      },
+      "training_sha256": "176270e354a543c86feca661dd82fdbf8d44bdd57b728984c17ee29937902d46",
+      "future_sha256": "685731173c877655310e49c26e8b62b44a6080cd1ca220a25f4c954aca2f7e52",
+      "estimated": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.03905942673117878,
+          "estimated_volatility": 0.11944683398970404,
+          "estimated_sharpe": 0.16120997692321382,
+          "target_HHI": 0.335,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.1219643390503962
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.15968887249983613,
+          "estimated_volatility": 0.18302523184146927,
+          "estimated_sharpe": 0.7642960793561672,
+          "target_HHI": 0.3350000000000001,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.18357988724258442
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.08562562076005521,
+          "estimated_volatility": 0.16252799048445743,
+          "estimated_sharpe": 0.4049900277712604,
+          "target_HHI": 0.16666666666666663,
+          "max_target_weight": 0.16666666666666666,
+          "constructed_future_volatility": 0.16389783403083763
+        }
+      ],
+      "realized": [
+        {
+          "index": 0,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.1279213824597722,
+          "CAGR": 0.04358950224491114,
+          "volatility": 0.11165613935757417,
+          "sharpe": 0.2603141835166682,
+          "cumulative_return": 0.04358950224491176,
+          "max_drawdown": -0.11561192644746376
+        },
+        {
+          "index": 1,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.1279213824597722,
+          "CAGR": 0.04241255648696003,
+          "volatility": 0.1117463791720172,
+          "sharpe": 0.2500947309106857,
+          "cumulative_return": 0.04241255648695952,
+          "max_drawdown": -0.11564146701119216
+        },
+        {
+          "index": 2,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.205270782539581,
+          "CAGR": 0.07203729350336054,
+          "volatility": 0.17171057487552882,
+          "sharpe": 0.3751863689595602,
+          "cumulative_return": 0.07203729350335975,
+          "max_drawdown": -0.14169757851316034
+        },
+        {
+          "index": 3,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.205270782539581,
+          "CAGR": 0.07074543822514213,
+          "volatility": 0.17179543787709922,
+          "sharpe": 0.3680656971049129,
+          "cumulative_return": 0.0707454382251409,
+          "max_drawdown": -0.14173956371578034
+        },
+        {
+          "index": 4,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.1866780684580736,
+          "CAGR": 0.056900922853861516,
+          "volatility": 0.1507628385610665,
+          "sharpe": 0.3107054830623343,
+          "cumulative_return": 0.056900922853861724,
+          "max_drawdown": -0.14224241716571528
+        },
+        {
+          "index": 5,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.1866780684580736,
+          "CAGR": 0.055646935408691894,
+          "volatility": 0.15084701634449396,
+          "sharpe": 0.3027448141843589,
+          "cumulative_return": 0.055646935408692144,
+          "max_drawdown": -0.14228073085374726
+        }
+      ],
+      "target_weight_L1_change_from_baseline": {
+        "min_vol": 0.17942930534984056,
+        "max_sharpe": 2.810038102650763e-16,
+        "equal_weight": 0.0
+      },
+      "bootstrap_summary": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 2.7804160321011433e-16,
+          "p95_L1": 6.078449074934656e-16,
+          "max_L1": 6.404970494414416e-16,
+          "mean_half_L1_reallocation": 1.3902080160505716e-16,
+          "mean_asset_weight_std": 8.418124623844407e-17
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.19507996154050944,
+          "p95_L1": 0.7000000000000004,
+          "max_L1": 0.7000000000000006,
+          "mean_half_L1_reallocation": 0.09753998077025472,
+          "mean_asset_weight_std": 0.06774124127762989
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.0,
+          "p95_L1": 0.0,
+          "max_L1": 0.0,
+          "mean_half_L1_reallocation": 0.0,
+          "mean_asset_weight_std": 5.695323946259567e-17
+        }
+      ],
+      "bootstrap_failures": 0,
+      "failed_solver_starts": 1,
+      "max_checked_bootstrap_violation": 1.0114131754335176e-13
+    },
+    "mean_estimation_error": {
+      "warning": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+      "version": "006-synthetic-lab-v1",
+      "config": {
+        "seed": 6006,
+        "train_steps": 504,
+        "future_steps": 252,
+        "bootstrap_draws": 20,
+        "cap": 0.35,
+        "annual_rf": 0.02
+      },
+      "versions": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.3",
+        "scipy": "1.15.3"
+      },
+      "training_sha256": "2d2b3c675639b1a3d79adcddd4995382f04a327b057a324586c26ec10cafa455",
+      "future_sha256": "b777bbc2844fdc8ce763b53dc6fc00ee1cdb232813facd7b1f2a8636b83ebe63",
+      "estimated": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.07261111831797175,
+          "estimated_volatility": 0.09249084979346782,
+          "estimated_sharpe": 0.5709506730205615,
+          "target_HHI": 0.297268646204211,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.09534418239232038
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.2705244382511888,
+          "estimated_volatility": 0.1479792449048632,
+          "estimated_sharpe": 1.6942986364894033,
+          "target_HHI": 0.2910325036926247,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.14784876545279518
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.13574350457302872,
+          "estimated_volatility": 0.11755498471930989,
+          "estimated_sharpe": 0.9862627218209018,
+          "target_HHI": 0.16666666666666663,
+          "max_target_weight": 0.16666666666666666,
+          "constructed_future_volatility": 0.11966968427021663
+        }
+      ],
+      "realized": [
+        {
+          "index": 0,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.2366771270156238,
+          "CAGR": 0.03696535309106996,
+          "volatility": 0.08546163345731557,
+          "sharpe": 0.23556528124721732,
+          "cumulative_return": 0.03696535309106963,
+          "max_drawdown": -0.12159653943482651
+        },
+        {
+          "index": 1,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.2366771270156238,
+          "CAGR": 0.035683233166638066,
+          "volatility": 0.08554077040254389,
+          "sharpe": 0.2209613935856004,
+          "cumulative_return": 0.03568323316663791,
+          "max_drawdown": -0.12164823722079798
+        },
+        {
+          "index": 2,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.403964800097777,
+          "CAGR": 0.11218431948414131,
+          "volatility": 0.14064145241475343,
+          "sharpe": 0.685307037237722,
+          "cumulative_return": 0.11218431948414231,
+          "max_drawdown": -0.09932196963242268
+        },
+        {
+          "index": 3,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.403964800097777,
+          "CAGR": 0.11062338227808591,
+          "volatility": 0.1407089202289264,
+          "sharpe": 0.675060224230732,
+          "cumulative_return": 0.11062338227808732,
+          "max_drawdown": -0.09941872851463651
+        },
+        {
+          "index": 4,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.3541152488359751,
+          "CAGR": 0.07740909878754403,
+          "volatility": 0.10765401993624042,
+          "sharpe": 0.5622696108812509,
+          "cumulative_return": 0.07740909878754487,
+          "max_drawdown": -0.12259890323705247
+        },
+        {
+          "index": 5,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.3541152488359751,
+          "CAGR": 0.07595060492266807,
+          "volatility": 0.10772404442065882,
+          "sharpe": 0.549395482709467,
+          "cumulative_return": 0.07595060492266681,
+          "max_drawdown": -0.12269474311761797
+        }
+      ],
+      "target_weight_L1_change_from_baseline": {
+        "min_vol": 0.0,
+        "max_sharpe": 0.22728717253004885,
+        "equal_weight": 0.0
+      },
+      "bootstrap_summary": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.050941446045192094,
+          "p95_L1": 0.09146345828007509,
+          "max_L1": 0.15499794466081768,
+          "mean_half_L1_reallocation": 0.025470723022596047,
+          "mean_asset_weight_std": 0.011763067186323384
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.4155575474040443,
+          "p95_L1": 0.909563713704458,
+          "max_L1": 1.0727128274702493,
+          "mean_half_L1_reallocation": 0.20777877370202216,
+          "mean_asset_weight_std": 0.0950020409308026
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.0,
+          "p95_L1": 0.0,
+          "max_L1": 0.0,
+          "mean_half_L1_reallocation": 0.0,
+          "mean_asset_weight_std": 5.695323946259567e-17
+        }
+      ],
+      "bootstrap_failures": 0,
+      "failed_solver_starts": 1,
+      "max_checked_bootstrap_violation": 2.0694557179012918e-13
+    },
+    "volatility_shock": {
+      "warning": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+      "version": "006-synthetic-lab-v1",
+      "config": {
+        "seed": 6006,
+        "train_steps": 504,
+        "future_steps": 252,
+        "bootstrap_draws": 20,
+        "cap": 0.35,
+        "annual_rf": 0.02
+      },
+      "versions": {
+        "numpy": "2.2.6",
+        "pandas": "2.2.3",
+        "scipy": "1.15.3"
+      },
+      "training_sha256": "acbe8ae0ccfb65336f21f983cd2b7a5bdcbced3e0a962ce4c23a95433824352a",
+      "future_sha256": "4c45780a55e925f240fe920ed8a84034c74f2b6fc009dc750eb67f27fb9705df",
+      "estimated": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.12779789758141882,
+          "estimated_volatility": 0.1113706525320894,
+          "estimated_sharpe": 0.9696853681462858,
+          "target_HHI": 0.2868759784825209,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.11722261804937537
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.28116145818016064,
+          "estimated_volatility": 0.14831131053351845,
+          "estimated_sharpe": 1.7622260356262305,
+          "target_HHI": 0.3350000000000007,
+          "max_target_weight": 0.35,
+          "constructed_future_volatility": 0.1479081640748746
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "estimated_arithmetic_return": 0.09124097425202707,
+          "estimated_volatility": 0.14078697619730268,
+          "estimated_sharpe": 0.5074160323733702,
+          "target_HHI": 0.16666666666666663,
+          "max_target_weight": 0.16666666666666666,
+          "constructed_future_volatility": 0.14225856740456794
+        }
+      ],
+      "realized": [
+        {
+          "index": 0,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.2940156228263782,
+          "CAGR": 0.04959920445056026,
+          "volatility": 0.10327612829778468,
+          "sharpe": 0.3284026678557135,
+          "cumulative_return": 0.04959920445055932,
+          "max_drawdown": -0.13426737762774155
+        },
+        {
+          "index": 1,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "min_vol",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.2940156228263782,
+          "CAGR": 0.048241355835872246,
+          "volatility": 0.10339314706531005,
+          "sharpe": 0.31562589531683355,
+          "cumulative_return": 0.0482413558358723,
+          "max_drawdown": -0.13435849601041072
+        },
+        {
+          "index": 2,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.4074544286252633,
+          "CAGR": 0.11091427582084222,
+          "volatility": 0.14189678099630915,
+          "sharpe": 0.672436411242122,
+          "cumulative_return": 0.11091427582084412,
+          "max_drawdown": -0.10509370684746178
+        },
+        {
+          "index": 3,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "max_sharpe",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.4074544286252633,
+          "CAGR": 0.10935124942678535,
+          "volatility": 0.14196705475925636,
+          "sharpe": 0.6622521095439639,
+          "cumulative_return": 0.10935124942678565,
+          "max_drawdown": -0.10520112763130707
+        },
+        {
+          "index": 4,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 0.0,
+          "gross_traded_notional": 1.4331549816337563,
+          "CAGR": 0.061854496263063996,
+          "volatility": 0.1277360882308884,
+          "sharpe": 0.37839085887081564,
+          "cumulative_return": 0.06185449626306361,
+          "max_drawdown": -0.16375360232251213
+        },
+        {
+          "index": 5,
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "strategy": "equal_weight",
+          "cost_bps": 10.0,
+          "gross_traded_notional": 1.4331549816337563,
+          "CAGR": 0.060333244023268395,
+          "volatility": 0.1277830579021783,
+          "sharpe": 0.367076372985349,
+          "cumulative_return": 0.06033324402326845,
+          "max_drawdown": -0.1638536924385947
+        }
+      ],
+      "target_weight_L1_change_from_baseline": {
+        "min_vol": 0.6999999999999997,
+        "max_sharpe": 9.992007221626409e-16,
+        "equal_weight": 0.0
+      },
+      "bootstrap_summary": [
+        {
+          "index": "min_vol",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.05764035014610297,
+          "p95_L1": 0.13909699552710075,
+          "max_L1": 0.18416900172903536,
+          "mean_half_L1_reallocation": 0.028820175073051485,
+          "mean_asset_weight_std": 0.01385686856348492
+        },
+        {
+          "index": "max_sharpe",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.24855962281624647,
+          "p95_L1": 0.6501180145416523,
+          "max_L1": 0.700000000000001,
+          "mean_half_L1_reallocation": 0.12427981140812323,
+          "mean_asset_weight_std": 0.062135635671842236
+        },
+        {
+          "index": "equal_weight",
+          "Evidence": "SYNTHETIC DATA \u2014 NOT EMPIRICAL RESULTS",
+          "successful_draws": 20,
+          "failed_draws": 0,
+          "reference_available": true,
+          "mean_L1": 0.0,
+          "p95_L1": 0.0,
+          "max_L1": 0.0,
+          "mean_half_L1_reallocation": 0.0,
+          "mean_asset_weight_std": 5.695323946259567e-17
+        }
+      ],
+      "bootstrap_failures": 0,
+      "failed_solver_starts": 1,
+      "max_checked_bootstrap_violation": 5.470734976142921e-12
+    }
+  }
+}

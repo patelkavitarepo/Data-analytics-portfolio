@@ -1,0 +1,23 @@
+name: Project 006 synthetic showcase candidate checks
+on:
+  pull_request:
+    paths:
+      - 'markowitz-synthetic-showcase/**'
+      - '.github/workflows/project-006-synthetic-showcase.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  offline-showcase:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: markowitz-synthetic-showcase
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements.txt
+      - run: python -m pytest -q tests/test_showcase.py
+      - run: python scripts/check_showcase.py
