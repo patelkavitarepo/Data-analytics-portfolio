@@ -25,7 +25,7 @@ def audit():
             if isinstance(node,(ast.Import,ast.ImportFrom)):
                 modules=[a.name for a in node.names] if isinstance(node,ast.Import) else [node.module or '']
                 if any(m.split('.')[0] in {'requests','urllib','http','yfinance','socket'} for m in modules):raise ValueError('NETWORK_IMPORT_IN_LOCAL_MODULE')
-    print(f'PASS: {len(files)} tracked companion files; no private/raw files or network imports in local modules. CI is synthetic-only.')
+    print(f'PASS: {len(files)} tracked companion files; no private/raw files or network imports in local modules. Automatic CI is synthetic-only; manual live scope is separately gated.')
 
 
 if __name__=='__main__':

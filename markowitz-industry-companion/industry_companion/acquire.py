@@ -1,4 +1,4 @@
-"""Explicit opt-in bounded retrieval only. Never called on import, CI or parser use."""
+"""Explicit opt-in bounded retrieval; never automatic CI, imports or parser use."""
 from datetime import datetime, timezone
 import urllib.error
 import urllib.request

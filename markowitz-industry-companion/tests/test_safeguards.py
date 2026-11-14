@@ -271,6 +271,8 @@ with patch.object(socket, 'create_connection', forbidden), patch.object(urllib.r
     import industry_companion.audit
     import industry_companion.acquire
     import industry_companion.__main__
+    import industry_companion.actions_audit
+    import industry_companion.workflow_safety
 print('IMPORTS_OFFLINE')
 '''
     env = dict(os.environ, PYTHONPATH=str(project))

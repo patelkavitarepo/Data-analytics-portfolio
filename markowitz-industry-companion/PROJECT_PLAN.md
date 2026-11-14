@@ -52,8 +52,15 @@ comparison is performed. `performance_cleared=false` remains mandatory.
 
 See [DATA_USE.md](DATA_USE.md). Commit this contract, safeguards and passing
 synthetic-format tests **before** any real retrieval. No real French observations
-are test fixtures. No acquisition runs in CI, imports or app startup. There is no
+are test fixtures. No acquisition runs in automatic CI, imports or app startup. There is no
 app/upload/download widget and no raw CSV export.
+
+For the proposed iPad-controlled GitHub route, see
+[GITHUB_ACTIONS_AUDIT.md](GITHUB_ACTIONS_AUDIT.md). Automatic PR checks remain
+synthetic-only; the separate manual worker is live-locked pending hosted-processing
+scope review. It never retains an immutable raw snapshot, unlike the desktop
+commands below. Default-branch dispatcher installation needs a separate narrowly
+scoped owner-reviewed PR; this draft is not merged to enable dispatch.
 
 From this directory, use a private local Python 3.12 environment:
 

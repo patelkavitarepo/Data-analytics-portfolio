@@ -81,3 +81,19 @@ point-in-time correctness. This checkpoint always reports
 No original ETF entitlement, holdout use, strategy tuning, public release, merge
 or deployment is authorized. Future optimization/performance needs separate
 preregistration and owner instruction.
+
+## Proposed hosted execution is a separate unresolved scope
+
+[GITHUB_ACTIONS_AUDIT.md](GITHUB_ACTIONS_AUDIT.md) describes a GitHub-first
+metadata-only route controlled from iPad. Transient raw bytes on a GitHub-hosted
+VM are third-party processing; the existing approval does **not** establish that
+this is covered. The separate `github_actions_scope.json` therefore remains
+pending with live processing disabled. Manual checkboxes cannot change that
+record or supply missing authority. No live GitHub acquisition is authorized by
+this implementation.
+
+Automatic CI remains synthetic-only. A future reviewed manual worker uses a
+separate memory-only adapter and cannot claim the desktop `PrivateStore`'s
+retained private snapshot. It creates no on-disk raw archive, manifest or receipt.
+Provider access/retention and service terms remain part of the owner scope review;
+not publishing raw files is necessary but does not itself settle that review.

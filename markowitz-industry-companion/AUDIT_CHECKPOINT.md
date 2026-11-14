@@ -4,6 +4,11 @@ Status: **synthetic-format verification complete; no real archive acquired or
 real-data quality finding established**. This is not a portfolio experiment.
 Implements [Issue #11](https://github.com/patelkavitarepo/Data-analytics-portfolio/issues/11).
 
+This preserves the original 79-test ingestion checkpoint. The later
+[GitHub-first proposal](GITHUB_ACTIONS_AUDIT.md) adds synthetic workflow tests and
+a disabled live worker; it does not turn this blocked source audit into a
+successful real-data audit.
+
 ## What has been verified
 
 - The ingestion contract, private storage, permission gates and 76 synthetic
