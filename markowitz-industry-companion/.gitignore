@@ -1,0 +1,15 @@
+# Never stage correspondence, archives, raw/normalized observations or private audits.
+private/
+work/
+.venv/
+__pycache__/
+.pytest_cache/
+*.zip
+*.csv
+*.parquet
+*.feather
+*.pkl
+*.pickle
+*.xlsx
+*.eml
+*.msg

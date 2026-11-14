@@ -1,0 +1,26 @@
+name: Industry companion synthetic-format tests only
+on:
+  pull_request:
+    paths:
+      - 'markowitz-industry-companion/**'
+      - '.github/workflows/industry-companion-tests.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: markowitz-industry-companion
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python -m pytest -q
+      - run: python scripts/check_safety.py
+# No source fetch, credentials, raw/private artifacts, performance or publication job.
