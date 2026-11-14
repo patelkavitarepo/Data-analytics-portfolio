@@ -24,4 +24,4 @@ def acquire_private(store,*,permission_active=False):
     except urllib.error.HTTPError as exc:raise DataError('SOURCE_HTTP_'+str(exc.code)) from None
     except (urllib.error.URLError,TimeoutError,OSError):raise DataError('SOURCE_CONNECTION_BLOCKED_OR_UNAVAILABLE') from None
     store.gate(permission_active=permission_active)
-    return store.snapshot(data,retrieved_at_utc=datetime.now(timezone.utc).isoformat(),permission_active=permission_active)
+    return store.snapshot(data,retrieved_at_utc=datetime.now(timezone.utc).isoformat(),permission_active=permission_active,acquisition_method='bounded_direct_https')

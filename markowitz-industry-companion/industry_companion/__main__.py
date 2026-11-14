@@ -4,14 +4,16 @@ from datetime import datetime, timezone
 import json
 
 from .audit import audit_dataset
-from .parser import DataError, parse_archive
+from .parser import DataError, parse_archive, archive_member
 from .safeguards import PrivateStore
 
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('command',choices=('record-permission','suspend','acquire','audit'))
+    parser.add_argument('command',choices=('record-permission','suspend','acquire','register-local','audit'))
     parser.add_argument('--snapshot-id')
+    parser.add_argument('--local-name',help='A single owner-only filename already inside ignored private/, never an arbitrary path')
+    parser.add_argument('--retrieved-at-utc',help='Actual manual retrieval time, not a fabricated historical as-of date')
     parser.add_argument('--permission-active',action='store_true',help='Owner confirms scoped permission remains active; never overrides a suspension.')
     args=parser.parse_args();store=PrivateStore()
     try:
@@ -19,6 +21,12 @@ def main():
             if not args.permission_active:raise DataError('CURRENT_PERMISSION_ATTESTATION_REQUIRED')
             store.record_owner_permission();print('Private owner-attested scope receipt recorded. No correspondence copied.')
         elif args.command=='suspend':store.suspend();print('Acquisition/read/audit suspended; owner retention/publication review required.')
+        elif args.command=='register-local':
+            store.gate(permission_active=args.permission_active)
+            data=store.read(args.local_name or '')
+            archive_member(data)
+            digest=store.snapshot(data,retrieved_at_utc=args.retrieved_at_utc,permission_active=args.permission_active)
+            print(json.dumps(dict(snapshot_id=digest,provenance='owner_recorded_local_file; official source assertion requires review')))
         elif args.command=='acquire':
             from .acquire import acquire_private
             digest=acquire_private(store,permission_active=args.permission_active)

@@ -92,12 +92,13 @@ class PrivateStore:
     def suspend(self):
         return self.write_json('revoked.json',dict(status='suspended',recorded_at_utc=datetime.now(timezone.utc).isoformat(),
             action='Stop acquisition/read/audit/publication; quarantine retained snapshots pending owner review; do not automatically delete.'))
-    def snapshot(self,data,*,retrieved_at_utc,permission_active=False):
+    def snapshot(self,data,*,retrieved_at_utc,permission_active=False,acquisition_method='owner_recorded_local_file'):
         self.gate(permission_active=permission_active);utc(retrieved_at_utc)
+        if acquisition_method not in ('owner_recorded_local_file','bounded_direct_https'):raise DataError('ACQUISITION_METHOD_REQUIRED')
         digest=hashlib.sha256(data).hexdigest();name='snapshot_'+digest+'.zip'
         self.write(name,data)
         self.write_json('manifest_'+digest+'.json',dict(source_url=SOURCE_URL,archive_sha256=digest,
-            retrieved_at_utc=retrieved_at_utc,raw_redistribution=False,development_start='2016-01-01',development_end='2024-12-31',
+            retrieved_at_utc=retrieved_at_utc,acquisition_method=acquisition_method,raw_redistribution=False,development_start='2016-01-01',development_end='2024-12-31',
             historical_release_availability_verified=False,performance_cleared=False))
         return digest
     def load_snapshot(self,digest,*,permission_active=False):
@@ -106,6 +107,7 @@ class PrivateStore:
         manifest=self.read_json('manifest_'+digest+'.json')
         if manifest.get('source_url')!=SOURCE_URL or manifest.get('archive_sha256')!=digest:raise DataError('SNAPSHOT_PROVENANCE_MISMATCH')
         utc(manifest.get('retrieved_at_utc'))
+        if manifest.get('acquisition_method') not in ('owner_recorded_local_file','bounded_direct_https'):raise DataError('SNAPSHOT_PROVENANCE_MISMATCH')
         data=self.read('snapshot_'+digest+'.zip')
         if hashlib.sha256(data).hexdigest()!=digest:raise DataError('SNAPSHOT_FINGERPRINT_MISMATCH')
         return data,manifest

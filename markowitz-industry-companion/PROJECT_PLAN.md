@@ -80,12 +80,21 @@ python -m industry_companion suspend
 
 Private files are POSIX owner-only (directory 0700/files 0600), ignored and
 untracked. Symlinks, traversal, nonregular files, tracked/private paths and
-in-place overwrites are rejected. Archive and metadata hashes are checked before
-processing. Acquisition is one explicit bounded HTTPS request to the exact
+in-place overwrites are rejected. The archive hash and required provenance fields
+are checked before processing; the audit records the current metadata hash, which
+is not an independent seal against owner modification. Acquisition is one explicit bounded HTTPS request to the exact
 approved URL, no redirects/retry loop. A connection blocker produces a code,
-not a response body. Owner-manual download remains a possible fallback; it must
-be placed in owner-only ignored storage and registered with truthful source/UTC
-retrieval evidence before use, not copied into a public ticket or chat.
+not a response body. Owner-manual download remains a possible fallback: save the exact official
+archive as `private/manual-download.zip`, enforce mode 0600, and register it with
+truthful UTC retrieval evidence (not a backdated historical decision time):
+
+```bash
+python -m industry_companion register-local --local-name manual-download.zip --retrieved-at-utc <actual-UTC-ISO-timestamp> --permission-active
+```
+
+The manifest distinguishes owner-recorded local provenance from bounded direct
+HTTPS retrieval. A source assertion alone is not independent provenance proof.
+Never copy the archive into a public ticket or chat.
 
 ## What is NOT preregistered yet
 
