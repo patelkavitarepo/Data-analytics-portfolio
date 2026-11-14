@@ -66,3 +66,6 @@ Only a later separately authorized scope decision can precede a coverage audit;
 only later review/freeze and explicit instructions can precede optimization.
 No archive acquisition, original ETF/holdout access, synthetic-release change,
 merge, deployment or permission expansion is authorized by this checkpoint.
+
+Launcher implementation candidate: `37a5321a118abb7309a1d08f533398cb096d9c91`. The raw permission policy
+in that immutable revision is pending/disabled.

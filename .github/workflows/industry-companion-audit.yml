@@ -40,7 +40,7 @@ jobs:
         shell: bash --noprofile --norc -e -o pipefail {0}
     env:
       # Reviewed implementation candidate; hosted permission remains pending.
-      REVIEWED_CODE_SHA: 'ce26ac525f95dac4e6a14a23ed4de41746d51da6'
+      REVIEWED_CODE_SHA: '37a5321a118abb7309a1d08f533398cb096d9c91'
       AUDIT_MODE: ${{ inputs.mode }}
       AUDIT_CODE_SHA_INPUT: ${{ inputs.reviewed_code_sha }}
       HEAD_ONLY_ACK: ${{ inputs.head_only_ack }}
