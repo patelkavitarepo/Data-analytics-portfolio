@@ -62,7 +62,7 @@ for all non-2xx results rather than using the workflow as a probe loop.
 1. Review PR #12's implementation, synthetic CI, actionlint and
    [EMPIRICAL_PROTOCOL_DRAFT.md](EMPIRICAL_PROTOCOL_DRAFT.md). The protocol stays
    unfrozen; no optimization or archive is needed to review it.
-2. Review the **new launcher-only draft PR** based on current main. It updates
+2. Review **[launcher-only draft PR #14](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/14)** based on current main. It updates
    only `.github/workflows/industry-companion-audit.yml` and pins the tested HEAD
    implementation. Leave it unmerged until owner approval. Do not modify PR #13
    retrospectively, merge the full research PR or change the default branch.

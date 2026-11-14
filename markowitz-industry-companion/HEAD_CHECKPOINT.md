@@ -24,6 +24,10 @@ Implements [Holmes's next PR #12 checkpoint](https://github.com/patelkavitarepo/
   within the documented owner/platform trust boundaries. The unchanged raw scope
   file remains `pending_owner_rights_review`, `live_enabled=false`.
 
+[CI run 43548265932](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43548265932)
+confirmed all **208 tests**, both guards and the synthetic-only CLI at
+`546b05c2304dfeef100f98308e34d6715e647d92`; no artifacts were produced.
+
 ## Implemented, not empirically verified
 
 The manually selected `head` mode requires a separate explicit acknowledgement
@@ -54,8 +58,9 @@ GitHub's software-testing terms, memory-only handling and a successful HEAD do
 not answer it. Owner evidence review or, if necessary, publisher clarification
 is required; no licensing email or self-approval occurs here.
 
-Prepare the separate launcher-only draft from current main and let the owner
-review its immutable code pin and manual settings. Do not alter merged PR #13,
+The separate [launcher-only draft PR #14](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/14)
+is based on current main for owner review of its immutable code pin and manual
+settings. Do not alter merged PR #13,
 merge either current draft or modify main. After owner-approved installation,
 the next checkpoint is **one owner-initiated HEAD run**, with `mode=head`,
 `head_only_ack=true`, exact reviewed SHA, both raw acknowledgements false and the
