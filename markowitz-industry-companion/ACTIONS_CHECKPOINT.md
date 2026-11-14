@@ -1,5 +1,10 @@
 # GitHub-first checkpoint · synthetic verification, live locked
 
+Historical checkpoint at the commits cited below. The owner subsequently
+installed PR #13 and completed a synthetic manual run. See
+[HEAD_PREFLIGHT.md](HEAD_PREFLIGHT.md) for the next proposal; the earlier
+unmerged-launcher statements below record the status when this checkpoint was written.
+
 Responds to [Holmes's updated PR #12 review](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/12#issuecomment-6869845274).
 The original [79-test ingestion checkpoint](AUDIT_CHECKPOINT.md) and all earlier
 research remain preserved. This adds execution infrastructure, not an experiment.

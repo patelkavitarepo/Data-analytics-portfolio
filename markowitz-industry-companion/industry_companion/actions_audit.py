@@ -28,7 +28,7 @@ CONTEXT_KEYS = (
     'GITHUB_ACTOR', 'GITHUB_TRIGGERING_ACTOR', 'GITHUB_RUN_ATTEMPT',
     'RUNNER_ENVIRONMENT', 'REVIEWED_CODE_SHA', 'AUDIT_CODE_SHA_INPUT',
     'PERMISSION_ACTIVE_ACK', 'EPHEMERAL_PROCESSING_ACK',
-    'HOSTED_PROCESSING_ENABLED',
+    'HOSTED_PROCESSING_ENABLED', 'HEAD_ONLY_ACK',
     'ACTIONS_STEP_DEBUG', 'ACTIONS_RUNNER_DEBUG', 'RUNNER_DEBUG',
 )
 
@@ -47,6 +47,25 @@ def _verify_running_revision(context):
         raise DataError('CODE_REVISION_UNVERIFIED')
 
 
+def validate_dispatch_context(context):
+    """Common manual execution gate, independent of raw-data permissions."""
+    required = dict(GITHUB_ACTIONS='true', GITHUB_EVENT_NAME='workflow_dispatch',
+                    GITHUB_REPOSITORY=REPOSITORY, GITHUB_REF=ALLOWED_REF,
+                    GITHUB_ACTOR=OWNER, GITHUB_TRIGGERING_ACTOR=OWNER,
+                    GITHUB_RUN_ATTEMPT='1', RUNNER_ENVIRONMENT='github-hosted')
+    if any(context.get(k) != value for k, value in required.items()):
+        raise DataError('LIVE_DISPATCH_CONTEXT_NOT_AUTHORIZED')
+    if any(str(context.get(k, '')).casefold() not in ('', 'false', '0')
+           for k in ('ACTIONS_STEP_DEBUG', 'ACTIONS_RUNNER_DEBUG', 'RUNNER_DEBUG')):
+        raise DataError('DEBUG_LOGGING_FORBIDDEN')
+    if faulthandler.is_enabled():
+        raise DataError('DEBUG_LOGGING_FORBIDDEN')
+    sha = context.get('REVIEWED_CODE_SHA', '')
+    if not re.fullmatch(r'[0-9a-f]{40}', sha) or sha == '0' * 40 or context.get('AUDIT_CODE_SHA_INPUT') != sha:
+        raise DataError('REVIEWED_CODE_ACKNOWLEDGEMENT_REQUIRED')
+    _verify_running_revision(context)
+
+
 def validate_live_context(context, policy):
     """Owner checkboxes never substitute for separately reviewed hosted scope."""
     if not isinstance(policy, dict) or not (
@@ -61,23 +80,19 @@ def validate_live_context(context, policy):
         and re.fullmatch(r'https://github\.com/patelkavitarepo/Data-analytics-portfolio/(?:issues|pull)/\d+#issuecomment-\d+', policy['evidence_reference'])
     ):
         raise DataError('HOSTED_PROCESSING_SCOPE_NOT_CLEARED')
-    required = dict(GITHUB_ACTIONS='true', GITHUB_EVENT_NAME='workflow_dispatch',
-                    GITHUB_REPOSITORY=REPOSITORY, GITHUB_REF=ALLOWED_REF,
-                    GITHUB_ACTOR=OWNER, GITHUB_TRIGGERING_ACTOR=OWNER,
-                    GITHUB_RUN_ATTEMPT='1', RUNNER_ENVIRONMENT='github-hosted',
-                    PERMISSION_ACTIVE_ACK='true', EPHEMERAL_PROCESSING_ACK='true',
-                    HOSTED_PROCESSING_ENABLED='true')
-    if any(context.get(k) != value for k, value in required.items()):
+    required = ('PERMISSION_ACTIVE_ACK', 'EPHEMERAL_PROCESSING_ACK', 'HOSTED_PROCESSING_ENABLED')
+    if any(context.get(key) != 'true' for key in required):
         raise DataError('LIVE_DISPATCH_CONTEXT_NOT_AUTHORIZED')
-    if any(str(context.get(k, '')).casefold() not in ('', 'false', '0')
-           for k in ('ACTIONS_STEP_DEBUG', 'ACTIONS_RUNNER_DEBUG', 'RUNNER_DEBUG')):
-        raise DataError('DEBUG_LOGGING_FORBIDDEN')
-    if faulthandler.is_enabled():
-        raise DataError('DEBUG_LOGGING_FORBIDDEN')
-    sha = context.get('REVIEWED_CODE_SHA', '')
-    if not re.fullmatch(r'[0-9a-f]{40}', sha) or sha == '0' * 40 or context.get('AUDIT_CODE_SHA_INPUT') != sha:
-        raise DataError('REVIEWED_CODE_ACKNOWLEDGEMENT_REQUIRED')
-    _verify_running_revision(context)
+    validate_dispatch_context(context)
+
+
+def execute_head(context):
+    """Explicit manual HEAD only; never invoke the raw acquisition/parse path."""
+    if context.get('HEAD_ONLY_ACK') != 'true':
+        raise DataError('EXPLICIT_HEAD_ONLY_ACKNOWLEDGEMENT_REQUIRED')
+    validate_dispatch_context(context)
+    from .head_preflight import check_connectivity
+    return check_connectivity()
 
 
 class EphemeralStore:
@@ -205,14 +220,17 @@ class _SafeArguments(argparse.ArgumentParser):
 def main(argv=None):
     try:
         parser = _SafeArguments(description=__doc__)
-        parser.add_argument('--mode', choices=('synthetic', 'live'), default='synthetic')
+        parser.add_argument('--mode', choices=('synthetic', 'head', 'live'), default='synthetic')
         args = parser.parse_args(argv)
         if args.mode == 'synthetic':
             report = execute_synthetic()
         else:
             context = {key: os.environ.get(key, '') for key in CONTEXT_KEYS}
-            policy = json.loads((ROOT / 'github_actions_scope.json').read_text())
-            report = execute_live(context, policy)
+            if args.mode == 'head':
+                report = execute_head(context)
+            else:
+                policy = json.loads((ROOT / 'github_actions_scope.json').read_text())
+                report = execute_live(context, policy)
         print(json.dumps(report, sort_keys=True, indent=2, allow_nan=False))
         return 0
     except (Exception, KeyboardInterrupt) as error:

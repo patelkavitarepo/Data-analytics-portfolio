@@ -62,6 +62,12 @@ scope review. It never retains an immutable raw snapshot, unlike the desktop
 commands below. Default-branch dispatcher installation needs a separate narrowly
 scoped owner-reviewed PR; this draft is not merged to enable dispatch.
 
+The initial synthetic launcher was subsequently installed by the owner. The
+next bounded step is the separately reviewed [manual HEAD-only preflight](HEAD_PREFLIGHT.md),
+which never opens raw processing. The independent
+[empirical protocol proposal](EMPIRICAL_PROTOCOL_DRAFT.md) is `DRAFT_NOT_FROZEN`;
+it authorizes no backtest and changes no original ETF research methodology.
+
 From this directory, use a private local Python 3.12 environment:
 
 ```bash

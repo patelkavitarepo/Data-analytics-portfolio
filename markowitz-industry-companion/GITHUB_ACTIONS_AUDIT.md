@@ -4,7 +4,10 @@ The iPad is the control surface: the owner can review code, initiate a manual
 workflow and inspect safe metadata in GitHub's web interface. No Mac, Codespaces
 session or iPad Python installation is required for this proposed route.
 
-**Current status:** synthetic verification only. No live French archive has been
+**Current status:** the owner installed the initial launcher and successfully
+dispatched [synthetic run 43546213342](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43546213342)
+from iPad. The new [HEAD-only preflight](HEAD_PREFLIGHT.md) needs a separately
+reviewed launcher update and has not been run against Dartmouth. No live French archive has been
 downloaded through this workflow. Existing permission does not yet establish
 whether transient processing on a GitHub-hosted VM is within the approved scope.
 The committed `github_actions_scope.json` records
@@ -54,11 +57,12 @@ run and disable the manual workflow. Review already published metadata and
 retained private copies separately. Changing a variable does not retroactively
 stop a job that already captured its value, so cancellation is also necessary.
 
-## Two separate paths
+## Separate synthetic, HEAD and raw-data paths
 
 | Path | Trigger and data | What it establishes |
 | --- | --- | --- |
 | Automatic companion tests | Pull requests; invented deterministic format fixtures only | Parser, cutoff, output and workflow guards behave as tested |
+| Proposed manual HEAD preflight | Explicit `mode=head` and `head_only_ack=true`; no body consumption | Coarse HEAD connectivity only, never GET success, coverage or rights |
 | Proposed manual coverage audit | `workflow_dispatch`; synthetic mode by default; live mode separately gated | Only after authorization and successful execution: actual 2016–2024 coverage metadata |
 
 There is no push/schedule/PR-triggered live acquisition. A manual synthetic run
@@ -73,17 +77,17 @@ a failed real-data job or use GitHub's re-run control to cause another download.
 Review a safe failure code, make any needed reviewed correction, and authorize a
 new first-attempt manual run instead.
 
-## Why the Run workflow button is not available yet
+## Default-branch launcher and the next update
 
 [GitHub requires a `workflow_dispatch` file on the default branch](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow)
-and repository write access before the manual interface is available. PR #12 deliberately remains draft; its
-presence on a feature branch does not make this workflow dispatchable from the
-Actions interface. Do not merge PR #12, change the default branch or modify the
-original ETF branch to work around this restriction.
+and repository write access before the manual interface is available. The owner
+installed the initial launcher through [PR #13](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/13);
+its successful synthetic run verifies that route. PR #12 deliberately remains
+draft. The new HEAD option requires a **new launcher-only draft PR**, not a
+retrospective update to merged PR #13. Do not merge the full research PR, change
+the default branch or modify the ETF branch to enable it.
 
-[Draft PR #13](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/13)
-contains the separate, narrowly scoped **workflow-only proposal** for owner review.
-Its launcher must check out an explicitly reviewed immutable
+Every new launcher must check out an explicitly reviewed immutable
 commit from `project-006-french-industry-ingestion`, not mutable branch-head code.
 The owner decides whether and when to approve and merge that separate launcher.
 That decision is outside this implementation; no merge is performed here. The
@@ -107,8 +111,9 @@ branch's file, not only the default-branch copy.
    authorized and the permission remains active. Review the public policy record
    and launcher through normal GitHub changes; do not paste private evidence or
    raw data into a workflow input, variable, secret, comment or attachment.
-3. If the owner approves the separate workflow-only PR, install its reviewed
-   launcher on the default branch. Confirm that it still checks out the approved
+3. For any new code pin, obtain owner approval of a separate launcher-only update;
+   the initial synthetic installation does not approve a changed launcher or live
+   scope. Confirm that the installed launcher still checks out the approved
    fixed SHA and accepts dispatch only for the companion branch.
 4. Open the repository's **Actions** tab, select **Industry companion manual
    coverage audit**, and choose **Run workflow**. Select the exact companion
@@ -141,6 +146,7 @@ The launcher is `.github/workflows/industry-companion-audit.yml`. Its inputs are
 | Input | Default | Live requirement |
 | --- | --- | --- |
 | `mode` | `synthetic` | Explicit `live` choice |
+| `head_only_ack` | `false` | Not a live grant; HEAD use is separate and requires this acknowledgement |
 | `permission_active` | `false` | Current scoped permission remains active |
 | `ephemeral_processing_ack` | `false` | Previously reviewed GitHub-hosted processing is authorized |
 | `reviewed_code_sha` | Empty | Exact full immutable SHA pinned in the launcher |
@@ -150,8 +156,8 @@ Both the initiating and triggering actor must be the owner account
 `patelkavitarepo/Data-analytics-portfolio`, and the dispatch ref must be
 `refs/heads/project-006-french-industry-ingestion`. Only run attempt 1 is accepted.
 A future approved policy change requires a new reviewed code pin; a checkbox or
-arbitrary SHA input cannot open the current policy. These steps do not assert
-that default-branch installation, scope authorization or a real run has occurred.
+arbitrary SHA input cannot open the current policy. The original synthetic
+installation/run does not establish hosted raw-processing scope or any real-data run.
 
 The runtime workflow guard examines the file in the pinned code checkout; it
 does not independently authenticate the later launcher revision GitHub started.

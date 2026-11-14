@@ -33,11 +33,11 @@ def validate_manual_workflow(doc):
         require(set(doc) == {'name', 'on', 'permissions', 'concurrency', 'jobs'})
         require(set(doc['on']) == {'workflow_dispatch'})
         inputs = doc['on']['workflow_dispatch']['inputs']
-        require(set(inputs) == {'mode', 'permission_active', 'ephemeral_processing_ack', 'reviewed_code_sha'})
+        require(set(inputs) == {'mode', 'head_only_ack', 'permission_active', 'ephemeral_processing_ack', 'reviewed_code_sha'})
         require(inputs['mode']['type'] == 'choice' and inputs['mode']['default'] == 'synthetic')
-        require(inputs['mode']['options'] == ['synthetic', 'live'])
+        require(inputs['mode']['options'] == ['synthetic', 'head', 'live'])
         require(all(inputs[k]['type'] == 'boolean' and inputs[k]['default'] is False
-                   for k in ('permission_active', 'ephemeral_processing_ack')))
+                   for k in ('head_only_ack', 'permission_active', 'ephemeral_processing_ack')))
         require(inputs['reviewed_code_sha']['type'] == 'string' and inputs['reviewed_code_sha']['default'] == '')
         require(doc['permissions'] == {'contents': 'read'})
         require(doc['concurrency'] == {'group': 'industry-companion-owner-audit', 'cancel-in-progress': False})
@@ -52,6 +52,7 @@ def validate_manual_workflow(doc):
         require(isinstance(sha, str) and re.fullmatch(r'[0-9a-f]{40}', sha) and sha != '0' * 40)
         require(env == {'AUDIT_MODE': '${{ inputs.mode }}',
                        'AUDIT_CODE_SHA_INPUT': '${{ inputs.reviewed_code_sha }}',
+                       'HEAD_ONLY_ACK': '${{ inputs.head_only_ack }}',
                        'PERMISSION_ACTIVE_ACK': '${{ inputs.permission_active }}',
                        'EPHEMERAL_PROCESSING_ACK': '${{ inputs.ephemeral_processing_ack }}',
                        'HOSTED_PROCESSING_ENABLED': '${{ vars.FRENCH_INDUSTRY_EPHEMERAL_ENABLED }}',

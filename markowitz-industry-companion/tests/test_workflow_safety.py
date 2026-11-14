@@ -21,7 +21,7 @@ def test_manual_dispatch_is_synthetic_default_and_pinned():
     validate_manual_workflow(workflow())
 
 
-@pytest.mark.parametrize('mutation', ['automatic_trigger','write_token','extra_job','extra_step','cache','moving_action','moving_code','debug','shell_input','reruns','runner','persistent_credentials','untrusted_repo'])
+@pytest.mark.parametrize('mutation', ['automatic_trigger','write_token','extra_job','extra_step','cache','moving_action','moving_code','debug','shell_input','reruns','runner','persistent_credentials','untrusted_repo','head_default','head_ack_default','automatic_head_step','get_method','method_input'])
 def test_fail_closed_workflow_mutations(mutation):
     doc=deepcopy(workflow());job=doc['jobs']['audit']
     if mutation=='automatic_trigger':doc['on']['push']={}
@@ -37,6 +37,11 @@ def test_fail_closed_workflow_mutations(mutation):
     elif mutation=='runner':job['runs-on']='self-hosted'
     elif mutation=='persistent_credentials':job['steps'][0]['with']['persist-credentials']=True
     elif mutation=='untrusted_repo':job['steps'][0]['with']['repository']='someone/other-repo'
+    elif mutation=='head_default':doc['on']['workflow_dispatch']['inputs']['mode']['default']='head'
+    elif mutation=='head_ack_default':doc['on']['workflow_dispatch']['inputs']['head_only_ack']['default']=True
+    elif mutation=='automatic_head_step':job['steps'].insert(3,{'run':'python -m industry_companion.actions_audit --mode head'})
+    elif mutation=='get_method':job['steps'][-1]['run']='curl --request GET https://mba.tuck.dartmouth.edu/pages/faculty/Ken.French/ftp/10_Industry_Portfolios_daily_CSV.zip'
+    elif mutation=='method_input':doc['on']['workflow_dispatch']['inputs']['method']={'type':'string','default':'GET'}
     with pytest.raises(DataError,match='UNSAFE_MANUAL_WORKFLOW'):
         validate_manual_workflow(doc)
 
