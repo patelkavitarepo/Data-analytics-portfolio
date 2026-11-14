@@ -32,6 +32,19 @@ authorized, and obtain clarification if the grant remains ambiguous. Record only
 a dated public scope summary/review reference; retain original correspondence
 privately. Do not publish an email, sender address or screenshot as evidence.
 
+The [GitHub Terms of Service](https://docs.github.com/en/site-policy/github-terms/github-terms-of-service)
+were checked for this checkpoint: Sections D.1/D.3 assign content/licence
+responsibilities to users; A.14 distinguishes user content from underlying
+third-party content, while D.4 describes GitHub's rights in user content. These
+clauses do not resolve whether this particular transient third-party dataset
+processing is permitted by the publisher. The
+[Actions product terms](https://docs.github.com/en/site-policy/github-terms/github-terms-for-additional-products-and-features#actions)
+also restrict hosted use to the associated software project and development/testing.
+This proposal is a bounded ingestion-software validation, not a general research
+compute service. Neither source establishes a publisher grant or certified
+erasure. The [general privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement)
+addresses personal data and does not settle this market dataset's use rights.
+
 If this review cannot establish authority, leave the live gate closed and retain
 the owner-controlled local audit as a fallback. Do not upload the archive to
 GitHub, ChatGPT, an online notebook or another hosted execution service to work
@@ -68,8 +81,9 @@ presence on a feature branch does not make this workflow dispatchable from the
 Actions interface. Do not merge PR #12, change the default branch or modify the
 original ETF branch to work around this restriction.
 
-After review, propose a **separate, narrowly scoped workflow-only PR** for the
-owner's approval. Its launcher must check out an explicitly reviewed immutable
+[Draft PR #13](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/13)
+contains the separate, narrowly scoped **workflow-only proposal** for owner review.
+Its launcher must check out an explicitly reviewed immutable
 commit from `project-006-french-industry-ingestion`, not mutable branch-head code.
 The owner decides whether and when to approve and merge that separate launcher.
 That decision is outside this implementation; no merge is performed here. The

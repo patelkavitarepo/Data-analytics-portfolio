@@ -24,6 +24,11 @@ research remain preserved. This adds execution infrastructure, not an experiment
 - The default CLI was executed with synthetic bytes only and produced a safe,
   explicitly synthetic metadata report. No source archive was requested.
 
+[GitHub CI run 43545095913](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43545095913)
+confirmed all **150 tests**, both safety guards and synthetic CLI execution at
+`38e0ee29e83b75d419bd3935e9985027e89e1c8f`. The logs were checked for synthetic
+labelling and the mandatory false performance/point-in-time/retention flags.
+
 ## Reviewed design
 
 Automatic PR tests and the manual `workflow_dispatch` path are separate. Manual
@@ -51,7 +56,7 @@ cannot authenticate or restrain a privileged editor's rewritten workflow.
    service terms, seek clarification if needed, and record a dated public scope
    summary without correspondence or raw observations. A checkbox is insufficient.
 2. **Dispatch availability:** GitHub's manual UI requires the workflow file on the
-   default branch. A separate workflow-only draft PR is proposed for owner review;
+   default branch. [Workflow-only draft PR #13](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/13) is open for owner review;
    neither it nor PR #12 is merged by this task. Keep both launcher copies aligned.
 3. **Operational verification:** default-branch installation, iPad UI operation,
    a manual hosted run, and Dartmouth connectivity from that runner remain
