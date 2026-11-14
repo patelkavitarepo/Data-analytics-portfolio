@@ -39,7 +39,7 @@ row/valid-cell counts, XNYS expected/missing/non-session counts and strict-parse
 status. Calendar basis is a cross-check, not proof of data provenance. No return
 rows, means, volatilities, wealth series, optimization, or portfolio metrics are
 included. Rejection reports a safe error code; never claim a complete clean audit
-when parsing stopped. Preserve the snapshot/header-vintage hashes and UTC retrieval
+when parsing stopped. Preserve the snapshot/member hashes and publisher-vintage metadata and UTC retrieval
 metadata privately. Hashes identify bytes, not accuracy or historical availability.
 
 **Point-in-time availability remains unverified**, even after successful parsing:
@@ -55,7 +55,15 @@ synthetic-format tests **before** any real retrieval. No real French observation
 are test fixtures. No acquisition runs in CI, imports or app startup. There is no
 app/upload/download widget and no raw CSV export.
 
-From this directory, in a Python 3.12 environment with requirements-lock.txt installed:
+From this directory, use a private local Python 3.12 environment:
+
+```bash
+python3.12 -m venv .venv
+.venv/bin/python -m pip install -r requirements-lock.txt
+source .venv/bin/activate
+```
+
+Then run:
 
 ```bash
 python -m pytest -q
