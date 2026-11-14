@@ -188,6 +188,7 @@ def test_snapshot_fingerprints_and_provenance_are_immutable(store):
     restored, manifest = store.load_snapshot(digest, permission_active=True)
     assert restored == data and manifest['source_url'] == SOURCE_URL
     assert manifest['retrieved_at_utc'] == UTC_STAMP
+    assert manifest['acquisition_method'] == 'owner_recorded_local_file'
     assert manifest['historical_release_availability_verified'] is False
     assert manifest['performance_cleared'] is False and manifest['raw_redistribution'] is False
     with pytest.raises(DataError, match='IMMUTABLE_FILE_EXISTS'):

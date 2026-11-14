@@ -83,12 +83,15 @@ def test_archive_limits_members():
 def test_audit_no_rows_pit_claims_or_network(monkeypatch):
     monkeypatch.setattr(socket,'create_connection',lambda *a,**k:(_ for _ in ()).throw(AssertionError('No network')))
     dataset=parse_archive(zipped(text()))
-    metadata=dict(source_url='SYNTHETIC fixture metadata',retrieved_at_utc='2026-11-14T00:00:00+00:00')
+    metadata=dict(source_url='SYNTHETIC fixture metadata',retrieved_at_utc='2026-11-14T00:00:00+00:00',acquisition_method='owner_recorded_local_file')
     report=audit_dataset(dataset,metadata,sessions=(date(2016,1,4),date(2016,1,5),date(2024,12,31)))
     assert report['panels']['value_weighted']['missing_sessions']==report['panels']['equal_weighted']['missing_sessions']==1
     assert not report['coverage_complete'] and not report['point_in_time_verified'] and not report['performance_cleared']
     assert not report['raw_observations_in_output'] and all(k not in report for k in ('returns','rows','values','weights','CAGR','Sharpe'))
     assert '0.0125' not in json.dumps(report) and '-0.025' not in json.dumps(report)
+    assert report['acquisition_method']=='owner_recorded_local_file'
+    direct_report=audit_dataset(dataset,dict(metadata,acquisition_method='bounded_direct_https'),sessions=dataset.primary.dates)
+    assert direct_report['acquisition_method']=='bounded_direct_https'
 
 
 def test_calendar_local_holiday_aware():

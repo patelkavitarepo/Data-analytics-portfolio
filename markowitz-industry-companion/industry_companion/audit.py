@@ -30,7 +30,7 @@ def audit_dataset(dataset,manifest,*,sessions=None):
     mismatch=len(set(dataset.panels[PANELS[0]].dates)^set(dataset.panels[PANELS[1]].dates))
     complete=all(p['missing_sessions']==p['non_session_dates']==0 for p in panels.values()) and mismatch==0
     return dict(checkpoint='industry-ingestion-v1',source='Kenneth French daily 10 Industry Portfolios',
-        source_url=manifest['source_url'],retrieved_at_utc=manifest['retrieved_at_utc'],archive_sha256=dataset.archive_sha256,
+        source_url=manifest['source_url'],retrieved_at_utc=manifest['retrieved_at_utc'],acquisition_method=manifest['acquisition_method'],archive_sha256=dataset.archive_sha256,
         member_sha256=dataset.member_sha256,publisher_crsp_vintage=dataset.publisher_vintage,
         provenance_manifest_sha256=hashlib.sha256(json.dumps(manifest,sort_keys=True,separators=(',',':')).encode()).hexdigest(),
         parser_sha256=hashlib.sha256((Path(__file__).parent/'parser.py').read_bytes()).hexdigest(),
