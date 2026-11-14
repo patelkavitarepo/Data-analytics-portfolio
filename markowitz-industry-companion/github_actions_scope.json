@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "dataset_scope": "French daily 10 Industry Portfolios only",
+  "source_url": "https://mba.tuck.dartmouth.edu/pages/faculty/Ken.French/ftp/10_Industry_Portfolios_daily_CSV.zip",
+  "status": "pending_owner_rights_review",
+  "live_enabled": false,
+  "github_hosted_ephemeral_processing": false,
+  "raw_redistribution": false,
+  "rescission_possible": true,
+  "evidence_reference": null,
+  "reason": "Existing dataset-use permission does not establish that transient third-party GitHub-hosted processing is covered. No live run is authorized by this record."
+}
