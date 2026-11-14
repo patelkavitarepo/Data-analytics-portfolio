@@ -1,0 +1,2 @@
+# Streamlit Community Cloud can install from the repository root.
+-r stock-market-dashboard/requirements.txt
