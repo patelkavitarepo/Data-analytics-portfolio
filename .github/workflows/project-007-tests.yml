@@ -1,0 +1,30 @@
+name: Project 007 synthetic audit tests
+
+on:
+  pull_request:
+    paths:
+      - 'project-007-market-microstructure/**'
+      - '.github/workflows/project-007-tests.yml'
+  push:
+    branches: ['feat/007-market-microstructure-research']
+    paths:
+      - 'project-007-market-microstructure/**'
+      - '.github/workflows/project-007-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.11', '3.12']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Synthetic-only unit tests; never fetch provider data
+        working-directory: project-007-market-microstructure
+        run: python -m unittest discover -s tests -v

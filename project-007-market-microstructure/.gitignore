@@ -1,0 +1,9 @@
+# Provider data and outputs never enter version control.
+data/
+artifacts/
+*.csv
+*.zip
+*.7z
+__pycache__/
+.pytest_cache/
+.venv/
