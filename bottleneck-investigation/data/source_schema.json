@@ -1,0 +1,344 @@
+{
+  "verification_run": "https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43060974195",
+  "checked_at": "2026-11-11T16:43:02.863462+00:00",
+  "checks": [
+    {
+      "name": "metadata",
+      "url": "https://data.sfgov.org/api/views/vw6y-z8j6.json",
+      "status_code": 200,
+      "content_type": "application/json; charset=utf-8",
+      "bytes": 66470,
+      "dataset_id": "vw6y-z8j6",
+      "title": "311 Cases",
+      "rows_updated_at": 1794397277,
+      "attribution": "San Francisco 311",
+      "columns": [
+        {
+          "fieldName": "service_request_id",
+          "name": "CaseID",
+          "dataTypeName": "number",
+          "description": "The unique ID of the service request created."
+        },
+        {
+          "fieldName": "requested_datetime",
+          "name": "Opened",
+          "dataTypeName": "calendar_date",
+          "description": "The date and time when the service request was made"
+        },
+        {
+          "fieldName": "closed_date",
+          "name": "Closed",
+          "dataTypeName": "calendar_date",
+          "description": "The date and time when the service request was closed"
+        },
+        {
+          "fieldName": "updated_datetime",
+          "name": "Updated",
+          "dataTypeName": "calendar_date",
+          "description": "The date and time when the service request was last modified. For requests with status=closed, this will be the date the request was closed"
+        },
+        {
+          "fieldName": "status_description",
+          "name": "Status",
+          "dataTypeName": "text",
+          "description": "A single-word indicator of the current state of the service request. (Note: GeoReport V2 only permits ‘open’ and ‘closed’)"
+        },
+        {
+          "fieldName": "status_notes",
+          "name": "Status Notes",
+          "dataTypeName": "text",
+          "description": " Explanation of why status was changed to current state or more details on current status than conveyed with status alone "
+        },
+        {
+          "fieldName": "agency_responsible",
+          "name": "Responsible Agency",
+          "dataTypeName": "text",
+          "description": "The agency responsible for fulfilling or otherwise addressing the service request."
+        },
+        {
+          "fieldName": "service_name",
+          "name": "Category",
+          "dataTypeName": "text",
+          "description": "The human readable name of the service request type"
+        },
+        {
+          "fieldName": "service_subtype",
+          "name": "Request Type",
+          "dataTypeName": "text",
+          "description": "The human readable name of the service request subtype"
+        },
+        {
+          "fieldName": "service_details",
+          "name": "Request Details",
+          "dataTypeName": "text",
+          "description": "The human readable name of the service request details"
+        },
+        {
+          "fieldName": "address",
+          "name": "Address",
+          "dataTypeName": "text",
+          "description": "Human readable address or description of location"
+        },
+        {
+          "fieldName": "street",
+          "name": "Street",
+          "dataTypeName": "text",
+          "description": "Primary Street of the associated address. Parks may have a park name instead of a street name. Requests not associated with an address will be blank."
+        },
+        {
+          "fieldName": "supervisor_district",
+          "name": "Supervisor District",
+          "dataTypeName": "number",
+          "description": "San Francisco Supervisor District as defined in 'Supervisor Districts as of 2022'"
+        },
+        {
+          "fieldName": "neighborhoods_sffind_boundaries",
+          "name": "Neighborhood",
+          "dataTypeName": "text",
+          "description": "San Francisco Neighborhood as defined in 'SF Find Neighborhoods'"
+        },
+        {
+          "fieldName": "analysis_neighborhood",
+          "name": "Analysis Neighborhood",
+          "dataTypeName": "text",
+          "description": "San Francisco Analysis Neighborhood as defined in 'Analysis Neighborhoods'"
+        },
+        {
+          "fieldName": "police_district",
+          "name": "Police District",
+          "dataTypeName": "text",
+          "description": "San Francisco Police District as defined in 'Current Police Districts'"
+        },
+        {
+          "fieldName": "lat",
+          "name": "Latitude",
+          "dataTypeName": "number",
+          "description": "Latitude of the location, using the WGS84 projection"
+        },
+        {
+          "fieldName": "long",
+          "name": "Longitude",
+          "dataTypeName": "number",
+          "description": "Longitude of the location, using the WGS84 projection"
+        },
+        {
+          "fieldName": "point",
+          "name": "Point",
+          "dataTypeName": "location",
+          "description": "Combination of Latitude and Longitude for Socrata native maps"
+        },
+        {
+          "fieldName": "point_geom",
+          "name": "point_geom",
+          "dataTypeName": "point",
+          "description": "Combination of Latitude and Longitude in Point format"
+        },
+        {
+          "fieldName": "source",
+          "name": "Source",
+          "dataTypeName": "text",
+          "description": "Mechanism or path by which the service request was received; typically ‘Phone’, ‘Text/SMS’, ‘Website’, ‘Mobile App’, ‘Twitter’, etc but terms may vary by system."
+        },
+        {
+          "fieldName": "media_url",
+          "name": "Media URL",
+          "dataTypeName": "url",
+          "description": "A URL to media associated with the request, e.g. an image."
+        },
+        {
+          "fieldName": "bos_2012",
+          "name": "BOS_2012",
+          "dataTypeName": "number",
+          "description": "San Francisco Supervisor District as defined in 'Supervisor Districts as of 2012'"
+        },
+        {
+          "fieldName": "data_as_of",
+          "name": "data_as_of",
+          "dataTypeName": "calendar_date",
+          "description": "Timestamp the row was updated in the source system"
+        },
+        {
+          "fieldName": "data_loaded_at",
+          "name": "data_loaded_at",
+          "dataTypeName": "calendar_date",
+          "description": "Timestamp the row was uploaded to the open data portal"
+        },
+        {
+          "fieldName": ":@computed_region_qgnn_b9vv",
+          "name": "Current Police Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_26cr_cadq",
+          "name": "Current Supervisor Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_ajp5_b2md",
+          "name": "Analysis Neighborhoods",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_rxqg_mtj9",
+          "name": "DELETE - Supervisor Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_yftq_j783",
+          "name": "DELETE - Fire Prevention Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_jx4q_fizf",
+          "name": "DELETE - Current Police Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_bh8s_q3mv",
+          "name": "DELETE - Zip Codes",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_p5aj_wyqh",
+          "name": "DELETE - Police Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_fyvs_ahh9",
+          "name": "DELETE - Neighborhoods",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_f58d_8dbm",
+          "name": "DELETE - Neighborhoods_from_fyvs_ahh9",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_9dfj_4gjx",
+          "name": "DELETE - 2017 Fix It Zones",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_vtsz_7cme",
+          "name": "DELETE - SF Find Neighborhoods",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_n4xg_c4py",
+          "name": "Civic Center Harm Reduction Project Boundary",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_sruu_94in",
+          "name": "DELETE - Current Supervisor Districts",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_4isq_27mq",
+          "name": "Fix It Zones as of 2017-11-06 ",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_viu7_rrfi",
+          "name": "Invest In Neighborhoods (IIN) Areas",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_fcz8_est8",
+          "name": "DELETE - HSOC Zones",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_pigm_ib2e",
+          "name": "Fix It Zones as of 2018-02-07",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_9jxd_iqea",
+          "name": "CBD, BID and GBD Boundaries as of 2017",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_6ezc_tdp2",
+          "name": "Central Market/Tenderloin Boundary",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_6pnf_4xz7",
+          "name": "Areas of Vulnerability, 2016",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_h4ep_8xdi",
+          "name": "Central Market/Tenderloin Boundary Polygon - Updated",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_nqbw_i6c3",
+          "name": "HSOC Zones as of 2018-06-05",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_2dwj_jsy4",
+          "name": "OWED Public Spaces",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_y6ts_4iup",
+          "name": "Parks Alliance CPSI (27+TL sites)",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_jwn9_ihcz",
+          "name": "Neighborhoods",
+          "dataTypeName": "number",
+          "description": null
+        },
+        {
+          "fieldName": ":@computed_region_6qbp_sg9q",
+          "name": "SF Find Neighborhoods",
+          "dataTypeName": "number",
+          "description": null
+        }
+      ]
+    },
+    {
+      "name": "small_query",
+      "url": "https://data.sfgov.org/resource/vw6y-z8j6.json",
+      "status_code": 200,
+      "content_type": "application/json;charset=utf-8",
+      "bytes": 173,
+      "returned_rows": 2,
+      "returned_fields": [
+        "requested_datetime",
+        "service_request_id"
+      ]
+    }
+  ],
+  "success": true
+}

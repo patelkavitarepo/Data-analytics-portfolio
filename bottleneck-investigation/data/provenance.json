@@ -1,0 +1,20 @@
+{
+  "status": "evidence_pending",
+  "synthetic": false,
+  "reason": "A full authentic 2025 extract passed reconciliation, SQL/Python parity and all five dashboard integration checks on GitHub Actions. Its cube, provenance, data-quality report and analyses remain an unreviewed artifact; no findings are promoted into this bundled dashboard.",
+  "attempted_at": "2026-11-11T16:16:00Z",
+  "candidate_sources": [
+    "https://data.sfgov.org/api/views/vw6y-z8j6.json",
+    "https://bigquery.googleapis.com/bigquery/v2/projects/bigquery-public-data/datasets/san_francisco_311/tables/311_service_requests"
+  ],
+  "requested_cohort": "Requests created during calendar year 2025 in America/Los_Angeles",
+  "verified_rows": 0,
+  "findings": [],
+  "limitations": [
+    "Bundled evidence remains pending until a verified acquisition artifact is reviewed and explicitly approved for promotion.",
+    "Baltimore D001\u2013D007 methodology supplies no verified San Francisco findings."
+  ],
+  "schema_verification_run": "https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43060974195",
+  "review_run": "https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43062021912",
+  "review_artifact": "https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43062021912/artifacts/13873914252"
+}

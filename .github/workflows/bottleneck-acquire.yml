@@ -1,0 +1,48 @@
+name: Case 002 authentic evidence acquisition
+on:
+  push:
+    branches: [feat/case-002-streamlit]
+    paths:
+      - 'bottleneck-investigation/src/**'
+      - 'bottleneck-investigation/tests/**'
+      - '.github/workflows/bottleneck-acquire.yml'
+permissions:
+  contents: read
+concurrency:
+  group: case-002-acquisition
+  cancel-in-progress: false
+jobs:
+  acquire:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    defaults:
+      run:
+        working-directory: bottleneck-investigation
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: bottleneck-investigation/requirements*.txt
+      - run: python -m pip install -r requirements-dev.txt
+      - name: Probe official metadata and small 2025 query
+        run: python -m src.probe --output review-evidence
+      - name: Run acquisition and analytics unit tests
+        run: python -m pytest -q
+      - name: Extract and reconcile authentic 2025 evidence
+        run: python -m src.ingest --output review-evidence --page-size 10000
+      - name: Generate data quality report and preliminary observations
+        run: python -m src.review --evidence review-evidence
+      - name: Test all five dashboard sections with authentic evidence
+        env:
+          CASE002_EVIDENCE_DIR: review-evidence
+        run: python -m pytest -q tests/test_authentic.py
+      - name: Upload review evidence and source-access diagnostics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: case-002-evidence-review-${{ github.run_id }}
+          path: bottleneck-investigation/review-evidence/
+          retention-days: 30
+          if-no-files-found: error
