@@ -1,7 +1,7 @@
 """D019 timestamp-ONLY selection, before ANY new quote or label access.
 
 Authenticate three already pinned Quant-Arena Public L1 Parquet members and
-choose first 40 common observed dates AFTER D017's sealed final January 5, 2023.
+choose first 40 common observed dates AFTER D018's sealed final March 9, 2023.
 Source CC BY-NC 4.0 noncommercial with attribution. No outcome queries.
 """
 from hashlib import sha256
@@ -31,9 +31,9 @@ def select_dates(inventory):
     if set(inventory)!=set(STOCKS):
         raise ValueError("wrong immutable three-stock panel")
     common=sorted(set.intersection(*(set(inventory[s]) for s in STOCKS)))
-    later=[d for d in common if d>AFTER_SEALED_D017]
+    later=[d for d in common if d>AFTER_SEALED_D018]
     if len(later)<40:
-        raise ValueError("insufficient source dates beyond sealed D017")
+        raise ValueError("insufficient source dates beyond sealed D018")
     picked=later[:40]
     result={}
     cursor=0
@@ -42,7 +42,7 @@ def select_dates(inventory):
         cursor+=n
     validate_calendar(*(result[k] for k,n in PARTS))
     return result,{"all_common_dates":len(common),
-                   "post_D017_sealed_common_dates":len(later)}
+                   "post_D018_sealed_common_dates":len(later)}
 
 
 def checksum(dates):
@@ -63,7 +63,7 @@ def load_manifest(path=MANIFEST_PATH):
     if receipt.get("publisher_revision")!=EXPECTED_REVISION:
         raise ValueError("source revision changed")
     if receipt.get("previous_D018_date_sha256")!=previous["date_list_sha256"]:
-        raise ValueError("previous D017 calendar changed")
+        raise ValueError("previous D018 calendar changed")
     if receipt.get("price_or_label_columns_read") is not False:
         raise ValueError("D019 source isolation violated")
     if receipt.get("prior_D009_D012_D014_D015_D016_D017_D018_finals_sealed") is not True:
