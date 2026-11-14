@@ -1,0 +1,20 @@
+name: Project 007 D019 timestamp-only freeze
+on:
+  push:
+    branches: ['feat/007-market-microstructure-research']
+    paths: ['.github/workflows/project-007-d019-timestamp-temp.yml']
+permissions:
+  contents: read
+jobs:
+  freeze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install 'pyarrow==19.0.1' 'numpy==2.2.4' 'scikit-learn==1.6.1'
+      - name: Timestamp-only D019 inventory; do not open market outcomes
+        working-directory: project-007-market-microstructure
+        run: python -u research/freeze_stock_scarcity_dates_once.py
