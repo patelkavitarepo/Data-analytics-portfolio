@@ -1,0 +1,75 @@
+name: Project 006 synthetic-only tests (permissions pending)
+on:
+  pull_request:
+    paths:
+      - 'markowitz-portfolio-optimization/**'
+      - '.github/workflows/markowitz-research.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  connectivity:
+    # Synthetic-only engineering: no external provider/documentation requests.
+    if: ${{ false }}
+    name: Status-only documentation connectivity
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Probe documentation endpoints only; no market-data collection
+        run: python markowitz-portfolio-optimization/scripts/network_probe.py
+  test:
+    name: Project 006 synthetic tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: markowitz-portfolio-optimization
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: markowitz-portfolio-optimization/requirements-lock.txt
+      - run: python -m pip install -r requirements-lock.txt
+      - run: python -m pytest -q
+  source-audit:
+    # Latest Holmes review: no express provider permission for Yahoo collection.
+    if: ${{ false }}
+    name: BLOCKED - Yahoo acquisition requires express provider permission
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+          cache-dependency-path: markowitz-portfolio-optimization/requirements-lock.txt
+      - run: python -m pip install -r markowitz-portfolio-optimization/requirements-lock.txt
+      - name: Acquire in runner memory and report quality only (no prices or performance)
+        run: python markowitz-portfolio-optimization/scripts/source_audit.py
+  rights-documents:
+    # Permission inquiry pending; preserve existing receipts without new contacts.
+    if: ${{ false }}
+    name: Provider documentation receipts (no market data)
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python markowitz-portfolio-optimization/scripts/rights_receipts.py
