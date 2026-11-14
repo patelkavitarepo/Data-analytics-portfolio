@@ -66,3 +66,6 @@ Follow [GITHUB_ACTIONS_AUDIT.md](GITHUB_ACTIONS_AUDIT.md) for exact iPad control
 permission gates, revocation steps and safe-output review. No optimization,
 performance finding, original ETF/holdout access, synthetic-release change, merge
 or deployment is part of this checkpoint.
+
+Reviewed implementation candidate pinned by the launcher: `ce26ac525f95dac4e6a14a23ed4de41746d51da6`.
+The pending policy in that commit cannot be opened by dispatch inputs.
