@@ -213,6 +213,7 @@ counts and failures; no run count or empirical outcome is invented here.
 | A23 | A: `test_industry_total_loss_is_valid_if_portfolio_survives`, `test_invalid_or_extinct_return_state_fails_without_echo`, `test_near_total_loss_remains_valid_without_rounding_to_zero`, `test_nonfinite_wealth_fails_closed`, `test_exhausted_close_cost_fails_closed` |
 | A24 | A: `test_drift_cap_can_exceed_target_cap_without_forced_trading`, `test_concentration_and_effective_industry_counts_have_hand_oracles` |
 | A25–A27 | C: `test_missing_duplicate_nonmonotone_or_weekend_panel_dates_fail`, `test_sixty_complete_calendar_months_and_advancing_window`, `test_history_insufficiency_is_distinct_from_missing_internal_session`, `test_calendar_requires_explicit_scope_identity_and_provenance` |
+| A27, A29 | C: `test_insufficient_history_reason_can_feed_a_flagged_target` preserves the window selector's explicit history-insufficiency reason through a scheduled baseline fallback. |
 | A28 | A: `test_post_2024_dates_fail_before_return_access`, `test_industry_order_is_fixed`; C: `test_scope_rejection_precedes_any_return_access` |
 | A29 | A: `test_failed_instruction_falls_back_with_cost_and_flag` |
 | A30, A31 | A: `test_predeclared_candidate_tie_break_is_global_not_chained`, `test_tie_prefers_equal_distance_then_lexicographic_order`, `test_manual_candidate_minimum_and_maximum_objectives_are_distinct`, `test_no_valid_manual_candidate_flags_equal_fallback` |

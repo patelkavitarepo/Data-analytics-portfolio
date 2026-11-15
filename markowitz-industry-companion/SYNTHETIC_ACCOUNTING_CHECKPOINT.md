@@ -23,6 +23,11 @@ accounting module to its pure standard-library imports and rejects I/O/dynamic
 execution calls. No workflow, launcher, source parser, numerical source audit,
 raw policy or published showcase is changed by this implementation.
 
+[GitHub CI run 43659044460](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43659044460)
+confirmed **323 tests**, both safety guards and the original synthetic-only CLI
+at `cc894acd2e8e185d97e5f8c11a5efe5bdf9f337d`. The logs were checked; no
+artifacts were produced. Local actionlint v1.7.7 also passes unchanged workflows.
+
 The tests cover monthly d0/d1/d2 chronology, first-2021 exposure, drift rather
 than daily resets, target cap versus drift exceedance, common entry convention,
 traded notional/half-turnover, post-return close fees, net wealth, missing dates,
