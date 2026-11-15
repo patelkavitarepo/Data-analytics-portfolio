@@ -68,6 +68,11 @@ which never opens raw processing. The independent
 [empirical protocol proposal](EMPIRICAL_PROTOCOL_DRAFT.md) is `DRAFT_NOT_FROZEN`;
 it authorizes no backtest and changes no original ETF research methodology.
 
+After the owner's completed HEAD checkpoint, current authorized work is limited
+to [synthetic accounting/timing validation](SYNTHETIC_ACCOUNTING_CHECKPOINT.md)
+and [protocol ambiguity review](PROTOCOL_REVIEW_01.md). No further source request,
+new workflow capability or empirical processing is enabled by that prototype.
+
 From this directory, use a private local Python 3.12 environment:
 
 ```bash

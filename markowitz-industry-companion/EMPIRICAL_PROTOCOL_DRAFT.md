@@ -2,6 +2,12 @@
 
 **Status: `DRAFT_NOT_FROZEN` — owner review required.**
 
+Subsequent operational update: the owner completed the single approved HEAD
+checkpoint. Do not repeat it or attempt GET. The current synthetic-only mechanics
+review is [PROTOCOL_REVIEW_01.md](PROTOCOL_REVIEW_01.md); its reversible prototype
+choices do not freeze or replace the candidate study below. The original HEAD
+sequencing near the end records this draft's earlier checkpoint, not a new instruction.
+
 This is a prospective discussion draft responding to
 [Holmes's checkpoint](https://github.com/patelkavitarepo/Data-analytics-portfolio/pull/12#issuecomment-6870252210).
 Every methodological choice below is **unfrozen**. Specific candidate settings
