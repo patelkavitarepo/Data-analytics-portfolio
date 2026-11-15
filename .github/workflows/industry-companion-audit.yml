@@ -1,13 +1,17 @@
-# Proposed dispatcher only. No live use until separately reviewed hosted scope.
+# Explicit HEAD diagnosis is separate from locked raw-data processing.
 name: Industry companion manual coverage audit
 'on':
   workflow_dispatch:
     inputs:
       mode:
-        description: Synthetic verification is the safe default; live remains permission-gated
+        description: Synthetic default; head is opt-in headers-only; live stays locked
         type: choice
         default: synthetic
-        options: [synthetic, live]
+        options: [synthetic, head, live]
+      head_only_ack:
+        description: Owner requests one HEAD check only (no GET, body read, redirects or retries)
+        type: boolean
+        default: false
       permission_active:
         description: Owner confirms the dataset-specific grant remains active
         type: boolean
@@ -17,7 +21,7 @@ name: Industry companion manual coverage audit
         type: boolean
         default: false
       reviewed_code_sha:
-        description: For live only, copy the exact reviewed code SHA from this workflow
+        description: For head or live, copy the exact reviewed code SHA from this workflow
         type: string
         default: ''
 permissions:
@@ -36,9 +40,10 @@ jobs:
         shell: bash --noprofile --norc -e -o pipefail {0}
     env:
       # Reviewed implementation candidate; hosted permission remains pending.
-      REVIEWED_CODE_SHA: 'ce26ac525f95dac4e6a14a23ed4de41746d51da6'
+      REVIEWED_CODE_SHA: '37a5321a118abb7309a1d08f533398cb096d9c91'
       AUDIT_MODE: ${{ inputs.mode }}
       AUDIT_CODE_SHA_INPUT: ${{ inputs.reviewed_code_sha }}
+      HEAD_ONLY_ACK: ${{ inputs.head_only_ack }}
       PERMISSION_ACTIVE_ACK: ${{ inputs.permission_active }}
       EPHEMERAL_PROCESSING_ACK: ${{ inputs.ephemeral_processing_ack }}
       HOSTED_PROCESSING_ENABLED: ${{ vars.FRENCH_INDUSTRY_EPHEMERAL_ENABLED }}
