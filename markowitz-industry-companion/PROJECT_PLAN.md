@@ -129,3 +129,8 @@ The original ETF 2025+ holdout stays untouched. Any companion confirmation perio
 requires a distinct future registration and explicit authorization; none is assigned.
 A clean audit enables review of ingestion only, not empirical promotion, merge,
 deployment or investment-performance claims.
+
+For the next synthetic-only decision review, see
+[PROTOCOL_REVIEW_02.md](PROTOCOL_REVIEW_02.md). Exact-fee, budget-boundary and
+absorbing-ruin references are isolated alternatives with `OWNER_REVIEW_PENDING`
+status; none replaces the default prototype or freezes the empirical protocol.

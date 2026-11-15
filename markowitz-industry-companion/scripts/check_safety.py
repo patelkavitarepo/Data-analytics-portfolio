@@ -26,14 +26,22 @@ def audit():
                 modules=[a.name for a in node.names] if isinstance(node,ast.Import) else [node.module or '']
                 if any(m.split('.')[0] in {'requests','urllib','http','yfinance','socket'} for m in modules):raise ValueError('NETWORK_IMPORT_IN_LOCAL_MODULE')
     # The accounting prototype has no connection to source loading or workflows.
-    tree=ast.parse((ROOT/'industry_companion'/'synthetic_accounting.py').read_text())
-    allowed={'calendar','dataclasses','datetime','math','numbers','statistics','types'}
-    for node in ast.walk(tree):
-        if isinstance(node,(ast.Import,ast.ImportFrom)):
-            modules=[a.name for a in node.names] if isinstance(node,ast.Import) else [node.module or '']
-            if any(m.split('.')[0] not in allowed for m in modules):raise ValueError('NON_PURE_ACCOUNTING_IMPORT')
-        if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id in {'open','print','exec','eval','__import__'}:
-            raise ValueError('ACCOUNTING_IO_OR_DYNAMIC_CODE')
+    pure_modules={
+        'synthetic_accounting.py':{'calendar','dataclasses','datetime','math','numbers','statistics','types'},
+        'synthetic_fee_reference.py':{'dataclasses','decimal','fractions','math'},
+        'synthetic_budget_reference.py':{'dataclasses','math','numbers'},
+        'synthetic_ruin_reference.py':{'dataclasses','math','numbers','synthetic_accounting'},
+    }
+    for name,allowed in pure_modules.items():
+        tree=ast.parse((ROOT/'industry_companion'/name).read_text())
+        for node in ast.walk(tree):
+            if isinstance(node,(ast.Import,ast.ImportFrom)):
+                modules=[a.name for a in node.names] if isinstance(node,ast.Import) else [node.module or '']
+                if any(m.split('.')[0] not in allowed for m in modules):raise ValueError('NON_PURE_ACCOUNTING_IMPORT')
+                if 'synthetic_accounting' in modules and (not isinstance(node,ast.ImportFrom) or node.level!=1):
+                    raise ValueError('NONLOCAL_ACCOUNTING_REFERENCE')
+            if isinstance(node,ast.Call) and isinstance(node.func,ast.Name) and node.func.id in {'open','print','exec','eval','__import__'}:
+                raise ValueError('ACCOUNTING_IO_OR_DYNAMIC_CODE')
     print(f'PASS: {len(files)} tracked companion files; no private/raw files or network imports in local modules. Automatic CI is synthetic-only; manual live scope is separately gated.')
 
 
