@@ -275,7 +275,14 @@ cases and **4** interaction cases. The complete suite, both safety/workflow
 guards (including optimized-Python validation), and actionlint v1.7.7 pass.
 All previous experimental evidence is preserved. Test examples include exact
 hand oracles, certified root brackets, deterministic property cases and rejected
-input/precision boundaries. GitHub CI evidence is added after its run is verified.
+input/precision boundaries.
+
+[GitHub CI run 43716331512](https://github.com/patelkavitarepo/Data-analytics-portfolio/actions/runs/43716331512)
+confirmed **508 tests**, both guards and the unchanged synthetic CLI at
+`6d5e03f29f9f1cf98d1d81eadc07b02d05159a25`; logs were inspected and the artifact
+list was empty. Independent read-only review found no further critical issue
+after the original-domain budget conversion fix. Default-ledger, empirical-draft,
+raw-policy and workflow files remain unchanged from the prior checkpoint.
 
 Owner review should select the fee definition, horizon interpretation, budget
 interface and ruin reporting policy. If another synthetic iteration is wanted,
