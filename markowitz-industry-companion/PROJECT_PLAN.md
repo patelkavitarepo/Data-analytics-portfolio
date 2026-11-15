@@ -134,3 +134,8 @@ For the next synthetic-only decision review, see
 [PROTOCOL_REVIEW_02.md](PROTOCOL_REVIEW_02.md). Exact-fee, budget-boundary and
 absorbing-ruin references are isolated alternatives with `OWNER_REVIEW_PENDING`
 status; none replaces the default prototype or freezes the empirical protocol.
+
+The current decision-ready checkpoint is
+[OWNER_DECISION_RECORD_03.md](OWNER_DECISION_RECORD_03.md), status
+`AWAITING_OWNER_APPROVAL`. It records recommendations and the minimum remaining
+numeric-interface checks; it does not adopt conventions or authorize new research.
