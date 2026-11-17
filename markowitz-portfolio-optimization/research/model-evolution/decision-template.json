@@ -1,0 +1,63 @@
+{
+  "schema_version": "006-evolution-v1",
+  "candidate_id": "006-challenger-template-v1",
+  "record_version": 1,
+  "kind": "template",
+  "stage": "proposal",
+  "champion_id": "006-v1",
+  "hypothesis": "REQUIRED: falsifiable research hypothesis; no improvement is presumed.",
+  "exact_change": "REQUIRED: one isolated change, code/config diff, and unchanged assumptions.",
+  "expected_failure_mode": "REQUIRED: conditions under which the idea should fail.",
+  "known_limitation": "REQUIRED: what this comparison cannot establish.",
+  "monitoring_proposal": "REQUIRED: as-of diagnostic, reference window, cadence, proposed threshold, false-alarm response; not an automatic strategy switch.",
+  "registered_at": null,
+  "preregistration_commit": null,
+  "earliest_evaluation_at": null,
+  "reproducibility": {
+    "code_commit": null,
+    "config_sha256": null,
+    "environment_lock_sha256": null,
+    "seeds_and_streams": "REQUIRED: fixed seeds/streams or explicitly not applicable.",
+    "entrypoint": "REQUIRED: exact offline command, failure handling, versions and outputs."
+  },
+  "comparison": {
+    "metrics": ["REQUIRED: primary metric, secondary diagnostics and units"],
+    "benchmarks": ["006-v1 min-vol", "006-v1 local max-Sharpe", "equal weight"],
+    "cost_assumptions": "REQUIRED: identical dates, execution, rebalancing, gross-notional costs and initial purchase treatment; no unequal comparisons.",
+    "criteria_status": "proposed",
+    "pass_rule": "REQUIRED: owner-chosen rule frozen before outcomes are inspected; no threshold chosen here.",
+    "fail_rule": "REQUIRED: reject/defer rule including failures and missingness; no forced winner.",
+    "multiple_comparisons": "REQUIRED: list all attempted variants, metrics, windows and corrections or limits on interpretation."
+  },
+  "training_information": {
+    "decision_at": null,
+    "latest_observation_at": null,
+    "latest_publication_at": null,
+    "latest_revision_available_at": null,
+    "snapshot_retrieved_at": null,
+    "point_in_time_evidence": null,
+    "snapshot_sha256": null,
+    "manifest_sha256": null,
+    "adjustment_vintage": null
+  },
+  "eligibility": {
+    "automation": {"status": "unknown", "evidence": null},
+    "analysis": {"status": "unknown", "evidence": null},
+    "retention": {"status": "unknown", "evidence": null},
+    "independent_comparison": {"status": "unknown", "evidence": null},
+    "public_derived_outputs": {"status": "unknown", "evidence": null},
+    "raw_redistribution": {"status": "unknown", "evidence": null},
+    "publication_planned": false,
+    "raw_distribution_planned": false,
+    "independent_verification_ref": null,
+    "source_policy_approval_ref": null
+  },
+  "periods": {
+    "training": null,
+    "calibration": null,
+    "validation": null,
+    "confirmation": null
+  },
+  "owner_preregistration_signoff": {"reviewer": null, "at": null, "evidence": null},
+  "decision_record_requirements": "After evaluation append outcome/reasons, all attempted variants and report hashes, confirmation access/consumption, and separate owner reject/adopt signoff. This template neither records results nor adopts a model."
+}

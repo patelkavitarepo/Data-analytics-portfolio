@@ -1,0 +1,47 @@
+{
+  "schema_version": "006-evolution-v1",
+  "checkpoint_version": 1,
+  "champion_id": "006-v1",
+  "baseline_review_commit": "d490f9739ca41180d015f9505e44fd1aaf5dd239",
+  "previous_registry": null,
+  "preserved_artifacts": {
+    "ADJUSTMENT_REVIEW.md": "bd397bfd2e0260a21e1c2e6144ccd2ed80e96e1a0f1f9a6af20df6719c30c458",
+    "DATA_RIGHTS.md": "53db693006acf2bfe9631c0e9c55e794ce36bf96b62d53affbda4bef07b9affb",
+    "PROJECT_BRIEF.md": "31bb59cb78fb7e543ffee7dbba9c10a215e06ffdf6203b94a82a19bd2318f4b0",
+    "SYNTHETIC_LAB.md": "7286020199e0245bcd9138e8f7f182a473f60fdb8dafb5fac87444ec3e944e9e",
+    "SYNTHETIC_ROBUSTNESS_FINDINGS.md": "a00b3b980ec1c336cee93c64ac7b33999a740a554f624dad6e10c8b7a9311cc4",
+    "SYNTHETIC_ROBUSTNESS_PLAN.md": "b4953b9a2581de782a8220198b45c3ea4846bb5c49ef693b940b287e516e9a68",
+    "SYNTHETIC_SERIAL_FINDINGS.md": "4febcfe59039def1d662b56f71b7210d86ce7ec9693904691cb7b884c4bc3cfe",
+    "SYNTHETIC_SERIAL_PLAN.md": "21c5660327a504ae5a90d823404e056389aad277a7533f7bf16ee0c395f70948",
+    "app.py": "bc008bb29f26abcbc87cfd543d01c031bbd2120812341c9703dd7275b547ae0b",
+    "markowitz/__init__.py": "5cfdeabb76d72988a66fada1e0779493e594d24a47aa73ca375df316e4f386b9",
+    "markowitz/analytics.py": "446793cea8d5ad8c8b981aa75ffd10bd8a85e7b98b24f72fdd66e22e722e1b71",
+    "markowitz/data.py": "81cfe3125d49311dd12798daba6a04e854df86106f5137c92a2bdb7a36094468",
+    "markowitz/research.py": "726f55adf01ad7012a1580f58a95ac3452de480a5bf6fe6245ed535ee9fe2321",
+    "markowitz/run.py": "abc20203f402ff0ddf369976a9c0e37c360259c97bec3624538e43d4358126ad",
+    "markowitz/source_policy.py": "f69e30edba0da9a6b19053f66b730e31ef0e5682c6aa234931c271f690700b4f",
+    "markowitz/synthetic.py": "186558f47d177bbc6bcb18f54edc68e39328f4b16ad6ab24a3653e9963c72c4e",
+    "markowitz/synthetic_robustness.py": "c939280ad391d99850b02c6b616065ef035bfddb30d3ee0ff4436e6bc0c54f34",
+    "markowitz/synthetic_serial.py": "68d29034cd31238ed99073cbe68ec789d1b8bd2abd40c2fd81123970f32d7cbc",
+    "markowitz/verification.py": "a6b01f6a50475e90156f7597229319ca4ae8a02500bc6d5d2b0b4e3d98708baf",
+    "pages/1_Synthetic_scenario_lab.py": "22a0888802f47435cba7e4e45c87fddbc09770ca88308de069b5cccb2b6ecc00",
+    "pages/2_Synthetic_robustness_check.py": "b494e087483503117b050f2810d1403b0414f79153adcbb48910a2f5edf6e676",
+    "pages/3_Synthetic_serial_dependence.py": "3629f2a62bba0fb3b5c2f7c6ea832bcc93f4984b8f9de0ec1de2f7dc57c7a2d6",
+    "requirements-lock.txt": "e8f4f8db2eae3fabf4969b47b34998ec2b02718abab84fad713e40281b81d581",
+    "synthetic-default-summary.json": "86f55b9554ec17e0a8f95e65066d2a2c13e7d347249d5b428b7d0786c7f976eb",
+    "synthetic-robustness-results.json": "298614f65707c2496df539f612ac6a8b6af57cc5fab295dac7c1599b86c9b70a",
+    "synthetic-serial-results.json": "5c9a8ae56f5d14ebaa81da074f948bcb708a747615f69eb1a861cda92c597779"
+  },
+  "decisions": [],
+  "holdouts": [
+    {
+      "id": "006-v1-reserved",
+      "start": "2025-01-01",
+      "end": null,
+      "purpose": "original_006_v1_only",
+      "state": "reserved",
+      "owner_authorization_ref": null
+    }
+  ],
+  "consumption_events": []
+}
