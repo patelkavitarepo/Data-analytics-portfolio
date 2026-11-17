@@ -1,0 +1,37 @@
+{
+  "application_commit": "a7b801f36a3078aaabcdf7c1057245f453bc5687",
+  "python_version": "3.12.14",
+  "fixture_sha256": "2dd1cb18a89f0f4ee639595d0e5eb75ea01fc5c9cefc94296307aa68939b0b21",
+  "fixture_bytes": 3656,
+  "fixture_regenerated_exactly": true,
+  "truth_manifest_regenerated_exactly": true,
+  "run": {
+    "run_id": "d03f3b96b8e04818ba4d76b020ed666b",
+    "ruleset_version": "2",
+    "input_count": 50,
+    "accepted_count": 41,
+    "rejected_count": 9,
+    "advisory_count": 1,
+    "reused": true
+  },
+  "counts_before_replay": {
+    "sources": 1,
+    "runs": 1,
+    "accepted_rows": 41,
+    "rejected_rows": 9,
+    "findings": 10
+  },
+  "counts_after_replay": {
+    "sources": 1,
+    "runs": 1,
+    "accepted_rows": 41,
+    "rejected_rows": 9,
+    "findings": 10
+  },
+  "unchanged_on_replay": true,
+  "integrity_check": "ok",
+  "foreign_key_violations": [],
+  "accepted_csv_rows": 41,
+  "accepted_csv_contains_advisory": true,
+  "accepted_csv_excludes_rejected": true
+}
