@@ -1,0 +1,43 @@
+{
+  "purpose": "Real publicly disclosed site addresses; NOT used by the synthetic matcher.",
+  "source_review_date": "2026-11-12",
+  "company": {
+    "name": "Taiwan Semiconductor Manufacturing Company Limited",
+    "tickers": ["TWSE:2330", "NYSE:TSM"],
+    "source_url": "https://www.tsmc.com/english/aboutTSMC/company_profile"
+  },
+  "facilities": [
+    {
+      "facility_id": "TSMC-FAB12A",
+      "name": "Corporate Headquarters & Fab 12A",
+      "facility_type": "manufacturing_fab_and_headquarters",
+      "address": "8, Li-Hsin Rd. 6, Hsinchu Science Park, Hsinchu 300-096, Taiwan",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_verified": false,
+      "footprint_verified": false,
+      "source_url": "https://www.tsmc.com/english/aboutTSMC/TSMC_Fabs",
+      "source_publication_timestamp": null,
+      "first_reviewed_on": "2026-11-12",
+      "supplier_dependencies": null,
+      "utilities_dependencies": null,
+      "operational_importance_quantified": false
+    },
+    {
+      "facility_id": "TSMC-FAB18A",
+      "name": "Fab 18A",
+      "facility_type": "manufacturing_fab",
+      "address": "8, Beiyuan Rd. 2, Southern Taiwan Science Park, Tainan 745-093, Taiwan",
+      "latitude": null,
+      "longitude": null,
+      "coordinates_verified": false,
+      "footprint_verified": false,
+      "source_url": "https://www.tsmc.com/english/aboutTSMC/TSMC_Fabs",
+      "source_publication_timestamp": null,
+      "first_reviewed_on": "2026-11-12",
+      "supplier_dependencies": null,
+      "utilities_dependencies": null,
+      "operational_importance_quantified": false
+    }
+  ]
+}

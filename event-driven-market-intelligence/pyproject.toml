@@ -1,0 +1,11 @@
+[project]
+name = "event-driven-market-intelligence"
+version = "0.1.0"
+description = "Synthetic-only auditable proof of concept for point-in-time event-company risk alerts"
+requires-python = ">=3.11,<3.14"
+dependencies = []
+
+[tool.project008]
+mode = "synthetic-only"
+source-fetching = false
+trading = false

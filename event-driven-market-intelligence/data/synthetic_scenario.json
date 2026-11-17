@@ -1,0 +1,91 @@
+{
+  "mode": "synthetic",
+  "company_id": "SYNTHETIC_SEMICONDUCTOR_CO",
+  "ticker": "SIMULATED_NOT_A_REAL_TICKER",
+  "description": "All companies, facilities, positions, hazard radii, sources, evidence and dates in this fixture are fictional. These are NOT TSMC facilities or observed events.",
+  "facilities": [
+    {
+      "facility_id": "SIM-NORTH-FAB",
+      "company_id": "SYNTHETIC_SEMICONDUCTOR_CO",
+      "label": "Fictional north Taiwan fab (NOT TSMC)",
+      "latitude": 24.75,
+      "longitude": 121.03,
+      "location_quality": "synthetic",
+      "first_observed_at": "2026-01-01T00:00:00Z",
+      "synthetic": true
+    },
+    {
+      "facility_id": "SIM-SOUTH-FAB",
+      "company_id": "SYNTHETIC_SEMICONDUCTOR_CO",
+      "label": "Fictional south Taiwan fab (NOT TSMC)",
+      "latitude": 23.10,
+      "longitude": 120.27,
+      "location_quality": "synthetic",
+      "first_observed_at": "2026-01-01T00:00:00Z",
+      "synthetic": true
+    }
+  ],
+  "events": [
+    {
+      "event_id": "SIM-EQ-001",
+      "event_type": "synthetic_earthquake_like_point",
+      "latitude": 24.76,
+      "longitude": 121.04,
+      "screening_radius_km": 30,
+      "occurred_at": "2026-01-10T00:00:00Z",
+      "source_published_at": "2026-01-10T00:03:00Z",
+      "ingested_at": "2026-01-10T00:04:00Z",
+      "source_id": "SIM-OFFICIAL-HAZARD",
+      "source_revision": "r1",
+      "source_url": "synthetic://hazards/SIM-EQ-001/r1",
+      "synthetic": true
+    }
+  ],
+  "evidence": [
+    {
+      "evidence_id": "SIM-RUMOR-001",
+      "event_id": "SIM-EQ-001",
+      "facility_id": "SIM-NORTH-FAB",
+      "claim": "facility_disrupted",
+      "source_role": "unverified_news",
+      "verification": "unverified",
+      "source_id": "SIM-RUMOR-FEED",
+      "source_revision": "r1",
+      "independence_group": "sim-news-group",
+      "source_url": "synthetic://news/rumor001",
+      "source_published_at": "2026-01-10T00:05:00Z",
+      "ingested_at": "2026-01-10T00:07:00Z",
+      "synthetic": true
+    },
+    {
+      "evidence_id": "SIM-COMPANY-001",
+      "event_id": "SIM-EQ-001",
+      "facility_id": "SIM-NORTH-FAB",
+      "claim": "facility_disrupted",
+      "source_role": "company_primary",
+      "verification": "verified",
+      "source_id": "SIM-COMPANY-RELEASES",
+      "source_revision": "r1",
+      "independence_group": "sim-company",
+      "source_url": "synthetic://company/statement001",
+      "source_published_at": "2026-01-10T00:20:00Z",
+      "ingested_at": "2026-01-10T00:22:00Z",
+      "synthetic": true
+    },
+    {
+      "evidence_id": "SIM-COMPANY-002",
+      "event_id": "SIM-EQ-001",
+      "facility_id": "SIM-NORTH-FAB",
+      "claim": "facility_recovered",
+      "source_role": "company_primary",
+      "verification": "verified",
+      "source_id": "SIM-COMPANY-RELEASES",
+      "source_revision": "r2",
+      "independence_group": "sim-company",
+      "source_url": "synthetic://company/statement002",
+      "source_published_at": "2026-01-10T01:35:00Z",
+      "ingested_at": "2026-01-10T01:36:00Z",
+      "synthetic": true
+    }
+  ]
+}
