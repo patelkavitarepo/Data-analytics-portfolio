@@ -1,0 +1,43 @@
+{
+  "reviewed_sha": "49e3fd146f7023ab9318ad74f336db6a55f8e7a9",
+  "numeric": [
+    {
+      "original_token": "1.0000000000000001",
+      "parsed_quantity": "1.0",
+      "accepted_count": 1,
+      "rejected_count": 0
+    },
+    {
+      "original_token": "10000.0000000000001",
+      "parsed_quantity": "10000.0",
+      "accepted_count": 1,
+      "rejected_count": 0
+    },
+    {
+      "original_token": "-1e-10000",
+      "parsed_quantity": "-0.0",
+      "accepted_count": 1,
+      "rejected_count": 0
+    }
+  ],
+  "nul": {
+    "accepted_count": 1,
+    "nul_stored": true
+  },
+  "hardlink_input": {
+    "exit_code": 0,
+    "protected_overwritten": true,
+    "sqlite_error": null
+  },
+  "hardlink_database": {
+    "exit_code": 0,
+    "protected_overwritten": true,
+    "sqlite_error": "file is not a database"
+  },
+  "deep_truth": {
+    "exit_code": 1,
+    "traceback": true,
+    "recursion_error": true,
+    "database_created": false
+  }
+}

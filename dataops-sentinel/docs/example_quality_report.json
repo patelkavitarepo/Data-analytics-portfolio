@@ -1,0 +1,158 @@
+{
+  "description": "DataOps Sentinel local quality audit; demo data is synthetic.",
+  "provenance": {
+    "run_id": "e5c37f53f2c448cca53dbae07776ce43",
+    "content_hash": "2dd1cb18a89f0f4ee639595d0e5eb75ea01fc5c9cefc94296307aa68939b0b21",
+    "source_name": "synthetic_operations.csv",
+    "source_kind": "csv",
+    "byte_count": 3656,
+    "created_at": "2026-11-17T02:21:09.510486+00:00",
+    "ruleset_version": "1"
+  },
+  "summary": {
+    "input_count": 50,
+    "accepted_count": 41,
+    "rejected_count": 9,
+    "advisory_count": 1,
+    "accepted_rate": 0.82,
+    "rejected_rate": 0.18,
+    "advisory_rate_per_input": 0.02,
+    "advisory_rate_per_accepted": 0.024390243902439025
+  },
+  "denominators": "Rates are fractions. Reasons count unique rows per code / input rows; a row can have multiple reasons. Advisory rows remain accepted.",
+  "reason_breakdown": [
+    {
+      "severity": "advisory",
+      "code": "quantity_outlier",
+      "row_count": 1,
+      "rate_per_input": 0.02
+    },
+    {
+      "severity": "error",
+      "code": "duplicate_id",
+      "row_count": 2,
+      "rate_per_input": 0.04
+    },
+    {
+      "severity": "error",
+      "code": "inconsistent_status",
+      "row_count": 1,
+      "rate_per_input": 0.02
+    },
+    {
+      "severity": "error",
+      "code": "invalid_quantity",
+      "row_count": 2,
+      "rate_per_input": 0.04
+    },
+    {
+      "severity": "error",
+      "code": "invalid_status",
+      "row_count": 1,
+      "rate_per_input": 0.02
+    },
+    {
+      "severity": "error",
+      "code": "invalid_timestamp",
+      "row_count": 1,
+      "rate_per_input": 0.02
+    },
+    {
+      "severity": "error",
+      "code": "missing_value",
+      "row_count": 2,
+      "rate_per_input": 0.04
+    }
+  ],
+  "findings": [
+    {
+      "row_number": 41,
+      "record_id": "SYN-0041",
+      "severity": "error",
+      "code": "missing_value",
+      "message": "location is required and cannot be blank."
+    },
+    {
+      "row_number": 42,
+      "record_id": "",
+      "severity": "error",
+      "code": "missing_value",
+      "message": "record_id is required and cannot be blank."
+    },
+    {
+      "row_number": 43,
+      "record_id": "SYN-DUPLICATE",
+      "severity": "error",
+      "code": "duplicate_id",
+      "message": "Business ID appears more than once in this input; all copies are rejected."
+    },
+    {
+      "row_number": 44,
+      "record_id": "SYN-DUPLICATE",
+      "severity": "error",
+      "code": "duplicate_id",
+      "message": "Business ID appears more than once in this input; all copies are rejected."
+    },
+    {
+      "row_number": 45,
+      "record_id": "SYN-0045",
+      "severity": "error",
+      "code": "invalid_timestamp",
+      "message": "Use a valid ISO 8601 timestamp with seconds; naive timestamps assume UTC."
+    },
+    {
+      "row_number": 46,
+      "record_id": "SYN-0046",
+      "severity": "error",
+      "code": "invalid_quantity",
+      "message": "Quantity must be an integer from 0 through 10000."
+    },
+    {
+      "row_number": 47,
+      "record_id": "SYN-0047",
+      "severity": "error",
+      "code": "invalid_quantity",
+      "message": "Quantity must be an integer from 0 through 10000."
+    },
+    {
+      "row_number": 48,
+      "record_id": "SYN-0048",
+      "severity": "error",
+      "code": "inconsistent_status",
+      "message": "Cancelled records require quantity 0; pending/completed records require positive quantity."
+    },
+    {
+      "row_number": 49,
+      "record_id": "SYN-0049",
+      "severity": "error",
+      "code": "invalid_status",
+      "message": "status must be pending, completed, or cancelled."
+    },
+    {
+      "row_number": 50,
+      "record_id": "SYN-0050",
+      "severity": "advisory",
+      "code": "quantity_outlier",
+      "message": "Quantity is unusual relative to this accepted batch (robust score > 3.5); review, not a proven error."
+    }
+  ],
+  "truth_evaluation": {
+    "row_count": 50,
+    "hard_errors": {
+      "tp": 9,
+      "fp": 0,
+      "fn": 0,
+      "tn": 41,
+      "precision": 1.0,
+      "recall": 1.0
+    },
+    "advisories": {
+      "tp": 1,
+      "fp": 0,
+      "fn": 0,
+      "tn": 49,
+      "precision": 1.0,
+      "recall": 1.0
+    }
+  }
+}

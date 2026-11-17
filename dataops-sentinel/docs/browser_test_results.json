@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "name": "desktop",
+      "viewport": {
+        "width": 1440,
+        "height": 1100
+      },
+      "dimensions": {
+        "width": 1440,
+        "scrollWidth": 1440,
+        "height": 1100,
+        "mainClientWidth": 1184,
+        "mainScrollWidth": 1184
+      },
+      "metrics": [
+        "Input rows 50 ",
+        "Accepted 41 ",
+        "Rejected 9 ",
+        "Advisory rows 1 "
+      ],
+      "reportSummary": {
+        "input_count": 50,
+        "accepted_count": 41,
+        "rejected_count": 9,
+        "advisory_count": 1,
+        "accepted_rate": 0.82,
+        "rejected_rate": 0.18,
+        "advisory_rate_per_input": 0.02,
+        "advisory_rate_per_accepted": 0.024390243902439025
+      },
+      "recordsTab": true,
+      "auditTab": true,
+      "replay": true,
+      "jsonDownload": true,
+      "schemaErrorFeedback": true,
+      "csvUpload": true,
+      "uploaderLimitMiB": 2
+    },
+    {
+      "name": "mobile",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "dimensions": {
+        "width": 390,
+        "scrollWidth": 390,
+        "height": 844,
+        "mainClientWidth": 390,
+        "mainScrollWidth": 390
+      },
+      "metrics": [
+        "Input rows 50 ",
+        "Accepted 41 ",
+        "Rejected 9 ",
+        "Advisory rows 1 "
+      ],
+      "reportSummary": {
+        "input_count": 50,
+        "accepted_count": 41,
+        "rejected_count": 9,
+        "advisory_count": 1,
+        "accepted_rate": 0.82,
+        "rejected_rate": 0.18,
+        "advisory_rate_per_input": 0.02,
+        "advisory_rate_per_accepted": 0.024390243902439025
+      },
+      "recordsTab": true,
+      "auditTab": true,
+      "replay": true,
+      "jsonDownload": true,
+      "schemaErrorFeedback": true,
+      "csvUpload": true,
+      "uploaderLimitMiB": 2
+    }
+  ],
+  "consoleWarnings": [],
+  "pageErrors": [],
+  "failedRequests": []
+}
