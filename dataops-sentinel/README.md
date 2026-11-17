@@ -5,11 +5,17 @@ feed, explains each finding, and keeps a transactional SQLite audit. It demonstr
 general programming and data engineering. All bundled data and findings are
 **synthetic**; this is an educational project, not a commercial or production platform.
 
-For final handoff, use the [owner acceptance walkthrough](docs/OWNER_ACCEPTANCE.md),
+For the temporary feature-branch preview, start with
+[Checkpoint 4 status](docs/CHECKPOINT_4_PREVIEW.md),
+[iPad deployment steps](docs/PREVIEW_IPAD.md), and the
+[browser-only acceptance walkthrough](docs/BROWSER_ACCEPTANCE.md).
+The owner authorized a synthetic-only preview; deployment access is currently
+blocked. Human acceptance, merge and production publication remain pending.
+
+For the earlier local handoff, use the [owner acceptance walkthrough](docs/OWNER_ACCEPTANCE.md),
 [Checkpoint 3 verification](docs/CHECKPOINT_3_RESULTS.md),
 [deployment readiness](docs/DEPLOYMENT_READINESS.md), and
-[career-fair brief](docs/PORTFOLIO_BRIEF.md). Human acceptance and publication
-authorization remain pending.
+[career-fair brief](docs/PORTFOLIO_BRIEF.md).
 
 ## Run locally
 

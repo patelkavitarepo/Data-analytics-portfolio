@@ -1,0 +1,33 @@
+{
+  "recorded_at_utc": "2026-11-17T03:22:31.462621+00:00",
+  "candidate_commit": "fd15c5b867920a0ac76e37de10e56bfb36843533",
+  "requested_service": "Streamlit Community Cloud",
+  "requested_url": "https://share.streamlit.io/",
+  "browser_observation": "This site cannot be reached; ERR_TUNNEL_CONNECTION_FAILED",
+  "http_client_check": {
+    "exit_code": 56,
+    "http_status": "000",
+    "proxy_connect_response": 403,
+    "error": "CONNECT tunnel failed, response 403"
+  },
+  "owner_account_reached": false,
+  "authentication_state_verified": false,
+  "app_creation_submitted": false,
+  "preview_url": null,
+  "hosted_commit": null,
+  "hosted_python_version": null,
+  "hosted_smoke_tests_executed": false,
+  "local_config_checks": {
+    "repository_root": {
+      "maxUploadSize_MB": 200,
+      "gatherUsageStats": true
+    },
+    "app_directory": {
+      "maxUploadSize_MB": 2,
+      "gatherUsageStats": false
+    },
+    "hosted_effective_configuration": null
+  },
+  "recommendation": "PREVIEW BLOCKED \u2014 ACTION REQUIRED",
+  "next_step": "Owner deploys from the feature branch in their own iPad Safari Streamlit account, then records the actual HTTPS URL and hosted smoke results."
+}
