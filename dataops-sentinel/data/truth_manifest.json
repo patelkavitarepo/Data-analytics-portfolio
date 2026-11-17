@@ -1,0 +1,365 @@
+{
+  "synthetic": true,
+  "seed": 1729,
+  "description": "Entirely fictional operations records generated with Python random.Random. Labels describe deliberately injected anomalies, not empirical business findings. Data row numbers exclude the header. Advisory labels are not proven errors.",
+  "source_file": "synthetic_operations.csv",
+  "source_sha256": "2dd1cb18a89f0f4ee639595d0e5eb75ea01fc5c9cefc94296307aa68939b0b21",
+  "expected": {
+    "input_count": 50,
+    "accepted_count": 41,
+    "rejected_count": 9,
+    "advisory_count": 1
+  },
+  "labels": [
+    {
+      "row_number": 1,
+      "record_id": "SYN-0001",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 2,
+      "record_id": "SYN-0002",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 3,
+      "record_id": "SYN-0003",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 4,
+      "record_id": "SYN-0004",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 5,
+      "record_id": "SYN-0005",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 6,
+      "record_id": "SYN-0006",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 7,
+      "record_id": "SYN-0007",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 8,
+      "record_id": "SYN-0008",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 9,
+      "record_id": "SYN-0009",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 10,
+      "record_id": "SYN-0010",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 11,
+      "record_id": "SYN-0011",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 12,
+      "record_id": "SYN-0012",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 13,
+      "record_id": "SYN-0013",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 14,
+      "record_id": "SYN-0014",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 15,
+      "record_id": "SYN-0015",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 16,
+      "record_id": "SYN-0016",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 17,
+      "record_id": "SYN-0017",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 18,
+      "record_id": "SYN-0018",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 19,
+      "record_id": "SYN-0019",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 20,
+      "record_id": "SYN-0020",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 21,
+      "record_id": "SYN-0021",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 22,
+      "record_id": "SYN-0022",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 23,
+      "record_id": "SYN-0023",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 24,
+      "record_id": "SYN-0024",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 25,
+      "record_id": "SYN-0025",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 26,
+      "record_id": "SYN-0026",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 27,
+      "record_id": "SYN-0027",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 28,
+      "record_id": "SYN-0028",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 29,
+      "record_id": "SYN-0029",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 30,
+      "record_id": "SYN-0030",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 31,
+      "record_id": "SYN-0031",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 32,
+      "record_id": "SYN-0032",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 33,
+      "record_id": "SYN-0033",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 34,
+      "record_id": "SYN-0034",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 35,
+      "record_id": "SYN-0035",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 36,
+      "record_id": "SYN-0036",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 37,
+      "record_id": "SYN-0037",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 38,
+      "record_id": "SYN-0038",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 39,
+      "record_id": "SYN-0039",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 40,
+      "record_id": "SYN-0040",
+      "hard_error": false,
+      "advisory": false,
+      "reason": "Synthetic baseline; no injected anomaly."
+    },
+    {
+      "row_number": 41,
+      "record_id": "SYN-0041",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected missing required location."
+    },
+    {
+      "row_number": 42,
+      "record_id": "",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected missing required business ID."
+    },
+    {
+      "row_number": 43,
+      "record_id": "SYN-DUPLICATE",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected duplicate business ID; reject both group members."
+    },
+    {
+      "row_number": 44,
+      "record_id": "SYN-DUPLICATE",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected duplicate business ID; reject both group members."
+    },
+    {
+      "row_number": 45,
+      "record_id": "SYN-0045",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected impossible calendar date."
+    },
+    {
+      "row_number": 46,
+      "record_id": "SYN-0046",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected negative quantity."
+    },
+    {
+      "row_number": 47,
+      "record_id": "SYN-0047",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected quantity above the 10000 maximum."
+    },
+    {
+      "row_number": 48,
+      "record_id": "SYN-0048",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected status inconsistency: cancelled records require zero quantity."
+    },
+    {
+      "row_number": 49,
+      "record_id": "SYN-0049",
+      "hard_error": true,
+      "advisory": false,
+      "reason": "Injected status outside the allowed vocabulary."
+    },
+    {
+      "row_number": 50,
+      "record_id": "SYN-0050",
+      "hard_error": false,
+      "advisory": true,
+      "reason": "Injected suspicious but valid quantity; advisory only, remains accepted."
+    }
+  ]
+}
