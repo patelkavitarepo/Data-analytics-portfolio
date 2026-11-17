@@ -16,7 +16,7 @@ from typing import Callable
 
 import pandas as pd
 
-from .schema import COLUMNS, MAX_BYTES, MAX_ROWS
+from .schema import COLUMNS, MAX_BYTES, MAX_FIELD_CHARS, MAX_ROWS
 
 
 class IngestionError(ValueError):
@@ -78,6 +78,13 @@ def _batch(raw: bytes, rows: list[dict[str, str]], source_name: str, source_kind
     )
 
 
+def _check_field_size(value: str, context: str) -> None:
+    if len(value) > MAX_FIELD_CHARS:
+        raise IngestionError(
+            f"{context}: field exceeds the {MAX_FIELD_CHARS:,}-character limit. Shorten the field."
+        )
+
+
 def _check_csv_quotes(value: str) -> None:
     """Reject stray quotes that ``csv.reader(strict=True)`` treats as literals."""
     state = "start"
@@ -116,6 +123,8 @@ def read_csv_bytes(raw: bytes, source_name: str = "upload.csv") -> Batch:
         header = next(reader, None)
         if header is None:
             raise IngestionError("CSV is empty; include the required header.")
+        for column_number, name in enumerate(header, start=1):
+            _check_field_size(name, f"CSV column name {column_number}")
         columns = _columns(header)
         rows = []
         for row_number, row in enumerate(reader, start=1):
@@ -126,8 +135,16 @@ def read_csv_bytes(raw: bytes, source_name: str = "upload.csv") -> Batch:
                     f"CSV data row {row_number} has {len(row)} fields; expected {len(columns)}. "
                     "Quote values containing commas and supply every field."
                 )
+            for name, field in zip(columns, row):
+                _check_field_size(field, f"CSV data row {row_number}, {name}")
             rows.append(dict(zip(columns, row)))
     except csv.Error as exc:
+        if "field larger than field limit" in str(exc):
+            raise IngestionError(
+                f"CSV field near physical line {reader.line_num} exceeds the current "
+                f"{csv.field_size_limit():,}-character CSV parser limit. "
+                f"Fields must contain at most {MAX_FIELD_CHARS:,} characters; shorten the field."
+            ) from exc
         raise IngestionError(f"Malformed CSV near physical line {reader.line_num}: {exc}.") from exc
     return _batch(raw, rows, source_name, "csv")
 
@@ -136,6 +153,7 @@ def _json_object(pairs: list[tuple[str, object]]) -> dict:
     result = {}
     for key, value in pairs:
         if key in result:
+            _check_field_size(key, "JSON column name")
             raise IngestionError(f"JSON object repeats key {key!r}; use unique keys.")
         result[key] = value
     return result
@@ -145,11 +163,30 @@ def _invalid_json_constant(value: str) -> None:
     raise IngestionError(f"JSON constant {value} is invalid; use a finite number or null.")
 
 
+def _check_json_text(value: str, context: str) -> None:
+    """Check characters after JSON escapes have been decoded, including keys."""
+    _check_field_size(value, context)
+    if "\x00" in value:
+        raise IngestionError(f"{context}: remove NUL characters; provide text fields.")
+    try:
+        value.encode("utf-8")
+    except UnicodeEncodeError as exc:
+        raise IngestionError(f"{context}: remove invalid Unicode surrogate characters.") from exc
+
+
 def read_json_bytes(raw: bytes, source_name: str = "api.json") -> Batch:
     """Read a bounded JSON array of flat records using the same CSV schema."""
     text = _decode(raw)
     try:
-        records = json.loads(text, object_pairs_hook=_json_object, parse_constant=_invalid_json_constant)
+        # Preserve number lexemes: binary floats can round invalid fractional or
+        # out-of-range quantities into valid integers, or merge distinct IDs.
+        records = json.loads(
+            text,
+            object_pairs_hook=_json_object,
+            parse_constant=_invalid_json_constant,
+            parse_int=str,
+            parse_float=str,
+        )
     except IngestionError:
         raise
     except (ValueError, RecursionError) as exc:
@@ -162,16 +199,15 @@ def read_json_bytes(raw: bytes, source_name: str = "api.json") -> Batch:
     for row_number, record in enumerate(records, start=1):
         if not isinstance(record, dict):
             raise IngestionError(f"JSON record {row_number} must be an object.")
+        for column_number, name in enumerate(record, start=1):
+            _check_json_text(name, f"JSON record {row_number}, column name {column_number}")
         columns = _columns(list(record))
         row = {}
         for name, value in zip(columns, record.values()):
             if isinstance(value, (dict, list, bool)):
                 raise IngestionError(f"JSON record {row_number}, {name}: use a string, number, or null.")
             normalized_value = "" if value is None else str(value)
-            try:
-                normalized_value.encode("utf-8")
-            except UnicodeEncodeError as exc:
-                raise IngestionError(f"JSON record {row_number}, {name}: remove invalid Unicode surrogate characters.") from exc
+            _check_json_text(normalized_value, f"JSON record {row_number}, {name}")
             row[name] = normalized_value
         rows.append(row)
     return _batch(raw, rows, source_name, "json")

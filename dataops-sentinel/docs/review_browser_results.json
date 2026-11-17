@@ -1,0 +1,227 @@
+{
+  "browser-results.json": {
+    "before": {
+      "downloadHtml": "<div class=\"stDownloadButton\" data-testid=\"stDownloadButton\"><button kind=\"secondary\" data-testid=\"stBaseButton-secondary\" aria-label=\"\" class=\"st-emotion-cache-5qfegl etdmgzm2\"><div data-testid=\"stMarkdownContainer\" class=\"st-emotion-cache-12j140x et2rgd20\"><p>Quality report (JSON)</p></div></button></div>",
+      "csvUrl": "http://127.0.0.1:8501/media/5995a56aa14da66565301fd37d1409d2266a9b2ace5464ff7b7dc0b2.csv",
+      "csv": "record_id,event_timestamp_utc,location,category,quantity,status\nUI-PRIVATE-SYNTHETIC-7,2026-01-15T12:00:00Z,'=1+1,delivery,10,completed\n"
+    },
+    "crossContext": {
+      "status": 200,
+      "body": "record_id,event_timestamp_utc,location,category,quantity,status\nUI-PRIVATE-SYNTHETIC-7,2026-01-15T12:00:00Z,'=1+1,delivery,10,completed\n",
+      "headers": {
+        "server": "TornadoServer/6.6.1",
+        "content-type": "text/csv",
+        "date": "Tue, 17 Nov 2026 02:34:34 GMT",
+        "accept-ranges": "bytes",
+        "etag": "\"0e1b3a05105b0ebdb45c883e80dd1412ed4b4049ff121664cc8640138f6f94047b3e3b0a09212368cddcb6d31ff365ea908d5d44302639e78dbdb3d20ac86e3a\"",
+        "content-disposition": "attachment; filename=\"dataops_accepted.csv\"",
+        "vary": "Accept-Encoding",
+        "content-encoding": "gzip",
+        "transfer-encoding": "chunked"
+      }
+    },
+    "failedInitial": {
+      "text": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "The input could not be processed: Schema error (missing columns: category, event_timestamp_utc, location, quantity, status). Expected: record_id, event_timestamp_utc, location, category, quantity, status",
+        "The result below is the previous successful run. No audit was added for this input.",
+        "No validation errors or advisory findings in this input."
+      ]
+    },
+    "failedAfterDownload": {
+      "text": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "No validation errors or advisory findings in this input."
+      ],
+      "body": "DataOps Sentinel\n\nPython \u00b7 pandas \u00b7 SQLite\n\nA portfolio demo for checking small operations feeds.\n\nThe bundled feed is entirely synthetic. Its findings are fictional.\n\nYour session audit\n\nUploads and audit records live in a private temporary SQLite database for this browser session. They are not shared through an application cache. A server restart or session cleanup can erase them.\n\nClear session audit\n\nDeploy\nCheck a feed. Understand every finding.\n\nValidate operations records, review row-level explanations, and export an auditable result. This MVP works completely offline.\n\n1. Choose an input\n\nExplore the fictional demo\n\nA fixed-seed feed includes deliberate errors and one suspicious, valid quantity. A separate truth manifest lets you inspect detection results.\n\nLoad synthetic demo\n\nCheck a CSV\n\nOperations CSV (UTF-8)\n\nDrag and drop file here\nLimit 2MB per file \u2022 CSV\nBrowse files\nbad.csv\n18.0B\n\nMaximum 2 MiB and 10,000 rows. Required columns: record_id, event_timestamp_utc, location, category, quantity, status. Timestamps without an offset are assumed UTC.\n\nValidate uploaded CSV\n\n2. Review the result\n\nInput rows\n\n1\n\nAccepted\n\n1\n\nRejected\n\n0\n\nAdvisory rows\n\n0\n\nReconciliation: 1 input = 1 accepted + 0 rejected. Advisory rows are part of the accepted cohort. A flag requests review; it does not establish an error.\n\nQuality overview\n\nRecords and findings\n\nAudit trail\n\nValidation rates\n\nRejected: 0.0% of input rows. Advisory: 0.0% of input rows.\n\nNo validation errors or advisory findings in this input.\n\nNo truth labels are available for this input; detection accuracy is unknown.\n\nDownload this result\n\nQuality report (JSON)\n\nAccepted records (CSV)\n\nFindings (CSV)\n\nCSV exports escape formula-like text for safer spreadsheet viewing.",
+      "report": {
+        "description": "DataOps Sentinel local quality audit; demo data is synthetic.",
+        "provenance": {
+          "run_id": "9aa3c55a11cf49a0bc3d9513cf75e59f",
+          "content_hash": "360425eaff13a21269f11668c48d05637da1c99cb0916a23f912459ded0c0fdd",
+          "source_name": "../../escape-UI-SYNTHETIC.csv",
+          "source_kind": "csv",
+          "byte_count": 135,
+          "created_at": "2026-11-17T02:34:33.535118+00:00",
+          "ruleset_version": "1"
+        },
+        "summary": {
+          "input_count": 1,
+          "accepted_count": 1,
+          "rejected_count": 0,
+          "advisory_count": 0,
+          "accepted_rate": 1,
+          "rejected_rate": 0,
+          "advisory_rate_per_input": 0,
+          "advisory_rate_per_accepted": 0
+        },
+        "denominators": "Rates are fractions. Reasons count unique rows per code / input rows; a row can have multiple reasons. Advisory rows remain accepted.",
+        "reason_breakdown": [],
+        "findings": []
+      }
+    },
+    "afterClear": {
+      "body": "keyboard_double_arrow_left\nDataOps Sentinel\n\nPython \u00b7 pandas \u00b7 SQLite\n\nA portfolio demo for checking small operations feeds.\n\nThe bundled feed is entirely synthetic. Its findings are fictional.\n\nYour session audit\n\nUploads and audit records live in a private temporary SQLite database for this browser session. They are not shared through an application cache. A server restart or session cleanup can erase them.\n\nClear session audit\n\nDeploy\nCheck a feed. Understand every finding.\n\nValidate operations records, review row-level explanations, and export an auditable result. This MVP works completely offline.\n\n1. Choose an input\n\nExplore the fictional demo\n\nA fixed-seed feed includes deliberate errors and one suspicious, valid quantity. A separate truth manifest lets you inspect detection results.\n\nLoad synthetic demo\n\nCheck a CSV\n\nOperations CSV (UTF-8)\n\nDrag and drop file here\nLimit 2MB per file \u2022 CSV\nBrowse files\nbad.csv\n18.0B\n\nMaximum 2 MiB and 10,000 rows. Required columns: record_id, event_timestamp_utc, location, category, quantity, status. Timestamps without an offset are assumed UTC.\n\nValidate uploaded CSV\n\nLoad the synthetic demo or upload a CSV to see a quality report.",
+      "validateEnabled": false,
+      "oldCsvStatus": 404,
+      "oldCsvBody": "<html><title>404: Not Found</title><body>404: Not Found</body></html>"
+    }
+  },
+  "limits-clear-results.json": {
+    "afterClear": {
+      "uploader": "Operations CSV (UTF-8)\n\nDrag and drop file here\nLimit 2MB per file \u2022 CSV\nBrowse files\nreset-case.csv\n121.0B",
+      "validateEnabled": false,
+      "exceptions": []
+    },
+    "overMax": {
+      "uploader": "Operations CSV (UTF-8)\n\nDrag and drop file here\nLimit 2MB per file \u2022 CSV\nBrowse files\nlarge.csv\nFile must be 2.0MB or smaller.\nreset-case.csv\n121.0B",
+      "validateEnabled": false
+    }
+  },
+  "apptest-results.json": {
+    "first": {
+      "db_mode": "0o600",
+      "dir_mode": "0o700",
+      "exceptions": []
+    },
+    "clear": {
+      "old_dir_exists": false,
+      "new_db_exists": true,
+      "has_run": false,
+      "exceptions": []
+    },
+    "reload": {
+      "accepted": 41,
+      "reused": false,
+      "exceptions": []
+    },
+    "max_rows": {
+      "bytes": 538954,
+      "input": 10000,
+      "accepted": 10000,
+      "elapsed_sec": 3.032,
+      "db_bytes": 1675264,
+      "report_bytes": 862,
+      "clean_bytes": 538954
+    }
+  },
+  "final-browser-results.json": {
+    "good": {
+      "alerts": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "No validation errors or advisory findings in this input."
+      ],
+      "literalTexts": [
+        "Source: fixed-case.csv"
+      ],
+      "metrics": 4,
+      "downloads": 3
+    },
+    "secondSession": {
+      "url": "http://127.0.0.1:8503/media/b40f78572d3aa9283ebcb3a7d88430a343afe2c7f149d88b55e4d66e.csv",
+      "body": "record_id,event_timestamp_utc,location,category,quantity,status\nSYN-SESSION-B-mwk3bfvo,2026-01-15T12:00:00Z,X,delivery,10,completed\n"
+    },
+    "failed": {
+      "alerts": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "The input could not be processed. See the details below.",
+        "Load the synthetic demo or upload a CSV to see a quality report."
+      ],
+      "literalTexts": [
+        "The input could not be processed: Schema error (missing columns: category, event_timestamp_utc, location, quantity, status). Expected: record_id, event_timestamp_utc, location, category, quantity, status"
+      ],
+      "metrics": 0,
+      "downloads": 0,
+      "oldUrlStatus": 200
+    },
+    "afterRerun": {
+      "alerts": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "The input could not be processed. See the details below.",
+        "Load the synthetic demo or upload a CSV to see a quality report."
+      ],
+      "literalTexts": [
+        "The input could not be processed: Schema error (missing columns: category, event_timestamp_utc, location, quantity, status). Expected: record_id, event_timestamp_utc, location, category, quantity, status"
+      ],
+      "metrics": 0,
+      "downloads": 0,
+      "oldUrlStatus": 404
+    },
+    "recovered": {
+      "alerts": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "This exact input was already audited. Showing its saved result; no rows were added.",
+        "No validation errors or advisory findings in this input."
+      ],
+      "literalTexts": [
+        "Source: fixed-case.csv"
+      ],
+      "metrics": 4,
+      "downloads": 3
+    },
+    "clear": {
+      "alerts": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "Load the synthetic demo or upload a CSV to see a quality report."
+      ],
+      "literalTexts": [],
+      "metrics": 0,
+      "downloads": 0,
+      "uploader": "Operations CSV (UTF-8)\n\nDrag and drop file here\nLimit 2MB per file \u2022 CSV\nBrowse files",
+      "validateEnabled": false,
+      "oldUrlStatus": 404
+    }
+  },
+  "markdown-results.json": {
+    "attempted": [],
+    "error": {
+      "text": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "The input could not be processed. See the details below.",
+        "Load the synthetic demo or upload a CSV to see a quality report."
+      ],
+      "images": [],
+      "html": [
+        "The bundled feed is entirely synthetic. Its findings are fictional.",
+        "The input could not be processed. See the details below.",
+        "Load the synthetic demo or upload a CSV to see a quality report."
+      ]
+    },
+    "source": {
+      "images": [],
+      "captions": [
+        "Python \u00b7 pandas \u00b7 SQLite",
+        "Uploads and audit records live in a private temporary SQLite database for this browser session. They are not shared through an application cache. A server restart or session cleanup can erase them.",
+        "Maximum 2 MiB and 10,000 rows. Required columns: record_id, event_timestamp_utc, location, category, quantity, status. Timestamps without an offset are assumed UTC.",
+        "Use fictional, non-sensitive inputs only.",
+        "Reconciliation: 1 input = 1 accepted + 0 rejected. Advisory rows are part of the accepted cohort. A flag requests review; it does not establish an error.",
+        "No truth labels are available for this input; detection accuracy is unknown.",
+        "CSV exports escape formula-like text for safer spreadsheet viewing.",
+        "Streamlit download links can be opened by anyone with the link while the result is available. Use fictional, non-sensitive inputs only.",
+        "UTC timestamps and validated quantities. Advisory rows remain accepted.",
+        "Row numbers start at 1 for the first data row after the CSV header.",
+        "An exact-file replay reuses its saved run. A different file containing an ID accepted earlier in this session is rejected as an existing duplicate. Download results before leaving; this temporary database is not durable hosting."
+      ]
+    }
+  },
+  "mobile-results.json": {
+    "metrics": [
+      "Input rows 50 ",
+      "Accepted 41 ",
+      "Rejected 9 ",
+      "Advisory rows 1 "
+    ],
+    "dimensions": {
+      "width": 390,
+      "pageScrollWidth": 390,
+      "mainClientWidth": 390,
+      "mainScrollWidth": 390
+    },
+    "csv": {
+      "rows": 41,
+      "advisory": "SYN-0050,2026-01-05T21:15:00Z,Synthetic Hub Cobalt,support,500,completed",
+      "hasRejected": false
+    },
+    "sanitizedCsv": "record_id,event_timestamp_utc,location,category,quantity,status\n'=1+1,2026-01-15T12:00:00Z,'=2+2,delivery,10,completed\n"
+  }
+}

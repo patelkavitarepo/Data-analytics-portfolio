@@ -1,5 +1,9 @@
 # Executed verification
 
+This file preserves the original build's **94-test** evidence at `49e3fd1`.
+The subsequent [adversarial review](ADVERSARIAL_REVIEW.md) records defects found
+despite that success, their fixes, the larger current suite, and remaining limits.
+
 These are observed local results, not simulated output. The implementation was
 tested on the dedicated `feat/dataops-sentinel-issue-15` branch based on main commit
 `ccdfb87a3d09730b0caa49c61b510ef8c7db6b06`. The final implementation and this evidence

@@ -60,8 +60,9 @@ FN=0, TN=41; advisories TP=1, FP=0, FN=0, TN=49. These describe this constructed
 example and do not estimate real-world accuracy. Prior accepted IDs change the
 validation context; clear the session audit to use the demo truth evaluation.
 
-See [actual test results](docs/TEST_RESULTS.md) and the generated
-[example quality report](docs/example_quality_report.json). The report contains
+See the [adversarial review and current results](docs/ADVERSARIAL_REVIEW.md),
+[original build results](docs/TEST_RESULTS.md), and generated
+[current quality report](docs/review_quality_report.json). The report contains
 an actual run identifier and timestamp; those metadata change in a fresh database.
 
 ![Desktop demo showing the synthetic quality summary](docs/desktop-demo.png)
@@ -82,8 +83,12 @@ flowchart LR
 
 - `schema.py`: six required columns, resource limits, rule version.
 - `ingestion.py`: UTF-8 CSV/JSON, normalized headers, format/schema feedback,
-  SHA-256 of original bytes. Maximum **2 MiB / 10,000 rows**; missing/extra columns,
-  collisions, malformed quoting/ragged rows, and empty input fail before auditing.
+  SHA-256 of original bytes. Maximum **2 MiB / 10,000 rows / 131,072 decoded
+  characters per field or column name**; missing/extra columns, collisions,
+  malformed quoting/ragged rows, and empty input fail before auditing. JSON number
+  tokens retain their exact text before Decimal validation; decoded NUL and invalid
+  Unicode surrogates fail with actionable errors. Ingestion never changes Python's
+  process-global CSV parser limit; a lower inherited limit can reject a CSV field.
 - `validation.py`: required nonblank fields; duplicate IDs; ISO date/time with
   seconds and up to six fractional digits; finite integer quantity **0–10,000**;
   category `delivery/maintenance/support`; status `pending/completed/cancelled`.
@@ -106,7 +111,10 @@ name and timestamp. A renamed identical file reuses it. A reformatted file has
 a new hash. Every member of a duplicate-ID group within a file is rejected;
 IDs already accepted by this database are rejected in later different files.
 Rejected IDs are not reserved. This MVP has no record-update/overwrite semantics.
-Use a fresh database when changing rules; there is no schema/rules migration tool.
+Current interpretation rules are version **2**. A database with runs under another
+version is refused for new ingestion, preserving its history for inspection; use
+a fresh database or clear the app's session audit. This prevents old rounded JSON
+results from being reused after the precision fix. There is no migration tool.
 Run metadata are intentionally time/UUID based; fixture decisions are deterministic
 given the same input, rules, and prior audit state.
 
@@ -132,6 +140,10 @@ Use `--format json` for local JSON. Invalid input exits with code 2 and actionab
 feedback. A report/export failure after the audit commits leaves that audit intact;
 the error identifies the saved run and an exact-input retry safely reuses it.
 Export paths must differ from input, truth, database and each other.
+Existing hardlink/symlink aliases are checked too. SQLite's `-journal`, `-wal` and
+`-shm` companion paths are reserved. External truth files share the 2 MiB bound;
+malformed/deep JSON produces feedback before audit creation. The CLI assumes
+the local user controls the filesystem; it is not a hostile multi-user file service.
 
 Regenerate the fixture with `python -m sentinel.synthetic --output-dir data`.
 No changing timestamp or network response enters the fixture generator.
@@ -169,6 +181,15 @@ failures produce feedback before a run is created. Outlier detection is batch ba
 can miss anomalies, and can flag legitimate values. Only the deliberately constructed
 fixture has truth labels. CI targets Python 3.11/3.12; local results identify the
 version actually executed. No release, merge, or deployment was performed.
+
+SQLite session isolation is separate from Streamlit's download transport. A person
+who knows an active media/download URL can retrieve it from another browser session.
+URLs can remain available during framework cleanup after a failed submission or
+session change; clearing the UI is not a guaranteed immediate link-revocation API.
+Use fictional, non-sensitive inputs only. Sensitive-data hosting would require
+authenticated access and a verified download/retention design outside this MVP.
+Successful results show their source; failed submissions clear displayed results
+and downloads, with literal error details retained across reruns.
 
 **AI-assisted implementation; human-reviewed research/design decisions** is the
 requested attribution and intended review process, not a claim that human review

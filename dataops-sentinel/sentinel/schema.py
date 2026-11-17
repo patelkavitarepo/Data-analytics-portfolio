@@ -10,6 +10,7 @@ COLUMNS = (
 )
 MAX_BYTES = 2 * 1024 * 1024
 MAX_ROWS = 10_000
-RULESET_VERSION = "1"
+MAX_FIELD_CHARS = 128 * 1024
+RULESET_VERSION = "2"
 CATEGORIES = frozenset({"delivery", "maintenance", "support"})
 STATUSES = frozenset({"pending", "completed", "cancelled"})

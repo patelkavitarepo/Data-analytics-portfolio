@@ -12,7 +12,7 @@ import streamlit as st
 
 from sentinel.ingestion import IngestionError, read_csv_bytes
 from sentinel.reporting import clean_csv, evaluate_truth, findings_csv, quality_report
-from sentinel.repository import Repository
+from sentinel.repository import Repository, RulesetMismatchError
 from sentinel.schema import MAX_BYTES
 
 
@@ -32,17 +32,26 @@ def session_repository() -> Repository:
     return Repository(st.session_state.sentinel_database)
 
 
+def clear_current_result() -> None:
+    st.session_state.pop("sentinel_run", None)
+    st.session_state.pop("sentinel_error", None)
+
+
 def ingest(raw: bytes, name: str, repository: Repository) -> None:
+    clear_current_result()
     try:
         batch = read_csv_bytes(raw, source_name=name)
         st.session_state.sentinel_run = repository.ingest(batch)
-    except (IngestionError, sqlite3.Error, OSError) as exc:
-        st.error(f"The input could not be processed: {exc}")
-        if "sentinel_run" in st.session_state:
-            st.info("The result below is the previous successful run. No audit was added for this input.")
+    except (IngestionError, RulesetMismatchError, sqlite3.Error, OSError) as exc:
+        st.session_state.sentinel_error = f"The input could not be processed: {exc}"
 
 
-repository = session_repository()
+try:
+    repository = session_repository()
+except (sqlite3.Error, OSError) as exc:
+    st.error("The session audit could not be opened.")
+    st.text(str(exc))
+    st.stop()
 
 with st.sidebar:
     st.title("DataOps Sentinel")
@@ -57,7 +66,10 @@ with st.sidebar:
     )
     if st.button("Clear session audit", key="clear_audit", width="stretch"):
         st.session_state.sentinel_directory.cleanup()
-        for key in ("sentinel_directory", "sentinel_database", "sentinel_run"):
+        upload_generation = st.session_state.get("sentinel_upload_generation", 0)
+        st.session_state.pop(f"operations_upload_{upload_generation}", None)
+        st.session_state.sentinel_upload_generation = upload_generation + 1
+        for key in ("sentinel_directory", "sentinel_database", "sentinel_run", "sentinel_error"):
             st.session_state.pop(key, None)
         st.rerun()
 
@@ -77,6 +89,7 @@ with st.container(border=True):
             "valid quantity. A separate truth manifest lets you inspect detection results."
         )
         if st.button("Load synthetic demo", type="primary", key="load_demo"):
+            clear_current_result()
             try:
                 ingest(
                     (ROOT / "data" / "synthetic_operations.csv").read_bytes(),
@@ -84,27 +97,37 @@ with st.container(border=True):
                     repository,
                 )
             except OSError as exc:
-                st.error(f"The bundled demo could not be read: {exc}")
+                st.session_state.sentinel_error = f"The bundled demo could not be read: {exc}"
     with upload_column:
         st.markdown("**Check a CSV**")
         uploaded = st.file_uploader(
-            "Operations CSV (UTF-8)", type=["csv"], key="operations_upload"
+            "Operations CSV (UTF-8)", type=["csv"],
+            key=f"operations_upload_{st.session_state.get('sentinel_upload_generation', 0)}",
         )
         st.caption(
             "Maximum 2 MiB and 10,000 rows. Required columns: record_id, "
             "event_timestamp_utc, location, category, quantity, status. "
             "Timestamps without an offset are assumed UTC."
         )
+        st.caption("Use fictional, non-sensitive inputs only.")
         if st.button("Validate uploaded CSV", disabled=uploaded is None, key="run_upload"):
-            uploaded.seek(0)
-            ingest(uploaded.read(MAX_BYTES + 1), uploaded.name, repository)
+            clear_current_result()
+            try:
+                uploaded.seek(0)
+                ingest(uploaded.read(MAX_BYTES + 1), uploaded.name, repository)
+            except OSError as exc:
+                st.session_state.sentinel_error = f"The upload could not be read: {exc}"
 
+if st.session_state.get("sentinel_error"):
+    st.error("The input could not be processed. See the details below.")
+    st.text(st.session_state.sentinel_error)
 run = st.session_state.get("sentinel_run")
 if run is None:
     st.info("Load the synthetic demo or upload a CSV to see a quality report.")
     st.stop()
 
 st.subheader("2. Review the result")
+st.text(f"Source: {run['source_name']}")
 if run.get("reused"):
     st.info("This exact input was already audited. Showing its saved result; no rows were added.")
 
@@ -185,6 +208,10 @@ with overview:
         width="stretch",
     )
     st.caption("CSV exports escape formula-like text for safer spreadsheet viewing.")
+    st.caption(
+        "Streamlit download links can be opened by anyone with the link while the result is available. "
+        "Use fictional, non-sensitive inputs only."
+    )
 
 with records:
     st.markdown("**Accepted records**")

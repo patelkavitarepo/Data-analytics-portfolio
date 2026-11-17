@@ -60,6 +60,10 @@ CREATE TABLE IF NOT EXISTS findings (
 """
 
 
+class RulesetMismatchError(ValueError):
+    """An audit made under different interpretation rules needs a fresh store."""
+
+
 class Repository:
     """A file-backed SQLite store; no live connection is held between calls.
 
@@ -85,6 +89,14 @@ class Repository:
     def ingest(self, batch: Batch) -> dict:
         with closing(self._connect()) as conn, conn:
             conn.execute('BEGIN IMMEDIATE')
+            if conn.execute(
+                'SELECT 1 FROM runs WHERE ruleset_version <> ? LIMIT 1', (RULESET_VERSION,),
+            ).fetchone():
+                raise RulesetMismatchError(
+                    'This database contains audits under older or different rules. '
+                    'Use a fresh database (or clear the Streamlit session audit); '
+                    'existing audits are preserved for inspection.'
+                )
             previous = conn.execute(
                 'SELECT run_id FROM runs WHERE content_hash = ? AND ruleset_version = ?',
                 (batch.content_hash, RULESET_VERSION),
